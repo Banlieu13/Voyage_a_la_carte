@@ -2,13 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Classe;
+package com.edu.entities;
 
 /**
  *
  * @author MrBenrhouma
  */
-public class Client {
+public class Responsable {
     private String email;
     private long cin;
     private String nom ;
@@ -17,7 +17,7 @@ public class Client {
     private String password;
     
     
-    public Client(String email, long cin, String nom, String prenom, String ville, String password) {
+    public Responsable(String email, long cin, String nom, String prenom, String ville, String password) {
         this.email = email;
         this.cin = cin;
         this.nom = nom;
@@ -76,9 +76,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" + "email=" + email + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", password=" + password + '}';
+        return "Responsable{" + "email=" + email + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", password=" + password + '}';
     }
-    
-    
     
 }

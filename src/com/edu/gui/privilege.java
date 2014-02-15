@@ -1,3 +1,5 @@
+package com.edu.gui;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -7,12 +9,12 @@
  *
  * @author LENOVO
  */
-public class offres extends javax.swing.JFrame {
+public class privilege extends javax.swing.JFrame {
 
     /**
-     * Creates new form offres
+     * Creates new form privilege
      */
-    public offres() {
+    public privilege() {
         initComponents();
     }
 
@@ -75,7 +77,7 @@ public class offres extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jButton1)
-                .addGap(0, 457, Short.MAX_VALUE))
+                .addGap(0, 483, Short.MAX_VALUE))
         );
 
         pack();
@@ -98,20 +100,20 @@ public class offres extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(offres.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(privilege.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(offres.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(privilege.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(offres.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(privilege.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(offres.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(privilege.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new offres().setVisible(true);
+                new privilege().setVisible(true);
             }
         });
     }

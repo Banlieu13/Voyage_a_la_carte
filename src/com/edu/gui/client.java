@@ -1,3 +1,5 @@
+package com.edu.gui;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -28,7 +30,12 @@ public class client extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
         jMenu5 = new javax.swing.JMenu();
@@ -40,9 +47,26 @@ public class client extends javax.swing.JFrame {
         jButton1.setText("Déconnexion");
 
         jMenu1.setText("Comptes");
+
+        jMenuItem1.setText("Client");
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("Responsable");
+        jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Administrateur");
+        jMenu1.add(jMenuItem3);
+
         jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Rapport et statistiques");
+
+        jMenuItem4.setText("Rapport");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Statistique");
+        jMenu2.add(jMenuItem5);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Gerer les alerts");
@@ -125,5 +149,10 @@ public class client extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     // End of variables declaration//GEN-END:variables
 }

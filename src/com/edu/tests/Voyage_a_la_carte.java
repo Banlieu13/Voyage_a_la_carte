@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package voyage_a_la_carte;
+package com.edu.tests;
 
 /**
  *
