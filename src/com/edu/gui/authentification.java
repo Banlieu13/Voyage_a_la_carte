@@ -41,7 +41,7 @@ public class authentification extends javax.swing.JFrame {
         jButton1.setText("Connexion");
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\authentification_Maq.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\MrBenrhouma\\Documents\\NetBeansProjects\\version1.2\\Voyage_a_la_carte\\authentification_Maq.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
