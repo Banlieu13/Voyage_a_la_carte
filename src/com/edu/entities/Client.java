@@ -10,14 +10,14 @@ package com.edu.entities;
  */
 public class Client {
     private String email;
-    private long cin;
+    private String cin;
     private String nom ;
     private String prenom ;
     private String ville;
     private String password;
     
     
-    public Client(String email, long cin, String nom, String prenom, String ville, String password) {
+    public Client(String email, String cin, String nom, String prenom, String ville, String password) {
         this.email = email;
         this.cin = cin;
         this.nom = nom;
@@ -30,7 +30,7 @@ public class Client {
         return email;
     }
 
-    public long getCin() {
+    public String getCin() {
         return cin;
     }
 
@@ -54,7 +54,7 @@ public class Client {
         this.email = email;
     }
 
-    public void setCin(long cin) {
+    public void setCin(String cin) {
         this.cin = cin;
     }
 
