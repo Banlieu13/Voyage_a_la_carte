@@ -82,6 +82,10 @@ public class Client {
     public String toString() {
         return "Client{" + "email=" + email + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", password=" + password + '}';
     }
+
+    public void getPrenom(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     

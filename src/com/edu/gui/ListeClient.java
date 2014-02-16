@@ -4,20 +4,16 @@
  */
 package com.edu.gui;
 
-import com.edu.DAO.ClientDAO;
-import com.edu.entities.Client;
-import javax.swing.JFrame;
-
 /**
  *
  * @author MrBenrhouma
  */
-public class addClient extends javax.swing.JFrame {
+public class ListeClient extends javax.swing.JFrame {
 
     /**
-     * Creates new form addClient
+     * Creates new form ListeClient
      */
-    public addClient() {
+    public ListeClient() {
         initComponents();
     }
 
@@ -31,15 +27,10 @@ public class addClient extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        tfmail = new javax.swing.JTextField();
-        tfnom = new javax.swing.JTextField();
-        tfcin = new javax.swing.JTextField();
-        tfprenom = new javax.swing.JTextField();
-        tfville = new javax.swing.JTextField();
-        btnadd = new javax.swing.JButton();
-        tfpassword = new javax.swing.JPasswordField();
-        res = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -56,8 +47,11 @@ public class addClient extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Ajout Client");
-        setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Déconnexion");
@@ -66,45 +60,36 @@ public class addClient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 0, -1, -1));
-        getContentPane().add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 170, -1));
-        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 170, -1));
-        getContentPane().add(tfcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 170, -1));
-        getContentPane().add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 170, -1));
-        getContentPane().add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 170, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 0, -1, -1));
 
-        btnadd.setText("Valider");
-        btnadd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnaddActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
-        getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 170, -1));
-
-        res.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        res.setForeground(new java.awt.Color(255, 0, 51));
-        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
-
-        jButton2.setText("Annuler");
+        jButton2.setText("Ajouter");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\AddClient_Maq.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 380));
+        jButton3.setText("Supprimer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
+
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
+        jTable1.setModel(new MyTableModel());
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 210));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\ListeClient_Maq.jpg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 360));
 
         jMenu1.setText("Comptes");
 
         jMenuItem1.setText("Client");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Responsable");
@@ -145,34 +130,19 @@ public class addClient extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        Client c = new Client();
-        ClientDAO cdao = new ClientDAO();
-        c.setEmail(tfmail.getText());
-        c.setCin(tfcin.getText());
-        c.setNom(tfnom.getText());
-        c.setPrenom(tfprenom.getText());
-        c.setVille(tfville.getText());
-        c.setPassword(tfpassword.getText());
-        cdao.insertclient(c);
-        res.setText("Ajout avec succée");
-    }//GEN-LAST:event_btnaddActionPerformed
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+  
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        tfcin.setText(null);
-        tfmail.setText(null);
-        tfnom.setText(null);
-        tfprenom.setText(null);
-        tfpassword.setText(null);
-        tfville.setText(null);
-        res.setText(null);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ListeClient lc = new ListeClient();
-        lc.setVisible(true);
+        addClient ac = new addClient();
+        ac.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         authentification a = new authentification();
@@ -197,27 +167,27 @@ public class addClient extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(addClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(addClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(addClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(addClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new addClient().setVisible(true);
+                new ListeClient().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnadd;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -232,12 +202,7 @@ public class addClient extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JLabel res;
-    private javax.swing.JTextField tfcin;
-    private javax.swing.JTextField tfmail;
-    private javax.swing.JTextField tfnom;
-    private javax.swing.JPasswordField tfpassword;
-    private javax.swing.JTextField tfprenom;
-    private javax.swing.JTextField tfville;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
