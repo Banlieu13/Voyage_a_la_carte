@@ -4,6 +4,9 @@
  */
 package com.edu.gui;
 
+import com.sun.rowset.internal.Row;
+import com.edu.DAO.*;
+
 /**
  *
  * @author MrBenrhouma
@@ -31,6 +34,7 @@ public class ListeClient extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        msg = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -47,6 +51,7 @@ public class ListeClient extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Liste Clients");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -84,8 +89,12 @@ public class ListeClient extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 210));
 
+        msg.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
+        msg.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\ListeClient_Maq.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 360));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jMenu1.setText("Comptes");
 
@@ -135,7 +144,13 @@ public class ListeClient extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+           MyTableModel md = new MyTableModel();
+           int x = jTable1.getSelectedRow();
+           String mail = md.getValueAt(x, 0).toString();
+           System.out.println(mail);
+           new ClientDAO().deleteClient(mail);
+           msg.setText("Suppression effectuée avec succée");
+                   
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -204,5 +219,6 @@ public class ListeClient extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel msg;
     // End of variables declaration//GEN-END:variables
 }
