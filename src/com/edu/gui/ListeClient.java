@@ -87,7 +87,7 @@ public class ListeClient extends javax.swing.JFrame {
         jTable1.setModel(new MyTableModel());
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, 210));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 530, 210));
 
         msg.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         msg.setForeground(new java.awt.Color(255, 51, 51));
@@ -149,6 +149,8 @@ public class ListeClient extends javax.swing.JFrame {
            String mail = md.getValueAt(x, 0).toString();
            System.out.println(mail);
            new ClientDAO().deleteClient(mail);
+           md.listClientt = new ClientDAO().AfficherClient();
+           jTable1.setModel(md);
            msg.setText("Suppression effectuée avec succée");
                    
     }//GEN-LAST:event_jButton3ActionPerformed
