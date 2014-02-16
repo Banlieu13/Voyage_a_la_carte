@@ -38,8 +38,8 @@ public class addClient extends javax.swing.JFrame {
         tfville = new javax.swing.JTextField();
         btnadd = new javax.swing.JButton();
         tfpassword = new javax.swing.JPasswordField();
-        res = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        res = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -82,10 +82,6 @@ public class addClient extends javax.swing.JFrame {
         getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
         getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 170, -1));
 
-        res.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        res.setForeground(new java.awt.Color(255, 0, 51));
-        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, -1, -1));
-
         jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -94,8 +90,11 @@ public class addClient extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
 
+        res.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
+
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\AddClient_Maq.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 380));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jMenu1.setText("Comptes");
 
@@ -146,6 +145,11 @@ public class addClient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        if ((tfmail.getText().isEmpty())||(tfcin.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())) {
+            res.setText("Veuillez saisir toutes les champs");
+        }
+        else
+        {
         Client c = new Client();
         ClientDAO cdao = new ClientDAO();
         c.setEmail(tfmail.getText());
@@ -157,7 +161,7 @@ public class addClient extends javax.swing.JFrame {
         cdao.insertclient(c);
         res.setText("Ajout avec succée");
     }//GEN-LAST:event_btnaddActionPerformed
-
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         tfcin.setText(null);
         tfmail.setText(null);
