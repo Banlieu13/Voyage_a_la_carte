@@ -26,6 +26,10 @@ public class Client {
         this.password = password;
     }
 
+    public Client() {
+        
+    }
+
     public String getEmail() {
         return email;
     }

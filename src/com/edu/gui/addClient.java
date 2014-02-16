@@ -4,6 +4,9 @@
  */
 package com.edu.gui;
 
+import com.edu.DAO.ClientDAO;
+import com.edu.entities.Client;
+
 /**
  *
  * @author MrBenrhouma
@@ -27,6 +30,15 @@ public class addClient extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        tfmail = new javax.swing.JTextField();
+        tfnom = new javax.swing.JTextField();
+        tfcin = new javax.swing.JTextField();
+        tfprenom = new javax.swing.JTextField();
+        tfville = new javax.swing.JTextField();
+        btnadd = new javax.swing.JButton();
+        res = new javax.swing.JLabel();
+        tfpassword = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -42,8 +54,33 @@ public class addClient extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Ajout Client");
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Déconnexion");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 0, -1, -1));
+        getContentPane().add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, 170, -1));
+        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 170, -1));
+        getContentPane().add(tfcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 170, -1));
+        getContentPane().add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 170, -1));
+        getContentPane().add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 170, -1));
+
+        btnadd.setText("Valider");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 310, -1, -1));
+
+        res.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
+        res.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
+        getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 170, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\AddClient_Maq.jpg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 380));
 
         jMenu1.setText("Comptes");
 
@@ -85,24 +122,21 @@ public class addClient extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(511, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jButton1)
-                .addGap(0, 341, Short.MAX_VALUE))
-        );
-
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        Client c = new Client();
+        ClientDAO cdao = new ClientDAO();
+        c.setEmail(tfmail.getText());
+        c.setCin(tfcin.getText());
+        c.setNom(tfnom.getText());
+        c.setPrenom(tfprenom.getText());
+        c.setVille(tfville.getText());
+        c.setPassword(tfpassword.getText());
+        cdao.insertclient(c);
+        res.setText("Ajout avec succée");
+    }//GEN-LAST:event_btnaddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -139,7 +173,9 @@ public class addClient extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnadd;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -153,5 +189,12 @@ public class addClient extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JLabel res;
+    private javax.swing.JTextField tfcin;
+    private javax.swing.JTextField tfmail;
+    private javax.swing.JTextField tfnom;
+    private javax.swing.JPasswordField tfpassword;
+    private javax.swing.JTextField tfprenom;
+    private javax.swing.JTextField tfville;
     // End of variables declaration//GEN-END:variables
 }
