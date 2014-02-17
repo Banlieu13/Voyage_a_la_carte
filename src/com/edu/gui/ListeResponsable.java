@@ -4,19 +4,18 @@
  */
 package com.edu.gui;
 
-import com.sun.rowset.internal.Row;
-import com.edu.DAO.*;
+import com.edu.DAO.ResponsableDAO;
 
 /**
  *
  * @author MrBenrhouma
  */
-public class ListeClient extends javax.swing.JFrame {
+public class ListeResponsable extends javax.swing.JFrame {
 
     /**
-     * Creates new form ListeClient
+     * Creates new form ListeResponsable
      */
-    public ListeClient() {
+    public ListeResponsable() {
         initComponents();
     }
 
@@ -29,11 +28,11 @@ public class ListeClient extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         msg = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -51,21 +50,14 @@ public class ListeClient extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Liste Clients");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
+        setTitle("Liste responsables");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Déconnexion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 0, -1, -1));
+        jTable1.setForeground(new java.awt.Color(0, 0, 0));
+        jTable1.setModel(new TableResponsable());
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 530, 210));
 
         jButton2.setText("Ajouter");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -83,15 +75,16 @@ public class ListeClient extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
 
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new MyTableModel());
-        jScrollPane1.setViewportView(jTable1);
+        jButton1.setText("Déconnexion");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 0, -1, -1));
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 530, 210));
-
-        msg.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         msg.setForeground(new java.awt.Color(255, 51, 51));
-        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
+        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 356, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\ListeClient_Maq.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -99,6 +92,11 @@ public class ListeClient extends javax.swing.JFrame {
         jMenu1.setText("Comptes");
 
         jMenuItem1.setText("Client");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Responsable");
@@ -144,34 +142,29 @@ public class ListeClient extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-  
-    }//GEN-LAST:event_formWindowOpened
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-           
-          
-           MyTableModel md = new MyTableModel();
-           int x = jTable1.getSelectedRow();
-           if(x==-1){
-              msg.setText("Veuillez sélectioné un client");
-           }
-           else
-           {
-           String mail = md.getValueAt(x, 0).toString();
-           System.out.println(mail);
-           new ClientDAO().deleteClient(mail);
-           md.listClientt = new ClientDAO().AfficherClient();
-           jTable1.setModel(md);
-           msg.setText("Suppression effectuée avec succée");
-           }        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        addClient ac = new addClient();
+        addResponsable ac = new addResponsable();
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        TableResponsable md = new TableResponsable();
+        int x = jTable1.getSelectedRow();
+        if(x==-1){
+            msg.setText("Veuillez sélectioné un Responsable");
+        }
+        else
+        {
+            String mail = md.getValueAt(x, 0).toString();
+            System.out.println(mail);
+            new ResponsableDAO().deleteResponsable(mail);
+            md.listResponsable = new ResponsableDAO().AfficherResponsable();
+            jTable1.setModel(md);
+            msg.setText("Suppression effectuée avec succée");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         authentification a = new authentification();
@@ -179,10 +172,15 @@ public class ListeClient extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ListeResponsable lr = new ListeResponsable();
-        lr.setVisible(true);
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ListeClient lc = new ListeClient();
+        lc.setVisible(true);
         this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        
+                
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     /**
@@ -202,20 +200,20 @@ public class ListeClient extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListeClient().setVisible(true);
+                new ListeResponsable().setVisible(true);
             }
         });
     }

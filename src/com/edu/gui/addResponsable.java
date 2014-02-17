@@ -4,19 +4,19 @@
  */
 package com.edu.gui;
 
-import com.sun.rowset.internal.Row;
-import com.edu.DAO.*;
+import com.edu.DAO.ResponsableDAO;
+import com.edu.entities.Responsable;
 
 /**
  *
  * @author MrBenrhouma
  */
-public class ListeClient extends javax.swing.JFrame {
+public class addResponsable extends javax.swing.JFrame {
 
     /**
-     * Creates new form ListeClient
+     * Creates new form addResponsable
      */
-    public ListeClient() {
+    public addResponsable() {
         initComponents();
     }
 
@@ -30,11 +30,15 @@ public class ListeClient extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
+        tfmail = new javax.swing.JTextField();
+        tfcin = new javax.swing.JTextField();
+        tfnom = new javax.swing.JTextField();
+        tfprenom = new javax.swing.JTextField();
+        tfville = new javax.swing.JTextField();
+        tfpassword = new javax.swing.JPasswordField();
+        btnadd = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        msg = new javax.swing.JLabel();
+        res = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -51,12 +55,7 @@ public class ListeClient extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Liste Clients");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
+        setTitle("Ajout Responsable");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Déconnexion");
@@ -65,40 +64,44 @@ public class ListeClient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 0, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
+        getContentPane().add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 170, -1));
+        getContentPane().add(tfcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 170, -1));
+        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 170, -1));
+        getContentPane().add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 170, -1));
+        getContentPane().add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 170, -1));
+        getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 170, -1));
 
-        jButton2.setText("Ajouter");
+        btnadd.setText("Valider");
+        btnadd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnaddActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+
+        jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, -1));
 
-        jButton3.setText("Supprimer");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
+        res.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
 
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new MyTableModel());
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 530, 210));
-
-        msg.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
-        msg.setForeground(new java.awt.Color(255, 51, 51));
-        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 330, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\ListeClient_Maq.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\AddClient_Maq.jpg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 380));
 
         jMenu1.setText("Comptes");
 
         jMenuItem1.setText("Client");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Responsable");
@@ -144,46 +147,51 @@ public class ListeClient extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-  
-    }//GEN-LAST:event_formWindowOpened
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ListeClient lc = new ListeClient();
+        lc.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-           
-          
-           MyTableModel md = new MyTableModel();
-           int x = jTable1.getSelectedRow();
-           if(x==-1){
-              msg.setText("Veuillez sélectioné un client");
-           }
-           else
-           {
-           String mail = md.getValueAt(x, 0).toString();
-           System.out.println(mail);
-           new ClientDAO().deleteClient(mail);
-           md.listClientt = new ClientDAO().AfficherClient();
-           jTable1.setModel(md);
-           msg.setText("Suppression effectuée avec succée");
-           }        
-    }//GEN-LAST:event_jButton3ActionPerformed
-
+    private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        if ((tfmail.getText().isEmpty())||(tfcin.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())) {
+            res.setText("Veuillez saisir toutes les champs");
+        }
+        else
+        {
+            Responsable r = new Responsable();
+            ResponsableDAO rdao = new ResponsableDAO();
+            r.setEmail(tfmail.getText());
+            r.setCin(tfcin.getText());
+            r.setNom(tfnom.getText());
+            r.setPrenom(tfprenom.getText());
+            r.setVille(tfville.getText());
+            r.setPassword(tfpassword.getText());
+            rdao.insertclient(r);
+            res.setText("Ajout avec succée");
+    }//GEN-LAST:event_btnaddActionPerformed
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        addClient ac = new addClient();
-        ac.setVisible(true);
-        this.setVisible(false);
+        tfcin.setText(null);
+        tfmail.setText(null);
+        tfnom.setText(null);
+        tfprenom.setText(null);
+        tfpassword.setText(null);
+        tfville.setText(null);
+        res.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        authentification a = new authentification();
-        a.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         ListeResponsable lr = new ListeResponsable();
         lr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        authentification a = new authentification();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -202,27 +210,27 @@ public class ListeClient extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListeClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(addResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListeClient().setVisible(true);
+                new addResponsable().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnadd;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -237,8 +245,12 @@ public class ListeClient extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel msg;
+    private javax.swing.JLabel res;
+    private javax.swing.JTextField tfcin;
+    private javax.swing.JTextField tfmail;
+    private javax.swing.JTextField tfnom;
+    private javax.swing.JPasswordField tfpassword;
+    private javax.swing.JTextField tfprenom;
+    private javax.swing.JTextField tfville;
     // End of variables declaration//GEN-END:variables
 }

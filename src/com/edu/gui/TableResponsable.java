@@ -1,29 +1,33 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 package com.edu.gui;
 
-
 import com.edu.DAO.ClientDAO;
+import com.edu.DAO.ResponsableDAO;
 import com.edu.entities.Client;
+import com.edu.entities.Responsable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class MyTableModel extends AbstractTableModel {
-
-    public List<Client> listClientt = new ArrayList<>();
+/**
+ *
+ * @author MrBenrhouma
+ */
+public class TableResponsable extends AbstractTableModel{
+    
+    public List<Responsable> listResponsable = new ArrayList<>();
     String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe"};
 
-    public MyTableModel() { 
-        listClientt=new ClientDAO().AfficherClient();
+    public TableResponsable() { 
+        listResponsable=new ResponsableDAO().AfficherResponsable();
     }
     
     @Override
     public int getRowCount() {
-        return listClientt.size();
+        return listResponsable.size();
     }
 
     @Override
@@ -35,17 +39,17 @@ public class MyTableModel extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) { 
         switch (columnIndex) {
             case 0:
-                return listClientt.get(rowIndex).getEmail();
+                return listResponsable.get(rowIndex).getEmail();
             case 1:
-                return listClientt.get(rowIndex).getCin();
+                return listResponsable.get(rowIndex).getCin();
             case 2:
-                return listClientt.get(rowIndex).getNom();
+                return listResponsable.get(rowIndex).getNom();
             case 3:
-                return listClientt.get(rowIndex).getPrenom();
+                return listResponsable.get(rowIndex).getPrenom();
             case 4:
-                return listClientt.get(rowIndex).getVille();
+                return listResponsable.get(rowIndex).getVille();
             case 5:
-                return listClientt.get(rowIndex).getPassword();
+                return listResponsable.get(rowIndex).getPassword();
             default:
                 return null;
         }
@@ -56,6 +60,4 @@ public class MyTableModel extends AbstractTableModel {
         return header[column]; 
     }
     
-
 }
-
