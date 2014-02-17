@@ -24,6 +24,10 @@ public class Offre {
         this.prix = prix;
     }
 
+    public Offre() {
+        
+    }
+
     
     
     public int getIdOffre() {

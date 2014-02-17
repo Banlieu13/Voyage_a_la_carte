@@ -12,17 +12,22 @@ public class Destination {
     private int IdDest;
     private String trajet;
     private String hebergement;
-    private String programme;
-    private String MoyTransp;
-    private double budget;
+   private static  String programme;
+    private static String MoyTransp;
+    private static double budget;
+    private Destination Dest;
 
     public Destination(String trajet, String hebergement, String programme, String MoyTransp, double budget) {
        
         this.trajet = trajet;
         this.hebergement = hebergement;
-        this.programme = programme;
+        Destination.programme = programme;
         this.MoyTransp = MoyTransp;
-        this.budget = budget;
+        Destination.budget = budget;
+    }
+
+    public Destination() {
+    
     }
     
     
@@ -64,16 +69,25 @@ public class Destination {
         this.hebergement = hebergement;
     }
 
-    public void setProgramme(String programme) {
-        this.programme = programme;
+    
+     public static void setProgramme(String programme) {
+        Destination.programme = programme;
     }
 
-    public void setMoyTransp(String MoyTransp) {
-        this.MoyTransp = MoyTransp;
+    public static void setMoyTransp(String MoyTransp) {
+        Destination.MoyTransp = MoyTransp;
     }
 
-    public void setBudget(double budget) {
-        this.budget = budget;
+    public static void setBudget(double budget) {
+        Destination.budget = budget;
+    }
+
+    public Destination getDest() {
+        return Dest;
+    }
+
+    public void setDest(Destination Dest) {
+        this.Dest = Dest;
     }
 
     @Override
