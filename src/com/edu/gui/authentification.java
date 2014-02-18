@@ -1,5 +1,10 @@
 package com.edu.gui;
 
+import com.edu.DAO.authentificationDAO;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -38,6 +43,12 @@ public class authentification extends javax.swing.JFrame {
         setTitle("Bienvenue");
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tfLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfLoginActionPerformed(evt);
+            }
+        });
         getContentPane().add(tfLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 120, 30));
 
         jButton1.setText("Connexion");
@@ -55,27 +66,57 @@ public class authentification extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("TH£ L£G£ND Group");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\authentification.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String log =tfLogin.getText();
         String ch = "admin";
         String pswd = tfpassword.getText();
-        System.out.println(pswd);
+        System.out.println(log);
+        String reqrespo="select * from responsable where E_mailR='"+log+"' and mot_de_passeR='"+pswd+"'";
+        String reqclient="select * from client where E_mail='"+log+"' and mot_de_passe='"+pswd+"'";
+        String reqAdmin="select * from administrateur where E_mailA='"+log+"' and mot_de_passeA='"+pswd+"'";
+        authentificationDAO auth = new authentificationDAO();
+        
         if ((tfLogin.getText().equals(ch))&&(pswd.equals(ch))) {
             acceuil ac = new acceuil();
             ac.setVisible(true);
             this.setVisible(false);
         }
-        else
-        {
-            msg.setText("Identifiant et/ou mot de passe incorrecte !!");
+        else try {
+            if (auth.connect(reqrespo)>0)
+            {
+              acceuil acc = new acceuil();
+              acc.setVisible(true);
+              this.setVisible(false);
+            }
+            else if (auth.connect(reqclient)>0) 
+            {
+                acceuilclient accclient = new acceuilclient();
+                accclient.setVisible(true);
+                this.setVisible(false);
+            }
+            else if (auth.connect(reqAdmin)>0){
+                acceuilclient accclient = new acceuilclient();
+                accclient.setVisible(true);
+                this.setVisible(false);
+                
+            }
+            else
+            {
+                msg.setText("Identifiant et/ou mot de passe incorrecte !!");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(authentification.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfLoginActionPerformed
 
     /**
      * @param args the command line arguments
