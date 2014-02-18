@@ -16,7 +16,7 @@ public class ConnectionBD {
 
 
    private static final  String driver = "com.mysql.jdbc.Driver";
-   private static final  String url = "jdbc:mysql://localhost:3306/voyage";
+   private static final  String url = "jdbc:mysql://localhost:3306/bdvoyage";
    private static final  String login = "root";
    private static final  String pwd = "";
    private static Connection con;

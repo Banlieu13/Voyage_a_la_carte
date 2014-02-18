@@ -69,7 +69,9 @@ public class ProposerOffre extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("Proposer Offre");
+        jLabel8.setText("Proposer Destination");
+
+        cmbHotel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Bateau ", "Train", "Bus" }));
 
         jLabel1.setText("Trajet");
 
@@ -115,9 +117,9 @@ public class ProposerOffre extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 157, Short.MAX_VALUE)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButton1)
-                        .addContainerGap(126, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
@@ -126,14 +128,15 @@ public class ProposerOffre extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txfBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(24, 24, 24)
                                 .addComponent(l1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(txfTrajet, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txfhebergement, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(cmbHotel, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txfhebergement, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -211,16 +214,16 @@ public class ProposerOffre extends javax.swing.JFrame {
         // TODO add your handling code here:
          // Lors de l'ouverture de la fenetre
         // Remplissage du ComboBox avec la liste des dépots
-        Destination d;
-         d = new Destination();
-            DestinationDAO   DestinationDAO = new   DestinationDAO();
+      //  Destination d;
+     //    d = new Destination();
+     //       DestinationDAO   DestinationDAO = new   DestinationDAO();
         
-        maliste=DestinationDAO.DisplayAllDepots();
-        System.out.println(maliste);
-        for(int i=0 ;i<maliste.size();i++){
-            cmbHotel.addItem(maliste.toArray()[i]);           
+    //    maliste=DestinationDAO.DisplayAllDepots();
+    //    System.out.println(maliste);
+    //    for(int i=0 ;i<maliste.size();i++){
+    //        cmbHotel.addItem(maliste.toArray()[i]);           
     }//GEN-LAST:event_formWindowOpened
-    }
+    
     /**
      * @param args the command line arguments
      */
