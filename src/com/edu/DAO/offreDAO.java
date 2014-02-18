@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class offreDAO {
     
-    public void insertDepot(Offre o1){
+    public void insertOffre(Offre o1){
 
         String requete = "insert into offre ( id_offre,dateOf,Circuit,Hotel,prix,E_mailR) values (?)";
         try {
@@ -34,7 +34,7 @@ public class offreDAO {
     }
 
 
-    public void updateDepot(Offre o1){
+    public void updateOffre(Offre o1){
         String requete = "update offre set prix=? where id_offre=?";
         try {
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
@@ -48,67 +48,15 @@ public class offreDAO {
         }
     }
 
-    public void deleteDepot(int id){
-        String requete = "delete from offre where id_offre=?";
-        try {
-            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
-            ps.setInt(1, id);
-            ps.executeUpdate();
-            System.out.println("Pays supprimée");
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de la suppression "+ex.getMessage());
-        }
-    }
+    
 
 
-    public Offre findDepotById(int id){
-    Offre depot = new Offre();
-     String requete = "select * from offre where id_offre =?";
-        try {
-            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
-            ps.setInt(1, id);
-            ResultSet resultat = ps.executeQuery();
-            while (resultat.next())
-            {
-                depot.setCircuit(resultat.getString(1));
-                depot.setHotel(resultat.getString(2));
-            }
-            return depot;
+   
 
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de la recherche du depot "+ex.getMessage());
-            return null;
-        }
-    }
-
-    public Offre findDepotByAdresse(String adr){
-    Offre depot = new Offre();
-     String requete = "select * from offre where prix = ?";
-        try {
-            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
-            ps.setString(1, adr);
-            ResultSet resultat = ps.executeQuery();
-            while (resultat.next())
-            {
-                depot.setCircuit(resultat.getString(1));
-                System.out.println("testttttttt"+depot.getCircuit());
-                depot.setHotel(resultat.getString(2));
-                System.out.println(resultat.getString(2));
-            }
-            return depot;
-
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de la recherche du depot "+ex.getMessage());
-            return null;
-        }
-    }
-
-     public List<String> DisplayAllDepots (){
-        List<String> listedepots;
-         listedepots = new ArrayList<>();
+   
+     public List<String> DisplayAllOffre (){
+        List<String> listeOffre;
+         listeOffre = new ArrayList<>();
         String requete = "select Hotel from offre ";
         
         try {
@@ -125,10 +73,10 @@ public class offreDAO {
               //  System.out.println(1233+" "+resultat.getString("Moy_transport"));
                 offre.setHotel(resultat.getString("Hotel")); 
                // System.out.println(listedepots+" "+123456);
-                listedepots.add(offre.getHotel());
+                listeOffre.add(offre.getHotel());
                 
             }
-            return listedepots;
+            return listeOffre;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des depots "+ex.getMessage());

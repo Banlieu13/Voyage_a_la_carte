@@ -196,14 +196,14 @@ public class ProposerOffre extends javax.swing.JFrame {
         
         
         //Insérer le Stock
-        DestinationDAO.insertDepot(d1);
+        DestinationDAO.insertDestination(d1);
         //Afficher un message de confirmation
         JOptionPane.showMessageDialog(this, "Ajout effectué avec succès");
         
         
         
         
-       DestinationDAO.insertDepot(d1); 
+       DestinationDAO.insertDestination(d1); 
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txfBudgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfBudgetActionPerformed

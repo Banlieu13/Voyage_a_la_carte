@@ -18,7 +18,7 @@ import java.util.List;
  * @author wassim
  */
 public class DestinationDAO {
-     public void insertDepot(Destination d1){
+     public void insertDestination(Destination d1){
 
         String requete = "insert into destination (Hebergement,Moy_transport,programme,Budget)  values (?,?,?,?)";
         try {
@@ -40,7 +40,7 @@ public class DestinationDAO {
     }
 
 
-    public void updateDepot(Destination d1){
+    public void updateDestination(Destination d1){
         String requete = "update destination set Hebergement =? where  	id_dest=?";
         try {
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
@@ -59,7 +59,7 @@ public class DestinationDAO {
         }
     }
 
-    public void deleteDepot(int id){
+    public void deleteDestination(int id){
         String requete = "delete from destination where id_dest =?";
         try {
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
@@ -73,7 +73,7 @@ public class DestinationDAO {
     }
 
 
-    public Destination findDepotById(int id){
+    public Destination findDestinationById(int id){
     Destination destination = new Destination();
      String requete = "select * from destination where id_dest=?";
         try {
@@ -97,38 +97,11 @@ public class DestinationDAO {
         }
     }
 
-    public Destination findDepotByAdresse(String adr){
-    Destination destination = new Destination();
-     String requete = "select * from destination where  id_dest = ?";
-        try {
-            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
-            ps.setString(1, adr);
-            ResultSet resultat = ps.executeQuery();
-            while (resultat.next())
-            {
-                destination.setHebergement(resultat.getString(1));
-                System.out.println("testttttttt"+destination.getHebergement());
-                Destination.setMoyTransp(resultat.getString(2));
-                System.out.println(resultat.getString(2));
-                Destination.setProgramme(resultat.getString(3));
-                 System.out.println(resultat.getString(3));
-                 Destination.setBudget(resultat.getDouble(4));
-                 System.out.println(resultat.getDouble(4));
-                 
-            }
-            return destination;
-
-        } catch (SQLException ex) {
-           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors de la recherche du depot "+ex.getMessage());
-            return null;
-        }
-    }
-
+   
      @SuppressWarnings("empty-statement")
-    public List<String> DisplayAllDepots (){
-        List<String> listedepots;
-         listedepots = new ArrayList<>();
+    public List<String> DisplayAllDestination (){
+        List<String> listedestination;
+         listedestination = new ArrayList<>();
         String requete = "select Moy_transport from destination ";
         
         try {
@@ -145,10 +118,10 @@ public class DestinationDAO {
               //  System.out.println(1233+" "+resultat.getString("Moy_transport"));
                 Destination.setMoyTransp(resultat.getString("Moy_transport")); 
                // System.out.println(listedepots+" "+123456);
-                listedepots.add(destination.getMoyTransp());
+                listedestination.add(destination.getMoyTransp());
                 
             }
-            return listedepots;
+            return listedestination;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des depots "+ex.getMessage());

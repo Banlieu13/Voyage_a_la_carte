@@ -151,7 +151,7 @@ public class acceuilclient extends javax.swing.JFrame {
          o1 = new Offre();
            offreDAO   offreDAO = new   offreDAO();
         
-        maliste=offreDAO.DisplayAllDepots();
+        maliste=offreDAO.DisplayAllOffre();
        
         System.out.println(maliste);
         for(int i=0 ;i<maliste.size();i++){

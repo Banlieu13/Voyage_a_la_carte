@@ -7,17 +7,10 @@ package com.edu.gui;
 
 import com.edu.DAO.ReservationDAO;
 import com.edu.entities.Reservation;
-import java.sql.Date;
 
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 
 
 import java.util.List;
-import java.util.Locale;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -206,11 +199,11 @@ public class Paiement extends javax.swing.JFrame {
       
        
         
-            ReservationDAO.insertStock(d1);
+            ReservationDAO.insertReservation(d1);
              
          //Afficher un message de confirmation
-         JOptionPane.showMessageDialog(this, "Ajout effectué avec succès");
-       ReservationDAO.insertStock(d1);
+         JOptionPane.showMessageDialog(this, "Paiement effectué avec succès");
+       ReservationDAO.insertReservation(d1);
        System.out.println(d1);
     
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -20,7 +20,7 @@ public class Table extends AbstractTableModel  {
     String []header = {"Date","Trajet","Hotel","Prix"};
 
     public Table() { //remplissage de la liste des stocks
-        listStock=new AnnonceDAO().DisplayAllDepots();
+        listStock=new AnnonceDAO().DisplayAllAnnonce();
     }
     
  @Override

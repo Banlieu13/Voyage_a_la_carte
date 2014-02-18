@@ -7,7 +7,6 @@ package com.edu.DAO;
 import com.edu.connection.ConnectionBD;
 import com.edu.entities.Offre;
 import com.edu.entities.Reservation;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,7 +19,7 @@ import java.util.List;
  * @author wassim
  */
 public class ReservationDAO {
-     public void insertStock(Reservation r){
+     public void insertReservation(Reservation r){
            // DepotDAO depdao=new DepotDAO();
 
          String requete = "insert into reservation ( typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel) values (?,?,?,?)";
@@ -43,8 +42,8 @@ public class ReservationDAO {
 
      
        public List<String> DisplayAllDepots (){
-        List<String> listedepots;
-         listedepots = new ArrayList<>();
+        List<String> listeReservation;
+         listeReservation = new ArrayList<>();
         String requete = "select typeDeCarte from reservation ";
         
         try {
@@ -61,10 +60,10 @@ public class ReservationDAO {
               //  System.out.println(1233+" "+resultat.getString("Moy_transport"));
                 offre.setHotel(resultat.getString("typeDeCarte")); 
                // System.out.println(listedepots+" "+123456);
-                listedepots.add(offre.getHotel());
+                listeReservation.add(offre.getHotel());
                 
             }
-            return listedepots;
+            return listeReservation;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des depots "+ex.getMessage());
