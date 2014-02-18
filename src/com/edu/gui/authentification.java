@@ -100,8 +100,8 @@ public class authentification extends javax.swing.JFrame {
                 this.setVisible(false);
             }
             else if (auth.connect(reqAdmin)>0){
-                acceuilclient accclient = new acceuilclient();
-                accclient.setVisible(true);
+                acceuil accadmin = new acceuil();
+                accadmin.setVisible(true);
                 this.setVisible(false);
                 
             }
