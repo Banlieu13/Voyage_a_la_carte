@@ -15,6 +15,8 @@ public class Responsable {
     private String prenom ;
     private String ville;
     private String password;
+    private int idAnnonce;
+    
 
     public Responsable() {
     }
@@ -30,6 +32,17 @@ public class Responsable {
         this.ville = ville;
         this.password = password;
     }
+
+    public int getIdAnnonce() {
+        return idAnnonce;
+    }
+
+    public void setIdAnnonce(int idAnnonce) {
+        this.idAnnonce = idAnnonce;
+    }
+    
+    
+    
 
     public String getEmail() {
         return email;

@@ -32,6 +32,7 @@ public class ResponsableDAO {
             ps.setString(4,r.getPrenom());
             ps.setString(5,r.getVille());
             ps.setString(6,r.getPassword());
+            ps.setInt(7, r.getIdAnnonce());
 
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");

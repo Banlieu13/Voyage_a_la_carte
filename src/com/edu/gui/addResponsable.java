@@ -39,7 +39,7 @@ public class addResponsable extends javax.swing.JFrame {
         btnadd = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         res = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        tfAnnonceId = new javax.swing.JTextField();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -78,7 +78,7 @@ public class addResponsable extends javax.swing.JFrame {
                 btnaddActionPerformed(evt);
             }
         });
-        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 290, -1, -1));
+        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
 
         jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -86,13 +86,11 @@ public class addResponsable extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
 
         res.setForeground(new java.awt.Color(255, 0, 51));
         getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\AddClient_Maq.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 380));
+        getContentPane().add(tfAnnonceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 170, -1));
 
         jMenu1.setText("Comptes");
 
@@ -167,6 +165,7 @@ public class addResponsable extends javax.swing.JFrame {
             r.setPrenom(tfprenom.getText());
             r.setVille(tfville.getText());
             r.setPassword(tfpassword.getText());
+            r.setIdAnnonce(Integer.parseInt(tfAnnonceId.getText()));
             rdao.insertclient(r);
             res.setText("Ajout avec succée");
     }//GEN-LAST:event_btnaddActionPerformed
@@ -231,7 +230,6 @@ public class addResponsable extends javax.swing.JFrame {
     private javax.swing.JButton btnadd;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -246,6 +244,7 @@ public class addResponsable extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JLabel res;
+    private javax.swing.JTextField tfAnnonceId;
     private javax.swing.JTextField tfcin;
     private javax.swing.JTextField tfmail;
     private javax.swing.JTextField tfnom;
