@@ -22,10 +22,12 @@ public class Paiement extends javax.swing.JFrame {
     /**
      * Creates new form Paiement
      */
-    public Paiement(java.awt.Frame parent, boolean modal) {
+    public Paiement() {
         
         initComponents();
     }
+
+ 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,18 +61,27 @@ public class Paiement extends javax.swing.JFrame {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Données de paiement");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 27, -1, -1));
 
         jLabel2.setText("Type de carte");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 81, -1, -1));
 
         jLabel3.setText("Numéro de carte");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 113, -1, -1));
 
         jLabel4.setText("Date de fin de validité");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 148, -1, -1));
 
         jLabel5.setText("Cryptogramme visuel");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 186, -1, -1));
+        getContentPane().add(txfnumCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 107, 104, -1));
+        getContentPane().add(txfCryptogramme, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 183, 104, -1));
 
         cmbCarte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "visa", "MasterCard", "Pay Pal " }));
+        getContentPane().add(cmbCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 76, 104, -1));
 
         jButton1.setText("Payer");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -78,6 +89,7 @@ public class Paiement extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 234, -1, -1));
 
         jButton2.setText("exit");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -85,12 +97,14 @@ public class Paiement extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 234, -1, -1));
 
         txfDateFinValidite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txfDateFinValiditeActionPerformed(evt);
             }
         });
+        getContentPane().add(txfDateFinValidite, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 145, 104, -1));
 
         jMenu1.setText("Accueil");
         jMenuBar1.add(jMenu1);
@@ -102,66 +116,6 @@ public class Paiement extends javax.swing.JFrame {
         jMenuBar1.add(jMenu3);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(84, 84, 84)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jButton1))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jButton2))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txfnumCarte)
-                                    .addComponent(txfCryptogramme)
-                                    .addComponent(cmbCarte, 0, 104, Short.MAX_VALUE)
-                                    .addComponent(txfDateFinValidite))))))
-                .addContainerGap(79, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel3))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cmbCarte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txfnumCarte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txfDateFinValidite, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txfCryptogramme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -189,25 +143,26 @@ public class Paiement extends javax.swing.JFrame {
     
         }   
  else{
-         // TODO add your handling code here:
-            Reservation d1 = new  Reservation ();
-        ReservationDAO ReservationDAO = new ReservationDAO();
-        //d1.setHebergement(txfTrajet.getText());
-         d1.setNumCarte(Integer.parseInt(txfnumCarte.getText()));
-         Reservation.setTypeDeCarte((String)cmbCarte.getItemAt(cmbCarte.getSelectedIndex()));
-        
-         Reservation.setDateValidité(txfDateFinValidite.getText());
-        
-         
-         d1.setCryptogrammevisuel(txfCryptogramme.getText());
-      
        
-        
-            ReservationDAO.insertReservation(d1);
+        authentification a = new authentification();
+        Reservation d1 = new  Reservation ();
+        ReservationDAO ReservationDAO = new ReservationDAO();
+        System.err.println(authentification.identifiant);
+       
+         d1.setNumCarte(Integer.parseInt(txfnumCarte.getText()));
+         d1.setTypeDeCarte((String)cmbCarte.getItemAt(cmbCarte.getSelectedIndex()));
+         
+         d1.setDateValidité(txfDateFinValidite.getText());
+         d1.setCryptogrammevisuel(txfCryptogramme.getText());
+         
+         d1.setE_mail(authentification.identifiant);
+         System.err.println(authentification.identifiant);
+
+         ReservationDAO.insertReservation(d1);
              
          //Afficher un message de confirmation
          JOptionPane.showMessageDialog(this, "Paiement effectué avec succès");
-       ReservationDAO.insertReservation(d1);
+   
        System.out.println(d1);
     
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -246,7 +201,7 @@ public class Paiement extends javax.swing.JFrame {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Paiement dialog = new Paiement(new javax.swing.JFrame(), true);
+                Paiement dialog = new Paiement();
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

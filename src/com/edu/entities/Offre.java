@@ -4,6 +4,7 @@
  */
 package com.edu.entities;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 /**
@@ -13,9 +14,12 @@ import java.util.Date;
 public class Offre {
     private int IdOffre;
     private Date date = new Date();
+    private Date dateCreation = new Timestamp(0);
+    private String programme ;
     private String circuit;
     private String hotel;
     private double prix;
+    private String E_mailR;
 
     public Offre(String circuit, String hotel, double prix) {
     
@@ -26,6 +30,34 @@ public class Offre {
 
     public Offre() {
         
+    }
+
+    public String getE_mailR() {
+        return E_mailR;
+    }
+
+    public void setE_mailR(String E_mailR) {
+        this.E_mailR = E_mailR;
+    }
+
+    
+    
+    public String getProgramme() {
+        return programme;
+    }
+
+    public void setProgramme(String programme) {
+        this.programme = programme;
+    }
+
+    
+    
+    public Date getDateCreation() {
+        return dateCreation;
+    }
+
+    public void setDateCreation(Date dateCreation) {
+        this.dateCreation = dateCreation;
     }
 
     

@@ -89,6 +89,11 @@ public class acceuilclient extends javax.swing.JFrame {
         getContentPane().add(btnSignaler, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
 
         jButton4.setText("Réserver");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, -1, -1));
 
         jMenu8.setText("Proposer offre");
@@ -133,10 +138,16 @@ public class acceuilclient extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        ProposerOffre po = new ProposerOffre();
+        ProposerDestination po = new ProposerDestination();
         po.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu8MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        Paiement p = new Paiement();
+        p.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

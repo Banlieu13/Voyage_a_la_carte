@@ -5,6 +5,7 @@
 package com.edu.DAO;
 
 import com.edu.connection.ConnectionBD;
+import com.edu.entities.Client;
 import com.edu.entities.Offre;
 import com.edu.entities.Reservation;
 import java.sql.PreparedStatement;
@@ -22,13 +23,14 @@ public class ReservationDAO {
      public void insertReservation(Reservation r){
            // DepotDAO depdao=new DepotDAO();
 
-         String requete = "insert into reservation ( typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel) values (?,?,?,?)";
+         String requete = "insert into reservation (typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel,E_mail) values (?,?,?,?,?)";
         try { //dep=depdao.findDepotById(st.getDepot().getId_dep());
             PreparedStatement ps = ConnectionBD .getInstance().prepareStatement(requete);
             ps.setString(1, r.getTypeDeCarte());
             ps.setInt(2, r.getNumCarte());
             ps.setString(3,r.getDateValidité());
-             ps.setString(4, r.getCryptogrammevisuel());
+            ps.setString(4, r.getCryptogrammevisuel());
+            ps.setString(5, r.getE_mail());
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
@@ -41,33 +43,46 @@ public class ReservationDAO {
    
 
      
-       public List<String> DisplayAllDepots (){
-        List<String> listeReservation;
-         listeReservation = new ArrayList<>();
-        String requete = "select typeDeCarte from reservation ";
-        
+       public List<Reservation> DisplayAllReservation (){
+         List<Reservation> listeRes = new ArrayList<Reservation>();
+
+        String requete = "select * from reservation";
         try {
-            ConnectionBD my=new ConnectionBD();
-           Statement statement;
-            statement = ConnectionBD.getInstance()
-          .createStatement();
-            ResultSet resultat;
-            resultat = statement.executeQuery(requete);
+           Statement statement = ConnectionBD.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
             while(resultat.next()){
-                
-                Offre offre =new Offre(); 
-              // destination.setHebergement(resultat.getString(1)); 
-              //  System.out.println(1233+" "+resultat.getString("Moy_transport"));
-                offre.setHotel(resultat.getString("typeDeCarte")); 
-               // System.out.println(listedepots+" "+123456);
-                listeReservation.add(offre.getHotel());
-                
+                Reservation r =new Reservation();
+                r.setIdRes(resultat.getInt(1));
+                r.setDate(resultat.getDate(2));
+                r.setE_mail(resultat.getString(3));
+                r.setTypeDeCarte(resultat.getString(4));
+                r.setNumCarte(resultat.getInt(5));
+                r.setDateCarte(resultat.getDate(6));
+                r.setCryptogrammevisuel(resultat.getString(7));
+                r.setId_offre(resultat.getInt(8));
+
+                listeRes.add(r);
             }
-            return listeReservation;
+            return listeRes;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des depots "+ex.getMessage());
             return null;
+        }
+    }
+            public void deleteres(String mail){
+
+          String requete = "delete from reservation where id_res=?";
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+            ps.setString(1, mail);
+            ps.executeUpdate();
+            System.out.println("Suppression effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la suppression "+ex.getMessage());
         }
     }
      

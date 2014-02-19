@@ -11,22 +11,54 @@ import java.util.Date;
  * @author MrBenrhouma
  */
 public class Reservation {
-    private int IdRes;
-    private Date date = new Date();
-     private static String	typeDeCarte;
-    private int numCarte ;
-   private static String DateValidité;
-  private String Cryptogrammevisuel ;
+   private int IdRes;
+   private Date date = new Date();
+   private String E_mail;
+   private String typeDeCarte;
+   private int numCarte ;
+   private String DateValidité;
+   private String Cryptogrammevisuel ;
+   private Date dateCarte = new Date();
+   private int Id_offre ;
 
     public Reservation() {
+        
     }
 
+    public Date getDateCarte() {
+        return dateCarte;
+    }
+
+    public void setDateCarte(Date dateCarte) {
+        this.dateCarte = dateCarte;
+    }
+
+    
+    
+    public String getE_mail() {
+        return E_mail;
+    }
+
+    public int getId_offre() {
+        return Id_offre;
+    }
+
+    public void setE_mail(String E_mail) {
+        this.E_mail = E_mail;
+    }
+
+    public void setId_offre(int Id_offre) {
+        this.Id_offre = Id_offre;
+    }
+
+    
+    
     public String getTypeDeCarte() {
         return typeDeCarte;
     }
 
-    public static  void setTypeDeCarte(String typeDeCarte) {
-        Reservation.typeDeCarte = typeDeCarte;
+    public   void setTypeDeCarte(String typeDeCarte) {
+        this.typeDeCarte = typeDeCarte;
     }
 
     public int getNumCarte() {
@@ -41,8 +73,8 @@ public class Reservation {
         return DateValidité;
     }
 
-    public static void setDateValidité(String DateValidité) {
-       Reservation.DateValidité = DateValidité;
+    public  void setDateValidité(String DateValidité) {
+       this.DateValidité = DateValidité;
     }
 
     public String getCryptogrammevisuel() {
