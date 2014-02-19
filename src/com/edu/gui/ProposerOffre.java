@@ -126,17 +126,21 @@ public class ProposerOffre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+       if ((txfhebergement.getText().isEmpty())||(txtAprogramme.getText().isEmpty())||(txfBudget.getText().isEmpty())){
+             JOptionPane.showMessageDialog(this, "Veuillez saisir toutes les champs");
+    
+        }  
+       else {
         authentification a = new authentification();
-        System.out.println(a.identifiant);
+        System.out.println(authentification.identifiant);
         Destination d1 = new Destination ();
         DestinationDAO dd = new DestinationDAO();
       // d1.setHebergement(txfTrajet.getText());
         d1.setHebergement(txfhebergement.getText());
-        d1.setMoyTransp((String)cmbHotel.getItemAt(cmbHotel.getSelectedIndex()));
-        d1.setProgramme(txtAprogramme.getText());
-        d1.setBudget(Float.parseFloat(txfBudget.getText()));
-        d1.setE_mail(a.identifiant);
+        Destination.setMoyTransp((String)cmbHotel.getItemAt(cmbHotel.getSelectedIndex()));
+        Destination.setProgramme(txtAprogramme.getText());
+        Destination.setBudget(Float.parseFloat(txfBudget.getText()));
+        d1.setE_mail(authentification.identifiant);
          //System.out.println(d1);
           //Préparer le Stock a créer
        // Destination st = new Destination();
@@ -146,7 +150,7 @@ public class ProposerOffre extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Ajout effectué avec succès");
       
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
     private void txfBudgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfBudgetActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfBudgetActionPerformed

@@ -184,7 +184,11 @@ public class Paiement extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
+   if ((txfnumCarte.getText().isEmpty())||(txfDateFinValidite.getText().isEmpty())||(txfCryptogramme.getText().isEmpty())){
+             JOptionPane.showMessageDialog(this, "Veuillez saisir toutes les champs");
+    
+        }   
+ else{
          // TODO add your handling code here:
             Reservation d1 = new  Reservation ();
         ReservationDAO ReservationDAO = new ReservationDAO();
@@ -207,7 +211,7 @@ public class Paiement extends javax.swing.JFrame {
        System.out.println(d1);
     
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
     private void txfDateFinValiditeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfDateFinValiditeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfDateFinValiditeActionPerformed

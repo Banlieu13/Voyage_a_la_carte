@@ -36,12 +36,8 @@ public class acceuilclient extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         txfCircuit = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        cmbHotel = new javax.swing.JComboBox();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jButton3 = new javax.swing.JButton();
         btnLike = new javax.swing.JButton();
         btnSignaler = new javax.swing.JButton();
@@ -67,25 +63,16 @@ public class acceuilclient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 52, -1, -1));
-        getContentPane().add(txfCircuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 53, 129, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, -1, -1));
+        getContentPane().add(txfCircuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, 129, -1));
 
         jLabel1.setText("Circuit");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 20, 42, -1));
-
-        jLabel3.setText("Hotel");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 20, -1, -1));
-
-        jLabel4.setText("Date ");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 20, 37, -1));
-
-        getContentPane().add(cmbHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 53, 129, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 42, -1));
 
         jTable1.setModel(new Table());
         jScrollPane4.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 119, 431, 190));
-        getContentPane().add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 53, 128, -1));
 
         jButton3.setText("Déconnexion");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -124,18 +111,18 @@ public class acceuilclient extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
-       Offre o1;
-         o1 = new Offre();
-           offreDAO   offreDAO = new   offreDAO();
+     //  Offre o1;
+     //    o1 = new Offre();
+     //      offreDAO   offreDAO = new   offreDAO();
         
-        maliste=offreDAO.DisplayAllOffre();
+     //   maliste=offreDAO.DisplayAllOffre();
        
-        System.out.println(maliste);
-        for(int i=0 ;i<maliste.size();i++){
-            cmbHotel.addItem(maliste.toArray()[i]);    
+     //   System.out.println(maliste);
+     //   for(int i=0 ;i<maliste.size();i++){
+     //       cmbHotel.addItem(maliste.toArray()[i]);    
             
             
-    }      
+        
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -189,15 +176,11 @@ public class acceuilclient extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLike;
     private javax.swing.JButton btnSignaler;
-    private javax.swing.JComboBox cmbHotel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JScrollPane jScrollPane4;
