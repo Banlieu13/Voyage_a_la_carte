@@ -20,7 +20,7 @@ import java.util.List;
 public class DestinationDAO {
      public void insertDestination(Destination d1){
 
-        String requete = "insert into destination (Hebergement,Moy_transport,programme,Budget)  values (?,?,?,?)";
+        String requete = "insert into destination (Hebergement,Moy_transport,programme,Budget,E_mail)  values (?,?,?,?,?)";
         try {
           
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
@@ -30,6 +30,7 @@ public class DestinationDAO {
              ps.setString(2, d1.getMoyTransp());
              ps.setString(3, d1.getProgramme());
              ps.setDouble(4, d1.getBudget());
+             ps.setString(5, d1.getE_mail());
               
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");

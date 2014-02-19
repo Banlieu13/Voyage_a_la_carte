@@ -42,18 +42,24 @@ public class acceuilclient extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
+        jButton3 = new javax.swing.JButton();
+        btnLike = new javax.swing.JButton();
+        btnSignaler = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu8 = new javax.swing.JMenu();
-        jMenu9 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Accueil Client");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("+ d'info");
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
 
         jButton1.setText("Rechercher");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -61,81 +67,52 @@ public class acceuilclient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(429, 52, -1, -1));
+        getContentPane().add(txfCircuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 53, 129, -1));
 
         jLabel1.setText("Circuit");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 20, 42, -1));
 
         jLabel3.setText("Hotel");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(326, 20, -1, -1));
 
         jLabel4.setText("Date ");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 20, 37, -1));
+
+        getContentPane().add(cmbHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 53, 129, -1));
 
         jTable1.setModel(new Table());
         jScrollPane4.setViewportView(jTable1);
 
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 119, 431, 190));
+        getContentPane().add(jFormattedTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 53, 128, -1));
+
+        jButton3.setText("Déconnexion");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(522, 0, -1, -1));
+
+        btnLike.setText("Like");
+        getContentPane().add(btnLike, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, -1, -1));
+
+        btnSignaler.setText("Signaler");
+        getContentPane().add(btnSignaler, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 180, -1, -1));
+
+        jButton4.setText("Réserver");
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, -1, -1));
+
         jMenu8.setText("Proposer offre");
+        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu8MouseClicked(evt);
+            }
+        });
         jMenuBar3.add(jMenu8);
 
-        jMenu9.setText("Deconnexion");
-        jMenuBar3.add(jMenu9);
-
         setJMenuBar(jMenuBar3);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(31, 31, 31)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(65, 65, 65))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(txfCircuit, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(35, 35, 35)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(116, 116, 116)
-                                .addComponent(jLabel3)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                                .addComponent(cmbHotel, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton1))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(212, 212, 212)
-                        .addComponent(jButton2)))
-                .addGap(79, 79, 79))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(txfCircuit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2)
-                .addContainerGap())
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -161,6 +138,18 @@ public class acceuilclient extends javax.swing.JFrame {
     }      
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        authentification a = new authentification();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
+        ProposerOffre po = new ProposerOffre();
+        po.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu8MouseClicked
 
     /**
      * @param args the command line arguments
@@ -198,15 +187,18 @@ public class acceuilclient extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLike;
+    private javax.swing.JButton btnSignaler;
     private javax.swing.JComboBox cmbHotel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;

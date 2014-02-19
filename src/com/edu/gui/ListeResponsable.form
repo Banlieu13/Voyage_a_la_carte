@@ -53,6 +53,10 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Gerer les alerts"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu3MouseClicked"/>
+            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMenu3MenuSelected"/>
+          </Events>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>

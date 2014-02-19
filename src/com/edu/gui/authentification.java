@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * @author LENOVO
  */
 public class authentification extends javax.swing.JFrame {
-
+    public static String identifiant; 
     /**
      * Creates new form authentification
      */
@@ -81,39 +81,47 @@ public class authentification extends javax.swing.JFrame {
         String reqAdmin="select * from administrateur where E_mailA='"+log+"' and mot_de_passeA='"+pswd+"'";
         authentificationDAO auth = new authentificationDAO();
         
+        System.out.println(log);
         if ((tfLogin.getText().equals(ch))&&(pswd.equals(ch))) {
-            acceuil ac = new acceuil();
+            acceuilSuper ac = new acceuilSuper();
             ac.setVisible(true);
             this.setVisible(false);
+            identifiant = tfLogin.getText();
         }
         else try {
             if (auth.connect(reqrespo)>0)
             {
-              acceuil acc = new acceuil();
+              acceuilSuper acc = new acceuilSuper();
               acc.setVisible(true);
               this.setVisible(false);
+              identifiant = tfLogin.getText();
             }
             else if (auth.connect(reqclient)>0) 
             {
                 acceuilclient accclient = new acceuilclient();
                 accclient.setVisible(true);
                 this.setVisible(false);
+               identifiant = tfLogin.getText();
             }
             else if (auth.connect(reqAdmin)>0){
-                acceuil accadmin = new acceuil();
+                acceuilSuper accadmin = new acceuilSuper();
                 accadmin.setVisible(true);
                 this.setVisible(false);
-                
+                identifiant = tfLogin.getText();
             }
             else
             {
                 msg.setText("Identifiant et/ou mot de passe incorrecte !!");
             }
+           
         } catch (SQLException ex) {
             Logger.getLogger(authentification.class.getName()).log(Level.SEVERE, null, ex);
         }
+      
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
     private void tfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfLoginActionPerformed

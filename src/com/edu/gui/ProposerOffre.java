@@ -4,6 +4,7 @@ import com.edu.DAO.DestinationDAO;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 /*
  * To change this template, choose Tools | Templates
@@ -39,7 +40,6 @@ public class ProposerOffre extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         cmbHotel = new javax.swing.JComboBox();
-        jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         txfBudget = new javax.swing.JTextField();
@@ -49,18 +49,18 @@ public class ProposerOffre extends javax.swing.JFrame {
         l1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtAprogramme = new javax.swing.JTextArea();
-        txfTrajet = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Proposition !");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setText("Valider");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -68,142 +68,83 @@ public class ProposerOffre extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
 
+        jLabel8.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel8.setText("Proposer Destination");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
 
         cmbHotel.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Avion", "Bateau ", "Train", "Bus" }));
-
-        jLabel1.setText("Trajet");
+        getContentPane().add(cmbHotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 170, 105, -1));
 
         jLabel5.setText("Programme");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
 
         jLabel3.setText("Moyen de transport");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         txfBudget.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txfBudgetActionPerformed(evt);
             }
         });
+        getContentPane().add(txfBudget, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 125, -1));
 
         jLabel7.setText("Budget");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
 
         jLabel2.setText("Hebergement");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+        getContentPane().add(txfhebergement, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 105, -1));
+        getContentPane().add(l1, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 313, 39, -1));
 
         txtAprogramme.setColumns(20);
         txtAprogramme.setRows(5);
         jScrollPane1.setViewportView(txtAprogramme);
 
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 230, -1, -1));
+
+        jButton2.setText("Déconnexion");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, -1, -1));
+
         jMenu1.setText("Accueil");
+        jMenu1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu1MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("proposer offre ");
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Deconnexion");
-        jMenuBar1.add(jMenu3);
-
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
-                        .addGap(50, 50, 50)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addGap(29, 29, 29)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel8)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txfBudget, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(24, 24, 24)
-                                .addComponent(l1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(txfTrajet, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(cmbHotel, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txfhebergement, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(txfTrajet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txfhebergement, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(cmbHotel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(93, 93, 93)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)))
-                .addComponent(l1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txfBudget, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addGap(32, 32, 32)
-                .addComponent(jButton1)
-                .addGap(80, 80, 80))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         Destination d1 = new Destination ();
-        DestinationDAO DestinationDAO = new DestinationDAO();
-       //d1.setHebergement(txfTrajet.getText());
+        authentification a = new authentification();
+        System.out.println(a.identifiant);
+        Destination d1 = new Destination ();
+        DestinationDAO dd = new DestinationDAO();
+      // d1.setHebergement(txfTrajet.getText());
         d1.setHebergement(txfhebergement.getText());
-  
-     Destination.setMoyTransp((String)cmbHotel.getItemAt(cmbHotel.getSelectedIndex()));
-       Destination.setProgramme(txtAprogramme.getText());
-      
-        Destination.setBudget(Float.parseFloat(txfBudget.getText()));
-         System.out.println(d1);
+        d1.setMoyTransp((String)cmbHotel.getItemAt(cmbHotel.getSelectedIndex()));
+        d1.setProgramme(txtAprogramme.getText());
+        d1.setBudget(Float.parseFloat(txfBudget.getText()));
+        d1.setE_mail(a.identifiant);
+         //System.out.println(d1);
           //Préparer le Stock a créer
        // Destination st = new Destination();
-       // DestinationDAO stdao = new DestinationDAO();
-        
-        
-        //Insérer le Stock
-        DestinationDAO.insertDestination(d1);
+      
+        dd.insertDestination(d1);
         //Afficher un message de confirmation
         JOptionPane.showMessageDialog(this, "Ajout effectué avec succès");
-        
-        
-        
-        
-       DestinationDAO.insertDestination(d1); 
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void txfBudgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfBudgetActionPerformed
@@ -223,6 +164,18 @@ public class ProposerOffre extends javax.swing.JFrame {
     //    for(int i=0 ;i<maliste.size();i++){
     //        cmbHotel.addItem(maliste.toArray()[i]);           
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        authentification a = new authentification();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu1MouseClicked
     
     /**
      * @param args the command line arguments
@@ -262,20 +215,17 @@ public class ProposerOffre extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox cmbHotel;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel l1;
     private javax.swing.JTextField txfBudget;
-    private javax.swing.JTextField txfTrajet;
     private javax.swing.JTextField txfhebergement;
     private javax.swing.JTextArea txtAprogramme;
     // End of variables declaration//GEN-END:variables

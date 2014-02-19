@@ -125,6 +125,20 @@ public class ListeClient extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Gerer les alerts");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenu3.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu3MenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Notification");
@@ -184,6 +198,16 @@ public class ListeClient extends javax.swing.JFrame {
         lr.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenu3MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu3MenuSelected
+    
+    }//GEN-LAST:event_jMenu3MenuSelected
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+       ListeAlert la = new ListeAlert();
+        la.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu3MouseClicked
 
     /**
      * @param args the command line arguments

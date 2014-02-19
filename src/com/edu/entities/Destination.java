@@ -15,19 +15,28 @@ public class Destination {
    private static  String programme;
     private static String MoyTransp;
     private static double budget;
-    private Destination Dest;
+    private String E_mail;
+    //private Destination Dest;
 
     public Destination(String trajet, String hebergement, String programme, String MoyTransp, double budget) {
        
         this.trajet = trajet;
         this.hebergement = hebergement;
-        Destination.programme = programme;
+        this.programme = programme;
         this.MoyTransp = MoyTransp;
-        Destination.budget = budget;
+        this.budget = budget;
     }
 
     public Destination() {
     
+    }
+
+    public String getE_mail() {
+        return E_mail;
+    }
+
+    public void setE_mail(String E_mail) {
+        this.E_mail = E_mail;
     }
     
     
@@ -82,14 +91,14 @@ public class Destination {
         Destination.budget = budget;
     }
 
-    public Destination getDest() {
+   /* public Destination getDest() {
         return Dest;
     }
 
     public void setDest(Destination Dest) {
         this.Dest = Dest;
     }
-
+*/
     @Override
     public String toString() {
         return "Destination{" + "IdDest=" + IdDest + ", trajet=" + trajet + ", hebergement=" + hebergement + ", programme=" + programme + ", MoyTransp=" + MoyTransp + ", budget=" + budget + '}';

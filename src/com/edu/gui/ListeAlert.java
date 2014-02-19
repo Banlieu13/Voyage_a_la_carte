@@ -4,18 +4,16 @@
  */
 package com.edu.gui;
 
-import com.edu.DAO.ResponsableDAO;
-
 /**
  *
  * @author MrBenrhouma
  */
-public class ListeResponsable extends javax.swing.JFrame {
+public class ListeAlert extends javax.swing.JFrame {
 
     /**
-     * Creates new form ListeResponsable
+     * Creates new form ListeAlert
      */
-    public ListeResponsable() {
+    public ListeAlert() {
         initComponents();
     }
 
@@ -28,13 +26,9 @@ public class ListeResponsable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        msg = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -50,30 +44,8 @@ public class ListeResponsable extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Liste responsables");
+        setTitle("Alertes");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable1.setForeground(new java.awt.Color(0, 0, 0));
-        jTable1.setModel(new TableResponsable());
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 530, 210));
-
-        jButton2.setText("Ajouter");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
-
-        jButton3.setText("Supprimer");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
 
         jButton1.setText("Déconnexion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -81,13 +53,12 @@ public class ListeResponsable extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 0, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 109, -1));
 
-        msg.setForeground(new java.awt.Color(255, 51, 51));
-        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 356, -1, -1));
+        jTable1.setModel(new TableAlertes());
+        jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\ListeClient_Maq.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 250));
 
         jMenu1.setText("Comptes");
 
@@ -123,18 +94,15 @@ public class ListeResponsable extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Gerer les alerts");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+        jMenu3.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
+            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
             }
-        });
-        jMenu3.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
             }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu3MenuSelected(evt);
+            public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
             }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
+                jMenu3MenuDragMouseReleased(evt);
             }
         });
         jMenuBar1.add(jMenu3);
@@ -156,36 +124,6 @@ public class ListeResponsable extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        addResponsable ac = new addResponsable();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        TableResponsable md = new TableResponsable();
-        int x = jTable1.getSelectedRow();
-        if(x==-1){
-            msg.setText("Veuillez sélectioné un Responsable");
-        }
-        else
-        {
-            String mail = md.getValueAt(x, 0).toString();
-            System.out.println(mail);
-            new ResponsableDAO().deleteResponsable(mail);
-            md.listResponsable = new ResponsableDAO().AfficherResponsable();
-            jTable1.setModel(md);
-            msg.setText("Suppression effectuée avec succée");
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        authentification a = new authentification();
-        a.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         ListeClient lc = new ListeClient();
         lc.setVisible(true);
@@ -193,19 +131,20 @@ public class ListeResponsable extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
-                
+        ListeResponsable lr = new ListeResponsable();
+        lr.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu3MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu3MenuSelected
-       
-    }//GEN-LAST:event_jMenu3MenuSelected
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        ListeAlert la = new ListeAlert();
-        la.setVisible(true);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        authentification a = new authentification();
+        a.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenu3MenuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {//GEN-FIRST:event_jMenu3MenuDragMouseReleased
+        
+    }//GEN-LAST:event_jMenu3MenuDragMouseReleased
 
     /**
      * @param args the command line arguments
@@ -224,28 +163,25 @@ public class ListeResponsable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeAlert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeAlert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeAlert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeAlert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListeResponsable().setVisible(true);
+                new ListeAlert().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -261,6 +197,5 @@ public class ListeResponsable extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel msg;
     // End of variables declaration//GEN-END:variables
 }

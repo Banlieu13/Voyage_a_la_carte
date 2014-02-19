@@ -9,12 +9,12 @@ package com.edu.gui;
  *
  * @author LENOVO
  */
-public class acceuil extends javax.swing.JFrame {
+public class acceuilSuper extends javax.swing.JFrame {
 
     /**
-     * Creates new form acceuil
+     * Creates new form acceuilSuper
      */
-    public acceuil() {
+    public acceuilSuper() {
         initComponents();
     }
 
@@ -28,7 +28,6 @@ public class acceuil extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -42,6 +41,7 @@ public class acceuil extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil");
@@ -53,10 +53,7 @@ public class acceuil extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 109, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\ListeClient_Maq.jpg")); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 109, -1));
 
         jMenu1.setText("Comptes");
 
@@ -92,6 +89,28 @@ public class acceuil extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Gerer les alerts");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jMenu3MouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenu3.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                jMenu3MenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        jMenu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu3ActionPerformed(evt);
+            }
+        });
         jMenuBar1.add(jMenu3);
 
         jMenu4.setText("Notification");
@@ -105,6 +124,9 @@ public class acceuil extends javax.swing.JFrame {
 
         jMenu7.setText("Annonces");
         jMenuBar1.add(jMenu7);
+
+        jMenu8.setText("Destination");
+        jMenuBar1.add(jMenu8);
 
         setJMenuBar(jMenuBar1);
 
@@ -129,6 +151,24 @@ public class acceuil extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
+        
+    }//GEN-LAST:event_jMenu3ActionPerformed
+
+    private void jMenu3MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu3MenuSelected
+      
+    }//GEN-LAST:event_jMenu3MenuSelected
+
+    private void jMenu3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu3MouseReleased
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        ListeAlert la = new ListeAlert();
+        la.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -146,26 +186,25 @@ public class acceuil extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(acceuil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(acceuilSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(acceuil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(acceuilSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(acceuil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(acceuilSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(acceuil.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(acceuilSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new acceuil().setVisible(true);
+                new acceuilSuper().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -173,6 +212,7 @@ public class acceuil extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
