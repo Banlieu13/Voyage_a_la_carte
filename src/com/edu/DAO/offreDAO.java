@@ -48,12 +48,6 @@ public class offreDAO {
         }
     }
 
-    
-
-
-   
-
-   
      public List<Offre> DisplayAllOffre (){
         List<Offre> listeOffre;
          listeOffre = new ArrayList<>();
@@ -84,6 +78,37 @@ public class offreDAO {
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des Offres "+ex.getMessage());
+            return null;
+        }
+    }
+       public List<Offre> chercherOffre (){
+        List<Offre> listeOffre;
+         listeOffre = new ArrayList<>();
+        String requete ;
+        requete = "SELECT * FROM offre ";// WHERE Circuit == Tunis";
+        //+Offre.getCircuit();
+         
+        try {
+            ConnectionBD my=new ConnectionBD();
+           Statement statement;
+            statement = ConnectionBD.getInstance()
+          .createStatement();
+            ResultSet resultat;
+            resultat = statement.executeQuery(requete);
+            while(resultat.next()){
+                
+                Offre offre =new Offre(); 
+              // destination.setHebergement(resultat.getString(1)); 
+              //  System.out.println(1233+" "+resultat.getString("Moy_transport"));
+                offre.setHotel(resultat.getString("Hotel")); 
+               // System.out.println(listedepots+" "+123456);
+             
+                 listeOffre.add(offre);
+            }
+            return listeOffre;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
             return null;
         }
     }

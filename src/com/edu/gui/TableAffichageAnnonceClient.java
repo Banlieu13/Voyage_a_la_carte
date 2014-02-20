@@ -15,11 +15,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author wassim
  */
-public class Table extends AbstractTableModel  {
+public class TableAffichageAnnonceClient extends AbstractTableModel  {
  List<Annonce> listStock = new ArrayList<>();
     String []header = {"Date","Trajet","Hotel","Prix"};
 
-    public Table() { //remplissage de la liste des stocks
+    public TableAffichageAnnonceClient() { //remplissage de la liste des stocks
         listStock=new AnnonceDAO().DisplayAllAnnonce();
     }
     

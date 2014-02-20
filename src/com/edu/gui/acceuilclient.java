@@ -69,7 +69,7 @@ public class acceuilclient extends javax.swing.JFrame {
         jLabel1.setText("Circuit");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 42, -1));
 
-        jTable1.setModel(new Table());
+        jTable1.setModel(new TableAffichageAnnonceClient());
         jScrollPane4.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 119, 431, 190));
@@ -138,13 +138,13 @@ public class acceuilclient extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        ProposerDestination po = new ProposerDestination();
+        ProposerDestinationClient po = new ProposerDestinationClient();
         po.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu8MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Paiement p = new Paiement();
+        PaiementClient p = new PaiementClient();
         p.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed

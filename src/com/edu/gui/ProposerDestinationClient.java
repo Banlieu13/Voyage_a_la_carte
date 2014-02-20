@@ -15,15 +15,15 @@ import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
  *
  * @author wassim
  */
-public class ProposerDestination extends javax.swing.JFrame {
+public class ProposerDestinationClient extends javax.swing.JFrame {
 
     /**
-     * Creates new form ProposerDestination
+     * Creates new form ProposerDestinationClient
      */
      List<String> maliste;
      // Liste des offres récupérés
     
-    public ProposerDestination() {
+    public ProposerDestinationClient() {
         maliste = new ArrayList<>();
         initComponents();
     }
@@ -198,13 +198,13 @@ public class ProposerDestination extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProposerDestination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProposerDestinationClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProposerDestination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProposerDestinationClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProposerDestination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProposerDestinationClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProposerDestination.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ProposerDestinationClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -212,7 +212,7 @@ public class ProposerDestination extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                new ProposerDestination().setVisible(true);
+                new ProposerDestinationClient().setVisible(true);
             }
         });
     }
