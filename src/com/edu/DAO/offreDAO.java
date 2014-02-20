@@ -87,7 +87,7 @@ public class offreDAO {
         String requete ;
         requete = "SELECT * FROM offre ";// WHERE Circuit == Tunis";
         //+Offre.getCircuit();
-         //test
+         
         try {
             ConnectionBD my=new ConnectionBD();
            Statement statement;
