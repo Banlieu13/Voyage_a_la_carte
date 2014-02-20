@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.edu.gui;
+package com.edu.entities.Table;
 
 
 import com.edu.DAO.ClientDAO;
@@ -12,12 +12,12 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class TableReservation extends AbstractTableModel {
+public class MyTableModel extends AbstractTableModel {
 
     public List<Client> listClientt = new ArrayList<>();
-    String []header = {"ID","Date_Creation","Client","Type_Carte","Num_Carte","Date de Validité","IDOffre"};
+    String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe"};
 
-    public TableReservation() { 
+    public MyTableModel() { 
         listClientt=new ClientDAO().AfficherClient();
     }
     

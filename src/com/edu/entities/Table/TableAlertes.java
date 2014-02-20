@@ -1,4 +1,4 @@
-package com.edu.gui;
+package com.edu.entities.Table;
 
 
 import com.edu.DAO.AlerteDAO;

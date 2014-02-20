@@ -1,6 +1,8 @@
-package com.edu.gui;
+package com.edu.gui.Client;
+import com.edu.gui.Client.acceuilclient;
 import com.edu.entities.Destination;
 import com.edu.DAO.DestinationDAO;
+import com.edu.gui.authentification;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;

@@ -2,11 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.edu.gui;
+package com.edu.gui.Client;
 
 
 import com.edu.DAO.ReservationDAO;
 import com.edu.entities.Reservation;
+import com.edu.gui.authentification;
 
 
 

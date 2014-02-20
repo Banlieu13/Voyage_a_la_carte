@@ -2,10 +2,13 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.edu.gui;
+package com.edu.gui.Inscription;
 
+import com.edu.gui.SuperAdmin.ListeResponsable;
+import com.edu.gui.SuperAdmin.ListeClient;
 import com.edu.DAO.ClientDAO;
 import com.edu.entities.Client;
+import com.edu.gui.authentification;
 import javax.swing.JFrame;
 
 /**
@@ -92,8 +95,6 @@ public class addClient extends javax.swing.JFrame {
 
         res.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\AddClient_Maq.jpg")); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jMenu1.setText("Comptes");

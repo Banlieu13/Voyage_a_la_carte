@@ -1,6 +1,7 @@
-package com.edu.gui;
+package com.edu.gui.Client;
 import com.edu.entities.Offre;
 import com.edu.DAO.offreDAO;
+import com.edu.gui.authentification;
 import java.util.List;
 
 /*
@@ -69,7 +70,7 @@ public class acceuilclient extends javax.swing.JFrame {
         jLabel1.setText("Circuit");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 42, -1));
 
-        jTable1.setModel(new TableAffichageAnnonceClient());
+        jTable1.setModel(new com.edu.gui.Client.TableAffichageAnnonceClient());
         jScrollPane4.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 119, 431, 190));

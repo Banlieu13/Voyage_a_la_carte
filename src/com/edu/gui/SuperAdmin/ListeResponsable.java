@@ -1,20 +1,26 @@
-package com.edu.gui;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.edu.gui.SuperAdmin;
+
+import com.edu.gui.SuperAdmin.ListeClient;
+import com.edu.gui.SuperAdmin.ListeAlert;
+import com.edu.DAO.ResponsableDAO;
+import com.edu.entities.Table.TableResponsable;
+import com.edu.gui.Inscription.addResponsable;
+import com.edu.gui.authentification;
 
 /**
  *
- * @author LENOVO
+ * @author MrBenrhouma
  */
-public class acceuilSuper extends javax.swing.JFrame {
+public class ListeResponsable extends javax.swing.JFrame {
 
     /**
-     * Creates new form acceuilSuper
+     * Creates new form ListeResponsable
      */
-    public acceuilSuper() {
+    public ListeResponsable() {
         initComponents();
     }
 
@@ -27,7 +33,13 @@ public class acceuilSuper extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        msg = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -41,11 +53,31 @@ public class acceuilSuper extends javax.swing.JFrame {
         jMenu5 = new javax.swing.JMenu();
         jMenu6 = new javax.swing.JMenu();
         jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Accueil");
+        setTitle("Liste responsables");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new TableResponsable());
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 530, 210));
+
+        jButton2.setText("Ajouter");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 290, -1, -1));
+
+        jButton3.setText("Supprimer");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
 
         jButton1.setText("Déconnexion");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -53,7 +85,11 @@ public class acceuilSuper extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 109, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(505, 0, -1, -1));
+
+        msg.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 356, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jMenu1.setText("Comptes");
 
@@ -90,9 +126,6 @@ public class acceuilSuper extends javax.swing.JFrame {
 
         jMenu3.setText("Gerer les alerts");
         jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jMenu3MouseReleased(evt);
-            }
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu3MouseClicked(evt);
             }
@@ -104,11 +137,6 @@ public class acceuilSuper extends javax.swing.JFrame {
                 jMenu3MenuSelected(evt);
             }
             public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-        });
-        jMenu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu3ActionPerformed(evt);
             }
         });
         jMenuBar1.add(jMenu3);
@@ -125,13 +153,34 @@ public class acceuilSuper extends javax.swing.JFrame {
         jMenu7.setText("Annonces");
         jMenuBar1.add(jMenu7);
 
-        jMenu8.setText("Destination");
-        jMenuBar1.add(jMenu8);
-
         setJMenuBar(jMenuBar1);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        addResponsable ac = new addResponsable();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        TableResponsable md = new TableResponsable();
+        int x = jTable1.getSelectedRow();
+        if(x==-1){
+            msg.setText("Veuillez sélectioné un Responsable");
+        }
+        else
+        {
+            String mail = md.getValueAt(x, 0).toString();
+            System.out.println(mail);
+            new ResponsableDAO().deleteResponsable(mail);
+            md.listResponsable = new ResponsableDAO().AfficherResponsable();
+            jTable1.setModel(md);
+            msg.setText("Suppression effectuée avec succée");
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         authentification a = new authentification();
@@ -146,22 +195,13 @@ public class acceuilSuper extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ListeResponsable lr = new ListeResponsable();
-        lr.setVisible(true);
-        this.setVisible(false);
+        
+                
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu3ActionPerformed
-        
-    }//GEN-LAST:event_jMenu3ActionPerformed
-
     private void jMenu3MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu3MenuSelected
-      
+       
     }//GEN-LAST:event_jMenu3MenuSelected
-
-    private void jMenu3MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu3MouseReleased
 
     private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         ListeAlert la = new ListeAlert();
@@ -186,25 +226,28 @@ public class acceuilSuper extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(acceuilSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(acceuilSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(acceuilSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(acceuilSuper.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeResponsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new acceuilSuper().setVisible(true);
+                new ListeResponsable().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -212,12 +255,14 @@ public class acceuilSuper extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel msg;
     // End of variables declaration//GEN-END:variables
 }

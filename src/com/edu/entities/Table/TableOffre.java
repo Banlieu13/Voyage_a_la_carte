@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.edu.gui;
+package com.edu.entities.Table;
 
 
 import com.edu.DAO.ClientDAO;
