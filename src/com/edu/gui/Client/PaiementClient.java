@@ -6,6 +6,7 @@ package com.edu.gui.Client;
 
 
 import com.edu.DAO.ReservationDAO;
+import com.edu.entities.Facture;
 import com.edu.entities.Reservation;
 import com.edu.gui.authentification;
 
@@ -84,7 +85,7 @@ public class PaiementClient extends javax.swing.JFrame {
         cmbCarte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "visa", "MasterCard", "Pay Pal " }));
         getContentPane().add(cmbCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 76, 104, -1));
 
-        jButton1.setText("Payer");
+        jButton1.setLabel("Payer et generer facture");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -98,7 +99,7 @@ public class PaiementClient extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(204, 234, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
 
         txfDateFinValidite.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,8 +167,23 @@ public class PaiementClient extends javax.swing.JFrame {
    
        System.out.println(d1);
     
+       
+       
+       
+       
     }//GEN-LAST:event_jButton1ActionPerformed
+   Facture fac = new Facture();
+   fac.afficheToi();
+    
+    
     }
+    
+    
+    
+    
+    
+    
+    
     private void txfDateFinValiditeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfDateFinValiditeActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txfDateFinValiditeActionPerformed
