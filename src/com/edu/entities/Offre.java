@@ -14,7 +14,7 @@ import java.util.Date;
 public class Offre {
     private int IdOffre;
     private Date date = new Date();
-    private Date dateCreation = new Timestamp(0);
+    private Date dateCreation = new Date();
     private String programme ;
     private String circuit;
     private String hotel;

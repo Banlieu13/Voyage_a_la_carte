@@ -61,6 +61,7 @@ public class ResponsableDAO {
                 r.setPrenom(resultat.getString(4));
                 r.setVille(resultat.getString(5));
                 r.setPassword(resultat.getString(6));
+                r.setIdAnnonce(resultat.getInt(7));
 
                 listeResponsable.add(r);
             }

@@ -98,14 +98,14 @@ public class ListeAlert extends javax.swing.JFrame {
 
         jMenu3.setText("Gerer les alerts");
         jMenu3.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
-            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
-                jMenu3MenuDragMouseReleased(evt);
-            }
             public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
             }
             public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
             }
             public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
+            }
+            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
+                jMenu3MenuDragMouseReleased(evt);
             }
         });
         jMenuBar1.add(jMenu3);
@@ -114,9 +114,19 @@ public class ListeAlert extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu5.setText("Reservation");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Offres");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu6);
 
         jMenu7.setText("Annonces");
@@ -148,6 +158,16 @@ public class ListeAlert extends javax.swing.JFrame {
     private void jMenu3MenuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {//GEN-FIRST:event_jMenu3MenuDragMouseReleased
         
     }//GEN-LAST:event_jMenu3MenuDragMouseReleased
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+       OffreSuperAdmin of = new OffreSuperAdmin();
+       of.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+       
+    }//GEN-LAST:event_jMenu5MouseClicked
 
     /**
      * @param args the command line arguments

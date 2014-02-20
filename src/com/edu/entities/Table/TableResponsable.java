@@ -19,7 +19,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableResponsable extends AbstractTableModel{
     
     public List<Responsable> listResponsable = new ArrayList<>();
-    String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe"};
+    String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe","ID_Agence"};
 
     public TableResponsable() { 
         listResponsable=new ResponsableDAO().AfficherResponsable();
@@ -50,6 +50,8 @@ public class TableResponsable extends AbstractTableModel{
                 return listResponsable.get(rowIndex).getVille();
             case 5:
                 return listResponsable.get(rowIndex).getPassword();
+            case 6:
+                return listResponsable.get(rowIndex).getIdAnnonce();
             default:
                 return null;
         }

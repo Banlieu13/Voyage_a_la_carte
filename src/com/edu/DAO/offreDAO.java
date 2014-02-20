@@ -64,7 +64,7 @@ public class offreDAO {
                 Offre offre =new Offre(); 
                 offre.setIdOffre(resultat.getInt(1));
                 offre.setDate(resultat.getDate(2));
-                offre.setDateCreation(resultat.getTimestamp(3));
+                offre.setDateCreation(resultat.getDate(3));
                 offre.setCircuit(resultat.getString(4));
                 offre.setProgramme(resultat.getString(5));
                 offre.setHotel(resultat.getString(6)); 
@@ -81,6 +81,21 @@ public class offreDAO {
             return null;
         }
     }
+     
+      public void deleteOffre(int id){
+
+          String requete = "delete from offre where id_offre=?";
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            System.out.println("Suppression effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la suppression "+ex.getMessage());
+        }
+    }
+     
        public List<Offre> chercherOffre (){
         List<Offre> listeOffre;
          listeOffre = new ArrayList<>();

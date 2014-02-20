@@ -148,6 +148,11 @@ public class ListeResponsable extends javax.swing.JFrame {
         jMenuBar1.add(jMenu5);
 
         jMenu6.setText("Offres");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
         jMenuBar1.add(jMenu6);
 
         jMenu7.setText("Annonces");
@@ -208,6 +213,12 @@ public class ListeResponsable extends javax.swing.JFrame {
         la.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        OffreSuperAdmin of = new OffreSuperAdmin();
+       of.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
 
     /**
      * @param args the command line arguments
