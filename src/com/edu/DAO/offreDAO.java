@@ -55,10 +55,10 @@ public class offreDAO {
         
         try {
             ConnectionBD my=new ConnectionBD();
-           Statement statement;
-            statement = ConnectionBD.getInstance().createStatement();
-            ResultSet resultat;
-            resultat = statement.executeQuery(requete);
+           Statement statement = ConnectionBD.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+            
             while(resultat.next()){
                 
                 Offre offre =new Offre(); 
@@ -70,7 +70,7 @@ public class offreDAO {
                 offre.setHotel(resultat.getString(6)); 
                 offre.setPrix(resultat.getDouble(7));
                 offre.setE_mailR(resultat.getString(8));
-               // System.out.println(listedepots+" "+123456);
+              
                 listeOffre.add(offre);
                 
             }
@@ -127,5 +127,26 @@ public class offreDAO {
             return null;
         }
     }
-     
+       
+       public String FindOffreById (int id){
+        
+        String prog=""; 
+        String requete = "select programme from offre where id_offre="+id;
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+           
+            ResultSet resultat;
+            resultat = ps.executeQuery(requete);
+             while (resultat.next())
+            {
+                prog = resultat.getString(1);
+            }
+            
+            return prog;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des Offres "+ex.getMessage());
+            return null;
+        }
+       }
 }

@@ -1,6 +1,7 @@
 package com.edu.gui.Client;
 import com.edu.entities.Offre;
 import com.edu.DAO.offreDAO;
+import com.edu.entities.Table.TableOffre;
 import com.edu.gui.authentification;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class acceuilclient extends javax.swing.JFrame {
      * Creates new form acceuilclient
      */
      List<String> maliste;
+     public static int idoffre;
      
     public acceuilclient() {
         initComponents();
@@ -43,6 +45,7 @@ public class acceuilclient extends javax.swing.JFrame {
         btnLike = new javax.swing.JButton();
         btnSignaler = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        msg = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu8 = new javax.swing.JMenu();
 
@@ -56,6 +59,11 @@ public class acceuilclient extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("+ d'info");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, -1, -1));
 
         jButton1.setText("Rechercher");
@@ -70,7 +78,7 @@ public class acceuilclient extends javax.swing.JFrame {
         jLabel1.setText("Circuit");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 42, -1));
 
-        jTable1.setModel(new com.edu.gui.Client.TableAffichageAnnonceClient());
+        jTable1.setModel(new com.edu.entities.Table.TableOffre());
         jScrollPane4.setViewportView(jTable1);
 
         getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 119, 431, 190));
@@ -96,6 +104,7 @@ public class acceuilclient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, -1, -1));
+        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
 
         jMenu8.setText("Proposer offre");
         jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,6 +159,25 @@ public class acceuilclient extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       TableOffre to = new TableOffre();
+       
+           int x = jTable1.getSelectedRow();
+           if(x==-1){
+              msg.setText("Veuillez sélectioner une offre");
+           }
+           else
+           {
+           
+           idoffre = (int) to.getValueAt(x, 0);
+           InfoOffre ino = new InfoOffre(); 
+           System.out.println(idoffre);
+           
+            ino.setVisible(true);
+            this.setVisible(false);
+             }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -197,6 +225,7 @@ public class acceuilclient extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel msg;
     private javax.swing.JTextField txfCircuit;
     // End of variables declaration//GEN-END:variables
 }
