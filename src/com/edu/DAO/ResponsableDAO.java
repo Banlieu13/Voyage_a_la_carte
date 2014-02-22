@@ -22,8 +22,8 @@ public class ResponsableDAO {
     public ResponsableDAO() {
     }
     
-    public void insertclient (Responsable r){
-        String req ="insert into responsable (E_mailR,CINR,NomR,PrénomR,VilleR,mot_de_passeR,id_agence) values (?,?,?,?,?,?,?)";
+    public void insertResponsable (Responsable r){
+        String req ="insert into responsable (E_mailR,CINR,NomR,PrénomR,VilleR,mot_de_passeR,Mat_fiscal) values (?,?,?,?,?,?,?)";
            try { 
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.setString(1,r.getEmail());
@@ -32,7 +32,7 @@ public class ResponsableDAO {
             ps.setString(4,r.getPrenom());
             ps.setString(5,r.getVille());
             ps.setString(6,r.getPassword());
-            ps.setInt(7, r.getIdAnnonce());
+            ps.setString(7, r.getMatAgence());
 
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
@@ -61,7 +61,7 @@ public class ResponsableDAO {
                 r.setPrenom(resultat.getString(4));
                 r.setVille(resultat.getString(5));
                 r.setPassword(resultat.getString(6));
-                r.setIdAnnonce(resultat.getInt(7));
+                r.setMatAgence(resultat.getString(7));
 
                 listeResponsable.add(r);
             }

@@ -15,7 +15,7 @@ public class Responsable {
     private String prenom ;
     private String ville;
     private String password;
-    private int idAnnonce;
+    private String MatAgence;
     
 
     public Responsable() {
@@ -24,26 +24,24 @@ public class Responsable {
     
     
     
-    public Responsable(String email, String cin, String nom, String prenom, String ville, String password) {
+    public Responsable(String email, String cin, String nom, String prenom, String ville, String password, String MatAgence) {
         this.email = email;
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
         this.ville = ville;
         this.password = password;
+        this.MatAgence = MatAgence;
     }
 
-    public int getIdAnnonce() {
-        return idAnnonce;
+    public String getMatAgence() {
+        return MatAgence;
     }
 
-    public void setIdAnnonce(int idAnnonce) {
-        this.idAnnonce = idAnnonce;
+    public void setMatAgence(String MatAgence) {
+        this.MatAgence = MatAgence;
     }
     
-    
-    
-
     public String getEmail() {
         return email;
     }

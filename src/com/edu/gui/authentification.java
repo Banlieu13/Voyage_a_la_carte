@@ -1,11 +1,19 @@
 package com.edu.gui;
 
+import com.edu.DAO.AdminDAO;
 import com.edu.gui.SuperAdmin.acceuilSuper;
 import com.edu.gui.Client.acceuilclient;
+import com.edu.gui.Responsable.Acceuil_Responsable;
 import com.edu.DAO.authentificationDAO;
+import com.edu.gui.Admin.acceuilAdmin;
+import com.edu.gui.Inscription.addClient;
+import com.edu.gui.Inscription.addResponsable;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /*
  * To change this template, choose Tools | Templates
@@ -35,15 +43,22 @@ public class authentification extends javax.swing.JFrame {
     private void initComponents() {
 
         tfLogin = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        Connexion = new javax.swing.JButton();
         tfpassword = new javax.swing.JPasswordField();
         msg = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        InscriptionAgence = new javax.swing.JButton();
+        Inscriptionclient = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenue");
         setResizable(false);
+        addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                formComponentAdded(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tfLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -53,13 +68,13 @@ public class authentification extends javax.swing.JFrame {
         });
         getContentPane().add(tfLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 120, 30));
 
-        jButton1.setText("Connexion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        Connexion.setText("Connexion");
+        Connexion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ConnexionActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, 30));
+        getContentPane().add(Connexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, 30));
         getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, 120, 30));
 
         msg.setForeground(new java.awt.Color(255, 51, 51));
@@ -70,10 +85,26 @@ public class authentification extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 320, -1, -1));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
+        InscriptionAgence.setText("Inscription Responsable d'Agence");
+        InscriptionAgence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InscriptionAgenceActionPerformed(evt);
+            }
+        });
+        getContentPane().add(InscriptionAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, -1, 30));
+
+        Inscriptionclient.setText("Inscription Client");
+        Inscriptionclient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InscriptionclientActionPerformed(evt);
+            }
+        });
+        getContentPane().add(Inscriptionclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 30));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnexionActionPerformed
         String log =tfLogin.getText();
         String ch = "admin";
         String pswd = tfpassword.getText();
@@ -93,7 +124,7 @@ public class authentification extends javax.swing.JFrame {
         else try {
             if (auth.connect(reqrespo)>0)
             {
-              acceuilSuper acc = new acceuilSuper();
+              Acceuil_Responsable acc = new Acceuil_Responsable();
               acc.setVisible(true);
               this.setVisible(false);
               identifiant = tfLogin.getText();
@@ -106,10 +137,14 @@ public class authentification extends javax.swing.JFrame {
                identifiant = tfLogin.getText();
             }
             else if (auth.connect(reqAdmin)>0){
-                acceuilSuper accadmin = new acceuilSuper();
+                acceuilAdmin accadmin = new acceuilAdmin();
+                AdminDAO adpriv= new AdminDAO();
+                identifiant = tfLogin.getText();
+                adpriv.getprivilege(identifiant); 
                 accadmin.setVisible(true);
                 this.setVisible(false);
-                identifiant = tfLogin.getText();
+                
+               
             }
             else
             {
@@ -121,12 +156,30 @@ public class authentification extends javax.swing.JFrame {
         }
       
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ConnexionActionPerformed
 
     
     private void tfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLoginActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfLoginActionPerformed
+
+    private void formComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentAdded
+    }//GEN-LAST:event_formComponentAdded
+
+    private void InscriptionAgenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InscriptionAgenceActionPerformed
+        // TODO add your handling code here:
+        addResponsable ar = new addResponsable();
+        ar.setVisible(true);
+        this.setVisible(false);
+        
+    }//GEN-LAST:event_InscriptionAgenceActionPerformed
+
+    private void InscriptionclientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InscriptionclientActionPerformed
+        // TODO add your handling code here:
+        addClient ac = new addClient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_InscriptionclientActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,7 +216,9 @@ public class authentification extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton Connexion;
+    private javax.swing.JButton InscriptionAgence;
+    private javax.swing.JButton Inscriptionclient;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel msg;

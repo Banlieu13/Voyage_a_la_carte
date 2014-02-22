@@ -10,27 +10,34 @@ package com.edu.entities;
  */
 public class Administrateur {
     private String email;
-    private long cin;
+    private String cin;
     private String nom ;
     private String prenom ;
     private String ville;
     private String password;
+    private int[] privilege;
     
-    
-    public Administrateur(String email, long cin, String nom, String prenom, String ville, String password) {
+    public Administrateur(){
+        
+    }
+    public Administrateur(String email, String cin, String nom, String prenom, String ville, String password, int[] privilege) {
         this.email = email;
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
         this.ville = ville;
         this.password = password;
+        this.privilege = privilege;
     }
 
+    public int[] getprivilege(){
+        return privilege;
+    }
     public String getEmail() {
         return email;
     }
 
-    public long getCin() {
+    public String getCin() {
         return cin;
     }
 
@@ -49,12 +56,16 @@ public class Administrateur {
     public String getPassword() {
         return password;
     }
+    
+    public void setprivilege(){
+        this.privilege = privilege;
+    }
 
     public void setEmail(String email) {
         this.email = email;
     }
 
-    public void setCin(long cin) {
+    public void setCin(String cin) {
         this.cin = cin;
     }
 

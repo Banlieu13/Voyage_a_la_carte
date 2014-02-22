@@ -1,7 +1,7 @@
 package com.edu.gui.Responsable;
 
 import com.edu.DAO.factureDAO;
-import com.edu.gui.Client.TableResponsableFacture;
+import com.edu.entities.Table.TableResponsableFacture;
 
 /*
  * To change this template, choose Tools | Templates

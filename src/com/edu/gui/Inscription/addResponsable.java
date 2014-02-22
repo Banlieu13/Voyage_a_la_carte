@@ -4,12 +4,13 @@
  */
 package com.edu.gui.Inscription;
 
-import com.edu.gui.SuperAdmin.ListeResponsable;
-import com.edu.gui.SuperAdmin.ListeClient;
-import com.edu.gui.SuperAdmin.ListeAlert;
+
+import com.edu.DAO.AgenceDAO;
 import com.edu.DAO.ResponsableDAO;
+import com.edu.entities.Agence;
 import com.edu.entities.Responsable;
 import com.edu.gui.authentification;
+
 
 /**
  *
@@ -33,48 +34,172 @@ public class addResponsable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        res = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
         tfmail = new javax.swing.JTextField();
         tfcin = new javax.swing.JTextField();
         tfnom = new javax.swing.JTextField();
         tfprenom = new javax.swing.JTextField();
         tfville = new javax.swing.JTextField();
         tfpassword = new javax.swing.JPasswordField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tfmail1 = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        nomagence = new javax.swing.JTextField();
+        adresse = new javax.swing.JTextField();
+        matf = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         btnadd = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        res = new javax.swing.JLabel();
-        tfAnnonceId = new javax.swing.JTextField();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
+        label = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ajout Responsable");
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setText("Déconnexion");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        res.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
+
+        jLayeredPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Veillez Remplir tous les champs", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.ABOVE_TOP));
+
+        tfmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                tfmailActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 10, -1, -1));
-        getContentPane().add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, 170, -1));
-        getContentPane().add(tfcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 130, 170, -1));
-        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, 170, -1));
-        getContentPane().add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 170, -1));
-        getContentPane().add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, 170, -1));
-        getContentPane().add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 170, -1));
+        jLayeredPane1.add(tfmail);
+        tfmail.setBounds(150, 40, 170, 25);
+
+        tfcin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfcinActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(tfcin);
+        tfcin.setBounds(150, 70, 170, 25);
+        jLayeredPane1.add(tfnom);
+        tfnom.setBounds(150, 100, 170, 25);
+        jLayeredPane1.add(tfprenom);
+        tfprenom.setBounds(150, 130, 170, 25);
+        jLayeredPane1.add(tfville);
+        tfville.setBounds(150, 160, 170, 25);
+
+        tfpassword.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfpasswordActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(tfpassword);
+        tfpassword.setBounds(150, 190, 170, 25);
+
+        jLabel1.setText("Email");
+        jLayeredPane1.add(jLabel1);
+        jLabel1.setBounds(30, 44, 80, 20);
+
+        jLabel2.setText("Cin");
+        jLayeredPane1.add(jLabel2);
+        jLabel2.setBounds(30, 74, 90, 20);
+
+        jLabel3.setText("Nom");
+        jLayeredPane1.add(jLabel3);
+        jLabel3.setBounds(30, 104, 90, 20);
+
+        jLabel4.setText("Prenom");
+        jLayeredPane1.add(jLabel4);
+        jLabel4.setBounds(30, 134, 100, 20);
+
+        jLabel5.setText("Ville");
+        jLayeredPane1.add(jLabel5);
+        jLabel5.setBounds(30, 164, 110, 20);
+
+        jLabel6.setText("Mot de passe");
+        jLayeredPane1.add(jLabel6);
+        jLabel6.setBounds(30, 194, 100, 20);
+
+        tfmail1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfmail1ActionPerformed(evt);
+            }
+        });
+        jLayeredPane1.add(tfmail1);
+        tfmail1.setBounds(150, 40, 170, 25);
+
+        getContentPane().add(jLayeredPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 350, 320));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inscrire Votre Agence", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.ABOVE_TOP));
+
+        jLabel7.setText("Matricule F. agence");
+
+        nomagence.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nomagenceActionPerformed(evt);
+            }
+        });
+
+        adresse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                adresseActionPerformed(evt);
+            }
+        });
+
+        matf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                matfActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Nom Agence");
+
+        jLabel9.setText("Adresse");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(matf, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(nomagence, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(matf, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nomagence, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adresse, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 330, 320));
 
         btnadd.setText("Valider");
         btnadd.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +207,7 @@ public class addResponsable extends javax.swing.JFrame {
                 btnaddActionPerformed(evt);
             }
         });
-        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 310, -1, -1));
+        getContentPane().add(btnadd, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, -1, -1));
 
         jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -90,97 +215,47 @@ public class addResponsable extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, -1, -1));
+        getContentPane().add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 320, -1));
 
-        res.setForeground(new java.awt.Color(255, 0, 51));
-        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
-        getContentPane().add(tfAnnonceId, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, 170, -1));
-
-        jMenu1.setText("Comptes");
-
-        jMenuItem1.setText("Client");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Retour");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem2.setText("Responsable");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuItem3.setText("Administrateur");
-        jMenu1.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu2.setText("Rapport et statistiques");
-
-        jMenuItem4.setText("Rapport");
-        jMenu2.add(jMenuItem4);
-
-        jMenuItem5.setText("Statistique");
-        jMenu2.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu2);
-
-        jMenu3.setText("Gerer les alerts");
-        jMenu3.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu3MenuSelected(evt);
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-        });
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Notification");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Reservation");
-        jMenuBar1.add(jMenu5);
-
-        jMenu6.setText("Offres");
-        jMenuBar1.add(jMenu6);
-
-        jMenu7.setText("Annonces");
-        jMenuBar1.add(jMenu7);
-
-        setJMenuBar(jMenuBar1);
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 380, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ListeClient lc = new ListeClient();
-        lc.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
-        if ((tfmail.getText().isEmpty())||(tfcin.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())) {
-            res.setText("Veuillez saisir toutes les champs");
+        if ((tfmail.getText().isEmpty())||(tfcin.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())||(matf.getText().isEmpty())||(nomagence.getText().isEmpty())||(adresse.getText().isEmpty())) {
+            label.setText("Veuillez saisir toutes les champs");
         }
         else
         {
             Responsable r = new Responsable();
             ResponsableDAO rdao = new ResponsableDAO();
+            
             r.setEmail(tfmail.getText());
             r.setCin(tfcin.getText());
             r.setNom(tfnom.getText());
             r.setPrenom(tfprenom.getText());
             r.setVille(tfville.getText());
             r.setPassword(tfpassword.getText());
-            r.setIdAnnonce(Integer.parseInt(tfAnnonceId.getText()));
-            rdao.insertclient(r);
-            res.setText("Ajout avec succée");
+            r.setMatAgence(matf.getText());
+            
+            Agence a = new Agence();
+            AgenceDAO ag = new AgenceDAO();
+            
+            a.setMatFiscale(matf.getText());
+            a.setAdresse(adresse.getText());
+            a.setnom(nomagence.getText());
+            ag.insertAgence(a);
+            rdao.insertResponsable(r);
+            
+            label.setText("Ajout avec succée");
     }//GEN-LAST:event_btnaddActionPerformed
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -190,26 +265,47 @@ public class addResponsable extends javax.swing.JFrame {
         tfprenom.setText(null);
         tfpassword.setText(null);
         tfville.setText(null);
-        res.setText(null);
+        label.setText(null);
+        matf.setText(null);
+        nomagence.setText(null);
+        adresse.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ListeResponsable lr = new ListeResponsable();
-        lr.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+     
+    private void tfmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfmailActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfmailActionPerformed
+
+    private void tfcinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcinActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfcinActionPerformed
+
+    private void tfpasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfpasswordActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfpasswordActionPerformed
+
+    private void tfmail1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfmail1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfmail1ActionPerformed
+
+    private void nomagenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomagenceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomagenceActionPerformed
+
+    private void adresseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adresseActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_adresseActionPerformed
+
+    private void matfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_matfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_matfActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        authentification a = new authentification();
-        a.setVisible(true);
+        // TODO add your handling code here:
+        authentification au = new authentification();
+        au.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jMenu3MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu3MenuSelected
-       ListeAlert la = new ListeAlert();
-        la.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MenuSelected
 
     /**
      * @param args the command line arguments
@@ -246,26 +342,28 @@ public class addResponsable extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField adresse;
     private javax.swing.JButton btnadd;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel label;
+    private javax.swing.JTextField matf;
+    private javax.swing.JTextField nomagence;
     private javax.swing.JLabel res;
-    private javax.swing.JTextField tfAnnonceId;
     private javax.swing.JTextField tfcin;
     private javax.swing.JTextField tfmail;
+    private javax.swing.JTextField tfmail1;
     private javax.swing.JTextField tfnom;
     private javax.swing.JPasswordField tfpassword;
     private javax.swing.JTextField tfprenom;

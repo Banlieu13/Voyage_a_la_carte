@@ -4,8 +4,10 @@
  */
 package com.edu.entities.Table;
 
+import com.edu.DAO.AdminDAO;
 import com.edu.DAO.ClientDAO;
 import com.edu.DAO.ResponsableDAO;
+import com.edu.entities.Administrateur;
 import com.edu.entities.Client;
 import com.edu.entities.Responsable;
 import java.util.ArrayList;
@@ -16,18 +18,18 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author MrBenrhouma
  */
-public class TableResponsable extends AbstractTableModel{
+public class TableAdmin extends AbstractTableModel{
     
-    public List<Responsable> listResponsable = new ArrayList<>();
-    String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe","ID_Agence"};
+    public List<Administrateur> listAdmin = new ArrayList<>();
+    String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe"};
 
-    public TableResponsable() { 
-        listResponsable=new ResponsableDAO().AfficherResponsable();
+    public TableAdmin() { 
+        listAdmin=new AdminDAO().AfficherAdmin();
     }
     
     @Override
     public int getRowCount() {
-        return listResponsable.size();
+        return listAdmin.size();
     }
 
     @Override
@@ -39,19 +41,17 @@ public class TableResponsable extends AbstractTableModel{
     public Object getValueAt(int rowIndex, int columnIndex) { 
         switch (columnIndex) {
             case 0:
-                return listResponsable.get(rowIndex).getEmail();
+                return listAdmin.get(rowIndex).getEmail();
             case 1:
-                return listResponsable.get(rowIndex).getCin();
+                return listAdmin.get(rowIndex).getCin();
             case 2:
-                return listResponsable.get(rowIndex).getNom();
+                return listAdmin.get(rowIndex).getNom();
             case 3:
-                return listResponsable.get(rowIndex).getPrenom();
+                return listAdmin.get(rowIndex).getPrenom();
             case 4:
-                return listResponsable.get(rowIndex).getVille();
+                return listAdmin.get(rowIndex).getVille();
             case 5:
-                return listResponsable.get(rowIndex).getPassword();
-            case 6:
-                return listResponsable.get(rowIndex).getMatAgence();
+                return listAdmin.get(rowIndex).getPassword();
             default:
                 return null;
         }

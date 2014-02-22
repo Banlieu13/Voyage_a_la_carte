@@ -9,21 +9,23 @@ package com.edu.entities;
  * @author MrBenrhouma
  */
 public class Agence {
-    private int IdAg;
+    private String nom;
     private String adresse;
     private String matFiscale;
+    
+    public Agence(){
+        
+    }
 
-    public Agence(String adresse, String matFiscale) {
-       
+    public Agence(String nom,String adresse, String matFiscale) {
+        this.nom=nom;
         this.adresse = adresse;
         this.matFiscale = matFiscale;
     }
 
-    
-    
-    
-    public int getIdAg() {
-        return IdAg;
+   
+    public String nom() {
+        return nom;
     }
 
     public String getAdresse() {
@@ -33,9 +35,13 @@ public class Agence {
     public String getMatFiscale() {
         return matFiscale;
     }
+    
+     public String getnom() {
+        return nom;
+    }
 
-    public void setIdAg(int IdAg) {
-        this.IdAg = IdAg;
+    public void setnom(String nom) {
+        this.nom = nom;
     }
 
     public void setAdresse(String adresse) {
@@ -48,7 +54,7 @@ public class Agence {
 
     @Override
     public String toString() {
-        return "Agence{" + "IdAg=" + IdAg + ", adresse=" + adresse + ", matFiscale=" + matFiscale + '}';
+        return "Agence{" + "nom Agence=" + nom + ", adresse=" + adresse + ", matFiscale=" + matFiscale + '}';
     }
     
     

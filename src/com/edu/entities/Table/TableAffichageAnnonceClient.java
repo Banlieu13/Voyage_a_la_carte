@@ -1,4 +1,4 @@
-package com.edu.gui.Client;
+package com.edu.entities.Table;
 
 import com.edu.entities.Annonce;
 import com.edu.DAO.AnnonceDAO;

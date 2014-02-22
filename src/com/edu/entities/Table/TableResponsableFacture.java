@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.edu.gui.Client;
+package com.edu.entities.Table;
 
 import com.edu.DAO.factureDAO;
 import com.edu.entities.facture_responsable;
