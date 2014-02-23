@@ -3,6 +3,7 @@ import com.edu.entities.Offre;
 import com.edu.DAO.offreDAO;
 import com.edu.entities.Table.TableOffre;
 import com.edu.gui.authentification;
+import java.util.ArrayList;
 import java.util.List;
 
 /*
@@ -21,7 +22,7 @@ public class acceuilclient extends javax.swing.JFrame {
      */
      List<String> maliste;
      public static int idoffre;
-     
+     public static String mailresp;
     public acceuilclient() {
         initComponents();
     }
@@ -134,7 +135,13 @@ public class acceuilclient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        TableOffre to = new TableOffre();
+        offreDAO od = new offreDAO();
+        
+        to.listOffre = od.chercherOffreBycircuit(txfCircuit.getText());
+        jTable1.setModel(to);
+        
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -162,11 +169,22 @@ public class acceuilclient extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu8MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+         TableOffre to = new TableOffre();
+       
+           int x = jTable1.getSelectedRow();
+           if(x==-1){
+              msg.setText("Veuillez sélectioner une offre");
+           }
+           else
+           {
+           
+        idoffre = (int) to.getValueAt(x, 0);
+       mailresp =  (String) to.getValueAt(x, 7);
         PaiementClient p = new PaiementClient();
         p.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
-
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        TableOffre to = new TableOffre();
        

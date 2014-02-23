@@ -8,6 +8,7 @@ package com.edu.gui.Client;
 import com.edu.DAO.ReservationDAO;
 import com.edu.entities.Facture;
 import com.edu.entities.Reservation;
+import com.edu.entities.Table.TableOffre;
 import com.edu.gui.authentification;
 
 
@@ -50,7 +51,9 @@ public class PaiementClient extends javax.swing.JFrame {
         cmbCarte = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        txfDateFinValidite = new javax.swing.JFormattedTextField();
+        jCalendar1 = new com.toedter.calendar.JCalendar();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -71,21 +74,21 @@ public class PaiementClient extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 27, -1, -1));
 
         jLabel2.setText("Type de carte");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 81, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
 
         jLabel3.setText("Numéro de carte");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 113, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
 
         jLabel4.setText("Date de fin de validité");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 148, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
 
         jLabel5.setText("Cryptogramme visuel");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 186, -1, -1));
-        getContentPane().add(txfnumCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 107, 104, -1));
-        getContentPane().add(txfCryptogramme, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 183, 104, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
+        getContentPane().add(txfnumCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 104, -1));
+        getContentPane().add(txfCryptogramme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 104, -1));
 
         cmbCarte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "visa", "MasterCard", "Pay Pal " }));
-        getContentPane().add(cmbCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 76, 104, -1));
+        getContentPane().add(cmbCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 104, -1));
 
         jButton1.setLabel("Payer et generer facture");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -93,22 +96,22 @@ public class PaiementClient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 234, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
 
-        jButton2.setText("exit");
+        jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, -1, -1));
+        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
 
-        txfDateFinValidite.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txfDateFinValiditeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txfDateFinValidite, new org.netbeans.lib.awtextra.AbsoluteConstraints(217, 145, 104, -1));
+        jLabel6.setText("Nombre de(s) voyageur(s)");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 190, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
+        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
 
         jMenu1.setText("Accueil");
         jMenuBar1.add(jMenu1);
@@ -159,43 +162,41 @@ public class PaiementClient extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   if ((txfnumCarte.getText().isEmpty())||(txfDateFinValidite.getText().isEmpty())||(txfCryptogramme.getText().isEmpty())){
-             JOptionPane.showMessageDialog(this, "Veuillez saisir toutes les champs");
-    
-        }   
- else{
-       
-        authentification a = new authentification();
+   authentification a = new authentification();
         Reservation d1 = new  Reservation ();
+        TableOffre to = new TableOffre();
+        
         ReservationDAO ReservationDAO = new ReservationDAO();
         System.err.println(authentification.identifiant);
        
          d1.setNumCarte(Integer.parseInt(txfnumCarte.getText()));
          d1.setTypeDeCarte((String)cmbCarte.getItemAt(cmbCarte.getSelectedIndex()));
          
-         d1.setDateValidité(txfDateFinValidite.getText());
+         d1.setDateValidité(jCalendar1.getDate());
          d1.setCryptogrammevisuel(txfCryptogramme.getText());
          
          d1.setE_mail(authentification.identifiant);
+         d1.setId_offre(new acceuilclient().idoffre);
          System.err.println(authentification.identifiant);
 
          ReservationDAO.insertReservation(d1);
              
          //Afficher un message de confirmation
-         JOptionPane.showMessageDialog(this, "Paiement effectué avec succès");
+         JOptionPane.showMessageDialog(this, "Paiement effectué avec succée");
+         FacturePreview fp = new FacturePreview();
+         fp.setVisible(true);
+         this.setVisible(false);
    
        System.out.println(d1);
     
-       
+         
        
        
        
     }//GEN-LAST:event_jButton1ActionPerformed
-   Facture fac = new Facture();
-   fac.afficheToi();
+ 
     
-    
-    }
+ 
     
     
     
@@ -203,10 +204,6 @@ public class PaiementClient extends javax.swing.JFrame {
     
     
     
-    private void txfDateFinValiditeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfDateFinValiditeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txfDateFinValiditeActionPerformed
-
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -262,11 +259,14 @@ public class PaiementClient extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbCarte;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private com.toedter.calendar.JCalendar jCalendar1;
+    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -274,7 +274,6 @@ public class PaiementClient extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JTextField txfCryptogramme;
-    private javax.swing.JFormattedTextField txfDateFinValidite;
     private javax.swing.JTextField txfnumCarte;
     // End of variables declaration//GEN-END:variables
 }

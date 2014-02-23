@@ -8,11 +8,13 @@ import com.edu.connection.ConnectionBD;
 import com.edu.entities.Client;
 import com.edu.entities.Offre;
 import com.edu.entities.Reservation;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -23,14 +25,17 @@ public class ReservationDAO {
      public void insertReservation(Reservation r){
            // DepotDAO depdao=new DepotDAO();
 
-         String requete = "insert into reservation (typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel,E_mail) values (?,?,?,?,?)";
+         String requete = "insert into reservation (typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel,E_mail,id_offre) values (?,?,?,?,?,?)";
         try { //dep=depdao.findDepotById(st.getDepot().getId_dep());
             PreparedStatement ps = ConnectionBD .getInstance().prepareStatement(requete);
             ps.setString(1, r.getTypeDeCarte());
             ps.setInt(2, r.getNumCarte());
-            ps.setString(3,r.getDateValidité());
+            java.util.Calendar cal = Calendar.getInstance();
+            cal.setTime(r.getDateValidité());
+            ps.setDate(3, new Date(cal.getTime().getTime()));
             ps.setString(4, r.getCryptogrammevisuel());
             ps.setString(5, r.getE_mail());
+            ps.setInt(6, r.getId_offre());
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
@@ -59,7 +64,7 @@ public class ReservationDAO {
                 r.setE_mail(resultat.getString(3));
                 r.setTypeDeCarte(resultat.getString(4));
                 r.setNumCarte(resultat.getInt(5));
-                r.setDateCarte(resultat.getDate(6));
+                r.setDateValidité(resultat.getDate(6));
                 r.setCryptogrammevisuel(resultat.getString(7));
                 r.setId_offre(resultat.getInt(8));
 

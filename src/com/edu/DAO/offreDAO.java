@@ -55,8 +55,7 @@ public class offreDAO {
         
         try {
             ConnectionBD my=new ConnectionBD();
-           Statement statement = ConnectionBD.getInstance()
-                   .createStatement();
+           Statement statement = ConnectionBD.getInstance().createStatement();
             ResultSet resultat = statement.executeQuery(requete);
             
             while(resultat.next()){
@@ -96,37 +95,36 @@ public class offreDAO {
         }
     }
      
-       public List<Offre> chercherOffre (){
-        List<Offre> listeOffre;
-         listeOffre = new ArrayList<>();
-        String requete ;
-        requete = "SELECT * FROM offre ";// WHERE Circuit == Tunis";
-        //+Offre.getCircuit();
-         
+      public List<Offre> chercherOffreBycircuit (String circuit){
+        List<Offre> listeOffre = new ArrayList<>();
+        String requete = "select * from offre where Circuit='"+circuit+"'";
         try {
-            ConnectionBD my=new ConnectionBD();
-           Statement statement;
-            statement = ConnectionBD.getInstance()
-          .createStatement();
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
             ResultSet resultat;
-            resultat = statement.executeQuery(requete);
-            while(resultat.next()){
-                
+            resultat = ps.executeQuery(requete);
+             while (resultat.next())
+            {
                 Offre offre =new Offre(); 
-              // destination.setHebergement(resultat.getString(1)); 
-              //  System.out.println(1233+" "+resultat.getString("Moy_transport"));
-                offre.setHotel(resultat.getString("Hotel")); 
-               // System.out.println(listedepots+" "+123456);
-             
-                 listeOffre.add(offre);
+                offre.setIdOffre(resultat.getInt(1));
+                offre.setDate(resultat.getDate(2));
+                offre.setDateCreation(resultat.getDate(3));
+                offre.setCircuit(resultat.getString(4));
+                offre.setProgramme(resultat.getString(5));
+                offre.setHotel(resultat.getString(6)); 
+                offre.setPrix(resultat.getDouble(7));
+                offre.setE_mailR(resultat.getString(8));
+              
+                listeOffre.add(offre);
+              
             }
+            
             return listeOffre;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            System.out.println("erreur lors du chargement des Offres "+ex.getMessage());
             return null;
         }
-    }
+       }
        
        public String FindOffreById (int id){
         

@@ -5,6 +5,7 @@
 package com.edu.entities;
 
 import java.util.Date;
+import javax.xml.crypto.Data;
 
 /**
  *
@@ -16,22 +17,15 @@ public class Reservation {
    private String E_mail;
    private String typeDeCarte;
    private int numCarte ;
-   private String DateValidité;
+   private Date DateValidité ;
    private String Cryptogrammevisuel ;
-   private Date dateCarte = new Date();
    private int Id_offre ;
 
     public Reservation() {
         
     }
 
-    public Date getDateCarte() {
-        return dateCarte;
-    }
 
-    public void setDateCarte(Date dateCarte) {
-        this.dateCarte = dateCarte;
-    }
 
     
     
@@ -69,14 +63,15 @@ public class Reservation {
         this.numCarte = numCarte;
     }
 
-    public String getDateValidité() {
+    public Date getDateValidité() {
         return DateValidité;
     }
 
-    public  void setDateValidité(String DateValidité) {
-       this.DateValidité = DateValidité;
+    public void setDateValidité(Date DateValidité) {
+        this.DateValidité = DateValidité;
     }
 
+  
     public String getCryptogrammevisuel() {
         return Cryptogrammevisuel;
     }

@@ -8,6 +8,7 @@ package com.edu.DAO;
 
 import com.edu.connection.ConnectionBD;
 import com.edu.entities.Agence;
+import com.edu.entities.Client;
 import com.edu.entities.Responsable;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -41,6 +42,32 @@ public class AgenceDAO {
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
     }
+   public List<Agence> AfficherAgence (){
 
+
+        List<Agence> listeClient = new ArrayList<Agence>();
+
+        String requete = "select * from agence";
+        try {
+           Statement statement = ConnectionBD.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while(resultat.next()){
+                Agence a =new Agence();
+                a.setnom(resultat.getString(1));
+                a.setAdresse(resultat.getString(2));
+                a.setMatFiscale(resultat.getString(3));
+              
+
+                listeClient.add(a);
+            }
+            return listeClient;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            return null;
+        }
+    }
     
 }

@@ -40,6 +40,8 @@ public class factureDAO {
         }
     }
    
+    
+   
       public List<facture_responsable> AfficherFacture (){
 
 
