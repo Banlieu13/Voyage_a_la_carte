@@ -1,22 +1,19 @@
-package com.edu.gui.Responsable;
-
-import com.edu.gui.SuperAdmin.ListeAlert;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package com.edu.gui.Responsable;
 
 /**
  *
- * @author omar
+ * @author LENOVO
  */
-public class Acceuil_Responsable extends javax.swing.JFrame {
+public class reservation extends javax.swing.JFrame {
 
     /**
-     * Creates new form Respensable_Gestion_de_facture
+     * Creates new form reservation
      */
-    public Acceuil_Responsable() {
+    public reservation() {
         initComponents();
     }
 
@@ -30,8 +27,8 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
     private void initComponents() {
 
         Deconnexion = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbresrvation = new javax.swing.JTable();
         jMenuBar1 = new javax.swing.JMenuBar();
         Reservation = new javax.swing.JMenu();
         Notification = new javax.swing.JMenu();
@@ -48,22 +45,8 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(136, Short.MAX_VALUE))
-        );
+        tbresrvation.setModel(new com.edu.entities.Table.TableReservation());
+        jScrollPane2.setViewportView(tbresrvation);
 
         Reservation.setText("Reservation");
         Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -103,22 +86,22 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(468, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Deconnexion)
-                .addGap(39, 39, 39))
+                .addGap(63, 63, 63))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(80, 80, 80))
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 482, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(200, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(Deconnexion)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -128,30 +111,26 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_DeconnexionActionPerformed
 
+    private void ReservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservationMouseClicked
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReservationMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        //List_des_Factures cd=new List_des_Factures();
+        // cd.setVisible(true);
+        ListeFacture_Responsable cd = new ListeFacture_Responsable();
+        cd.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
 
         //  List_des_Factures cd=new List_des_Factures();
-       // this.dispose();
-               
+        // this.dispose();
+
         //cd.setVisible(true);
     }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-      //List_des_Factures cd=new List_des_Factures();
-      // cd.setVisible(true);
-       ListeFacture_Responsable cd = new ListeFacture_Responsable();
-       cd.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void ReservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservationMouseClicked
-reservation re = new reservation();
-        re.setVisible(true);
-        this.setVisible(false);
-        
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReservationMouseClicked
 
     /**
      * @param args the command line arguments
@@ -170,20 +149,20 @@ reservation re = new reservation();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Acceuil_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(reservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Acceuil_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(reservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Acceuil_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(reservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Acceuil_Responsable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(reservation.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Acceuil_Responsable().setVisible(true);
+                new reservation().setVisible(true);
             }
         });
     }
@@ -192,10 +171,10 @@ reservation re = new reservation();
     private javax.swing.JMenu Destination;
     private javax.swing.JMenu Notification;
     private javax.swing.JMenu Reservation;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tbresrvation;
     // End of variables declaration//GEN-END:variables
 }
