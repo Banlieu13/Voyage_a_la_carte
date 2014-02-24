@@ -5,6 +5,7 @@
 package com.edu.DAO;
 import com.edu.connection.ConnectionBD;
 import com.edu.entities.Destination;
+import com.edu.entities.Reservation;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -130,7 +131,42 @@ public class DestinationDAO {
         }
     }
 
-}
+    public List<Destination> AfficherDestination() {
+    
+        List<Destination> listeDes = new ArrayList<>();
+
+        String requete = "select * from destination";
+        try {
+           Statement statement = ConnectionBD.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while(resultat.next()){
+                Destination d =new Destination();
+                d.setIdDest(resultat.getInt(1));
+                
+                d.setTrajet(resultat.getString(2));
+                d.setHebergement(resultat.getString(3));
+                Destination.setProgramme(resultat.getString(4));
+                Destination.setMoyTransp(resultat.getString(5));
+                Destination.setBudget(resultat.getDouble(6));
+                d.setE_mail(resultat.getString(7));
+                
+
+                listeDes.add(d);
+            }
+            return listeDes;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            return null;
+        }
+    }
+    }
+
+    
+
+
 
    
 

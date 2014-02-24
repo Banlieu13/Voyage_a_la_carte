@@ -4,6 +4,8 @@
  */
 package com.edu.entities;
 
+import java.sql.Date;
+
 /**
  *
  * @author MrBenrhouma
@@ -103,7 +105,7 @@ public class Destination {
     public String toString() {
         return "Destination{" + "IdDest=" + IdDest + ", trajet=" + trajet + ", hebergement=" + hebergement + ", programme=" + programme + ", MoyTransp=" + MoyTransp + ", budget=" + budget + '}';
     }
-    
+
     
     
 }
