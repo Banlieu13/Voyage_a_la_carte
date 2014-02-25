@@ -29,7 +29,7 @@ public class factureDAO {
             ps.setInt(2,f.getTVA());
             ps.setDouble(3,f.getTotal());
             ps.setInt(4,f.getId_offre());
-            ps.setInt(5,f.getId_agence());
+            ps.setString(5,f.getId_agence());
             ps.setString(6,f.getId_client());
 
             ps.executeUpdate();
@@ -59,7 +59,7 @@ public class factureDAO {
                 facture.setTVA(resultat.getInt(3));
                 facture.setTotal(resultat.getDouble(4));
                 facture.setId_offre(resultat.getInt(5));
-                facture.setId_agence(resultat.getInt(6));
+                facture.setId_agence(resultat.getString(6));
                 facture.setId_client(resultat.getString(7));
 
                 listeFacture.add(facture);

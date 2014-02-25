@@ -4,8 +4,13 @@
  */
 package com.edu.gui.Client;
 
+import com.edu.DAO.factureDAO;
 import com.edu.connection.ConnectionBD;
 import com.edu.entities.Agence;
+import com.edu.entities.Facture;
+import com.edu.entities.facture_responsable;
+import com.edu.gui.Client.PaiementClient;
+import com.edu.gui.Client.acceuilclient;
 import com.edu.gui.authentification;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -35,11 +40,8 @@ public class FacturePreview extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        nomAgen = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        adressAgence = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        VilleAgence = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         TelAgence = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -75,15 +77,7 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jLabel40 = new javax.swing.JLabel();
-        jLabel41 = new javax.swing.JLabel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel43 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
         jLabel46 = new javax.swing.JLabel();
         jLabel47 = new javax.swing.JLabel();
         jLabel48 = new javax.swing.JLabel();
@@ -107,15 +101,7 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel66 = new javax.swing.JLabel();
         jLabel67 = new javax.swing.JLabel();
         jLabel68 = new javax.swing.JLabel();
-        jLabel69 = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
-        jLabel71 = new javax.swing.JLabel();
-        jLabel72 = new javax.swing.JLabel();
-        jLabel73 = new javax.swing.JLabel();
-        jLabel74 = new javax.swing.JLabel();
-        jLabel75 = new javax.swing.JLabel();
-        jLabel76 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
         jLabel79 = new javax.swing.JLabel();
         jLabel80 = new javax.swing.JLabel();
         jLabel81 = new javax.swing.JLabel();
@@ -139,20 +125,35 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel99 = new javax.swing.JLabel();
         jLabel100 = new javax.swing.JLabel();
         jLabel101 = new javax.swing.JLabel();
-        jLabel102 = new javax.swing.JLabel();
         jLabel103 = new javax.swing.JLabel();
+        jLabel114 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel115 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel116 = new javax.swing.JLabel();
+        jLabel117 = new javax.swing.JLabel();
+        jLabel119 = new javax.swing.JLabel();
+        jLabel102 = new javax.swing.JLabel();
         jLabel104 = new javax.swing.JLabel();
         jLabel105 = new javax.swing.JLabel();
         jLabel106 = new javax.swing.JLabel();
         jLabel107 = new javax.swing.JLabel();
         jLabel108 = new javax.swing.JLabel();
-        jLabel109 = new javax.swing.JLabel();
-        jLabel111 = new javax.swing.JLabel();
-        jLabel114 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
+        progoffre = new javax.swing.JLabel();
+        nbrvoy = new javax.swing.JLabel();
+        pu = new javax.swing.JLabel();
+        totalD = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        totalF = new javax.swing.JLabel();
+        VilleAgence = new javax.swing.JLabel();
+        nomAgen = new javax.swing.JLabel();
+        adressAgence = new javax.swing.JLabel();
         Matfiscale = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Facture");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -162,15 +163,12 @@ public class FacturePreview extends javax.swing.JFrame {
 
         jLabel1.setText("Nom de l'agence :");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
-        getContentPane().add(nomAgen, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 130, 20));
 
         jLabel2.setText("Adresse :");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-        getContentPane().add(adressAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
 
         jLabel3.setText("Ville :");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-        getContentPane().add(VilleAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 110, 20));
 
         jLabel4.setText("Tel :");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
@@ -178,7 +176,7 @@ public class FacturePreview extends javax.swing.JFrame {
 
         jLabel6.setText("Facturé à :");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
-        getContentPane().add(NomClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 190, -1, -1));
+        getContentPane().add(NomClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 160, 30));
 
         jLabel7.setText("Le :");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
@@ -194,8 +192,8 @@ public class FacturePreview extends javax.swing.JFrame {
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, -1, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel10.setText("Designation");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        jLabel10.setText("Total");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setText("Nombre de voyageurs");
@@ -274,32 +272,8 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel35.setText("|");
         getContentPane().add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 480, 20, -1));
 
-        jLabel36.setText("|");
-        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 20, -1));
-
         jLabel37.setText("|");
         getContentPane().add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 490, 20, -1));
-
-        jLabel38.setText("|");
-        getContentPane().add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 540, 20, -1));
-
-        jLabel39.setText("|");
-        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 20, -1));
-
-        jLabel40.setText("|");
-        getContentPane().add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 550, 20, -1));
-
-        jLabel41.setText("|");
-        getContentPane().add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, 20, -1));
-
-        jLabel42.setText("|");
-        getContentPane().add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 580, 20, -1));
-
-        jLabel43.setText("|");
-        getContentPane().add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 20, -1));
-
-        jLabel45.setText("|");
-        getContentPane().add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 20, -1));
 
         jLabel46.setText("|");
         getContentPane().add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 270, -1, -1));
@@ -370,32 +344,8 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel68.setText("|");
         getContentPane().add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 480, 20, -1));
 
-        jLabel69.setText("|");
-        getContentPane().add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, 20, -1));
-
         jLabel70.setText("|");
         getContentPane().add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, 20, -1));
-
-        jLabel71.setText("|");
-        getContentPane().add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 540, 20, -1));
-
-        jLabel72.setText("|");
-        getContentPane().add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 520, 20, -1));
-
-        jLabel73.setText("|");
-        getContentPane().add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 550, 20, -1));
-
-        jLabel74.setText("|");
-        getContentPane().add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, 20, -1));
-
-        jLabel75.setText("|");
-        getContentPane().add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 580, 20, -1));
-
-        jLabel76.setText("|");
-        getContentPane().add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 560, 20, -1));
-
-        jLabel78.setText("|");
-        getContentPane().add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 570, 20, -1));
 
         jLabel79.setText("|");
         getContentPane().add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, -1, -1));
@@ -458,7 +408,7 @@ public class FacturePreview extends javax.swing.JFrame {
         getContentPane().add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 470, 20, -1));
 
         jLabel99.setText("|");
-        getContentPane().add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 20, -1));
+        getContentPane().add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, 20, -1));
 
         jLabel100.setText("|");
         getContentPane().add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 500, 20, -1));
@@ -466,39 +416,67 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel101.setText("|");
         getContentPane().add(jLabel101, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 480, 20, -1));
 
-        jLabel102.setText("|");
-        getContentPane().add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 20, -1));
-
         jLabel103.setText("|");
         getContentPane().add(jLabel103, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 490, 20, -1));
 
-        jLabel104.setText("|");
-        getContentPane().add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 540, 20, -1));
-
-        jLabel105.setText("|");
-        getContentPane().add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 520, 20, -1));
-
-        jLabel106.setText("|");
-        getContentPane().add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 550, 20, -1));
-
-        jLabel107.setText("|");
-        getContentPane().add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 530, 20, -1));
-
-        jLabel108.setText("|");
-        getContentPane().add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 580, 20, -1));
-
-        jLabel109.setText("|");
-        getContentPane().add(jLabel109, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 560, 20, -1));
-
-        jLabel111.setText("|");
-        getContentPane().add(jLabel111, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 570, 20, -1));
-
         jLabel114.setText("_____________________________________________________________________________________________________________________");
-        getContentPane().add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 710, -1));
+        getContentPane().add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 710, -1));
 
         jLabel44.setText("Matricule Fiscale :");
         getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-        getContentPane().add(Matfiscale, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 140, 30));
+
+        jLabel115.setText("_____________________________________________________________________________________________________________________");
+        getContentPane().add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 710, -1));
+
+        jButton1.setText("Imprimer");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel36.setText("Designation");
+        getContentPane().add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+
+        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel39.setText("TVA");
+        getContentPane().add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, -1, -1));
+
+        jLabel116.setText("_____________________________________________________________________________________________________________________");
+        getContentPane().add(jLabel116, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 710, -1));
+
+        jLabel117.setText("_____________________________________________________________________________________________________________________");
+        getContentPane().add(jLabel117, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 470, 710, -1));
+
+        jLabel119.setText("_____________________________________________________________________________________________________________________");
+        getContentPane().add(jLabel119, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 710, -1));
+
+        jLabel102.setText("|");
+        getContentPane().add(jLabel102, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 20, -1));
+
+        jLabel104.setText("|");
+        getContentPane().add(jLabel104, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 20, -1));
+
+        jLabel105.setText("|");
+        getContentPane().add(jLabel105, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, 20, -1));
+
+        jLabel106.setText("|");
+        getContentPane().add(jLabel106, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 520, 20, -1));
+
+        jLabel107.setText("|");
+        getContentPane().add(jLabel107, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 510, 20, -1));
+
+        jLabel108.setText("|");
+        getContentPane().add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 20, -1));
+        getContentPane().add(progoffre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 170, 130));
+        getContentPane().add(nbrvoy, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 140, 60));
+        getContentPane().add(pu, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, -1, -1));
+        getContentPane().add(totalD, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, -1));
+
+        jLabel5.setText("18%");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, -1, -1));
+        getContentPane().add(totalF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, -1, -1));
+        getContentPane().add(VilleAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
+        getContentPane().add(nomAgen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 90, 30));
+        getContentPane().add(adressAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 90, 20));
+        getContentPane().add(Matfiscale, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 124, 120, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -506,6 +484,9 @@ public class FacturePreview extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         authentification a = new authentification();
         acceuilclient ac = new acceuilclient();
+        PaiementClient pc = new PaiementClient();
+        double pr=1;
+        
         String mat="";
         String req ="select mat_fiscal from responsable where E_mailR='"+ac.mailresp+"'";
             try {
@@ -539,7 +520,59 @@ public class FacturePreview extends javax.swing.JFrame {
             System.out.println("erreur lors du chargement des agence "+ex.getMessage());
             
         }
-        
+            
+                   String req3="select Nom,Prénom from client where E_mail = '"+a.identifiant+"'";
+            try {
+           Statement statement = ConnectionBD.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(req3);
+
+            while(resultat.next()){
+                
+                NomClient.setText(resultat.getString(1)+" "+resultat.getString(2));
+              
+            }
+            
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des agence "+ex.getMessage());
+            
+        }
+            
+             String req4="select programme,prix from offre where id_offre = "+ac.idoffre;
+            try {
+           Statement statement = ConnectionBD.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(req4);
+
+            while(resultat.next()){
+                
+                progoffre.setText(resultat.getString(1));
+                 pr = resultat.getDouble(2);
+                pu.setText(""+resultat.getDouble(2));
+              
+            }
+            
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des agence "+ex.getMessage());
+            
+        }
+            nbrvoy.setText(""+pc.nbrvoya);
+            double prix = pr * pc.nbrvoya;
+            double tot = prix + (prix *0.18);
+            totalD.setText(""+prix);
+            totalF.setText(""+tot);
+            
+            facture_responsable fr = new facture_responsable();
+            factureDAO fd = new factureDAO();
+            fr.setTVA(18);
+            fr.setTotal(tot);
+            fr.setId_client(a.identifiant);
+            fr.setId_offre(ac.idoffre);
+            fr.setId_agence(mat);
+            fd.insertFacture(fr);
+            System.out.println("Facture ajouté ******");
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -584,6 +617,7 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel VilleAgence;
     private javax.swing.JLabel adressAgence;
     private javax.swing.JLabel datefacture;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
@@ -595,10 +629,12 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel106;
     private javax.swing.JLabel jLabel107;
     private javax.swing.JLabel jLabel108;
-    private javax.swing.JLabel jLabel109;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel111;
     private javax.swing.JLabel jLabel114;
+    private javax.swing.JLabel jLabel115;
+    private javax.swing.JLabel jLabel116;
+    private javax.swing.JLabel jLabel117;
+    private javax.swing.JLabel jLabel119;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -627,19 +663,14 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel40;
-    private javax.swing.JLabel jLabel41;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
     private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel52;
@@ -660,16 +691,8 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
-    private javax.swing.JLabel jLabel71;
-    private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
@@ -693,6 +716,11 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+    private javax.swing.JLabel nbrvoy;
     private javax.swing.JLabel nomAgen;
+    private javax.swing.JLabel progoffre;
+    private javax.swing.JLabel pu;
+    private javax.swing.JLabel totalD;
+    private javax.swing.JLabel totalF;
     // End of variables declaration//GEN-END:variables
 }

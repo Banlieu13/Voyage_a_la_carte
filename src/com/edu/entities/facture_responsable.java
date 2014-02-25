@@ -16,7 +16,7 @@ public class facture_responsable {
     private  int TVA;
     private  Double Total;
     private  int id_offre;
-    private int id_agence;
+    private String id_agence;
   private String id_client;
 
    public facture_responsable() {
@@ -70,18 +70,18 @@ public class facture_responsable {
         this.id_offre = id_offre;
     }
 
-    public int getId_agence() {
+    public String getId_agence() {
         return id_agence;
     }
 
-    public void setId_agence(int id_agence) {
+    public void setId_agence(String id_agence) {
         this.id_agence = id_agence;
     }
 
     
     
     
-     public facture_responsable(int id, Date  date, int TVA, Double Total, int id_offre, int id_agence,String id_client) {
+     public facture_responsable(int id, Date  date, int TVA, Double Total, int id_offre, String id_agence,String id_client) {
         this.id = id;
         this.date = date;
         this.TVA =TVA;

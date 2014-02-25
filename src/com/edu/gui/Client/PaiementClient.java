@@ -22,6 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class PaiementClient extends javax.swing.JFrame {
  List<String> maliste;
+  public static int  nbrvoya;
     /**
      * Creates new form PaiementClient
      */
@@ -186,7 +187,7 @@ public class PaiementClient extends javax.swing.JFrame {
          FacturePreview fp = new FacturePreview();
          fp.setVisible(true);
          this.setVisible(false);
-   
+         nbrvoya = jComboBox1.getSelectedIndex()+1;
        System.out.println(d1);
     
          
