@@ -21,8 +21,7 @@ import java.util.List;
  */
 public class ClientDAO {
     public ClientDAO()
-    {
-        
+    {  
     }
     
     public void insertclient (Client c){
@@ -84,6 +83,47 @@ public class ClientDAO {
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de la suppression "+ex.getMessage());
+        }
+    }
+            
+                public Client chercherClient(String mail){
+                    Client c = new Client();
+                    String requete = "select * from client where E_mail='"+mail+"'";
+                    try {
+                        PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+                        
+                        ResultSet resultat = ps.executeQuery();
+                        while (resultat.next())
+                        {
+                            c.setEmail(resultat.getString(1));
+                            c.setCin(resultat.getString(2));
+                            c.setNom(resultat.getString(3));
+                            c.setPrenom(resultat.getString(4));
+                            c.setVille(resultat.getString(5));
+                        }
+                        return c;
+
+                    } catch (SQLException ex) {
+                       //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("erreur lors de la recherche du depot "+ex.getMessage());
+                        return null;
+                    }
+    }
+    
+    public void updateClient(String mail,String CIN,String nom,String prenom,String ville){
+        String requete = "update client set E_mail=?,CIN=?,Nom=?,Prénom=?,Ville=? where E_mail='"+mail+"'";
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+            ps.setString(1, mail);
+            ps.setString(2, CIN);
+            ps.setString(3, nom);
+            ps.setString(4, prenom);
+             ps.setString(5, ville);
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
         }
     }
     

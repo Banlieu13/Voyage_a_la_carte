@@ -65,10 +65,11 @@ public class offreDAO {
                 offre.setDate(resultat.getDate(2));
                 offre.setDateCreation(resultat.getDate(3));
                 offre.setCircuit(resultat.getString(4));
-                offre.setProgramme(resultat.getString(5));
-                offre.setHotel(resultat.getString(6)); 
-                offre.setPrix(resultat.getDouble(7));
-                offre.setE_mailR(resultat.getString(8));
+                offre.setPlaces(resultat.getInt(5));
+                offre.setProgramme(resultat.getString(6));
+                offre.setHotel(resultat.getString(7)); 
+                offre.setPrix(resultat.getDouble(8));
+                offre.setE_mailR(resultat.getString(9));
               
                 listeOffre.add(offre);
                 
@@ -147,4 +148,17 @@ public class offreDAO {
             return null;
         }
        }
+        public void updatenbrPlace(int place, int id){
+        String requete = "update offre set nbrplace=nbrplace-"+place+" where id_offre="+id;
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+          
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+        }
+    }
+       
 }

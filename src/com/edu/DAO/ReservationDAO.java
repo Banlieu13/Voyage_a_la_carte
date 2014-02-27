@@ -25,7 +25,7 @@ public class ReservationDAO {
      public void insertReservation(Reservation r){
            // DepotDAO depdao=new DepotDAO();
 
-         String requete = "insert into reservation (typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel,E_mail,id_offre) values (?,?,?,?,?,?)";
+         String requete = "insert into reservation (typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel,E_mail,id_offre,nbrVoyageur) values (?,?,?,?,?,?,?)";
         try { //dep=depdao.findDepotById(st.getDepot().getId_dep());
             PreparedStatement ps = ConnectionBD .getInstance().prepareStatement(requete);
             ps.setString(1, r.getTypeDeCarte());
@@ -36,6 +36,7 @@ public class ReservationDAO {
             ps.setString(4, r.getCryptogrammevisuel());
             ps.setString(5, r.getE_mail());
             ps.setInt(6, r.getId_offre());
+            ps.setInt(7, r.getNbrvoyageur());
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {

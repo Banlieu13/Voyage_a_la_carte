@@ -4,25 +4,26 @@
  */
 package com.edu.gui.Client;
 
+import com.edu.DAO.ReservationDAO;
 import com.edu.DAO.factureDAO;
 import com.edu.connection.ConnectionBD;
-import com.edu.entities.Agence;
-import com.edu.entities.Facture;
+
 import com.edu.entities.facture_responsable;
-import com.edu.gui.Client.PaiementClient;
-import com.edu.gui.Client.acceuilclient;
+
 import com.edu.gui.authentification;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 /**
  *
  * @author MrBenrhouma
  */
 public class FacturePreview extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form FacturePreview
      */
@@ -39,14 +40,13 @@ public class FacturePreview extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        nomAgen = new javax.swing.JLabel();
+        adressAgence = new javax.swing.JLabel();
+        ville = new javax.swing.JLabel();
+        tel = new javax.swing.JLabel();
         TelAgence = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         NomClient = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jldate = new javax.swing.JLabel();
         datefacture = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         IDFacture = new javax.swing.JLabel();
@@ -127,7 +127,7 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel101 = new javax.swing.JLabel();
         jLabel103 = new javax.swing.JLabel();
         jLabel114 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
+        Matfiscale = new javax.swing.JLabel();
         jLabel115 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jLabel36 = new javax.swing.JLabel();
@@ -141,19 +141,22 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel106 = new javax.swing.JLabel();
         jLabel107 = new javax.swing.JLabel();
         jLabel108 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        VilleAgence = new javax.swing.JLabel();
         progoffre = new javax.swing.JLabel();
         nbrvoy = new javax.swing.JLabel();
         pu = new javax.swing.JLabel();
         totalD = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         totalF = new javax.swing.JLabel();
-        VilleAgence = new javax.swing.JLabel();
-        nomAgen = new javax.swing.JLabel();
-        adressAgence = new javax.swing.JLabel();
-        Matfiscale = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Facture");
+        setFocusTraversalPolicyProvider(true);
+        setMinimumSize(new java.awt.Dimension(690, 633));
+        setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(690, 633));
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -161,25 +164,24 @@ public class FacturePreview extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Nom de l'agence :");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        nomAgen.setText("Nom de l'agence :");
+        getContentPane().add(nomAgen, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        jLabel2.setText("Adresse :");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+        adressAgence.setText("Adresse :");
+        getContentPane().add(adressAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
-        jLabel3.setText("Ville :");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+        ville.setText("Ville :");
+        getContentPane().add(ville, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
-        jLabel4.setText("Tel :");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+        tel.setText("Tel :");
+        getContentPane().add(tel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
         getContentPane().add(TelAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
-        jLabel6.setText("Facturé à :");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
-        getContentPane().add(NomClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 160, 30));
+        NomClient.setText("Facturé à :");
+        getContentPane().add(NomClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, -1, -1));
 
-        jLabel7.setText("Le :");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
+        jldate.setText("Le :");
+        getContentPane().add(jldate, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 180, -1, -1));
         getContentPane().add(datefacture, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 190, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -422,14 +424,14 @@ public class FacturePreview extends javax.swing.JFrame {
         jLabel114.setText("_____________________________________________________________________________________________________________________");
         getContentPane().add(jLabel114, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 530, 710, -1));
 
-        jLabel44.setText("Matricule Fiscale :");
-        getContentPane().add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        Matfiscale.setText("Matricule Fiscale :");
+        getContentPane().add(Matfiscale, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
 
         jLabel115.setText("_____________________________________________________________________________________________________________________");
         getContentPane().add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 710, -1));
 
         jButton1.setText("Imprimer");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 610, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 580, -1, -1));
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel36.setText("Designation");
@@ -465,26 +467,44 @@ public class FacturePreview extends javax.swing.JFrame {
 
         jLabel108.setText("|");
         getContentPane().add(jLabel108, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 520, 20, -1));
-        getContentPane().add(progoffre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 170, 130));
-        getContentPane().add(nbrvoy, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 140, 60));
-        getContentPane().add(pu, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 330, -1, -1));
-        getContentPane().add(totalD, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 320, -1, -1));
 
         jLabel5.setText("18%");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 490, -1, -1));
-        getContentPane().add(totalF, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, -1, -1));
         getContentPane().add(VilleAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 40, -1, -1));
-        getContentPane().add(nomAgen, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 0, 90, 30));
-        getContentPane().add(adressAgence, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 30, 90, 20));
-        getContentPane().add(Matfiscale, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 124, 120, 20));
+
+        progoffre.setText("jLabel1");
+        getContentPane().add(progoffre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+
+        nbrvoy.setText("jLabel1");
+        getContentPane().add(nbrvoy, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, -1, -1));
+
+        pu.setText("jLabel1");
+        getContentPane().add(pu, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, -1, -1));
+
+        totalD.setText("jLabel1");
+        getContentPane().add(totalD, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, -1, -1));
+
+        totalF.setText("jLabel1");
+        getContentPane().add(totalF, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 520, -1, -1));
+
+        jButton2.setText("Acceuil");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 580, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.setLocationRelativeTo(null);
         authentification a = new authentification();
         acceuilclient ac = new acceuilclient();
         PaiementClient pc = new PaiementClient();
+        //ReservationDAO rd = new ReservationDAO();
+        
         double pr=1;
         
         String mat="";
@@ -509,9 +529,11 @@ public class FacturePreview extends javax.swing.JFrame {
 
             while(resultat.next()){
                 
-                nomAgen.setText(resultat.getString(1));
-                adressAgence.setText(resultat.getString(2));
-                Matfiscale.setText(resultat.getString(3));
+                nomAgen.setText(nomAgen.getText()+"  "+resultat.getString(1));
+                ville.setText(ville.getText()+"  "+resultat.getString(2));
+                tel.setText(tel.getText()+"  "+resultat.getString(3));
+                adressAgence.setText(adressAgence.getText()+"  "+resultat.getString(4));
+                Matfiscale.setText(Matfiscale.getText()+"  "+ resultat.getString(5));
               
             }
             
@@ -529,7 +551,7 @@ public class FacturePreview extends javax.swing.JFrame {
 
             while(resultat.next()){
                 
-                NomClient.setText(resultat.getString(1)+" "+resultat.getString(2));
+                NomClient.setText(NomClient.getText()+"  "+resultat.getString(1)+" "+resultat.getString(2));
               
             }
             
@@ -558,11 +580,18 @@ public class FacturePreview extends javax.swing.JFrame {
             System.out.println("erreur lors du chargement des agence "+ex.getMessage());
             
         }
+            
             nbrvoy.setText(""+pc.nbrvoya);
             double prix = pr * pc.nbrvoya;
             double tot = prix + (prix *0.18);
             totalD.setText(""+prix);
             totalF.setText(""+tot);
+            Date date = new Date();
+	    SimpleDateFormat dateFormatComp;
+	 
+	    dateFormatComp = new SimpleDateFormat("dd MMM yyyy hh:mm:ss a");
+	    
+            jldate.setText(jldate.getText()+"  "+dateFormatComp.format(date) );
             
             facture_responsable fr = new facture_responsable();
             factureDAO fd = new factureDAO();
@@ -574,6 +603,12 @@ public class FacturePreview extends javax.swing.JFrame {
             fd.insertFacture(fr);
             System.out.println("Facture ajouté ******");
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -618,7 +653,7 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel adressAgence;
     private javax.swing.JLabel datefacture;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel101;
@@ -643,7 +678,6 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -654,7 +688,6 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
@@ -664,8 +697,6 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel44;
     private javax.swing.JLabel jLabel46;
     private javax.swing.JLabel jLabel47;
     private javax.swing.JLabel jLabel48;
@@ -681,7 +712,6 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
@@ -691,7 +721,6 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
@@ -716,11 +745,14 @@ public class FacturePreview extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel97;
     private javax.swing.JLabel jLabel98;
     private javax.swing.JLabel jLabel99;
+    private javax.swing.JLabel jldate;
     private javax.swing.JLabel nbrvoy;
     private javax.swing.JLabel nomAgen;
     private javax.swing.JLabel progoffre;
     private javax.swing.JLabel pu;
+    private javax.swing.JLabel tel;
     private javax.swing.JLabel totalD;
     private javax.swing.JLabel totalF;
+    private javax.swing.JLabel ville;
     // End of variables declaration//GEN-END:variables
 }

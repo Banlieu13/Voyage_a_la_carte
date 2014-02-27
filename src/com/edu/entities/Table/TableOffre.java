@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableOffre extends AbstractTableModel {
 
     public List<Offre> listOffre = new ArrayList<>();
-    String []header = {"ID","Date","Date_Creation","Circuit","Programme","Hotel","Prix","Responsable"};
+    String []header = {"ID","Date","Date_Creation","Circuit","Places","Hotel","Prix","Responsable"};
 
     public TableOffre() { 
         listOffre=new offreDAO().DisplayAllOffre();
@@ -45,14 +45,14 @@ public class TableOffre extends AbstractTableModel {
             case 3:
                 return listOffre.get(rowIndex).getCircuit();
             case 4:
-                return listOffre.get(rowIndex).getProgramme();
+                return listOffre.get(rowIndex).getPlaces();
             case 5:
                 return listOffre.get(rowIndex).getHotel();
             case 6:
                 return listOffre.get(rowIndex).getPrix();
             case 7:
                 return listOffre.get(rowIndex).getE_mailR();
-            
+          
             default:
                 return null;
         }

@@ -6,10 +6,13 @@ package com.edu.gui.Client;
 
 
 import com.edu.DAO.ReservationDAO;
+import com.edu.DAO.offreDAO;
 import com.edu.entities.Facture;
 import com.edu.entities.Reservation;
 import com.edu.entities.Table.TableOffre;
+import static com.edu.gui.Client.acceuilclient.nbr;
 import com.edu.gui.authentification;
+import java.util.ArrayList;
 
 
 
@@ -52,9 +55,9 @@ public class PaiementClient extends javax.swing.JFrame {
         cmbCarte = new javax.swing.JComboBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jCalendar1 = new com.toedter.calendar.JCalendar();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        nbrvoyageur = new javax.swing.JComboBox();
+        jCalendar1 = new com.toedter.calendar.JDateChooser();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -81,12 +84,12 @@ public class PaiementClient extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
 
         jLabel4.setText("Date de fin de validité");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 310, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
         jLabel5.setText("Cryptogramme visuel");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 490, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
         getContentPane().add(txfnumCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 104, -1));
-        getContentPane().add(txfCryptogramme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 104, -1));
+        getContentPane().add(txfCryptogramme, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 104, -1));
 
         cmbCarte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "visa", "MasterCard", "Pay Pal " }));
         getContentPane().add(cmbCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 104, -1));
@@ -97,7 +100,7 @@ public class PaiementClient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 570, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
 
         jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -105,14 +108,13 @@ public class PaiementClient extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, -1, -1));
-        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
 
         jLabel6.setText("Nombre de(s) voyageur(s)");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 190, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" }));
-        getContentPane().add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
+        getContentPane().add(nbrvoyageur, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
+        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
 
         jMenu1.setText("Accueil");
         jMenuBar1.add(jMenu1);
@@ -150,6 +152,13 @@ public class PaiementClient extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        acceuilclient ac = new acceuilclient();
+        List<Integer> l = new ArrayList<Integer>();
+            
+               for (int i = 1; i <=ac.nbr ; i++) {
+                  nbrvoyageur.addItem(i);
+               }
+               
         // TODO add your handling code here:
         // Reservation  d;
         // d = new Reservation ();
@@ -163,31 +172,36 @@ public class PaiementClient extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   authentification a = new authentification();
+        authentification a = new authentification();
         Reservation d1 = new  Reservation ();
-        TableOffre to = new TableOffre();
+        acceuilclient ac = new acceuilclient();
+        nbrvoya = (int) nbrvoyageur.getSelectedItem();
+        offreDAO od = new offreDAO();
+        //TableOffre to = new TableOffre();
         
-        ReservationDAO ReservationDAO = new ReservationDAO();
+       ReservationDAO rd = new ReservationDAO();
         System.err.println(authentification.identifiant);
        
          d1.setNumCarte(Integer.parseInt(txfnumCarte.getText()));
-         d1.setTypeDeCarte((String)cmbCarte.getItemAt(cmbCarte.getSelectedIndex()));
-         
+         d1.setTypeDeCarte((String) cmbCarte.getSelectedItem());
          d1.setDateValidité(jCalendar1.getDate());
          d1.setCryptogrammevisuel(txfCryptogramme.getText());
-         
          d1.setE_mail(authentification.identifiant);
-         d1.setId_offre(new acceuilclient().idoffre);
+         d1.setId_offre(ac.idoffre);
+         d1.setNbrvoyageur((int) nbrvoyageur.getSelectedItem());
+         
+         
          System.err.println(authentification.identifiant);
-
-         ReservationDAO.insertReservation(d1);
-             
+         rd.insertReservation(d1);
+         od.updatenbrPlace(nbrvoya, ac.idoffre);
+         TableOffre to = new TableOffre();
+         to.listOffre = new offreDAO().DisplayAllOffre();
          //Afficher un message de confirmation
          JOptionPane.showMessageDialog(this, "Paiement effectué avec succée");
          FacturePreview fp = new FacturePreview();
          fp.setVisible(true);
          this.setVisible(false);
-         nbrvoya = jComboBox1.getSelectedIndex()+1;
+         
        System.out.println(d1);
     
          
@@ -260,8 +274,7 @@ public class PaiementClient extends javax.swing.JFrame {
     private javax.swing.JComboBox cmbCarte;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private com.toedter.calendar.JCalendar jCalendar1;
-    private javax.swing.JComboBox jComboBox1;
+    private com.toedter.calendar.JDateChooser jCalendar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -274,6 +287,7 @@ public class PaiementClient extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JComboBox nbrvoyageur;
     private javax.swing.JTextField txfCryptogramme;
     private javax.swing.JTextField txfnumCarte;
     // End of variables declaration//GEN-END:variables

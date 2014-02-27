@@ -19,10 +19,29 @@ public class Reservation {
    private int numCarte ;
    private Date DateValidité ;
    private String Cryptogrammevisuel ;
+   private int nbrvoyageur;
+   private int acceptation;
    private int Id_offre ;
 
     public Reservation() {
         
+    }
+
+    public int getAcceptation() {
+        return acceptation;
+    }
+
+    public void setAcceptation(int acceptation) {
+        this.acceptation = acceptation;
+    }
+
+    
+    public int getNbrvoyageur() {
+        return nbrvoyageur;
+    }
+
+    public void setNbrvoyageur(int nbrvoyageur) {
+        this.nbrvoyageur = nbrvoyageur;
     }
 
 

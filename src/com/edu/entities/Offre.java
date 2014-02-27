@@ -19,6 +19,7 @@ public class Offre {
     private String circuit;
     private String hotel;
     private double prix;
+    private int places;
     private String E_mailR;
 
     public Offre(String circuit, String hotel, double prix) {
@@ -32,6 +33,15 @@ public class Offre {
         
     }
 
+    public int getPlaces() {
+        return places;
+    }
+
+    public void setPlaces(int places) {
+        this.places = places;
+    }
+
+    
     public String getE_mailR() {
         return E_mailR;
     }
