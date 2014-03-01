@@ -1,20 +1,16 @@
 package com.edu.gui;
 
-import com.edu.DAO.AdminDAO;
 import com.edu.gui.SuperAdmin.acceuilSuper;
 import com.edu.gui.Client.acceuilclient;
 import com.edu.gui.Responsable.Acceuil_Responsable;
 import com.edu.DAO.authentificationDAO;
+import com.edu.entities.privilegeAdmin;
 import com.edu.gui.Admin.acceuilAdmin;
 import com.edu.gui.Inscription.addClient;
 import com.edu.gui.Inscription.addResponsable;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.imageio.ImageIO;
-
 
 /*
  * To change this template, choose Tools | Templates
@@ -58,6 +54,9 @@ public class authentification extends javax.swing.JFrame {
         addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 formComponentAdded(evt);
+            }
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                formComponentRemoved(evt);
             }
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -110,7 +109,7 @@ public class authentification extends javax.swing.JFrame {
         String ch = "admin";
         String pswd = tfpassword.getText();
         System.out.println(log);
-        String reqrespo="select * from responsable where E_mailR='"+log+"' and mot_de_passeR='"+pswd+"'";
+        String reqrespo="select * from responsable where E_mailR='"+log+"' and mot_de_passeR='"+pswd+"' and valide=1";
         String reqclient="select * from client where E_mail='"+log+"' and mot_de_passe='"+pswd+"'";
         String reqAdmin="select * from administrateur where E_mailA='"+log+"' and mot_de_passeA='"+pswd+"'";
         authentificationDAO auth = new authentificationDAO();
@@ -139,9 +138,9 @@ public class authentification extends javax.swing.JFrame {
             }
             else if (auth.connect(reqAdmin)>0){
                 acceuilAdmin accadmin = new acceuilAdmin();
-                AdminDAO adpriv= new AdminDAO();
+                privilegeAdmin pa = new privilegeAdmin();
                 identifiant = tfLogin.getText();
-                adpriv.getprivilege(identifiant); 
+                pa.setconnected(identifiant);
                 accadmin.setVisible(true);
                 this.setVisible(false);
                 
@@ -181,6 +180,10 @@ public class authentification extends javax.swing.JFrame {
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_InscriptionclientActionPerformed
+
+    private void formComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_formComponentRemoved
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formComponentRemoved
 
     /**
      * @param args the command line arguments

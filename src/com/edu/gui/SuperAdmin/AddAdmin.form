@@ -4,7 +4,7 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
             <Property name="text" type="java.lang.String" value="Comptes"/>
           </Properties>
@@ -35,15 +35,16 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu11">
+        <Menu class="javax.swing.JMenu" name="jMenu10">
           <Properties>
             <Property name="text" type="java.lang.String" value="Privil&#xe8;ge"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu11ActionPerformed"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu10MouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu10ActionPerformed"/>
           </Events>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu3">
+        <Menu class="javax.swing.JMenu" name="jMenu2">
           <Properties>
             <Property name="text" type="java.lang.String" value="Rapport et statistiques"/>
           </Properties>
@@ -60,46 +61,7 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Gerer les alerts"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseReleased" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu4MouseReleased"/>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu4MouseClicked"/>
-            <EventHandler event="menuSelected" listener="javax.swing.event.MenuListener" parameters="javax.swing.event.MenuEvent" handler="jMenu4MenuSelected"/>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenu4ActionPerformed"/>
-          </Events>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Notification"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu6">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Reservation"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu7">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Offres"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenu7MouseClicked"/>
-          </Events>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu8">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Annonces"/>
-          </Properties>
-        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu9">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Destination"/>
-          </Properties>
-        </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu10">
           <Properties>
             <Property name="text" type="java.lang.String" value="Param&#xe9;tres"/>
           </Properties>

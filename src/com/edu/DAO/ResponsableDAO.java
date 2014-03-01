@@ -23,7 +23,7 @@ public class ResponsableDAO {
     }
     
     public void insertResponsable (Responsable r){
-        String req ="insert into responsable (E_mailR,CINR,NomR,PrénomR,VilleR,mot_de_passeR,Mat_fiscal) values (?,?,?,?,?,?,?)";
+        String req ="insert into responsable (E_mailR,CINR,NomR,PrénomR,VilleR,mot_de_passeR,Mat_fiscal,valide) values (?,?,?,?,?,?,?,?)";
            try { 
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.setString(1,r.getEmail());
@@ -32,8 +32,9 @@ public class ResponsableDAO {
             ps.setString(4,r.getPrenom());
             ps.setString(5,r.getVille());
             ps.setString(6,r.getPassword());
-            ps.setString(7, r.getMatAgence());
-
+            ps.setInt(7, r.getValide());
+            ps.setString(8, r.getMatAgence());
+            
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
@@ -43,11 +44,8 @@ public class ResponsableDAO {
     }
     
        public List<Responsable> AfficherResponsable (){
-
-
-        List<Responsable> listeResponsable = new ArrayList<Responsable>();
-
-        String requete = "select * from responsable";
+            List<Responsable> listeResponsable = new ArrayList<Responsable>();
+             String requete = "select * from responsable";
         try {
            Statement statement = ConnectionBD.getInstance()
                    .createStatement();
@@ -61,14 +59,15 @@ public class ResponsableDAO {
                 r.setPrenom(resultat.getString(4));
                 r.setVille(resultat.getString(5));
                 r.setPassword(resultat.getString(6));
-                r.setMatAgence(resultat.getString(7));
-
+                r.setValide(resultat.getInt(7));
+                r.setMatAgence(resultat.getString(8));
+                
                 listeResponsable.add(r);
             }
             return listeResponsable;
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            System.out.println("erreur lors du chargement des responsables "+ex.getMessage());
             return null;
         }
     }
@@ -85,5 +84,49 @@ public class ResponsableDAO {
             System.out.println("erreur lors de la suppression "+ex.getMessage());
         }
     }
+            
+        public void validerResponsable(String mail){
+
+          String requete = "update responsable set valide=1 where E_mailR='"+mail+"'";
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+            ps.executeUpdate();
+            System.out.println("validation effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la validation "+ex.getMessage());
+        }
+        }
+        public List<Responsable> AfficherResponsableNotif (){
+            List<Responsable> listeResponsableNotif = new ArrayList<Responsable>();
+             String requete = "select * from responsable where valide=0";
+        try {
+           Statement statement = ConnectionBD.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while(resultat.next()){
+                Responsable r = new Responsable();
+                r.setEmail(resultat.getString(1));
+                r.setCin(resultat.getString(2));
+                r.setNom(resultat.getString(3));
+                r.setPrenom(resultat.getString(4));
+                r.setVille(resultat.getString(5));
+                r.setPassword(resultat.getString(6));
+                r.setValide(resultat.getInt(7));
+                r.setMatAgence(resultat.getString(8));
+                
+                listeResponsableNotif.add(r);
+            }
+            return listeResponsableNotif;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des responsables "+ex.getMessage());
+            return null;
+        }
+    }
+        
+        
+    }
     
-}
+

@@ -4,11 +4,8 @@
  */
 package com.edu.gui.SuperAdmin;
 
-import com.edu.DAO.ClientDAO;
 import com.edu.DAO.offreDAO;
-import com.edu.entities.Table.MyTableModel;
 import com.edu.gui.SuperAdmin.ListeResponsable;
-import com.edu.gui.SuperAdmin.ListeAlert;
 import com.edu.entities.Table.TableOffre;
 import com.edu.gui.authentification;
 
@@ -47,12 +44,7 @@ public class OffreSuperAdmin extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -88,11 +80,21 @@ public class OffreSuperAdmin extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Administrateur");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
 
         jMenu10.setText("Privilège");
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
         jMenu10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu10ActionPerformed(evt);
@@ -110,44 +112,10 @@ public class OffreSuperAdmin extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setText("Gerer les alerts");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
-            }
-        });
-        jMenu3.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu3MenuSelected(evt);
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-        });
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Notification");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Reservation");
-        jMenuBar1.add(jMenu5);
-
-        jMenu6.setText("Offres");
-        jMenuBar1.add(jMenu6);
-
-        jMenu7.setText("Annonces");
-        jMenuBar1.add(jMenu7);
-
-        jMenu11.setText("Paramètres");
+        jMenu9.setText("Paramétres");
 
         jMenuItem6.setText("Changer Mot de Passe");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu11.add(jMenuItem6);
+        jMenu9.add(jMenuItem6);
 
         jMenuItem7.setText("Déconnexion");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -155,9 +123,9 @@ public class OffreSuperAdmin extends javax.swing.JFrame {
                 jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenu11.add(jMenuItem7);
+        jMenu9.add(jMenuItem7);
 
-        jMenuBar1.add(jMenu11);
+        jMenuBar1.add(jMenu9);
 
         setJMenuBar(jMenuBar1);
 
@@ -191,22 +159,6 @@ public class OffreSuperAdmin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ListeResponsable lr = new ListeResponsable();
-        lr.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        ListeAlert la = new ListeAlert();
-        la.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenu3MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu3MenuSelected
-
-    }//GEN-LAST:event_jMenu3MenuSelected
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
            TableOffre to = new TableOffre();
            int x = jTable1.getSelectedRow();
@@ -225,28 +177,38 @@ public class OffreSuperAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-       ListeClient lc = new ListeClient();
-       lc.setVisible(true);
-       this.setVisible(false);
+        ListeClient lc = new ListeClient();
+        lc.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-    private void jMenu10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu10ActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ListeResponsable lr = new ListeResponsable();
+        lr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
+        ListAdmin la = new ListAdmin();
+        la.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
         PrivilegeSuperAdmin pa = new PrivilegeSuperAdmin();
         pa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu10ActionPerformed
+    }//GEN-LAST:event_jMenu10MouseClicked
 
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
+    private void jMenu10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu10ActionPerformed
+
+    }//GEN-LAST:event_jMenu10ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         authentification a = new authentification();
         a.setVisible(true);
-        this.setVisible(false);
-
-        // TODO add your handling code here:
+        this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
@@ -287,13 +249,8 @@ public class OffreSuperAdmin extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

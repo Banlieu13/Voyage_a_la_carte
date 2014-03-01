@@ -1,11 +1,7 @@
 package com.edu.gui.Admin;
 
-import com.edu.entities.Administrateur;
+import com.edu.DAO.PrivilegeListAdministrateurDAO;
 import com.edu.entities.privilegeAdmin;
-import com.edu.gui.SuperAdmin.*;
-import com.edu.gui.SuperAdmin.ListeResponsable;
-import com.edu.gui.SuperAdmin.ListeClient;
-import com.edu.gui.SuperAdmin.ListeAlert;
 import com.edu.gui.authentification;
 
 /*
@@ -17,13 +13,14 @@ import com.edu.gui.authentification;
  *
  * @author LENOVO
  */
-public class acceuilAdmin extends javax.swing.JFrame {
+public class acceuilAdmin extends javax.swing.JFrame{
 
     /**
      * Creates new form acceuilSuper
      */
     public acceuilAdmin() {
         initComponents();
+       
     }
 
     /**
@@ -35,18 +32,15 @@ public class acceuilAdmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        responsable = new javax.swing.JMenu();
+        menu = new javax.swing.JMenuBar();
+        comptes = new javax.swing.JMenu();
         client = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        rapportetstat = new javax.swing.JMenu();
+        responsable = new javax.swing.JMenuItem();
+        rapetstat = new javax.swing.JMenu();
         rapport = new javax.swing.JMenuItem();
         stat = new javax.swing.JMenuItem();
         alerte = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        offre = new javax.swing.JMenu();
-        annonce = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
@@ -60,7 +54,7 @@ public class acceuilAdmin extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        responsable.setText("Comptes");
+        comptes.setText("Comptes");
 
         client.setText("Client");
         client.addActionListener(new java.awt.event.ActionListener() {
@@ -68,27 +62,27 @@ public class acceuilAdmin extends javax.swing.JFrame {
                 clientActionPerformed(evt);
             }
         });
-        responsable.add(client);
+        comptes.add(client);
 
-        jMenuItem2.setText("Responsable");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        responsable.setText("Responsable");
+        responsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                responsableActionPerformed(evt);
             }
         });
-        responsable.add(jMenuItem2);
+        comptes.add(responsable);
 
-        jMenuBar1.add(responsable);
+        menu.add(comptes);
 
-        rapportetstat.setText("Rapport et statistiques");
+        rapetstat.setText("Rapport et statistiques");
 
         rapport.setText("Rapport");
-        rapportetstat.add(rapport);
+        rapetstat.add(rapport);
 
         stat.setText("Statistique");
-        rapportetstat.add(stat);
+        rapetstat.add(stat);
 
-        jMenuBar1.add(rapportetstat);
+        menu.add(rapetstat);
 
         alerte.setText("Gerer les alerts");
         alerte.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -113,24 +107,15 @@ public class acceuilAdmin extends javax.swing.JFrame {
                 alerteActionPerformed(evt);
             }
         });
-        jMenuBar1.add(alerte);
+        menu.add(alerte);
 
         jMenu4.setText("Notification");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Reservation");
-        jMenuBar1.add(jMenu5);
-
-        offre.setText("Offres");
-        offre.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                offreMouseClicked(evt);
+                jMenu4MouseClicked(evt);
             }
         });
-        jMenuBar1.add(offre);
-
-        annonce.setText("Annonces");
-        jMenuBar1.add(annonce);
+        menu.add(jMenu4);
 
         jMenu9.setText("Paramétres");
 
@@ -145,24 +130,25 @@ public class acceuilAdmin extends javax.swing.JFrame {
         });
         jMenu9.add(jMenuItem9);
 
-        jMenuBar1.add(jMenu9);
+        menu.add(jMenu9);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void clientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientActionPerformed
-        ListeClient lc = new ListeClient();
-        lc.setVisible(true);
-        this.setVisible(false);
+        ListeClientAdmin lc = new ListeClientAdmin();
+                lc.setVisible(true);
+                this.setVisible(false);
+        
     }//GEN-LAST:event_clientActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ListeResponsable lr = new ListeResponsable();
+    private void responsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responsableActionPerformed
+        ListeResponsableAdmin lr = new ListeResponsableAdmin();
         lr.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    }//GEN-LAST:event_responsableActionPerformed
 
     private void alerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alerteActionPerformed
         
@@ -177,16 +163,10 @@ public class acceuilAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_alerteMouseReleased
 
     private void alerteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alerteMouseClicked
-        ListeAlert la = new ListeAlert();
+        ListeAlertAdmin la = new ListeAlertAdmin();
         la.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_alerteMouseClicked
-
-    private void offreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_offreMouseClicked
-       OffreAdmin os = new OffreAdmin();
-       os.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_offreMouseClicked
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         authentification a = new authentification();
@@ -196,44 +176,60 @@ public class acceuilAdmin extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+        PrivilegeListAdministrateurDAO plad = new PrivilegeListAdministrateurDAO();
         privilegeAdmin pad = new privilegeAdmin();
-        if (pad.getPriv_annonce()<1){
-            annonce.setEnabled(false);
-        }else{
-            annonce.setEnabled(true);
+        System.out.println("---->"+pad.getconnected());
+        int[] p =plad.getConnectedPrivilege(pad.getconnected());
+        
+        if ((p[4]<1)&&(p[5]<1)){
+            comptes.setEnabled(false);
+            comptes.enableInputMethods(false);
+            
         }
-        if (pad.getPriv_offre()<1){
-            offre.setEnabled(false);
-        }else{
-            offre.setEnabled(true);
-        }
-        if (pad.getPriv_responsable()<1){
+        if (p[4]<1){
             responsable.setEnabled(false);
+            menu.remove(responsable);
         }else{
             responsable.setEnabled(true);
         }
-        if (pad.getPriv_client()<1){
+        if (p[5]<1){
             client.setEnabled(false);
+            menu.remove(client);
         }else{
             client.setEnabled(true);
         }
-        if (pad.getPriv_alerte()<1){
+        if (p[6]<1){
             alerte.setEnabled(false);
+            menu.remove(alerte);
         }else{
             alerte.setEnabled(true);
         }
-        if (pad.getPriv_rapport()<1){
+        if ((p[7]<1)&&(p[8]<1)){
+            rapetstat.setEnabled(false);
+            rapetstat.enableInputMethods(false);
+        }else{
+            rapetstat.setEnabled(true);
+        }
+        if (p[7]<1){
             rapport.setEnabled(false);
+            menu.remove(rapport);
         }else{
             rapport.setEnabled(true);
         }
-        if (pad.getPriv_stat()<1){
+        if (p[8]<1){
             stat.setEnabled(false);
+            menu.remove(stat);
         }else{
             stat.setEnabled(true);
         }
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+       notification n = new notification();
+       n.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -271,19 +267,16 @@ public class acceuilAdmin extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu alerte;
-    private javax.swing.JMenu annonce;
     private javax.swing.JMenuItem client;
+    private javax.swing.JMenu comptes;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JMenu offre;
+    private javax.swing.JMenuBar menu;
+    private javax.swing.JMenu rapetstat;
     private javax.swing.JMenuItem rapport;
-    private javax.swing.JMenu rapportetstat;
-    private javax.swing.JMenu responsable;
+    private javax.swing.JMenuItem responsable;
     private javax.swing.JMenuItem stat;
     // End of variables declaration//GEN-END:variables
 }

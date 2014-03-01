@@ -21,7 +21,7 @@ public class privilegeAdmin {
      private int priv_rapport;
      private int priv_stat;
      private int id_admin;
-    
+    private static String con;
     
     public privilegeAdmin(){
         
@@ -38,6 +38,15 @@ public class privilegeAdmin {
         this.priv_rapport = priv_rapport;
         this.priv_stat = priv_stat;
         this.id_admin = id_admin;
+    }
+    
+    public void setconnected(String id_admin){
+        this.con=id_admin;
+    }
+    
+    public String getconnected( ) {
+        
+        return con;
     }
 
     public int getPriv_annonce() {

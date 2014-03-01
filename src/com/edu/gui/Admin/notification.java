@@ -1,27 +1,25 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package com.edu.gui.Admin;
 
-import com.edu.DAO.PrivilegeListAdministrateurDAO;
-import com.edu.gui.SuperAdmin.ListeAlert;
 import com.edu.DAO.ResponsableDAO;
-import com.edu.entities.Table.TableResponsable;
-import com.edu.entities.privilegeAdmin;
-import com.edu.gui.Inscription.addResponsable;
+import com.edu.entities.Table.TableNotification;
 import com.edu.gui.authentification;
 
 /**
  *
- * @author MrBenrhouma
+ * @author Commando
  */
-public class ListeResponsableAdmin extends javax.swing.JFrame {
+public class notification extends javax.swing.JFrame {
 
     /**
-     * Creates new form ListeResponsable
+     * Creates new form notification
      */
-    public ListeResponsableAdmin() {
+    public notification() {
         initComponents();
     }
 
@@ -36,9 +34,8 @@ public class ListeResponsableAdmin extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         msg = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         menu = new javax.swing.JMenuBar();
         comptes = new javax.swing.JMenu();
         client = new javax.swing.JMenuItem();
@@ -53,30 +50,16 @@ public class ListeResponsableAdmin extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Liste responsables");
-        addWindowListener(new java.awt.event.WindowAdapter() {
-            public void windowOpened(java.awt.event.WindowEvent evt) {
-                formWindowOpened(evt);
-            }
-        });
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new TableResponsable());
+        jTable1.setModel(new TableNotification());
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 70, 530, 210));
-
-        jButton3.setText("Supprimer");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setText("Valider");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, -1, -1));
-
-        msg.setForeground(new java.awt.Color(255, 51, 51));
-        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 356, -1, -1));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         comptes.setText("Comptes");
 
@@ -134,16 +117,6 @@ public class ListeResponsableAdmin extends javax.swing.JFrame {
         menu.add(alerte);
 
         jMenu4.setText("Notification");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenu4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu4ActionPerformed(evt);
-            }
-        });
         menu.add(jMenu4);
 
         jMenu9.setText("Paramétres");
@@ -163,76 +136,36 @@ public class ListeResponsableAdmin extends javax.swing.JFrame {
 
         setJMenuBar(menu);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 530, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
+                        .addComponent(msg, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)))
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(msg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
+        );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-        TableResponsable md = new TableResponsable();
-        int x = jTable1.getSelectedRow();
-        if(x==-1){
-            msg.setText("Veuillez sélectioné un Responsable");
-        }
-        else
-        {
-            String mail = md.getValueAt(x, 0).toString();
-            System.out.println(mail);
-            new ResponsableDAO().deleteResponsable(mail);
-            md.listResponsable = new ResponsableDAO().AfficherResponsable();
-            jTable1.setModel(md);
-            msg.setText("Suppression effectuée avec succée");
-        }
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-  PrivilegeListAdministrateurDAO plad = new PrivilegeListAdministrateurDAO();
-        privilegeAdmin pad = new privilegeAdmin();
-        System.out.println("---->"+pad.getconnected());
-        int[] p =plad.getConnectedPrivilege(pad.getconnected());
-        
-        if ((p[4]<1)&&(p[5]<1)){
-            comptes.setEnabled(false);
-            comptes.enableInputMethods(false);
-            
-        }
-        if (p[4]<1){
-            responsable.setEnabled(false);
-            menu.remove(responsable);
-        }else{
-            responsable.setEnabled(true);
-        }
-        if (p[5]<1){
-            client.setEnabled(false);
-            menu.remove(client);
-        }else{
-            client.setEnabled(true);
-        }
-        if (p[6]<1){
-            alerte.setEnabled(false);
-            menu.remove(alerte);
-        }else{
-            alerte.setEnabled(true);
-        }
-        if ((p[7]<1)&&(p[8]<1)){
-            rapetstat.setEnabled(false);
-            rapetstat.enableInputMethods(false);
-        }else{
-            rapetstat.setEnabled(true);
-        }
-        if (p[7]<1){
-            rapport.setEnabled(false);
-            menu.remove(rapport);
-        }else{
-            rapport.setEnabled(true);
-        }
-        if (p[8]<1){
-            stat.setEnabled(false);
-            menu.remove(stat);
-        }else{
-            stat.setEnabled(true);
-        }
-              // TODO add your handling code here:
-    }//GEN-LAST:event_formWindowOpened
 
     private void clientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientActionPerformed
         ListeClientAdmin lc = new ListeClientAdmin();
@@ -271,15 +204,23 @@ public class ListeResponsableAdmin extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu4ActionPerformed
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-       notification n = new notification();
-       n.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         TableNotification md = new TableNotification();
+           int x = jTable1.getSelectedRow();
+           if(x==-1){
+              msg.setText("Veuillez sélectioné un responsable");
+           }
+           else
+           {
+           String mail = md.getValueAt(x, 0).toString();
+           System.out.println(mail);
+           new  ResponsableDAO().validerResponsable(mail);
+           md.listrespNotif = new ResponsableDAO().AfficherResponsable();
+           jTable1.setModel(md);
+           msg.setText("Validation effectuée avec succée");
+           }        
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -298,29 +239,29 @@ public class ListeResponsableAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListeResponsableAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(notification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListeResponsableAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(notification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListeResponsableAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(notification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListeResponsableAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(notification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListeResponsableAdmin().setVisible(true);
+                new notification().setVisible(true);
             }
         });
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu alerte;
     private javax.swing.JMenuItem client;
     private javax.swing.JMenu comptes;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuItem jMenuItem8;

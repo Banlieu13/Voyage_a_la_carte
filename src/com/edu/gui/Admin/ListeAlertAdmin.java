@@ -4,8 +4,10 @@
  */
 package com.edu.gui.Admin;
 
+import com.edu.DAO.PrivilegeListAdministrateurDAO;
 import com.edu.gui.SuperAdmin.*;
 import com.edu.entities.Table.TableAlertes;
+import com.edu.entities.privilegeAdmin;
 import com.edu.gui.authentification;
 
 /**
@@ -32,24 +34,26 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
+        menu = new javax.swing.JMenuBar();
+        comptes = new javax.swing.JMenu();
+        client = new javax.swing.JMenuItem();
+        responsable = new javax.swing.JMenuItem();
+        rapetstat = new javax.swing.JMenu();
+        rapport = new javax.swing.JMenuItem();
+        stat = new javax.swing.JMenuItem();
+        alerte = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
-        jMenuItem10 = new javax.swing.JMenuItem();
-        jMenuItem11 = new javax.swing.JMenuItem();
+        jMenu9 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Alertes");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new TableAlertes());
@@ -57,123 +61,181 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 250));
 
-        jMenu1.setText("Comptes");
+        comptes.setText("Comptes");
 
-        jMenuItem1.setText("Client");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        client.setText("Client");
+        client.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                clientActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        comptes.add(client);
 
-        jMenuItem2.setText("Responsable");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        responsable.setText("Responsable");
+        responsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                responsableActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem2);
+        comptes.add(responsable);
 
-        jMenuBar1.add(jMenu1);
+        menu.add(comptes);
 
-        jMenu2.setText("Rapport et statistiques");
+        rapetstat.setText("Rapport et statistiques");
 
-        jMenuItem4.setText("Rapport");
-        jMenu2.add(jMenuItem4);
+        rapport.setText("Rapport");
+        rapetstat.add(rapport);
 
-        jMenuItem5.setText("Statistique");
-        jMenu2.add(jMenuItem5);
+        stat.setText("Statistique");
+        rapetstat.add(stat);
 
-        jMenuBar1.add(jMenu2);
+        menu.add(rapetstat);
 
-        jMenu3.setText("Gerer les alerts");
-        jMenu3.addMenuDragMouseListener(new javax.swing.event.MenuDragMouseListener() {
-            public void menuDragMouseDragged(javax.swing.event.MenuDragMouseEvent evt) {
+        alerte.setText("Gerer les alerts");
+        alerte.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                alerteMouseReleased(evt);
             }
-            public void menuDragMouseEntered(javax.swing.event.MenuDragMouseEvent evt) {
-            }
-            public void menuDragMouseExited(javax.swing.event.MenuDragMouseEvent evt) {
-            }
-            public void menuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {
-                jMenu3MenuDragMouseReleased(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                alerteMouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        alerte.addMenuListener(new javax.swing.event.MenuListener() {
+            public void menuCanceled(javax.swing.event.MenuEvent evt) {
+            }
+            public void menuSelected(javax.swing.event.MenuEvent evt) {
+                alerteMenuSelected(evt);
+            }
+            public void menuDeselected(javax.swing.event.MenuEvent evt) {
+            }
+        });
+        alerte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alerteActionPerformed(evt);
+            }
+        });
+        menu.add(alerte);
 
         jMenu4.setText("Notification");
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Reservation");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
+                jMenu4MouseClicked(evt);
             }
         });
-        jMenuBar1.add(jMenu5);
+        menu.add(jMenu4);
 
-        jMenu6.setText("Offres");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu6);
+        jMenu9.setText("Paramétres");
 
-        jMenu7.setText("Annonces");
-        jMenuBar1.add(jMenu7);
+        jMenuItem8.setText("Changer Mot de Passe");
+        jMenu9.add(jMenuItem8);
 
-        jMenu11.setText("Paramétres");
-
-        jMenuItem10.setText("Changer Mot de Passe");
-        jMenu11.add(jMenuItem10);
-
-        jMenuItem11.setText("Déconnexion");
-        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem9.setText("Déconnexion");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem11ActionPerformed(evt);
+                jMenuItem9ActionPerformed(evt);
             }
         });
-        jMenu11.add(jMenuItem11);
+        jMenu9.add(jMenuItem9);
 
-        jMenuBar1.add(jMenu11);
+        menu.add(jMenu9);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menu);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu3MenuDragMouseReleased(javax.swing.event.MenuDragMouseEvent evt) {//GEN-FIRST:event_jMenu3MenuDragMouseReleased
-        
-    }//GEN-LAST:event_jMenu3MenuDragMouseReleased
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+  PrivilegeListAdministrateurDAO plad = new PrivilegeListAdministrateurDAO();
+        privilegeAdmin pad = new privilegeAdmin();
+        System.out.println("---->"+pad.getconnected());
+        int[] p =plad.getConnectedPrivilege(pad.getconnected());
+     
+        if ((p[4]<1)&&(p[5]<1)){
+            comptes.setEnabled(false);
+            comptes.enableInputMethods(false);
+            
+        }
+        if (p[4]<1){
+            responsable.setEnabled(false);
+            menu.remove(responsable);
+        }else{
+            responsable.setEnabled(true);
+        }
+        if (p[5]<1){
+            client.setEnabled(false);
+            menu.remove(client);
+        }else{
+            client.setEnabled(true);
+        }
+        if (p[6]<1){
+            alerte.setEnabled(false);
+            menu.remove(alerte);
+        }else{
+            alerte.setEnabled(true);
+        }
+        if ((p[7]<1)&&(p[8]<1)){
+            rapetstat.setEnabled(false);
+            rapetstat.enableInputMethods(false);
+        }else{
+            rapetstat.setEnabled(true);
+        }
+        if (p[7]<1){
+            rapport.setEnabled(false);
+            menu.remove(rapport);
+        }else{
+            rapport.setEnabled(true);
+        }
+        if (p[8]<1){
+            stat.setEnabled(false);
+            menu.remove(stat);
+        }else{
+            stat.setEnabled(true);
+        }
+              // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowOpened
 
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-       OffreAdmin of = new OffreAdmin();
-       of.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_jMenu6MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-       
-    }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
-        authentification a = new authentification();
-        a.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem11ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ListeResponsableAdmin lr = new ListeResponsableAdmin();
-        lr.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void clientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientActionPerformed
         ListeClientAdmin lc = new ListeClientAdmin();
         lc.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    }//GEN-LAST:event_clientActionPerformed
+
+    private void responsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responsableActionPerformed
+        ListeResponsableAdmin lr = new ListeResponsableAdmin();
+        lr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_responsableActionPerformed
+
+    private void alerteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alerteMouseReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_alerteMouseReleased
+
+    private void alerteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alerteMouseClicked
+        ListeAlertAdmin la = new ListeAlertAdmin();
+        la.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_alerteMouseClicked
+
+    private void alerteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_alerteMenuSelected
+
+    }//GEN-LAST:event_alerteMenuSelected
+
+    private void alerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alerteActionPerformed
+
+    }//GEN-LAST:event_alerteActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        authentification a = new authentification();
+        a.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+         notification n = new notification();
+       n.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -210,22 +272,19 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu alerte;
+    private javax.swing.JMenuItem client;
+    private javax.swing.JMenu comptes;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenu jMenu9;
+    private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JMenuBar menu;
+    private javax.swing.JMenu rapetstat;
+    private javax.swing.JMenuItem rapport;
+    private javax.swing.JMenuItem responsable;
+    private javax.swing.JMenuItem stat;
     // End of variables declaration//GEN-END:variables
 }

@@ -7,6 +7,7 @@
 package com.edu.gui.SuperAdmin;
 
 import com.edu.DAO.AdminDAO;
+import com.edu.DAO.PrivilegeListAdministrateurDAO;
 import com.edu.entities.Administrateur;
 import com.edu.gui.authentification;
 
@@ -49,21 +50,15 @@ public class AddAdmin extends javax.swing.JFrame {
         jLabel13 = new javax.swing.JLabel();
         res1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu11 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -145,7 +140,7 @@ public class AddAdmin extends javax.swing.JFrame {
         jLayeredPane1.add(res1);
         res1.setBounds(40, 270, 300, 0);
 
-        jMenu2.setText("Comptes");
+        jMenu1.setText("Comptes");
 
         jMenuItem1.setText("Client");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -153,7 +148,7 @@ public class AddAdmin extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem1);
+        jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Responsable");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +156,7 @@ public class AddAdmin extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem2);
+        jMenu1.add(jMenuItem2);
 
         jMenuItem3.setText("Administrateur");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
@@ -169,77 +164,37 @@ public class AddAdmin extends javax.swing.JFrame {
                 jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenu2.add(jMenuItem3);
+        jMenu1.add(jMenuItem3);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu10.setText("Privilège");
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
+        jMenu10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu10ActionPerformed(evt);
+            }
+        });
+        jMenuBar1.add(jMenu10);
+
+        jMenu2.setText("Rapport et statistiques");
+
+        jMenuItem4.setText("Rapport");
+        jMenu2.add(jMenuItem4);
+
+        jMenuItem5.setText("Statistique");
+        jMenu2.add(jMenuItem5);
 
         jMenuBar1.add(jMenu2);
 
-        jMenu11.setText("Privilège");
-        jMenu11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu11ActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu11);
-
-        jMenu3.setText("Rapport et statistiques");
-
-        jMenuItem4.setText("Rapport");
-        jMenu3.add(jMenuItem4);
-
-        jMenuItem5.setText("Statistique");
-        jMenu3.add(jMenuItem5);
-
-        jMenuBar1.add(jMenu3);
-
-        jMenu4.setText("Gerer les alerts");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jMenu4MouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenu4.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu4MenuSelected(evt);
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-        });
-        jMenu4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu4ActionPerformed(evt);
-            }
-        });
-        jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Notification");
-        jMenuBar1.add(jMenu5);
-
-        jMenu6.setText("Reservation");
-        jMenuBar1.add(jMenu6);
-
-        jMenu7.setText("Offres");
-        jMenu7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu7MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu7);
-
-        jMenu8.setText("Annonces");
-        jMenuBar1.add(jMenu8);
-
-        jMenu9.setText("Destination");
-        jMenuBar1.add(jMenu9);
-
-        jMenu10.setText("Paramétres");
+        jMenu9.setText("Paramétres");
 
         jMenuItem6.setText("Changer Mot de Passe");
-        jMenu10.add(jMenuItem6);
+        jMenu9.add(jMenuItem6);
 
         jMenuItem7.setText("Déconnexion");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -247,9 +202,9 @@ public class AddAdmin extends javax.swing.JFrame {
                 jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenu10.add(jMenuItem7);
+        jMenu9.add(jMenuItem7);
 
-        jMenuBar1.add(jMenu10);
+        jMenuBar1.add(jMenu9);
 
         setJMenuBar(jMenuBar1);
 
@@ -289,6 +244,7 @@ public class AddAdmin extends javax.swing.JFrame {
         }
         else
         {
+           PrivilegeListAdministrateurDAO pa = new PrivilegeListAdministrateurDAO();
             Administrateur a = new Administrateur();
             AdminDAO adao = new AdminDAO();
             a.setEmail(tfmail1.getText());
@@ -298,6 +254,8 @@ public class AddAdmin extends javax.swing.JFrame {
             a.setVille(tfville1.getText());
             a.setPassword(tfpassword1.getText());
             adao.insertAdmin(a);
+            pa.addprivilege(tfmail1.getText());
+            
             res1.setText("Ajout avec succée");
         }
     }//GEN-LAST:event_btnadd1ActionPerformed
@@ -328,47 +286,26 @@ public class AddAdmin extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-         ListAdmin la = new ListAdmin();
-       la.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenu4MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu4MouseReleased
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        ListeAlert la = new ListeAlert();
+        ListAdmin la = new ListAdmin();
         la.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenu4MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu4MenuSelected
-
-    }//GEN-LAST:event_jMenu4MenuSelected
-
-    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-
-    }//GEN-LAST:event_jMenu4ActionPerformed
-
-    private void jMenu7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu7MouseClicked
-        OffreSuperAdmin os = new OffreSuperAdmin();
-        os.setVisible(true);
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
+        PrivilegeSuperAdmin pa = new PrivilegeSuperAdmin();
+        pa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu7MouseClicked
+    }//GEN-LAST:event_jMenu10MouseClicked
+
+    private void jMenu10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu10ActionPerformed
+
+    }//GEN-LAST:event_jMenu10ActionPerformed
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         authentification a = new authentification();
         a.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem7ActionPerformed
-
-    private void jMenu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu11ActionPerformed
-        // TODO add your handling code here:
-        PrivilegeSuperAdmin pa = new PrivilegeSuperAdmin();
-        pa.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu11ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -415,15 +352,9 @@ public class AddAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;

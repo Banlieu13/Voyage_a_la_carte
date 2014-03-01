@@ -7,8 +7,9 @@
 package com.edu.gui.SuperAdmin;
 
 import com.edu.DAO.PrivilegeListAdministrateurDAO;
-import com.edu.DAO.authentificationDAO;
 import com.edu.gui.authentification;
+
+
 
 /**
  *
@@ -36,39 +37,31 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        responsable = new javax.swing.JCheckBox();
+        client = new javax.swing.JCheckBox();
         jPanel2 = new javax.swing.JPanel();
-        jCheckBox5 = new javax.swing.JCheckBox();
-        jCheckBox6 = new javax.swing.JCheckBox();
+        consultfacture = new javax.swing.JCheckBox();
+        gererfacture = new javax.swing.JCheckBox();
         jPanel3 = new javax.swing.JPanel();
-        jCheckBox3 = new javax.swing.JCheckBox();
-        jCheckBox4 = new javax.swing.JCheckBox();
+        rapport = new javax.swing.JCheckBox();
+        stat = new javax.swing.JCheckBox();
         jPanel4 = new javax.swing.JPanel();
-        jCheckBox7 = new javax.swing.JCheckBox();
-        jCheckBox8 = new javax.swing.JCheckBox();
-        jCheckBox9 = new javax.swing.JCheckBox();
+        alerte = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         com.edu.DAO.PrivilegeListAdministrateurDAO p = new com.edu.DAO.PrivilegeListAdministrateurDAO();
         final String[] strings= p.ListAdministrateur();
         jList1 = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
-        jMenuBar2 = new javax.swing.JMenuBar();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuBar3 = new javax.swing.JMenuBar();
+        jMenu13 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
-        jMenu12 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
+        jMenu10 = new javax.swing.JMenu();
+        jMenu14 = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
-        jMenu10 = new javax.swing.JMenu();
-        jMenu11 = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -79,26 +72,20 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
         jMenuBar1.add(jMenu2);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Offre et Annonce"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Gérer Comptes"));
 
-        jCheckBox1.setText("Gérer Annonces");
-        jCheckBox1.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                jCheckBox1StateChanged(evt);
-            }
-        });
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        responsable.setText("Gérer Comptes Responsables");
+        responsable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                responsableActionPerformed(evt);
             }
         });
 
-        jCheckBox2.setText("Gérer Offres");
-        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+        client.setText("Gérer Comptes Clients");
+        client.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox2ActionPerformed(evt);
+                clientActionPerformed(evt);
             }
         });
 
@@ -106,38 +93,35 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 10, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(client)
+                    .addComponent(responsable)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox1)
+                .addComponent(responsable)
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox2)
+                .addComponent(client)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 19, -1, -1));
-
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Facture"));
 
-        jCheckBox5.setText("Consulter Factures");
-        jCheckBox5.addActionListener(new java.awt.event.ActionListener() {
+        consultfacture.setText("Consulter Factures");
+        consultfacture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox5ActionPerformed(evt);
+                consultfactureActionPerformed(evt);
             }
         });
 
-        jCheckBox6.setText("Gérer Factures");
-        jCheckBox6.addActionListener(new java.awt.event.ActionListener() {
+        gererfacture.setText("Gérer Factures");
+        gererfacture.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox6ActionPerformed(evt);
+                gererfactureActionPerformed(evt);
             }
         });
 
@@ -148,35 +132,33 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox5)
-                    .addComponent(jCheckBox6))
+                    .addComponent(consultfacture)
+                    .addComponent(gererfacture))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(16, 16, 16)
-                .addComponent(jCheckBox5)
+                .addComponent(consultfacture)
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox6)
+                .addComponent(gererfacture)
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(23, 170, -1, -1));
-
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Rapports et Statistiques"));
 
-        jCheckBox3.setText("Génerer Rapports");
-        jCheckBox3.addActionListener(new java.awt.event.ActionListener() {
+        rapport.setText("Génerer Rapports");
+        rapport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox3ActionPerformed(evt);
+                rapportActionPerformed(evt);
             }
         });
 
-        jCheckBox4.setText("Génerer Statistiques");
-        jCheckBox4.addActionListener(new java.awt.event.ActionListener() {
+        stat.setText("Génerer Statistiques");
+        stat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox4ActionPerformed(evt);
+                statActionPerformed(evt);
             }
         });
 
@@ -186,43 +168,29 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox3)
-                    .addComponent(jCheckBox4))
+                .addComponent(rapport)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(stat)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jCheckBox3)
+                .addComponent(rapport)
                 .addGap(18, 18, 18)
-                .addComponent(jCheckBox4)
+                .addComponent(stat)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 19, -1, -1));
-
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Autres"));
 
-        jCheckBox7.setText("Gérer Comptes Responsables");
-        jCheckBox7.addActionListener(new java.awt.event.ActionListener() {
+        alerte.setText("Gérer Alertes");
+        alerte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox7ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox8.setText("Gérer Comptes Clients");
-        jCheckBox8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox8ActionPerformed(evt);
-            }
-        });
-
-        jCheckBox9.setText("Gérer Alertes");
-        jCheckBox9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox9ActionPerformed(evt);
+                alerteActionPerformed(evt);
             }
         });
 
@@ -232,25 +200,16 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCheckBox7)
-                    .addComponent(jCheckBox8)
-                    .addComponent(jCheckBox9))
+                .addComponent(alerte)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jCheckBox7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jCheckBox8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
-                .addComponent(jCheckBox9)
-                .addContainerGap())
+                .addGap(26, 26, 26)
+                .addComponent(alerte)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
 
         jList1.setModel(new javax.swing.AbstractListModel() {
             public int getSize() { return strings.length; }
@@ -263,17 +222,14 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jList1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(458, 22, 121, -1));
-
         jButton1.setText("Valider");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(514, 273, -1, -1));
 
-        jMenu3.setText("Comptes");
+        jMenu13.setText("Comptes");
 
         jMenuItem1.setText("Client");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
@@ -281,7 +237,7 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
                 jMenuItem1ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem1);
+        jMenu13.add(jMenuItem1);
 
         jMenuItem2.setText("Responsable");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -289,85 +245,45 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
                 jMenuItem2ActionPerformed(evt);
             }
         });
-        jMenu3.add(jMenuItem2);
+        jMenu13.add(jMenuItem2);
 
         jMenuItem3.setText("Administrateur");
-        jMenu3.add(jMenuItem3);
-
-        jMenuBar2.add(jMenu3);
-
-        jMenu12.setText("Privilège");
-        jMenu12.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu12ActionPerformed(evt);
+                jMenuItem3ActionPerformed(evt);
             }
         });
-        jMenuBar2.add(jMenu12);
+        jMenu13.add(jMenuItem3);
 
-        jMenu4.setText("Rapport et statistiques");
+        jMenuBar3.add(jMenu13);
+
+        jMenu10.setText("Privilège");
+        jMenu10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu10MouseClicked(evt);
+            }
+        });
+        jMenu10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu10ActionPerformed(evt);
+            }
+        });
+        jMenuBar3.add(jMenu10);
+
+        jMenu14.setText("Rapport et statistiques");
 
         jMenuItem4.setText("Rapport");
-        jMenu4.add(jMenuItem4);
+        jMenu14.add(jMenuItem4);
 
         jMenuItem5.setText("Statistique");
-        jMenu4.add(jMenuItem5);
+        jMenu14.add(jMenuItem5);
 
-        jMenuBar2.add(jMenu4);
+        jMenuBar3.add(jMenu14);
 
-        jMenu5.setText("Gerer les alerts");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jMenu5MouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenu5.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                jMenu5MenuSelected(evt);
-            }
-        });
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
-            }
-        });
-        jMenuBar2.add(jMenu5);
-
-        jMenu6.setText("Notification");
-        jMenuBar2.add(jMenu6);
-
-        jMenu7.setText("Reservation");
-        jMenuBar2.add(jMenu7);
-
-        jMenu8.setText("Offres");
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
-            }
-        });
-        jMenuBar2.add(jMenu8);
-
-        jMenu9.setText("Annonces");
-        jMenuBar2.add(jMenu9);
-
-        jMenu10.setText("Destination");
-        jMenuBar2.add(jMenu10);
-
-        jMenu11.setText("Paramètres");
+        jMenu9.setText("Paramétres");
 
         jMenuItem6.setText("Changer Mot de Passe");
-        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem6ActionPerformed(evt);
-            }
-        });
-        jMenu11.add(jMenuItem6);
+        jMenu9.add(jMenuItem6);
 
         jMenuItem7.setText("Déconnexion");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
@@ -375,102 +291,98 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
                 jMenuItem7ActionPerformed(evt);
             }
         });
-        jMenu11.add(jMenuItem7);
+        jMenu9.add(jMenuItem7);
 
-        jMenuBar2.add(jMenu11);
+        jMenuBar3.add(jMenu9);
 
-        setJMenuBar(jMenuBar2);
+        setJMenuBar(jMenuBar3);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(121, 121, 121)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        ListeClient lc = new ListeClient();
-        lc.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ListeResponsable lr = new ListeResponsable();
-        lr.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenu5MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu5MouseReleased
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        ListeAlert la = new ListeAlert();
-        la.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenu5MenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenu5MenuSelected
-
-    }//GEN-LAST:event_jMenu5MenuSelected
-
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-
-    }//GEN-LAST:event_jMenu5ActionPerformed
-
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        OffreSuperAdmin os = new OffreSuperAdmin();
-        os.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu8MouseClicked
-
-    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem6ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
               // TODO add your handling code here:
         int[] p = new int[9];
-         if (jCheckBox1.isSelected()){
-                p[0]=1;
-            }else{
-                p[0]=0;
-            }
-         if (jCheckBox2.isSelected()){
-                p[1]=1;
-            }else{
-                p[1]=0;
-            }
-         if (jCheckBox5.isSelected()){
+        
+         if (consultfacture.isSelected()){
                 p[2]=1;
             }else{
                 p[2]=0;
             }
-         if (jCheckBox6.isSelected()){
+         if (gererfacture.isSelected()){
                 p[3]=1;
             }else{
                 p[3]=0;
             }
-         if (jCheckBox3.isSelected()){
-                p[4]=1;
-            }else{
-                p[4]=0;
-            }
-         if (jCheckBox4.isSelected()){
-                p[5]=1;
-            }else{
-                p[5]=0;
-            }
-         if (jCheckBox7.isSelected()){
-                p[6]=1;
-            }else{
-                p[6]=0;
-            }
-         if (jCheckBox8.isSelected()){
+         if (rapport.isSelected()){
                 p[7]=1;
             }else{
                 p[7]=0;
             }
-          if (jCheckBox9.isSelected()){
+         if (stat.isSelected()){
                 p[8]=1;
             }else{
                 p[8]=0;
+            }
+         if (responsable.isSelected()){
+                p[4]=1;
+            }else{
+                p[4]=0;
+            }
+         if (client.isSelected()){
+                p[5]=1;
+            }else{
+                p[5]=0;
+            }
+          if (alerte.isSelected()){
+                p[6]=1;
+            }else{
+                p[6]=0;
             }
          
          PrivilegeListAdministrateurDAO priv = new PrivilegeListAdministrateurDAO();
@@ -484,109 +396,108 @@ public class PrivilegeSuperAdmin extends javax.swing.JFrame {
         System.out.println(jList1.getSelectedValue());
         p=c.getprivilege((String) jList1.getSelectedValue());
         for (int i=0;i<=p.length;i++){
-            if (p[0]==1){
-                jCheckBox1.setSelected(true);
-            }else{
-                jCheckBox1.setSelected(false);
-            }
-            if (p[1]==1){
-                jCheckBox2.setSelected(true);
-            }else{
-                jCheckBox2.setSelected(false);
-            }
+        
             if (p[2]==1){
-                jCheckBox5.setSelected(true);
+                consultfacture.setSelected(true);
             }else{
-                jCheckBox5.setSelected(false);
+                consultfacture.setSelected(false);
             }
             if (p[3]==1){
-                jCheckBox6.setSelected(true);
+                gererfacture.setSelected(true);
             }else{
-                jCheckBox6.setSelected(false);
-            }
-            if (p[4]==1){
-                jCheckBox3.setSelected(true);
-            }else{
-                jCheckBox3.setSelected(false);
-            }
-            if (p[5]==1){
-                jCheckBox4.setSelected(true);
-            }else{
-                jCheckBox4.setSelected(false);
-            }
-            if (p[6]==1){
-                jCheckBox7.setSelected(true);
-            }else{
-                jCheckBox7.setSelected(false);
+                gererfacture.setSelected(false);
             }
             if (p[7]==1){
-                jCheckBox8.setSelected(true);
+                rapport.setSelected(true);
             }else{
-                jCheckBox8.setSelected(false);
+                rapport.setSelected(false);
             }
             if (p[8]==1){
-                jCheckBox9.setSelected(true);
+                stat.setSelected(true);
             }else{
-                jCheckBox9.setSelected(false);
+                stat.setSelected(false);
+            }
+            if (p[4]==1){
+                responsable.setSelected(true);
+            }else{
+                responsable.setSelected(false);
+            }
+            if (p[5]==1){
+                client.setSelected(true);
+            }else{
+                client.setSelected(false);
+            }
+            if (p[6]==1){
+                alerte.setSelected(true);
+            }else{
+                alerte.setSelected(false);
             }
         
        }
     }//GEN-LAST:event_jList1MouseClicked
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
-
-    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+    private void consultfactureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultfactureActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox2ActionPerformed
+    }//GEN-LAST:event_consultfactureActionPerformed
 
-    private void jCheckBox1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jCheckBox1StateChanged
-        
-    }//GEN-LAST:event_jCheckBox1StateChanged
-
-    private void jCheckBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox5ActionPerformed
+    private void gererfactureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gererfactureActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox5ActionPerformed
+    }//GEN-LAST:event_gererfactureActionPerformed
 
-    private void jCheckBox6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox6ActionPerformed
+    private void rapportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rapportActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox6ActionPerformed
+    }//GEN-LAST:event_rapportActionPerformed
 
-    private void jCheckBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox3ActionPerformed
+    private void statActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_statActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox3ActionPerformed
+    }//GEN-LAST:event_statActionPerformed
 
-    private void jCheckBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox4ActionPerformed
+    private void responsableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_responsableActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox4ActionPerformed
+    }//GEN-LAST:event_responsableActionPerformed
 
-    private void jCheckBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox7ActionPerformed
+    private void clientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox7ActionPerformed
+    }//GEN-LAST:event_clientActionPerformed
 
-    private void jCheckBox8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox8ActionPerformed
+    private void alerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alerteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox8ActionPerformed
+    }//GEN-LAST:event_alerteActionPerformed
 
-    private void jCheckBox9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jCheckBox9ActionPerformed
-
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
-authentification a = new authentification();
-        a.setVisible(true);
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        ListeClient lc = new ListeClient();
+        lc.setVisible(true);
         this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
-// TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        ListeResponsable lr = new ListeResponsable();
+        lr.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu12ActionPerformed
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
+        ListAdmin la = new ListAdmin();
+        la.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu10MouseClicked
         PrivilegeSuperAdmin pa = new PrivilegeSuperAdmin();
         pa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu12ActionPerformed
+    }//GEN-LAST:event_jMenu10MouseClicked
+
+    private void jMenu10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu10ActionPerformed
+
+    }//GEN-LAST:event_jMenu10ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        authentification a = new authentification();
+        a.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -624,31 +535,20 @@ authentification a = new authentification();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JCheckBox alerte;
+    private javax.swing.JCheckBox client;
+    private javax.swing.JCheckBox consultfacture;
+    private javax.swing.JCheckBox gererfacture;
     private javax.swing.JButton jButton1;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
-    private javax.swing.JCheckBox jCheckBox3;
-    private javax.swing.JCheckBox jCheckBox4;
-    private javax.swing.JCheckBox jCheckBox5;
-    private javax.swing.JCheckBox jCheckBox6;
-    private javax.swing.JCheckBox jCheckBox7;
-    private javax.swing.JCheckBox jCheckBox8;
-    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu10;
-    private javax.swing.JMenu jMenu11;
-    private javax.swing.JMenu jMenu12;
+    private javax.swing.JMenu jMenu13;
+    private javax.swing.JMenu jMenu14;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -661,5 +561,8 @@ authentification a = new authentification();
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JCheckBox rapport;
+    private javax.swing.JCheckBox responsable;
+    private javax.swing.JCheckBox stat;
     // End of variables declaration//GEN-END:variables
 }
