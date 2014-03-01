@@ -63,6 +63,7 @@ public class Profil extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -209,6 +210,14 @@ public class Profil extends javax.swing.JFrame {
         });
         jMenuBar3.add(jMenu3);
 
+        jMenu4.setText("Contact");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu4);
+
         jMenu1.setText("Paramètres");
 
         jMenuItem1.setText("Profil");
@@ -311,6 +320,12 @@ public class Profil extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenu3MouseClicked
 
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        MailJframe mj = new MailJframe();
+        mj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
         p.setVisible(true);
@@ -329,7 +344,7 @@ public class Profil extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        acceuilclient ac = new acceuilclient();
+         acceuilclient ac = new acceuilclient();
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
@@ -379,6 +394,7 @@ public class Profil extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;

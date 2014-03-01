@@ -23,36 +23,28 @@ import java.util.List;
  */
 public class ReservationDAO {
     private int id_res;
-     public void insertReservation(Reservation r){
+    public void insertReservation(Reservation r){
            // DepotDAO depdao=new DepotDAO();
 
-         String requete;
-        requete = "insert into reservation (id_res,typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel,E_mail,id_offre,nbrVoyageur,id_annonce,date) values (?,?,?,?,?,?,?)";
+         String requete = "insert into reservation (typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel,E_mail,id_offre,nbrVoyageur) values (?,?,?,?,?,?,?)";
         try { //dep=depdao.findDepotById(st.getDepot().getId_dep());
             PreparedStatement ps = ConnectionBD .getInstance().prepareStatement(requete);
-            ps.setInt(1, r.getIdRes());
+            ps.setString(1, r.getTypeDeCarte());
+            ps.setInt(2, r.getNumCarte());
             java.util.Calendar cal = Calendar.getInstance();
             cal.setTime(r.getDateValidité());
-            ps.setDate(2, new Date(cal.getTime().getTime()));
-            ps.setString(3, r.getE_mail());
-            ps.setString(4, r.getTypeDeCarte());
-            ps.setInt(5, r.getNumCarte());
-            
-            
-            ps.setString(6, r.getCryptogrammevisuel());
-            
-            
+            ps.setDate(3, new Date(cal.getTime().getTime()));
+            ps.setString(4, r.getCryptogrammevisuel());
+            ps.setString(5, r.getE_mail());
+            ps.setInt(6, r.getId_offre());
             ps.setInt(7, r.getNbrvoyageur());
-            ps.setInt(8, r.getId_offre());
-            ps.setInt(9, r.getId_annonce());
-            
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
-    }
+     }
 
    
    

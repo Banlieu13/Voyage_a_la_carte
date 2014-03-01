@@ -37,10 +37,15 @@ public class InfoOffre extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         res = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList();
+        jButton1 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -67,7 +72,7 @@ public class InfoOffre extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Commenter");
@@ -77,6 +82,17 @@ public class InfoOffre extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Programme");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        jScrollPane2.setViewportView(jList1);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 330, 410));
+
+        jButton1.setText("Signaler commentaire");
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Commentaire");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,6 +117,14 @@ public class InfoOffre extends javax.swing.JFrame {
             }
         });
         jMenuBar3.add(jMenu3);
+
+        jMenu4.setText("Contact");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu4);
 
         jMenu1.setText("Paramètres");
 
@@ -138,13 +162,25 @@ public class InfoOffre extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         authentification a = new authentification();
         this.setLocationRelativeTo(null);
-        this.setSize(480, 600);
+        this.setSize(800, 600);
         this.setResizable(false);
         acceuilclient ac = new acceuilclient();
         offreDAO od = new offreDAO();
         res.setText(od.FindOffreById(ac.idoffre));
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       authentification a = new authentification();
+       Commentaire c = new Commentaire();
+       CommentaireDAO cd = new CommentaireDAO();
+       acceuilclient ac = new acceuilclient();
+       c.setComm(jtsujet.getText());
+       c.setE_mail(a.identifiant);
+       c.setId_offre(ac.idoffre);
+       cd.insertcomoffre(c);
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
@@ -157,6 +193,12 @@ public class InfoOffre extends javax.swing.JFrame {
         ca.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        MailJframe mj = new MailJframe();
+        mj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
@@ -176,22 +218,10 @@ public class InfoOffre extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-         acceuilclient ac = new acceuilclient();
+        acceuilclient ac = new acceuilclient();
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       authentification a = new authentification();
-       Commentaire c = new Commentaire();
-       CommentaireDAO cd = new CommentaireDAO();
-       acceuilclient ac = new acceuilclient();
-       c.setComm(jtsujet.getText());
-       c.setE_mail(a.identifiant);
-       c.setId_offre(ac.idoffre);
-       cd.insertcomoffre(c);
-       
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -228,18 +258,23 @@ public class InfoOffre extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jtsujet;
     private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables

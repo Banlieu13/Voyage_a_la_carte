@@ -4,20 +4,20 @@
  */
 package com.edu.gui.Client;
 
-import com.edu.DAO.ClientDAO;
-import com.edu.entities.Client;
+import com.edu.DAO.SignalerDAO;
+import com.edu.entities.Signalisation;
 import com.edu.gui.authentification;
 
 /**
  *
  * @author MrBenrhouma
  */
-public class EditPassowrd extends javax.swing.JFrame {
+public class SignalisationAlert extends javax.swing.JFrame {
 
     /**
-     * Creates new form EditPassowrd
+     * Creates new form SignalisationAlert
      */
-    public EditPassowrd() {
+    public SignalisationAlert() {
         initComponents();
     }
 
@@ -32,13 +32,10 @@ public class EditPassowrd extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        valider = new javax.swing.JButton();
-        annuler = new javax.swing.JButton();
-        mesage = new javax.swing.JLabel();
-        jtancienpasw = new javax.swing.JPasswordField();
-        jtnewpasw = new javax.swing.JPasswordField();
-        jtconfirpasw = new javax.swing.JPasswordField();
+        cbtype = new javax.swing.JComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtsujet = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -50,7 +47,7 @@ public class EditPassowrd extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Modification mot de passe");
+        setTitle("Signaler");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -58,39 +55,30 @@ public class EditPassowrd extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Confirmer mot de passe");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setText("Type");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Ancien mot de passe");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setText("Sujet");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Nouveau mot de passe");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+        cbtype.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Politique", "Faux profil", "Impoli", " ", " ", " " }));
+        getContentPane().add(cbtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, -1, -1));
 
-        valider.setText("Enregistrer les modifications");
-        valider.addActionListener(new java.awt.event.ActionListener() {
+        jtsujet.setColumns(20);
+        jtsujet.setRows(5);
+        jScrollPane1.setViewportView(jtsujet);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 310, -1));
+
+        jButton1.setText("Envoyer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                validerActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(valider, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
-
-        annuler.setText("Annuler");
-        annuler.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                annulerActionPerformed(evt);
-            }
-        });
-        getContentPane().add(annuler, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, -1, -1));
-
-        mesage.setForeground(new java.awt.Color(255, 0, 51));
-        getContentPane().add(mesage, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
-        getContentPane().add(jtancienpasw, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 170, -1));
-        getContentPane().add(jtnewpasw, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 170, -1));
-        getContentPane().add(jtconfirpasw, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 170, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -157,37 +145,6 @@ public class EditPassowrd extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerActionPerformed
-        ClientDAO cd = new ClientDAO();
-        Client c = new Client();
-        authentification a = new authentification();
-        c = cd.chercherClient(a.identifiant);
-        if (jtancienpasw.getText().equals(c.getPassword())==false) {
-            mesage.setText("Veuillez vérifier votre mot de passe actuelle");
-        }
-        if (jtancienpasw.getText().equals(c.getPassword())&&(jtnewpasw.getText().equals(jtconfirpasw.getText()))) {
-            cd.updatePassword(a.identifiant, jtnewpasw.getText());
-            mesage.setText("Modification effectuée avec succée");
-        }
-        
-        if (jtnewpasw.getText().equals(jtconfirpasw.getText()) == false) {
-            mesage.setText("Vérifier le nouveau mot de passe et la confirmation");
-        }
-        
-    }//GEN-LAST:event_validerActionPerformed
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        this.setLocationRelativeTo(null);
-        this.setSize(500, 340);
-        this.setResizable(false);
-    }//GEN-LAST:event_formWindowOpened
-
-    private void annulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annulerActionPerformed
-        jtancienpasw.setText(null);
-        jtconfirpasw.setText(null);
-        jtnewpasw.setText(null);
-    }//GEN-LAST:event_annulerActionPerformed
-
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
         po.setVisible(true);
@@ -223,8 +180,29 @@ public class EditPassowrd extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Signalisation s = new Signalisation();
+        SignalerDAO sd = new SignalerDAO();
         acceuilclient ac = new acceuilclient();
+        authentification a = new authentification();
+        s.setE_mail(a.identifiant);
+        s.setSujet(jtsujet.getText());
+        s.setType((String) cbtype.getSelectedItem());
+        s.setId_offre(ac.idoffre);
+        //s.setId_com();
+        //s.setId_annonce(null);
+        sd.insertSignaloffre(s);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        authentification a = new authentification();
+        this.setLocationRelativeTo(null);
+        this.setSize(500, 400);
+        this.setResizable(false);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+         acceuilclient ac = new acceuilclient();
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
@@ -246,28 +224,28 @@ public class EditPassowrd extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EditPassowrd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignalisationAlert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EditPassowrd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignalisationAlert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EditPassowrd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignalisationAlert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EditPassowrd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SignalisationAlert.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EditPassowrd().setVisible(true);
+                new SignalisationAlert().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton annuler;
+    private javax.swing.JComboBox cbtype;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -277,10 +255,7 @@ public class EditPassowrd extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JPasswordField jtancienpasw;
-    private javax.swing.JPasswordField jtconfirpasw;
-    private javax.swing.JPasswordField jtnewpasw;
-    private javax.swing.JLabel mesage;
-    private javax.swing.JButton valider;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jtsujet;
     // End of variables declaration//GEN-END:variables
 }

@@ -54,6 +54,7 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -117,6 +118,14 @@ public class ReservationAnnonce extends javax.swing.JFrame {
             }
         });
         jMenuBar3.add(jMenu3);
+
+        jMenu4.setText("Contact");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu4);
 
         jMenu1.setText("Paramètres");
 
@@ -268,11 +277,14 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         ConsulterAnnonces ac = new ConsulterAnnonces();
+        List<Integer> l = new ArrayList<Integer>();
+            
+               for (int i = 1; i <=ac.nbr ; i++) {
+                  nbrvoyageur.addItem(i);
+               }
+    }//GEN-LAST:event_formWindowOpened
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
@@ -285,6 +297,12 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         ca.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        MailJframe mj = new MailJframe();
+        mj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
@@ -303,14 +321,11 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-         ConsulterAnnonces ac = new ConsulterAnnonces();
-        List<Integer> l = new ArrayList<Integer>();
-            
-               for (int i = 1; i <=ac.nbr ; i++) {
-                  nbrvoyageur.addItem(i);
-               }
-    }//GEN-LAST:event_formWindowOpened
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+         acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -360,6 +375,7 @@ public class ReservationAnnonce extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;

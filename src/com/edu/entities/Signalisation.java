@@ -14,6 +14,10 @@ public class Signalisation {
     private String type;
     private String E_mail;
     private String E_mailR;
+    private int id_offre;
+    private int id_annonce;
+    private int id_dest;
+    private int id_com;
 
     public Signalisation(String sujet, String type) {
         this.sujet = sujet;
@@ -22,6 +26,44 @@ public class Signalisation {
 
     public Signalisation() {
     }
+
+    public int getId_com() {
+        return id_com;
+    }
+
+    public void setId_com(int id_com) {
+        this.id_com = id_com;
+    }
+    
+    
+    
+
+    public int getId_offre() {
+        return id_offre;
+    }
+
+    public int getId_annonce() {
+        return id_annonce;
+    }
+
+    public int getId_dest() {
+        return id_dest;
+    }
+
+    public void setId_offre(int id_offre) {
+        this.id_offre = id_offre;
+    }
+
+    public void setId_annonce(int id_annonce) {
+        this.id_annonce = id_annonce;
+    }
+
+    public void setId_dest(int id_dest) {
+        this.id_dest = id_dest;
+    }
+    
+    
+    
 
     public String getE_mail() {
         return E_mail;
