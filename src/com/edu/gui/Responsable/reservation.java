@@ -144,7 +144,6 @@ public class reservation extends javax.swing.JFrame {
         }
         else
         {
-             
             int IdRes = (int) tr.getValueAt(x, 0);
             System.out.println(IdRes);
             new ReservationDAO().deleteres(IdRes);

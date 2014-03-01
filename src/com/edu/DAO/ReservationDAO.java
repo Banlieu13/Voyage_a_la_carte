@@ -101,5 +101,26 @@ public class ReservationDAO {
             System.out.println("erreur lors de la suppression "+ex.getMessage());
         }
     }
+            
+            public void insertReservationAn(Reservation r){
+        String requete = "insert into reservation (typeDeCarte,numCarte,DateValidité,Cryptogrammevisuel,E_mail,id_annonce,nbrVoyageur) values (?,?,?,?,?,?,?)";
+        try { //dep=depdao.findDepotById(st.getDepot().getId_dep());
+            PreparedStatement ps = ConnectionBD .getInstance().prepareStatement(requete);
+            ps.setString(1, r.getTypeDeCarte());
+            ps.setInt(2, r.getNumCarte());
+            java.util.Calendar cal = Calendar.getInstance();
+            cal.setTime(r.getDateValidité());
+            ps.setDate(3, new Date(cal.getTime().getTime()));
+            ps.setString(4, r.getCryptogrammevisuel());
+            ps.setString(5, r.getE_mail());
+            ps.setInt(6, r.getId_annonce());
+            ps.setInt(7, r.getNbrvoyageur());
+            ps.executeUpdate();
+            System.out.println("Ajout effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de l'insertion "+ex.getMessage());
+        }
+    }
      
 }
