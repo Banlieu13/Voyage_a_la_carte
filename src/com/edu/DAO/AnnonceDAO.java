@@ -75,6 +75,29 @@ public class AnnonceDAO {
             System.out.println("erreur lors de la mise à jour "+ex.getMessage());
         }
     }
+       
+       
+       public String FindannonceById (int id){
+        
+        String prog=""; 
+        String requete = "select programme from annonce where id_annonce="+id;
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+           
+            ResultSet resultat;
+            resultat = ps.executeQuery(requete);
+             while (resultat.next())
+            {
+                prog = resultat.getString(1);
+            }
+            
+            return prog;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des Offres "+ex.getMessage());
+            return null;
+        }
+       }
 
 }
 

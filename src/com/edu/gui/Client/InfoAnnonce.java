@@ -4,25 +4,22 @@
  */
 package com.edu.gui.Client;
 
-import com.edu.entities.Table.TableAffichageAnnonceClient;
-import com.edu.entities.Table.TableOffre;
-import static com.edu.gui.Client.acceuilclient.idoffre;
-import static com.edu.gui.Client.acceuilclient.mailresp;
-import static com.edu.gui.Client.acceuilclient.nbr;
+import com.edu.DAO.AnnonceDAO;
+import com.edu.DAO.CommentaireDAO;
+import com.edu.DAO.offreDAO;
+import com.edu.entities.Commentaire;
 import com.edu.gui.authentification;
 
 /**
  *
  * @author MrBenrhouma
  */
-public class ConsulterAnnonces extends javax.swing.JFrame {
-    public static int idannonce;
-    public static String mailresp;
-    public static int nbr;
+public class InfoAnnonce extends javax.swing.JFrame {
+
     /**
-     * Creates new form ConsulterAnnonces
+     * Creates new form InfoAnnonce
      */
-    public ConsulterAnnonces() {
+    public InfoAnnonce() {
         initComponents();
     }
 
@@ -35,11 +32,12 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        msg = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtsujet = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        res = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -50,7 +48,6 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Annonces");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -58,29 +55,28 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new com.edu.entities.Table.TableAffichageAnnonceClient());
-        jScrollPane1.setViewportView(jTable1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 28, 680, 218));
-
-        jButton2.setText("Réserver");
+        jButton2.setText("Valider Commentaire");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 120, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
 
-        jButton1.setText("+ Infos");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 150, -1, -1));
+        jtsujet.setColumns(20);
+        jtsujet.setRows(5);
+        jScrollPane1.setViewportView(jtsujet);
 
-        msg.setText("jLabel1");
-        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 186, 73));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Commenter");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Programme");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -139,12 +135,23 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         authentification a = new authentification();
-        this.setLocationRelativeTo(null);
-        this.setSize(800, 470);
-        this.setResizable(false);
-    }//GEN-LAST:event_formWindowOpened
+        Commentaire c = new Commentaire();
+        CommentaireDAO cd = new CommentaireDAO();
+        ConsulterAnnonces ac = new ConsulterAnnonces();
+        c.setComm(jtsujet.getText());
+        c.setE_mail(a.identifiant);
+        c.setId_annonce(ac.idannonce);
+        cd.insertcomann(c);
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
@@ -175,54 +182,16 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-         acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        TableAffichageAnnonceClient af = new TableAffichageAnnonceClient();
-        int x = jTable1.getSelectedRow();
-           if(x==-1){
-              msg.setText("Veuillez sélectioner une offre");
-           }
-           else
-           {
-            //lblnbr.setVisible(true);
-            //nbrvoyageur.setVisible(true);
-            //ok.setVisible(true);
-            
-            msg.setText("");
-            nbr = (int) af.getValueAt(x, 4);
-            idannonce = (int) af.getValueAt(x, 0);
-            mailresp =  (String) af.getValueAt(x, 7);
-            ReservationAnnonce pc = new  ReservationAnnonce();
-            pc.setVisible(true);
-            this.setVisible(false);
-           }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TableAffichageAnnonceClient to = new TableAffichageAnnonceClient();
-            
-           int x = jTable1.getSelectedRow();
-           
-           if(x==-1){
-              msg.setText("Veuillez sélectioner une offre");
-           }
-           else
-           {
-           
-           idannonce = (int) to.getValueAt(x, 0);
-           
-           InfoAnnonce ino = new InfoAnnonce(); 
-           System.out.println(idannonce);
-           
-            ino.setVisible(true);
-            this.setVisible(false);
-             }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        authentification a = new authentification();
+        this.setLocationRelativeTo(null);
+        this.setSize(480, 600);
+        this.setResizable(false);
+        ConsulterAnnonces ac = new ConsulterAnnonces();
+        AnnonceDAO od = new AnnonceDAO();
+        res.setText(od.FindannonceById(ac.idannonce));
+        
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -241,26 +210,27 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsulterAnnonces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfoAnnonce.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsulterAnnonces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfoAnnonce.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsulterAnnonces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfoAnnonce.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsulterAnnonces.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfoAnnonce.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsulterAnnonces().setVisible(true);
+                new InfoAnnonce().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -270,7 +240,7 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JLabel msg;
+    private javax.swing.JTextArea jtsujet;
+    private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables
 }

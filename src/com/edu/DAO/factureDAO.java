@@ -31,7 +31,26 @@ public class factureDAO {
             ps.setInt(4,f.getId_offre());
             ps.setString(5,f.getId_agence());
             ps.setString(6,f.getId_client());
-
+            
+            ps.executeUpdate();
+            System.out.println("Ajout effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de l'insertion "+ex.getMessage());
+        }
+    }
+   
+   
+   public void insertFacturean (facture_responsable f){
+        String req ="insert into facture (Id,TVA,Total,Id_agence,id_Client,id_annonce) values (?,?,?,?,?,?)";
+           try { 
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
+            ps.setInt(1,f.getId());
+            ps.setInt(2,f.getTVA());
+            ps.setDouble(3,f.getTotal());
+            ps.setString(4,f.getId_agence());
+            ps.setString(5,f.getId_client());
+            ps.setInt(6, f.getId_annonce());
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {

@@ -250,7 +250,7 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         d1.setNbrvoyageur((int) nbrvoyageur.getSelectedItem());
 
         System.err.println(authentification.identifiant);
-        rd.insertReservation(d1);
+        rd.insertReservationAn(d1);
         ad.updatenbrPlace(nbrvoya, can.idannonce);
         
        ta.listStock = new AnnonceDAO().DisplayAllAnnonce();

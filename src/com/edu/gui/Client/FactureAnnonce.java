@@ -5,6 +5,7 @@
 package com.edu.gui.Client;
 
 import com.edu.DAO.AnnonceDAO;
+import com.edu.DAO.ReservationDAO;
 import com.edu.DAO.factureDAO;
 import com.edu.connection.ConnectionBD;
 import com.edu.entities.facture_responsable;
@@ -1013,6 +1014,7 @@ public class FactureAnnonce extends javax.swing.JFrame {
         authentification a = new authentification();
         ConsulterAnnonces can = new ConsulterAnnonces();
         ReservationAnnonce pc = new ReservationAnnonce();
+     
         //ReservationDAO rd = new ReservationDAO();
         
         double pr=1;
@@ -1071,7 +1073,7 @@ public class FactureAnnonce extends javax.swing.JFrame {
             
         }
             
-             String req4="select programme,prix from annonce where id_annonce = "+can.idannonce;
+             String req4="select programme,prixA from annonce where id_annonce = "+can.idannonce;
             try {
            Statement statement = ConnectionBD.getInstance()
                    .createStatement();
@@ -1110,7 +1112,7 @@ public class FactureAnnonce extends javax.swing.JFrame {
             fr.setId_client(a.identifiant);
             fr.setId_annonce(can.idannonce);
             fr.setId_agence(mat);
-            fd.insertFacture(fr);
+            fd.insertFacturean(fr);
             System.out.println("Facture ajouté ******");
 
     }//GEN-LAST:event_formWindowOpened

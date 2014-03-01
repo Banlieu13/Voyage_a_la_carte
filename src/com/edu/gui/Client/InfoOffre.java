@@ -4,7 +4,9 @@
  */
 package com.edu.gui.Client;
 
+import com.edu.DAO.CommentaireDAO;
 import com.edu.DAO.offreDAO;
+import com.edu.entities.Commentaire;
 import com.edu.gui.authentification;
 
 /**
@@ -30,12 +32,11 @@ public class InfoOffre extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jtsujet = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         res = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        like = new javax.swing.JButton();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -54,13 +55,18 @@ public class InfoOffre extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        jtsujet.setColumns(20);
+        jtsujet.setRows(5);
+        jScrollPane1.setViewportView(jtsujet);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 186, 73));
 
         jButton2.setText("Valider Commentaire");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -71,14 +77,6 @@ public class InfoOffre extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Programme");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        like.setText("J'aime");
-        like.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                likeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(like, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -183,9 +181,17 @@ public class InfoOffre extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
 
-    private void likeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_likeActionPerformed
-        like.setVisible(false);
-    }//GEN-LAST:event_likeActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       authentification a = new authentification();
+       Commentaire c = new Commentaire();
+       CommentaireDAO cd = new CommentaireDAO();
+       acceuilclient ac = new acceuilclient();
+       c.setComm(jtsujet.getText());
+       c.setE_mail(a.identifiant);
+       c.setId_offre(ac.idoffre);
+       cd.insertcomoffre(c);
+       
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -234,8 +240,7 @@ public class InfoOffre extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JButton like;
+    private javax.swing.JTextArea jtsujet;
     private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables
 }
