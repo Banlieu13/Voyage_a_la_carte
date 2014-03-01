@@ -16,15 +16,7 @@ public class Responsable {
     private String ville;
     private String password;
     private String MatAgence;
-    private int valide;
-
-    public int getValide() {
-        return valide;
-    }
-
-    public void setValide(int valide) {
-        this.valide = valide;
-    }
+    
 
     public Responsable() {
     }
@@ -32,7 +24,7 @@ public class Responsable {
     
     
     
-    public Responsable(String email, String cin, String nom, String prenom, String ville, String password, String MatAgence, int valide) {
+    public Responsable(String email, String cin, String nom, String prenom, String ville, String password, String MatAgence) {
         this.email = email;
         this.cin = cin;
         this.nom = nom;
@@ -40,7 +32,6 @@ public class Responsable {
         this.ville = ville;
         this.password = password;
         this.MatAgence = MatAgence;
-        this.valide = valide;
     }
 
     public String getMatAgence() {

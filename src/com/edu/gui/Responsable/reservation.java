@@ -4,6 +4,9 @@
  */
 package com.edu.gui.Responsable;
 
+import com.edu.DAO.ReservationDAO;
+import com.edu.entities.Table.TableReservation;
+
 /**
  *
  * @author LENOVO
@@ -29,6 +32,8 @@ public class reservation extends javax.swing.JFrame {
         Deconnexion = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbresrvation = new javax.swing.JTable();
+        supreservation = new javax.swing.JButton();
+        msg2 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Reservation = new javax.swing.JMenu();
         Notification = new javax.swing.JMenu();
@@ -50,7 +55,21 @@ public class reservation extends javax.swing.JFrame {
         tbresrvation.setModel(new com.edu.entities.Table.TableReservation());
         jScrollPane2.setViewportView(tbresrvation);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 620, 370));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 570, 370));
+
+        supreservation.setText("supprimer");
+        supreservation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                supreservationMouseClicked(evt);
+            }
+        });
+        supreservation.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supreservationActionPerformed(evt);
+            }
+        });
+        getContentPane().add(supreservation, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, -1, -1));
+        getContentPane().add(msg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 434, 310, 40));
 
         Reservation.setText("Reservation");
         Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -112,6 +131,32 @@ public class reservation extends javax.swing.JFrame {
 
         //cd.setVisible(true);
     }//GEN-LAST:event_jMenu1ActionPerformed
+ 
+    private void supreservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supreservationMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supreservationMouseClicked
+
+    private void supreservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supreservationActionPerformed
+        TableReservation tr = new TableReservation();
+        int x = tbresrvation.getSelectedRow();
+        if(x==-1){
+            msg2.setText("Veuillez sélectioné une Reservation");
+        }
+        else
+        {
+             
+            int IdRes = (int) tr.getValueAt(x, 0);
+            System.out.println(IdRes);
+            new ReservationDAO().deleteres(IdRes);
+            tr.listeRes = new ReservationDAO().DisplayAllReservation();
+            tbresrvation.setModel(tr);
+            msg2.setText("Suppression effectuée avec succée");
+        }
+        
+        // TODO add your handling code here:
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supreservationActionPerformed
 
     /**
      * @param args the command line arguments
@@ -156,6 +201,8 @@ public class reservation extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel msg2;
+    private javax.swing.JButton supreservation;
     private javax.swing.JTable tbresrvation;
     // End of variables declaration//GEN-END:variables
 }

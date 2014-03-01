@@ -3,7 +3,10 @@
  * and open the template in the editor.
  */
 package com.edu.gui.Responsable;
+import com.edu.DAO.DestinationDAO;
+import com.edu.DAO.ReservationDAO;
 import com.edu.entities.Table.TableDestination;
+import com.edu.entities.Table.TableReservation;
 /**
  *
  * @author LENOVO
@@ -29,6 +32,8 @@ public class tbdestination extends javax.swing.JFrame {
         Deconnexion = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tbdestination = new javax.swing.JTable();
+        supdestination = new javax.swing.JButton();
+        msg1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Reservation = new javax.swing.JMenu();
         Notification = new javax.swing.JMenu();
@@ -51,6 +56,20 @@ public class tbdestination extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tbdestination);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 540, 320));
+
+        supdestination.setText("Supprimer");
+        supdestination.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                supdestinationMouseClicked(evt);
+            }
+        });
+        supdestination.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supdestinationActionPerformed(evt);
+            }
+        });
+        getContentPane().add(supdestination, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, -1, -1));
+        getContentPane().add(msg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, 210, 30));
 
         Reservation.setText("Reservation");
         Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -131,6 +150,32 @@ public class tbdestination extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DestinationMouseClicked
 
+    private void supdestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supdestinationMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supdestinationMouseClicked
+
+    private void supdestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supdestinationActionPerformed
+TableDestination td = new TableDestination();
+        int x = tbdestination.getSelectedRow();
+        if(x==-1){
+            msg1.setText("Veuillez sélectioné une Destination");
+        }
+        else
+        {
+             
+            int IdDes;
+    IdDes = (int) td.getValueAt(x, 0);
+            System.out.println(IdDes);
+            new DestinationDAO().deleteDestination(IdDes);
+            td.listDestination = new DestinationDAO().DisplayAllDestination();
+            tbdestination.setModel(td);
+            msg1.setText("Suppression effectuée avec succée");
+        }
+        
+        
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supdestinationActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -175,6 +220,8 @@ public class tbdestination extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel msg1;
+    private javax.swing.JButton supdestination;
     private javax.swing.JTable tbdestination;
     // End of variables declaration//GEN-END:variables
 }

@@ -12,7 +12,7 @@ import java.sql.Date;
  */
 public class Destination {
     private int IdDest;
-    private String trajet;
+    private String trajetD;
     private String hebergement;
    private static  String programme;
     private static String MoyTransp;
@@ -22,7 +22,7 @@ public class Destination {
 
     public Destination(String trajet, String hebergement, String programme, String MoyTransp, double budget) {
        
-        this.trajet = trajet;
+        this.trajetD = trajetD;
         this.hebergement = hebergement;
         this.programme = programme;
         this.MoyTransp = MoyTransp;
@@ -48,8 +48,8 @@ public class Destination {
         return IdDest;
     }
 
-    public String getTrajet() {
-        return trajet;
+    public String getTrajetD() {
+        return trajetD;
     }
 
     public String getHebergement() {
@@ -72,8 +72,8 @@ public class Destination {
         this.IdDest = IdDest;
     }
 
-    public void setTrajet(String trajet) {
-        this.trajet = trajet;
+    public void setTrajetD(String trajet) {
+        this.trajetD = trajetD;
     }
 
     public void setHebergement(String hebergement) {
@@ -103,7 +103,7 @@ public class Destination {
 */
     @Override
     public String toString() {
-        return "Destination{" + "IdDest=" + IdDest + ", trajet=" + trajet + ", hebergement=" + hebergement + ", programme=" + programme + ", MoyTransp=" + MoyTransp + ", budget=" + budget + '}';
+        return "Destination{" + "IdDest=" + IdDest + ", trajet=" + trajetD + ", hebergement=" + hebergement + ", programme=" + programme + ", MoyTransp=" + MoyTransp + ", budget=" + budget + '}';
     }
 
     

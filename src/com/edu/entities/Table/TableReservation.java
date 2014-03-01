@@ -6,8 +6,9 @@
 package com.edu.entities.Table;
 
 
-import com.edu.DAO.ClientDAO;
+import com.edu.DAO.ReservationDAO;
 import com.edu.entities.Client;
+import com.edu.entities.Reservation;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
@@ -16,14 +17,15 @@ public class TableReservation extends AbstractTableModel {
 
     public List<Client> listClientt = new ArrayList<>();
     String []header = {"ID","Date_Creation","Client","Type_Carte","Num_Carte","Date de Validité","IDOffre"};
+    public List<Reservation> listeRes;
 
     public TableReservation() { 
-        listClientt=new ClientDAO().AfficherClient();
+        listeRes=new ReservationDAO().DisplayAllReservation();
     }
     
     @Override
     public int getRowCount() {
-        return listClientt.size();
+        return listeRes.size();
     }
 
     @Override
@@ -35,17 +37,23 @@ public class TableReservation extends AbstractTableModel {
     public Object getValueAt(int rowIndex, int columnIndex) { 
         switch (columnIndex) {
             case 0:
-                return listClientt.get(rowIndex).getEmail();
+                return listeRes.get(rowIndex).getIdRes();
             case 1:
-                return listClientt.get(rowIndex).getCin();
+                return listeRes.get(rowIndex).getDate();
             case 2:
-                return listClientt.get(rowIndex).getNom();
+                return listeRes.get(rowIndex).getE_mail();
             case 3:
-                return listClientt.get(rowIndex).getPrenom();
+                return listeRes.get(rowIndex).getTypeDeCarte();
             case 4:
-                return listClientt.get(rowIndex).getVille();
+                return listeRes.get(rowIndex).getNumCarte();
             case 5:
-                return listClientt.get(rowIndex).getPassword();
+                return listeRes.get(rowIndex).getDateValidité();
+             case 6:
+                return listeRes.get(rowIndex).getCryptogrammevisuel();
+            case 7:
+                return listeRes.get(rowIndex).getId_offre();
+                case 8:
+                return listeRes.get(rowIndex).getId_annonce();
             default:
                 return null;
         }
@@ -58,4 +66,5 @@ public class TableReservation extends AbstractTableModel {
     
 
 }
+
 

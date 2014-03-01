@@ -19,7 +19,7 @@ public class TableDestination extends AbstractTableModel {
     String []header = {"ID_dest","TrajetD","Hebergement","Programme","Moy_transport","Budget","E_mail"};
 
     public TableDestination() { 
-        listDestination=new DestinationDAO().AfficherDestination();
+        listDestination=new DestinationDAO().DisplayAllDestination();
     }
     
     @Override
@@ -38,7 +38,7 @@ public class TableDestination extends AbstractTableModel {
             case 0:
                 return listDestination.get(rowIndex).getIdDest();
             case 1:
-                return listDestination.get(rowIndex).getTrajet();
+                return listDestination.get(rowIndex).getTrajetD();
             case 2:
                 return listDestination.get(rowIndex).getHebergement();
             case 3:
@@ -49,6 +49,7 @@ public class TableDestination extends AbstractTableModel {
                 return listDestination.get(rowIndex).getBudget();
             case 6:
                 return listDestination.get(rowIndex).getE_mail();
+                
             default:
                 return null;
         }
