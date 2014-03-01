@@ -4,19 +4,20 @@
  */
 package com.edu.gui.Client;
 
-import com.edu.DAO.offreDAO;
+import com.edu.DAO.ClientDAO;
+import com.edu.entities.Client;
 import com.edu.gui.authentification;
 
 /**
  *
  * @author MrBenrhouma
  */
-public class InfoOffre extends javax.swing.JFrame {
+public class EditPassowrd extends javax.swing.JFrame {
 
     /**
-     * Creates new form InfoOffre
+     * Creates new form EditPassowrd
      */
-    public InfoOffre() {
+    public EditPassowrd() {
         initComponents();
     }
 
@@ -29,13 +30,15 @@ public class InfoOffre extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        res = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        like = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        valider = new javax.swing.JButton();
+        annuler = new javax.swing.JButton();
+        mesage = new javax.swing.JLabel();
+        jtancienpasw = new javax.swing.JPasswordField();
+        jtnewpasw = new javax.swing.JPasswordField();
+        jtconfirpasw = new javax.swing.JPasswordField();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -46,7 +49,7 @@ public class InfoOffre extends javax.swing.JFrame {
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Commentaire");
+        setTitle("Modification mot de passe");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -54,31 +57,39 @@ public class InfoOffre extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 186, 73));
-
-        jButton2.setText("Valider Commentaire");
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
-
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Commenter");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
-        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 36, -1, -1));
+        jLabel1.setText("Confirmer mot de passe");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Programme");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jLabel2.setText("Ancien mot de passe");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
-        like.setText("J'aime");
-        like.addActionListener(new java.awt.event.ActionListener() {
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Nouveau mot de passe");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
+
+        valider.setText("Enregistrer les modifications");
+        valider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                likeActionPerformed(evt);
+                validerActionPerformed(evt);
             }
         });
-        getContentPane().add(like, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 280, -1, -1));
+        getContentPane().add(valider, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+
+        annuler.setText("Annuler");
+        annuler.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                annulerActionPerformed(evt);
+            }
+        });
+        getContentPane().add(annuler, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, -1, -1));
+
+        mesage.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(mesage, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
+        getContentPane().add(jtancienpasw, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 170, -1));
+        getContentPane().add(jtnewpasw, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 120, 170, -1));
+        getContentPane().add(jtconfirpasw, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 170, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -137,16 +148,36 @@ public class InfoOffre extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+    private void validerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_validerActionPerformed
+        ClientDAO cd = new ClientDAO();
+        Client c = new Client();
         authentification a = new authentification();
-        this.setLocationRelativeTo(null);
-        this.setSize(480, 600);
-        this.setResizable(false);
-        acceuilclient ac = new acceuilclient();
-        offreDAO od = new offreDAO();
-        res.setText(od.FindOffreById(ac.idoffre));
+        c = cd.chercherClient(a.identifiant);
+        if (jtancienpasw.getText().equals(c.getPassword())==false) {
+            mesage.setText("Veuillez vérifier votre mot de passe actuelle");
+        }
+        if (jtancienpasw.getText().equals(c.getPassword())&&(jtnewpasw.getText().equals(jtconfirpasw.getText()))) {
+            cd.updatePassword(a.identifiant, jtnewpasw.getText());
+            mesage.setText("Modification effectuée avec succée");
+        }
         
+        if (jtnewpasw.getText().equals(jtconfirpasw.getText()) == false) {
+            mesage.setText("Vérifier le nouveau mot de passe et la confirmation");
+        }
+        
+    }//GEN-LAST:event_validerActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        this.setLocationRelativeTo(null);
+        this.setSize(500, 340);
+        this.setResizable(false);
     }//GEN-LAST:event_formWindowOpened
+
+    private void annulerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_annulerActionPerformed
+        jtancienpasw.setText(null);
+        jtconfirpasw.setText(null);
+        jtnewpasw.setText(null);
+    }//GEN-LAST:event_annulerActionPerformed
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
@@ -178,14 +209,10 @@ public class InfoOffre extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-         acceuilclient ac = new acceuilclient();
+        acceuilclient ac = new acceuilclient();
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void likeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_likeActionPerformed
-        like.setVisible(false);
-    }//GEN-LAST:event_likeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,27 +231,28 @@ public class InfoOffre extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InfoOffre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditPassowrd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InfoOffre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditPassowrd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InfoOffre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditPassowrd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InfoOffre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EditPassowrd.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InfoOffre().setVisible(true);
+                new EditPassowrd().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton annuler;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -233,9 +261,10 @@ public class InfoOffre extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JButton like;
-    private javax.swing.JLabel res;
+    private javax.swing.JPasswordField jtancienpasw;
+    private javax.swing.JPasswordField jtconfirpasw;
+    private javax.swing.JPasswordField jtnewpasw;
+    private javax.swing.JLabel mesage;
+    private javax.swing.JButton valider;
     // End of variables declaration//GEN-END:variables
 }

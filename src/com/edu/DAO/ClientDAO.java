@@ -100,6 +100,7 @@ public class ClientDAO {
                             c.setNom(resultat.getString(3));
                             c.setPrenom(resultat.getString(4));
                             c.setVille(resultat.getString(5));
+                            c.setPassword(resultat.getString(6));
                         }
                         return c;
 
@@ -126,5 +127,16 @@ public class ClientDAO {
             System.out.println("erreur lors de la mise à jour "+ex.getMessage());
         }
     }
-    
+     public void updatePassword(String mail,String password){
+        String requete = "update client set mot_de_passe=? where E_mail='"+mail+"'";
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+            ps.setString(1, password);
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+        }
+    }
 }

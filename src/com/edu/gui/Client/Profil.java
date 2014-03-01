@@ -46,9 +46,23 @@ public class Profil extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         btnvalider = new javax.swing.JButton();
+        jlmail = new javax.swing.JLabel();
+        jlCIN = new javax.swing.JLabel();
+        jlnom = new javax.swing.JLabel();
+        jlprenom = new javax.swing.JLabel();
+        jlville = new javax.swing.JLabel();
+        modcin = new javax.swing.JLabel();
+        modnom = new javax.swing.JLabel();
+        modpren = new javax.swing.JLabel();
+        modville = new javax.swing.JLabel();
+        modmail7 = new javax.swing.JLabel();
+        jlclient = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -62,44 +76,121 @@ public class Profil extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        profil.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
+        profil.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         profil.setText("Information");
-        getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
-        getContentPane().add(tfcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 160, -1));
-        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 160, -1));
-        getContentPane().add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 160, -1));
-        getContentPane().add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 160, -1));
-        getContentPane().add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, 160, -1));
+        getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        getContentPane().add(tfcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 160, -1));
+        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 160, -1));
+        getContentPane().add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 160, -1));
+        getContentPane().add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 160, -1));
+        getContentPane().add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 160, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Nom");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Prénom");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("CIN");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Ville");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("E_mail");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
-        btnvalider.setText("Valider");
+        btnvalider.setText("Enregistrer les modifications");
         btnvalider.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnvaliderActionPerformed(evt);
             }
         });
-        getContentPane().add(btnvalider, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
+        getContentPane().add(btnvalider, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 530, -1, -1));
+
+        jlmail.setText("jLabel1");
+        getContentPane().add(jlmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
+
+        jlCIN.setText("jLabel6");
+        getContentPane().add(jlCIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
+
+        jlnom.setText("jLabel8");
+        getContentPane().add(jlnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
+
+        jlprenom.setText("jLabel9");
+        getContentPane().add(jlprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
+
+        jlville.setText("jLabel10");
+        getContentPane().add(jlville, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
+
+        modcin.setForeground(new java.awt.Color(0, 153, 255));
+        modcin.setText("Modifier");
+        modcin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modcinMouseClicked(evt);
+            }
+        });
+        getContentPane().add(modcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 190, -1, -1));
+
+        modnom.setForeground(new java.awt.Color(0, 153, 255));
+        modnom.setText("Modifier");
+        modnom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modnomMouseClicked(evt);
+            }
+        });
+        getContentPane().add(modnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, -1, -1));
+
+        modpren.setForeground(new java.awt.Color(0, 153, 255));
+        modpren.setText("Modifier");
+        modpren.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modprenMouseClicked(evt);
+            }
+        });
+        getContentPane().add(modpren, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, -1, -1));
+
+        modville.setForeground(new java.awt.Color(0, 153, 255));
+        modville.setText("Modifier");
+        modville.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modvilleMouseClicked(evt);
+            }
+        });
+        getContentPane().add(modville, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 390, -1, -1));
+
+        modmail7.setForeground(new java.awt.Color(0, 153, 255));
+        modmail7.setText("Modifier");
+        modmail7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modmail7MouseClicked(evt);
+            }
+        });
+        getContentPane().add(modmail7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
+
+        jlclient.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jlclient.setForeground(new java.awt.Color(255, 0, 51));
+        jlclient.setText("jLabel1");
+        getContentPane().add(jlclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 17, -1, 30));
+
+        message.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        message.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, -1, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\infocompte.jpg")); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, -1, -1));
 
         jMenu2.setText("Acceuil");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
         jMenuBar3.add(jMenu2);
 
         jMenu8.setText("Proposer offre");
@@ -109,6 +200,14 @@ public class Profil extends javax.swing.JFrame {
             }
         });
         jMenuBar3.add(jMenu8);
+
+        jMenu3.setText("Annonces");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu3);
 
         jMenu1.setText("Paramètres");
 
@@ -121,6 +220,11 @@ public class Profil extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem3.setText("Changer Mot de passe");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem2.setText("Déconnexion");
@@ -138,11 +242,74 @@ public class Profil extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         this.setLocationRelativeTo(null);
+         this.setSize(600, 650);
+         this.setResizable(false);
+
+         authentification a = new authentification();
+         ClientDAO cd = new ClientDAO();
+         Client c = new Client();
+         c=cd.chercherClient(a.identifiant);
+         jlmail.setText(c.getEmail());
+         jlCIN.setText(c.getCin());
+         jlnom.setText(c.getNom());
+         jlprenom.setText(c.getPrenom());
+         jlville.setText(c.getVille());
+         
+         tfcin.setVisible(false);
+         tfmail.setVisible(false);
+         tfnom.setVisible(false);
+         tfprenom.setVisible(false);
+         tfville.setVisible(false);
+         
+         tfmail.setText(c.getEmail());
+         tfcin.setText(c.getCin());
+         tfnom.setText(c.getNom());
+         tfprenom.setText(c.getPrenom());
+         tfville.setText(c.getVille());
+         jlclient.setText(c.getNom()+" "+c.getPrenom());
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void btnvaliderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaliderActionPerformed
+        authentification a = new authentification();
+        ClientDAO cd = new ClientDAO();
+        cd.updateClient(a.identifiant, tfcin.getText(), tfnom.getText(), tfprenom.getText(), tfville.getText());
+        message.setText("Modification terminé avec succée");
+    }//GEN-LAST:event_btnvaliderActionPerformed
+
+    private void modcinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modcinMouseClicked
+        tfcin.setVisible(true);
+    }//GEN-LAST:event_modcinMouseClicked
+
+    private void modnomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modnomMouseClicked
+        tfnom.setVisible(true);
+    }//GEN-LAST:event_modnomMouseClicked
+
+    private void modprenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modprenMouseClicked
+        tfprenom.setVisible(true);
+    }//GEN-LAST:event_modprenMouseClicked
+
+    private void modvilleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modvilleMouseClicked
+        tfville.setVisible(true);
+    }//GEN-LAST:event_modvilleMouseClicked
+
+    private void modmail7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modmail7MouseClicked
+        tfmail.setVisible(true);
+    }//GEN-LAST:event_modmail7MouseClicked
+
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
         po.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu8MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        ConsulterAnnonces ca = new ConsulterAnnonces();
+        ca.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu3MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
@@ -150,32 +317,22 @@ public class Profil extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        EditPassowrd ep = new EditPassowrd();
+        ep.setVisible(true);
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         authentification a = new authentification();
         a.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
-         authentification a = new authentification();
-         ClientDAO cd = new ClientDAO();
-         Client c = new Client();
-         c=cd.chercherClient(a.identifiant);
-
-         tfmail.setText(c.getEmail());
-         tfcin.setText(c.getCin());
-         tfnom.setText(c.getNom());
-         tfprenom.setText(c.getPrenom());
-         tfville.setText(c.getVille());
-         profil.setText(profil.getText()+" "+c.getNom()+" "+c.getPrenom());
-    }//GEN-LAST:event_formWindowOpened
-
-    private void btnvaliderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaliderActionPerformed
-        authentification a = new authentification();
-        ClientDAO cd = new ClientDAO();
-        cd.updateClient(a.identifiant, tfcin.getText(), tfnom.getText(), tfprenom.getText(), tfville.getText());
-    }//GEN-LAST:event_btnvaliderActionPerformed
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -213,6 +370,7 @@ public class Profil extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnvalider;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -220,11 +378,24 @@ public class Profil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JLabel jlCIN;
+    private javax.swing.JLabel jlclient;
+    private javax.swing.JLabel jlmail;
+    private javax.swing.JLabel jlnom;
+    private javax.swing.JLabel jlprenom;
+    private javax.swing.JLabel jlville;
+    private javax.swing.JLabel message;
+    private javax.swing.JLabel modcin;
+    private javax.swing.JLabel modmail7;
+    private javax.swing.JLabel modnom;
+    private javax.swing.JLabel modpren;
+    private javax.swing.JLabel modville;
     private javax.swing.JLabel profil;
     private javax.swing.JTextField tfcin;
     private javax.swing.JTextField tfmail;

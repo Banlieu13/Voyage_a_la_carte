@@ -16,8 +16,8 @@ import javax.swing.table.AbstractTableModel;
  * @author wassim
  */
 public class TableAffichageAnnonceClient extends AbstractTableModel  {
- List<Annonce> listStock = new ArrayList<>();
-    String []header = {"Date","Trajet","Hotel","Prix"};
+ public List<Annonce> listStock = new ArrayList<>();
+    String []header = {"Num","Date","Créer le","Circuit","Places","Hotel","Prix","Contact"};
 
     public TableAffichageAnnonceClient() { //remplissage de la liste des stocks
         listStock=new AnnonceDAO().DisplayAllAnnonce();
@@ -36,13 +36,21 @@ public class TableAffichageAnnonceClient extends AbstractTableModel  {
     public Object getValueAt(int rowIndex, int columnIndex) { 
         switch (columnIndex) {// parcour par colonne
             case 0://colonne id_Stock
+                return listStock.get(rowIndex).getIdAnnonce();
+            case 1:
                 return listStock.get(rowIndex).getDatean();
-            case 1://colonne type_vetement
-                return listStock.get(rowIndex).getTrajet();
-            case 2://colonne quantité
+            case 2:
+                return listStock.get(rowIndex).getDatecreation();
+            case 3:
+                return listStock.get(rowIndex).getCircuit();
+            case 4:
+                return listStock.get(rowIndex).getNbrplace();
+            case 5:
                 return listStock.get(rowIndex).getHotel();
-            case 3://colonne adresse depot
+            case 6:
                 return listStock.get(rowIndex).getPrix();
+            case 7:
+                return listStock.get(rowIndex).getEmailR();
             default:
                 return null;
         }

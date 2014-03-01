@@ -3,6 +3,7 @@ import com.edu.DAO.ClientDAO;
 import com.edu.DAO.ReservationDAO;
 import com.edu.entities.Offre;
 import com.edu.DAO.offreDAO;
+import com.edu.entities.Annonce;
 import com.edu.entities.Client;
 import com.edu.entities.Reservation;
 import com.edu.entities.Table.TableOffre;
@@ -57,21 +58,17 @@ public class acceuilclient extends javax.swing.JFrame {
         btnSignaler = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         msg = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tfnom = new javax.swing.JLabel();
-        nbrvoyageur = new javax.swing.JComboBox();
-        lblnbr = new javax.swing.JLabel();
         ok = new javax.swing.JButton();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil Client");
@@ -120,11 +117,6 @@ public class acceuilclient extends javax.swing.JFrame {
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, -1, -1));
         getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
 
-        jLabel2.setFont(new java.awt.Font("Tekton Pro", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 51, 255));
-        jLabel2.setText("Like");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 140, -1, -1));
-
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Bienvenue");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
@@ -133,16 +125,6 @@ public class acceuilclient extends javax.swing.JFrame {
         tfnom.setForeground(new java.awt.Color(255, 0, 51));
         tfnom.setText("jLabel4");
         getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
-
-        nbrvoyageur.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nbrvoyageurActionPerformed(evt);
-            }
-        });
-        getContentPane().add(nbrvoyageur, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 250, -1, -1));
-
-        lblnbr.setText("Nombre de(s) voyageurs");
-        getContentPane().add(lblnbr, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, -1, 30));
 
         ok.setText("OK");
         ok.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +145,14 @@ public class acceuilclient extends javax.swing.JFrame {
         });
         jMenuBar3.add(jMenu8);
 
+        jMenu3.setText("Annonces");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu3);
+
         jMenu1.setText("Paramètres");
 
         jMenuItem1.setText("Profil");
@@ -174,6 +164,11 @@ public class acceuilclient extends javax.swing.JFrame {
         jMenu1.add(jMenuItem1);
 
         jMenuItem3.setText("Changer Mot de passe");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem3);
 
         jMenuItem2.setText("Déconnexion");
@@ -185,13 +180,6 @@ public class acceuilclient extends javax.swing.JFrame {
         jMenu1.add(jMenuItem2);
 
         jMenuBar3.add(jMenu1);
-
-        jMenu3.setText("Notification");
-
-        jMenuItem4.setText("Mes réservations");
-        jMenu3.add(jMenuItem4);
-
-        jMenuBar3.add(jMenu3);
 
         setJMenuBar(jMenuBar3);
 
@@ -218,8 +206,7 @@ public class acceuilclient extends javax.swing.JFrame {
         Client c = new Client();
         c=cd.chercherClient(a.identifiant);
         tfnom.setText(c.getNom() +" " +c.getPrenom());
-        lblnbr.setVisible(false);
-        nbrvoyageur.setVisible(false);
+       
         ok.setVisible(false);
         // TODO add your handling code here:
         //  Offre o1;
@@ -308,10 +295,6 @@ public class acceuilclient extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void nbrvoyageurActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nbrvoyageurActionPerformed
-        
-    }//GEN-LAST:event_nbrvoyageurActionPerformed
-
     private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
         authentification a = new authentification();
             ReservationDAO  rd = new ReservationDAO();
@@ -319,19 +302,26 @@ public class acceuilclient extends javax.swing.JFrame {
             TableOffre to = new TableOffre();
             offreDAO ofd = new offreDAO();
             
-            r.setE_mail(a.identifiant);
-            r.setNbrvoyageur((int) nbrvoyageur.getSelectedItem());
-            r.setAcceptation(0);
-            r.setId_offre(idoffre);
-            rd.insertReservation(r);
-            msg.setText("Votre réservation à été traitée avec sucée");
-            ofd.updatenbrPlace((int) nbrvoyageur.getSelectedItem(), idoffre);
+         
             
             to.listOffre = new offreDAO().DisplayAllOffre();
             jTable1.setModel(to);
             PaiementClient pc = new PaiementClient();
             pc.setVisible(true);
     }//GEN-LAST:event_okActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        EditPassowrd ep = new EditPassowrd();
+        ep.setVisible(true);
+
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        ConsulterAnnonces ca = new ConsulterAnnonces();
+        ca.setVisible(true);
+        this.setVisible(false);
+
+    }//GEN-LAST:event_jMenu3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -374,7 +364,6 @@ public class acceuilclient extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
@@ -384,12 +373,9 @@ public class acceuilclient extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
-    private javax.swing.JLabel lblnbr;
     private javax.swing.JLabel msg;
-    private javax.swing.JComboBox nbrvoyageur;
     private javax.swing.JButton ok;
     private javax.swing.JLabel tfnom;
     private javax.swing.JTextField txfCircuit;

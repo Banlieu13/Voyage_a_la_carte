@@ -22,11 +22,23 @@ public class Reservation {
    private int nbrvoyageur;
    private int acceptation;
    private int Id_offre ;
+   private int Id_annonce ;
 
     public Reservation() {
         
     }
 
+    public int getId_annonce() {
+        return Id_annonce;
+    }
+
+    public void setId_annonce(int Id_annonce) {
+        this.Id_annonce = Id_annonce;
+    }
+
+    
+    
+    
     public int getAcceptation() {
         return acceptation;
     }

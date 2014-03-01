@@ -18,10 +18,21 @@ public class facture_responsable {
     private  int id_offre;
     private String id_agence;
   private String id_client;
+  private int id_annonce;
 
    public facture_responsable() {
     }
+
+    public int getId_annonce() {
+        return id_annonce;
+    }
+
+    public void setId_annonce(int id_annonce) {
+        this.id_annonce = id_annonce;
+    }
      
+   
+   
   
     public void setId_client(String id_client) {
         this.id_client = id_client;
