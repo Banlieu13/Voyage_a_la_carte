@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableReservation extends AbstractTableModel {
 
     public List<Client> listClientt = new ArrayList<>();
-    String []header = {"ID","Date_Creation","Client","Type_Carte","Num_Carte","Date de Validité","IDOffre"};
+    String []header = {"Numéro Réservation","Date de Création","Client","Type_Carte","Num_Carte","Date de Validité","IDOffre"};
     public List<Reservation> listeRes;
 
     public TableReservation() { 

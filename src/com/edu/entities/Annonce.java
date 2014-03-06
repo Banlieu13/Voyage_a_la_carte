@@ -4,6 +4,7 @@
  */
 package com.edu.entities;
 
+import java.io.InputStream;
 import java.util.Date;
 import java.util.logging.Logger;
 
@@ -21,7 +22,44 @@ public class Annonce {
     private String Hotel ;
     private double prix;
     private String EmailR;
+     private InputStream photo1;
+    private InputStream photo2;
+    private InputStream photo3;
+    private InputStream photo4;
+    
+    
+    public InputStream getPhoto1() {
+        return photo1;
+    }
 
+    public void setPhoto1(InputStream photo1) {
+        this.photo1 = photo1;
+    }
+
+    public InputStream getPhoto2() {
+        return photo2;
+    }
+
+    public void setPhoto2(InputStream photo2) {
+        this.photo2 = photo2;
+    }
+
+    public InputStream getPhoto3() {
+        return photo3;
+    }
+
+    public void setPhoto3(InputStream photo3) {
+        this.photo3 = photo3;
+    }
+
+    public InputStream getPhoto4() {
+        return photo4;
+    }
+
+    public void setPhoto4(InputStream photo4) {
+        this.photo4 = photo4;
+    }
+   
   
 
     public Annonce() {

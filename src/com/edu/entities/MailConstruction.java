@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.edu.gui.Client;
+package com.edu.entities;
 
+import com.edu.entities.Mail;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;

@@ -1,8 +1,5 @@
 package com.edu.gui.SuperAdmin;
 
-import com.edu.gui.SuperAdmin.ListeResponsable;
-import com.edu.gui.SuperAdmin.ListeClient;
-import com.edu.gui.SuperAdmin.ListeAlert;
 import com.edu.gui.authentification;
 
 /*

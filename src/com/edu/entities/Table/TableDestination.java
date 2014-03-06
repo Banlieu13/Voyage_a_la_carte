@@ -16,7 +16,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableDestination extends AbstractTableModel {
 
     public List<Destination> listDestination = new ArrayList<>();
-    String []header = {"ID_dest","TrajetD","Hebergement","Programme","Moy_transport","Budget","E_mail"};
+    String []header = {"Numéro Destination","Trajet","Hebergement","Programme","Moy_transport","Budget","Contact"};
 
     public TableDestination() { 
         listDestination=new DestinationDAO().DisplayAllDestination();

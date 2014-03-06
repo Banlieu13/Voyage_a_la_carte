@@ -1,7 +1,5 @@
 package com.edu.gui.Responsable;
 
-import com.edu.gui.SuperAdmin.ListeAlert;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -38,6 +36,8 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         Destination = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -105,6 +105,22 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
+        jMenu2.setText("Ajouter annonce");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
+
+        jMenu3.setText("Ajouter Offre");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
+
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -148,6 +164,18 @@ reservation re = new reservation();
         // TODO add your handling code here:
     }//GEN-LAST:event_DestinationMouseClicked
 
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+       AjouterAnnonce aa = new AjouterAnnonce();
+       aa.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        AjouterOffre ao = new AjouterOffre();
+        ao.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -189,6 +217,8 @@ reservation re = new reservation();
     private javax.swing.JMenu Reservation;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanel1;

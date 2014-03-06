@@ -1,22 +1,21 @@
 package com.edu.gui.Client;
 import com.edu.DAO.ClientDAO;
-import com.edu.DAO.ReservationDAO;
-import com.edu.entities.Offre;
 import com.edu.DAO.offreDAO;
-import com.edu.entities.Annonce;
 import com.edu.entities.Client;
-import com.edu.entities.Reservation;
 import com.edu.entities.Table.TableOffre;
 import com.edu.gui.Client.InfoOffre;
 import com.edu.gui.Client.PaiementClient;
 import com.edu.gui.Client.Profil;
 import com.edu.gui.Client.ProposerDestinationClient;
 import com.edu.gui.authentification;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-import javax.swing.ComboBoxModel;
-import javax.swing.JOptionPane;
-import javax.swing.event.ListDataListener;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -60,12 +59,18 @@ public class acceuilclient extends javax.swing.JFrame {
         msg = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         tfnom = new javax.swing.JLabel();
-        ok = new javax.swing.JButton();
+        pic = new javax.swing.JLabel();
+        pic1 = new javax.swing.JLabel();
+        pic2 = new javax.swing.JLabel();
+        pic3 = new javax.swing.JLabel();
+        photoprofil = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -80,13 +85,13 @@ public class acceuilclient extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("+ d'info");
+        jButton2.setText("Programme");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, -1, -1));
 
         jButton1.setText("Rechercher");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -94,17 +99,53 @@ public class acceuilclient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, -1, -1));
-        getContentPane().add(txfCircuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 129, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, -1, -1));
+
+        txfCircuit.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentRemoved(java.awt.event.ContainerEvent evt) {
+                txfCircuitComponentRemoved(evt);
+            }
+        });
+        txfCircuit.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                txfCircuitPropertyChange(evt);
+            }
+        });
+        txfCircuit.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+                txfCircuitAncestorRemoved(evt);
+            }
+        });
+        txfCircuit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txfCircuitKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txfCircuitKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txfCircuitKeyTyped(evt);
+            }
+        });
+        getContentPane().add(txfCircuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 129, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel1.setText("Circuit");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 42, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 42, -1));
 
         jTable1.setModel(new com.edu.entities.Table.TableOffre());
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable1MousePressed(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 119, 500, 210));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 119, 660, 210));
 
         btnSignaler.setText("Signaler");
         btnSignaler.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +153,7 @@ public class acceuilclient extends javax.swing.JFrame {
                 btnSignalerActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSignaler, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 170, -1, -1));
+        getContentPane().add(btnSignaler, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, -1, -1));
 
         jButton4.setText("Réserver");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -120,25 +161,32 @@ public class acceuilclient extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 210, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, -1, -1));
         getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setText("Bienvenue");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         tfnom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfnom.setForeground(new java.awt.Color(255, 0, 51));
         tfnom.setText("jLabel4");
-        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
-        ok.setText("OK");
-        ok.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                okActionPerformed(evt);
-            }
-        });
-        getContentPane().add(ok, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 250, -1, -1));
+        pic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
+
+        pic1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(pic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+
+        pic2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(pic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, -1, -1));
+
+        pic3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(pic3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
+
+        photoprofil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(photoprofil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 100));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -171,6 +219,22 @@ public class acceuilclient extends javax.swing.JFrame {
             }
         });
         jMenuBar3.add(jMenu4);
+
+        jMenu6.setText("Destinations");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu6);
+
+        jMenu5.setText("Mes Destination");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu5);
 
         jMenu1.setText("Paramètres");
 
@@ -212,35 +276,55 @@ public class acceuilclient extends javax.swing.JFrame {
         to.listOffre = od.chercherOffreBycircuit(txfCircuit.getText());
         jTable1.setModel(to);
         
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        authentification a = new authentification();
+            authentification a = new authentification();
+            String fbid=Client.getFbid();
+            System.out.println("idfacebook="+fbid);
+        if (a.isVisible()==true){
+            a.setVisible(false);
+        }
+        
         this.setLocationRelativeTo(null);
         this.setSize(830, 500);
         this.setResizable(false);
         ClientDAO cd = new ClientDAO();
-        Client c = new Client();
-        c=cd.chercherClient(a.identifiant);
-        tfnom.setText(c.getNom() +" " +c.getPrenom());
-       
-        ok.setVisible(false);
-        // TODO add your handling code here:
-        //  Offre o1;
-        //    o1 = new Offre();
-        //      offreDAO   offreDAO = new   offreDAO();
-
-        //   maliste=offreDAO.DisplayAllOffre();
-
-     //   System.out.println(maliste);
-     //   for(int i=0 ;i<maliste.size();i++){
-     //       cmbHotel.addItem(maliste.toArray()[i]);    
-            
-            
         
-        
+        if (Client.getFbem()!=null){
+            URL url; 
+         try {
+             url = new URL("https://graph.facebook.com/"+fbid+"/picture?type=normal");
+               ImageIcon image =  new ImageIcon(url);
+                    JLabel im = new JLabel( image);   
+                    photoprofil.setSize(100, 100);
+             im.setSize(100,100);
+                
+                photoprofil.setIcon(image);
+               
+                photoprofil.repaint();
+             
+         } catch (MalformedURLException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+             Client c =new Client();
+             c=cd.chercherClient(c.getFbem());
+             tfnom.setText(Client.getFbnom());
+        }else{
+            Client c =new Client();
+            c=cd.chercherClient(a.identifiant);
+             tfnom.setText(c.getNom());
+             ImageIcon ima = new ImageIcon();
+            ima = cd.chercherImageClient(a.identifiant);
+             photoprofil.setIcon(ima);
+             pic.setSize(100, 100);
+             pic1.setSize(100, 100);
+             pic2.setSize(100, 100);
+             pic3.setSize(100, 100);
+             photoprofil.setSize(100, 100);
+        }
+      
+    
     }//GEN-LAST:event_formWindowOpened
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
@@ -270,16 +354,7 @@ public class acceuilclient extends javax.swing.JFrame {
             PaiementClient pc = new  PaiementClient();
             pc.setVisible(true);
             this.setVisible(false);
-            /*List<Integer> l = new ArrayList<Integer>();
-            
-               for (int i = 1; i <=nbr ; i++) {
-                  nbrvoyageur.addItem(i);
-               }*/
-            //nbrvoyageur.setMaximumRowCount(nbr);
-            
-            // PaiementClient p = new PaiementClient();
-            // p.setVisible(true);
-           // this.setVisible(false);
+           
     }//GEN-LAST:event_jButton4ActionPerformed
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -313,21 +388,6 @@ public class acceuilclient extends javax.swing.JFrame {
         a.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void okActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okActionPerformed
-        authentification a = new authentification();
-            ReservationDAO  rd = new ReservationDAO();
-            Reservation r = new Reservation();
-            TableOffre to = new TableOffre();
-            offreDAO ofd = new offreDAO();
-            
-         
-            
-            to.listOffre = new offreDAO().DisplayAllOffre();
-            jTable1.setModel(to);
-            PaiementClient pc = new PaiementClient();
-            pc.setVisible(true);
-    }//GEN-LAST:event_okActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         EditPassowrd ep = new EditPassowrd();
@@ -372,6 +432,79 @@ public class acceuilclient extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenu2MouseClicked
 
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        MesDestinations md = new MesDestinations();
+        md.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        Destinations d = new Destinations();
+        d.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void txfCircuitPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_txfCircuitPropertyChange
+             
+        
+    }//GEN-LAST:event_txfCircuitPropertyChange
+
+    private void txfCircuitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfCircuitKeyPressed
+        
+    }//GEN-LAST:event_txfCircuitKeyPressed
+
+    private void txfCircuitKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfCircuitKeyTyped
+         
+    }//GEN-LAST:event_txfCircuitKeyTyped
+
+    private void txfCircuitKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txfCircuitKeyReleased
+        
+        
+        TableOffre to = new TableOffre();
+        offreDAO od = new offreDAO();
+        
+        to.listOffre = od.chercherOffreBycircuit(txfCircuit.getText());
+        jTable1.setModel(to);
+       
+        
+    }//GEN-LAST:event_txfCircuitKeyReleased
+
+    private void txfCircuitComponentRemoved(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_txfCircuitComponentRemoved
+        
+    }//GEN-LAST:event_txfCircuitComponentRemoved
+
+    private void txfCircuitAncestorRemoved(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_txfCircuitAncestorRemoved
+        TableOffre to = new TableOffre();
+        offreDAO od = new offreDAO();
+        to.listOffre = od.DisplayAllOffre();
+    }//GEN-LAST:event_txfCircuitAncestorRemoved
+
+    private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
+        TableOffre to = new TableOffre();
+       
+           int x = jTable1.getSelectedRow();
+           if(x==-1){
+              msg.setText("Veuillez sélectioner une annonce");
+           }
+           else
+           {   
+        idoffre = (int) to.getValueAt(x, 0);
+        offreDAO odo = new offreDAO();
+        
+        List<ImageIcon> l = new ArrayList<ImageIcon>();
+        l = odo.chercherPicOffre(idoffre);
+        //ImageIcon ima1 = new ImageIcon();
+        System.err.println("Debut liste");
+        System.out.println(l.size());
+        pic.setIcon(l.get(0));
+        pic1.setIcon(l.get(1));
+        pic2.setIcon(l.get(2));
+        pic3.setIcon(l.get(3));
+        //an.setPhoto1();
+           }
+            
+    }//GEN-LAST:event_jTable1MousePressed
+
     /**
      * @param args the command line arguments
      */
@@ -404,6 +537,7 @@ public class acceuilclient extends javax.swing.JFrame {
             @Override
             public void run() {
                 new acceuilclient().setVisible(true);
+                
             }
         });
     }
@@ -418,6 +552,8 @@ public class acceuilclient extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
@@ -426,7 +562,11 @@ public class acceuilclient extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel msg;
-    private javax.swing.JButton ok;
+    private javax.swing.JLabel photoprofil;
+    private javax.swing.JLabel pic;
+    private javax.swing.JLabel pic1;
+    private javax.swing.JLabel pic2;
+    private javax.swing.JLabel pic3;
     private javax.swing.JLabel tfnom;
     private javax.swing.JTextField txfCircuit;
     // End of variables declaration//GEN-END:variables

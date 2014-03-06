@@ -4,9 +4,7 @@
  */
 package com.edu.entities.Table;
 
-import com.edu.DAO.ClientDAO;
 import com.edu.DAO.ResponsableDAO;
-import com.edu.entities.Client;
 import com.edu.entities.Responsable;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableResponsable extends AbstractTableModel{
     
     public List<Responsable> listResponsable = new ArrayList<>();
-    String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe","ID_Agence"};
+    String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe","Numéro de l'Agence"};
 
     public TableResponsable() { 
         listResponsable=new ResponsableDAO().AfficherResponsable();

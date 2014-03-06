@@ -20,7 +20,7 @@ public class TableResponsableFacture  extends AbstractTableModel{
 
   public List<facture_responsable> listFacture = new ArrayList<>();
   
-    String []header = {"Id","date","TVA","Total","Id_offre","Id_agence","Id_Client"};
+    String []header = {"Numéro Facture","date","TVA","Total","Id_offre","Id_agence","Id_Client"};
 
     public TableResponsableFacture() { 
         listFacture=new factureDAO().AfficherFacture();

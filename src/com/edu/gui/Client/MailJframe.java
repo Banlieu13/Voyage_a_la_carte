@@ -4,6 +4,8 @@
  */
 package com.edu.gui.Client;
 
+import com.edu.entities.Mail;
+import com.edu.entities.MailConstruction;
 import com.edu.gui.authentification;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -58,12 +60,15 @@ public class MailJframe extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Contact");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -73,9 +78,9 @@ public class MailJframe extends javax.swing.JFrame {
 
         jTextArearObject.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 36)); // NOI18N
-        jLabel1.setText("My Mail");
-        jTextArearObject.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 11, 213, -1));
+        jLabel1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel1.setText("Contact");
+        jTextArearObject.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 11, 90, -1));
 
         jTextMailAddressSender.setEnabled(false);
         jTextMailAddressSender.addActionListener(new java.awt.event.ActionListener() {
@@ -163,6 +168,22 @@ public class MailJframe extends javax.swing.JFrame {
         });
         jMenuBar3.add(jMenu4);
 
+        jMenu6.setText("Destinations");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu6);
+
+        jMenu5.setText("Mes Destination");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu5);
+
         jMenu1.setText("Paramètres");
 
         jMenuItem1.setText("Profil");
@@ -244,6 +265,17 @@ public class MailJframe extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextMailAddressSenderActionPerformed
 
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        authentification a = new authentification();
+        jTextMailAddressSender.setText(a.identifiant);
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
         po.setVisible(true);
@@ -255,6 +287,24 @@ public class MailJframe extends javax.swing.JFrame {
         ca.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        MailJframe mj = new MailJframe();
+        mj.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        Destinations d = new Destinations();
+        d.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        MesDestinations md = new MesDestinations();
+        md.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu5MouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
@@ -272,23 +322,6 @@ public class MailJframe extends javax.swing.JFrame {
         a.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        MailJframe mj = new MailJframe();
-        mj.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        authentification a = new authentification();
-        jTextMailAddressSender.setText(a.identifiant);
-    }//GEN-LAST:event_formWindowOpened
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
 
     public String cleanUrl(URL url){
         
@@ -354,6 +387,8 @@ public class MailJframe extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;

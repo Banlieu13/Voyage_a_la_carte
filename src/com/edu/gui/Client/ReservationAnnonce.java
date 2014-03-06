@@ -55,27 +55,42 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Reservation");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
             }
         });
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Type de carte");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 150, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Numéro de carte");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Date de fin de validité");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, 20));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Cryptogramme visuel");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, -1, -1));
+        getContentPane().add(txfnumCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 104, -1));
+        getContentPane().add(txfCryptogramme, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 104, -1));
 
         cmbCarte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "visa", "MasterCard", "Pay Pal " }));
+        getContentPane().add(cmbCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 150, 104, -1));
 
         jButton1.setLabel("Payer et generer facture");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -83,6 +98,7 @@ public class ReservationAnnonce extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, -1, -1));
 
         jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -90,10 +106,18 @@ public class ReservationAnnonce extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Nombre de(s) voyageur(s)");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 190, -1));
 
-        jLabel1.setText("Données de paiement");
+        getContentPane().add(nbrvoyageur, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 110, -1, -1));
+        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Reservation");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -127,6 +151,22 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         });
         jMenuBar3.add(jMenu4);
 
+        jMenu6.setText("Destinations");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu6);
+
+        jMenu5.setText("Mes Destination");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu5);
+
         jMenu1.setText("Paramètres");
 
         jMenuItem1.setText("Profil");
@@ -156,82 +196,6 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         jMenuBar3.add(jMenu1);
 
         setJMenuBar(jMenuBar3);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 642, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 117, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(60, 60, 60)
-                            .addComponent(nbrvoyageur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(jLabel2)
-                            .addGap(183, 183, 183)
-                            .addComponent(cmbCarte, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(jLabel3)
-                            .addGap(170, 170, 170)
-                            .addComponent(txfnumCarte, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(jLabel4)
-                            .addGap(145, 145, 145)
-                            .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(54, 54, 54)
-                            .addComponent(jLabel5)
-                            .addGap(149, 149, 149)
-                            .addComponent(txfCryptogramme, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(124, 124, 124)
-                            .addComponent(jButton1)
-                            .addGap(37, 37, 37)
-                            .addComponent(jButton2)))
-                    .addGap(0, 117, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 442, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 18, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(59, 59, 59)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6)
-                        .addComponent(nbrvoyageur, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(20, 20, 20)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel2)
-                        .addComponent(cmbCarte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(10, 10, 10)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel3)
-                        .addComponent(txfnumCarte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(40, 40, 40)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel4)
-                        .addComponent(jCalendar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(50, 50, 50)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel5)
-                        .addComponent(txfCryptogramme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGap(90, 90, 90)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jButton1)
-                        .addComponent(jButton2))
-                    .addGap(0, 18, Short.MAX_VALUE)))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -278,13 +242,22 @@ public class ReservationAnnonce extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-         ConsulterAnnonces ac = new ConsulterAnnonces();
+        this.setLocationRelativeTo(null);
+        this.setSize(580, 500);
+        this.setResizable(false); 
+        ConsulterAnnonces ac = new ConsulterAnnonces();
         List<Integer> l = new ArrayList<Integer>();
             
                for (int i = 1; i <=ac.nbr ; i++) {
                   nbrvoyageur.addItem(i);
                }
     }//GEN-LAST:event_formWindowOpened
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
@@ -304,6 +277,18 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenu4MouseClicked
 
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        Destinations d = new Destinations();
+        d.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        MesDestinations md = new MesDestinations();
+        md.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
         p.setVisible(true);
@@ -320,12 +305,6 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         a.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-         acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -376,6 +355,8 @@ public class ReservationAnnonce extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;

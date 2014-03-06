@@ -15,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
 public class MyTableModel extends AbstractTableModel {
 
     public List<Client> listClientt = new ArrayList<>();
-    String []header = {"E_mail","CIN","Nom","Prénom","Ville","Mot de passe"};
+    String []header = {"E_mail","Nom","Prénom","Ville","Mot de passe"};
 
     public MyTableModel() { 
         listClientt=new ClientDAO().AfficherClient();
@@ -36,15 +36,14 @@ public class MyTableModel extends AbstractTableModel {
         switch (columnIndex) {
             case 0:
                 return listClientt.get(rowIndex).getEmail();
+           
             case 1:
-                return listClientt.get(rowIndex).getCin();
-            case 2:
                 return listClientt.get(rowIndex).getNom();
-            case 3:
+            case 2:
                 return listClientt.get(rowIndex).getPrenom();
-            case 4:
+            case 3:
                 return listClientt.get(rowIndex).getVille();
-            case 5:
+            case 4:
                 return listClientt.get(rowIndex).getPassword();
             default:
                 return null;

@@ -7,10 +7,9 @@ package com.edu.gui.Client;
 
 import com.edu.DAO.ReservationDAO;
 import com.edu.DAO.offreDAO;
-import com.edu.entities.Facture;
+
 import com.edu.entities.Reservation;
 import com.edu.entities.Table.TableOffre;
-import static com.edu.gui.Client.acceuilclient.nbr;
 import com.edu.gui.authentification;
 import java.util.ArrayList;
 
@@ -63,6 +62,8 @@ public class PaiementClient extends javax.swing.JFrame {
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
@@ -77,25 +78,30 @@ public class PaiementClient extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setText("Données de paiement");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(36, 27, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Reservation");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Type de carte");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, -1, -1));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel3.setText("Numéro de carte");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 200, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel4.setText("Date de fin de validité");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Cryptogramme visuel");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, -1));
-        getContentPane().add(txfnumCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, 104, -1));
-        getContentPane().add(txfCryptogramme, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 104, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, -1, -1));
+        getContentPane().add(txfnumCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 104, -1));
+        getContentPane().add(txfCryptogramme, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 104, -1));
 
         cmbCarte.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "visa", "MasterCard", "Pay Pal " }));
-        getContentPane().add(cmbCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 104, -1));
+        getContentPane().add(cmbCarte, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 104, -1));
 
         jButton1.setLabel("Payer et generer facture");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -103,7 +109,7 @@ public class PaiementClient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 400, -1, -1));
 
         jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -111,13 +117,14 @@ public class PaiementClient extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel6.setText("Nombre de(s) voyageur(s)");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 190, -1));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, 190, -1));
 
-        getContentPane().add(nbrvoyageur, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, -1, -1));
-        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, -1, -1));
+        getContentPane().add(nbrvoyageur, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, -1, -1));
+        getContentPane().add(jCalendar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -150,6 +157,22 @@ public class PaiementClient extends javax.swing.JFrame {
             }
         });
         jMenuBar3.add(jMenu4);
+
+        jMenu6.setText("Destinations");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu6);
+
+        jMenu5.setText("Mes Destination");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu5);
 
         jMenu1.setText("Paramètres");
 
@@ -189,6 +212,9 @@ public class PaiementClient extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         this.setLocationRelativeTo(null);
+        this.setSize(580, 500);
+        this.setResizable(false); 
         acceuilclient ac = new acceuilclient();
         List<Integer> l = new ArrayList<Integer>();
             
@@ -247,6 +273,12 @@ public class PaiementClient extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
         po.setVisible(true);
@@ -265,6 +297,18 @@ public class PaiementClient extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenu4MouseClicked
 
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        Destinations d = new Destinations();
+        d.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        MesDestinations md = new MesDestinations();
+        md.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
         p.setVisible(true);
@@ -281,12 +325,6 @@ public class PaiementClient extends javax.swing.JFrame {
         a.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-         acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -344,6 +382,8 @@ public class PaiementClient extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;

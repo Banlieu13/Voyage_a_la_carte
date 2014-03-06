@@ -4,29 +4,43 @@
  */
 package com.edu.gui.Client;
 
-import com.edu.DAO.AnnonceDAO;
-import com.edu.DAO.ReservationDAO;
 import com.edu.DAO.factureDAO;
 import com.edu.connection.ConnectionBD;
 import com.edu.entities.facture_responsable;
 import com.edu.gui.authentification;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author MrBenrhouma
  */
 public class FactureAnnonce extends javax.swing.JFrame {
+    //private PrinterJob printerJob;
+    JFrame frameToPrint;
+ 
+    static JFrame SP = new FactureAnnonce();
 
     /**
      * Creates new form FactureAnnonce
      */
     public FactureAnnonce() {
         initComponents();
+    }
+       public FactureAnnonce(JFrame f){
+        frameToPrint = f;
+ 
     }
 
     /**
@@ -145,6 +159,9 @@ public class FactureAnnonce extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setFocusTraversalPolicyProvider(true);
+        setLocationByPlatform(true);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -329,6 +346,11 @@ public class FactureAnnonce extends javax.swing.JFrame {
         jLabel115.setText("_____________________________________________________________________________________________________________________");
 
         jButton1.setText("Imprimer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel36.setText("Designation");
@@ -1011,6 +1033,8 @@ public class FactureAnnonce extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
          this.setLocationRelativeTo(null);
+         this.setSize(650, 640);
+        this.setResizable(false);
         authentification a = new authentification();
         ConsulterAnnonces can = new ConsulterAnnonces();
         ReservationAnnonce pc = new ReservationAnnonce();
@@ -1117,6 +1141,40 @@ public class FactureAnnonce extends javax.swing.JFrame {
 
     }//GEN-LAST:event_formWindowOpened
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JOptionPane.showMessageDialog(null, "hello");
+        PrinterJob PJ   =   PrinterJob.getPrinterJob();
+        PageFormat PF   =   PJ.pageDialog(PJ.defaultPage());
+        PJ.setPrintable((Printable) this);
+        boolean doPrint = PJ.printDialog();
+ 
+        JOptionPane.showMessageDialog(null, doPrint);
+        if(doPrint){
+            try {
+                PJ.print();
+            } catch (PrinterException ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+           }
+        }
+    }
+    public int print(Graphics g, PageFormat pageFormat, int pageIndex) throws PrinterException {
+        if (pageIndex > 0) {
+          return(0);
+        } else {
+          Graphics2D g2d = (Graphics2D)g;
+          g2d.translate(pageFormat.getImageableX(), pageFormat.getImageableY());
+           //Turn off double buffering
+          //componentToBePrinted.paint(g2d);
+          frameToPrint.print(g);
+          SP.print(g);
+           //Turn double buffering back on
+          return(1);
+        }
+      
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+ 
     /**
      * @param args the command line arguments
      */

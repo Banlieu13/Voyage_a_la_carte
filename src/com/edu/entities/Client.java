@@ -4,22 +4,63 @@
  */
 package com.edu.entities;
 
+import java.io.InputStream;
+
 /**
  *
  * @author MrBenrhouma
  */
 public class Client {
     private String email;
-    private String cin;
+   
     private String nom ;
     private String prenom ;
     private String ville;
     private String password;
+    private static String fbem;
+    private static String fbid;
+    private static String fbnom;
+    private InputStream photo;
+
+    public InputStream getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(InputStream photo) {
+        this.photo = photo;
+    }
     
     
-    public Client(String email, String cin, String nom, String prenom, String ville, String password) {
+    
+    public static String getFbnom() {
+        return fbnom;
+    }
+
+    public static void setFbnom(String fbnom) {
+        Client.fbnom = fbnom;
+    }
+    public static String getFbid() {
+        return fbid;
+    }
+
+    public static void setFbid(String fbid) {
+        Client.fbid = fbid;
+    }
+    public static void setFbem(String fbem) {
+        Client.fbem = fbem;
+    }
+
+    public static String getFbem() {
+        return fbem;
+    }
+
+
+   
+    
+    public Client(String email, String nom, String prenom, String ville, String password) {
         this.email = email;
-        this.cin = cin;
+        
+       
         this.nom = nom;
         this.prenom = prenom;
         this.ville = ville;
@@ -34,9 +75,7 @@ public class Client {
         return email;
     }
 
-    public String getCin() {
-        return cin;
-    }
+   
 
     public String getNom() {
         return nom;
@@ -58,9 +97,7 @@ public class Client {
         this.email = email;
     }
 
-    public void setCin(String cin) {
-        this.cin = cin;
-    }
+   
 
     public void setNom(String nom) {
         this.nom = nom;
@@ -80,7 +117,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" + "email=" + email + ", cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", password=" + password + '}';
+        return "Client{" + "email=" + email + ", nom=" + nom + ", prenom=" + prenom + ", ville=" + ville + ", password=" + password + '}';
     }
 
     public void getPrenom(String string) {

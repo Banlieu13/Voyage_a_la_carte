@@ -4,9 +4,10 @@
  */
 package com.edu.gui.Admin;
 
+import com.edu.DAO.GererAlerteDAO;
 import com.edu.DAO.PrivilegeListAdministrateurDAO;
 import com.edu.gui.SuperAdmin.*;
-import com.edu.entities.Table.TableAlertes;
+import com.edu.entities.Table.TableOffreAlertes;
 import com.edu.entities.privilegeAdmin;
 import com.edu.gui.authentification;
 
@@ -14,12 +15,12 @@ import com.edu.gui.authentification;
  *
  * @author MrBenrhouma
  */
-public class ListeAlertAdmin extends javax.swing.JFrame {
+public class ListeOffreAlertes extends javax.swing.JFrame {
 
     /**
      * Creates new form ListeAlert
      */
-    public ListeAlertAdmin() {
+    public ListeOffreAlertes() {
         initComponents();
     }
 
@@ -33,7 +34,10 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tableoffre = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        msg = new javax.swing.JLabel();
         menu = new javax.swing.JMenuBar();
         comptes = new javax.swing.JMenu();
         client = new javax.swing.JMenuItem();
@@ -42,6 +46,10 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
         rapport = new javax.swing.JMenuItem();
         stat = new javax.swing.JMenuItem();
         alerte = new javax.swing.JMenu();
+        OffreAlertes = new javax.swing.JMenuItem();
+        AnnAlertes = new javax.swing.JMenuItem();
+        ComAlertes = new javax.swing.JMenuItem();
+        destAlerte = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenu9 = new javax.swing.JMenu();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -56,10 +64,22 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable1.setModel(new TableAlertes());
-        jScrollPane1.setViewportView(jTable1);
+        tableoffre.setModel(new com.edu.entities.Table.TableOffreAlertes());
+        jScrollPane1.setViewportView(tableoffre);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, 250));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 560, 250));
+
+        jButton1.setText("Détails");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 310, -1, -1));
+
+        jLabel1.setText("Offres Alertes :");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 280, -1));
+        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 200, 20));
 
         comptes.setText("Comptes");
 
@@ -92,28 +112,39 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
         menu.add(rapetstat);
 
         alerte.setText("Gerer les alerts");
-        alerte.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                alerteMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                alerteMouseClicked(evt);
-            }
-        });
-        alerte.addMenuListener(new javax.swing.event.MenuListener() {
-            public void menuCanceled(javax.swing.event.MenuEvent evt) {
-            }
-            public void menuSelected(javax.swing.event.MenuEvent evt) {
-                alerteMenuSelected(evt);
-            }
-            public void menuDeselected(javax.swing.event.MenuEvent evt) {
-            }
-        });
-        alerte.addActionListener(new java.awt.event.ActionListener() {
+
+        OffreAlertes.setText("Offres Alertes");
+        OffreAlertes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alerteActionPerformed(evt);
+                OffreAlertesActionPerformed(evt);
             }
         });
+        alerte.add(OffreAlertes);
+
+        AnnAlertes.setText("Annonces Alertes");
+        AnnAlertes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnnAlertesActionPerformed(evt);
+            }
+        });
+        alerte.add(AnnAlertes);
+
+        ComAlertes.setText("Commentaire Alertes");
+        ComAlertes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComAlertesActionPerformed(evt);
+            }
+        });
+        alerte.add(ComAlertes);
+
+        destAlerte.setText("Destination Alertes");
+        destAlerte.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                destAlerteActionPerformed(evt);
+            }
+        });
+        alerte.add(destAlerte);
+
         menu.add(alerte);
 
         jMenu4.setText("Notification");
@@ -207,23 +238,35 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_responsableActionPerformed
 
-    private void alerteMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alerteMouseReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_alerteMouseReleased
-
-    private void alerteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_alerteMouseClicked
-        ListeAlertAdmin la = new ListeAlertAdmin();
-        la.setVisible(true);
+    private void OffreAlertesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_OffreAlertesActionPerformed
+        ListeOffreAlertes loa = new ListeOffreAlertes();
+        loa.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_alerteMouseClicked
+    }//GEN-LAST:event_OffreAlertesActionPerformed
 
-    private void alerteMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_alerteMenuSelected
+    private void AnnAlertesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnnAlertesActionPerformed
+        ListeAnnonceAlertes laa = new ListeAnnonceAlertes();
+        laa.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_AnnAlertesActionPerformed
 
-    }//GEN-LAST:event_alerteMenuSelected
+    private void ComAlertesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComAlertesActionPerformed
+        ListeCommentaireAlertes lca = new ListeCommentaireAlertes();
+        lca.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ComAlertesActionPerformed
 
-    private void alerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alerteActionPerformed
+    private void destAlerteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_destAlerteActionPerformed
+        ListDistinationAlertes lda = new ListDistinationAlertes();
+        lda.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_destAlerteActionPerformed
 
-    }//GEN-LAST:event_alerteActionPerformed
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        notification n = new notification();
+        n.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         authentification a = new authentification();
@@ -231,11 +274,21 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-         notification n = new notification();
-       n.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        int x = tableoffre.getSelectedRow();
+        if (x<0){
+            msg.setText("Veuillez choisir une alerte");
+        }else{
+        
+        GererAlerteDAO gad= new GererAlerteDAO();
+        int i = (int) tableoffre.getValueAt(0, 3);
+        gad.setID(i);
+        gad.setSource("offre");
+        DetailsAlerte da = new DetailsAlerte();
+        da.setVisible(true);
+        this.setVisible(false);
+      }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -254,37 +307,45 @@ public class ListeAlertAdmin extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListeAlertAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeOffreAlertes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListeAlertAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeOffreAlertes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListeAlertAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeOffreAlertes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListeAlertAdmin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ListeOffreAlertes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ListeAlertAdmin().setVisible(true);
+                new ListeOffreAlertes().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AnnAlertes;
+    private javax.swing.JMenuItem ComAlertes;
+    private javax.swing.JMenuItem OffreAlertes;
     private javax.swing.JMenu alerte;
     private javax.swing.JMenuItem client;
     private javax.swing.JMenu comptes;
+    private javax.swing.JMenuItem destAlerte;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JMenuBar menu;
+    private javax.swing.JLabel msg;
     private javax.swing.JMenu rapetstat;
     private javax.swing.JMenuItem rapport;
     private javax.swing.JMenuItem responsable;
     private javax.swing.JMenuItem stat;
+    private javax.swing.JTable tableoffre;
     // End of variables declaration//GEN-END:variables
+    private static int ID;
 }

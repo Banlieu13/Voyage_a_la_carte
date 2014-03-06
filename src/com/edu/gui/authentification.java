@@ -1,16 +1,23 @@
 package com.edu.gui;
 
+
+import FacebookConnector.FacebookTestClient;
+import FacebookConnector.MainFacebook;
 import com.edu.gui.SuperAdmin.acceuilSuper;
 import com.edu.gui.Client.acceuilclient;
 import com.edu.gui.Responsable.Acceuil_Responsable;
 import com.edu.DAO.authentificationDAO;
+import com.edu.entities.Client;
+
 import com.edu.entities.privilegeAdmin;
 import com.edu.gui.Admin.acceuilAdmin;
 import com.edu.gui.Inscription.addClient;
 import com.edu.gui.Inscription.addResponsable;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 
 /*
  * To change this template, choose Tools | Templates
@@ -26,6 +33,7 @@ public class authentification extends javax.swing.JFrame {
     /**
      * Creates new form authentification
      */
+    
     public authentification() {
         initComponents();
     }
@@ -47,10 +55,16 @@ public class authentification extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         InscriptionAgence = new javax.swing.JButton();
         Inscriptionclient = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenue");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 formComponentAdded(evt);
@@ -100,6 +114,14 @@ public class authentification extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Inscriptionclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 30));
+
+        jButton1.setText("Facebook");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,6 +180,7 @@ public class authentification extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ConnexionActionPerformed
 
+   
     
     private void tfLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfLoginActionPerformed
         // TODO add your handling code here:
@@ -185,6 +208,22 @@ public class authentification extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentRemoved
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       String[] args = null;
+        try{
+           this.setVisible(false);
+          MainFacebook.main(args);
+         
+       }catch (Exception e){
+           System.out.println("err"+e);
+       }
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        Client.setFbem(null);
+    }//GEN-LAST:event_formWindowOpened
+
     /**
      * @param args the command line arguments
      */
@@ -211,11 +250,14 @@ public class authentification extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(authentification.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+  
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new authentification().setVisible(true);
+             
+                
             }
         });
     }
@@ -223,6 +265,7 @@ public class authentification extends javax.swing.JFrame {
     private javax.swing.JButton Connexion;
     private javax.swing.JButton InscriptionAgence;
     private javax.swing.JButton Inscriptionclient;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel msg;

@@ -8,14 +8,17 @@ import com.edu.DAO.AnnonceDAO;
 import com.edu.DAO.CommentaireDAO;
 import com.edu.DAO.offreDAO;
 import com.edu.entities.Commentaire;
+import static com.edu.gui.Client.InfoDest.idcom;
 import com.edu.gui.authentification;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author MrBenrhouma
  */
 public class InfoAnnonce extends javax.swing.JFrame {
-
+    public static int idcom;
     /**
      * Creates new form InfoAnnonce
      */
@@ -38,17 +41,25 @@ public class InfoAnnonce extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         res = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listcom = new javax.swing.JList();
+        jLabel3 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        msage = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Programme Annonce");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -62,22 +73,46 @@ public class InfoAnnonce extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 450, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, -1, -1));
 
         jtsujet.setColumns(20);
         jtsujet.setRows(5);
         jScrollPane1.setViewportView(jtsujet);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 186, 73));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 280, 80));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Commenter");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Programme");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
         getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
+
+        listcom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                listcomMousePressed(evt);
+            }
+        });
+        jScrollPane2.setViewportView(listcom);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 310, 400));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Commentaires");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
+
+        jButton1.setText("Signaler commentaire");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, -1, -1));
+
+        msage.setForeground(new java.awt.Color(255, 51, 51));
+        getContentPane().add(msage, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -110,6 +145,22 @@ public class InfoAnnonce extends javax.swing.JFrame {
             }
         });
         jMenuBar3.add(jMenu4);
+
+        jMenu6.setText("Destinations");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu6);
+
+        jMenu5.setText("Mes Destination");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu5);
 
         jMenu1.setText("Paramètres");
 
@@ -153,19 +204,30 @@ public class InfoAnnonce extends javax.swing.JFrame {
         c.setE_mail(a.identifiant);
         c.setId_annonce(ac.idannonce);
         cd.insertcomann(c);
-
+        listcom.setModel(cd.AffichCommAnn(ac.idannonce));
+        jtsujet.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         authentification a = new authentification();
+        CommentaireDAO cd = new CommentaireDAO();
+        ConsulterAnnonces coa = new ConsulterAnnonces();
         this.setLocationRelativeTo(null);
-        this.setSize(480, 600);
+        this.setSize(800, 600);
         this.setResizable(false);
         ConsulterAnnonces ac = new ConsulterAnnonces();
         AnnonceDAO od = new AnnonceDAO();
         res.setText(od.FindannonceById(ac.idannonce));
+        listcom.setModel(cd.AffichCommAnn(coa.idannonce));
+        
         
     }//GEN-LAST:event_formWindowOpened
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
@@ -185,6 +247,18 @@ public class InfoAnnonce extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenu4MouseClicked
 
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        Destinations d = new Destinations();
+        d.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        MesDestinations md = new MesDestinations();
+        md.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
         p.setVisible(true);
@@ -202,11 +276,45 @@ public class InfoAnnonce extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-         acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (listcom.isSelectionEmpty()) {
+            msage.setText("Veuillez sélectioner un commentaire");
+        }
+        else
+        {
+        Signalercomm scg = new Signalercomm();
+        scg.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void listcomMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listcomMousePressed
+        CommentaireDAO cd = new CommentaireDAO();
+        authentification a = new authentification();
+        ConsulterAnnonces can = new ConsulterAnnonces();
+        int c = listcom.getSelectedIndex();
+        List <String> l = new ArrayList<String>();
+        l=cd.DisplayIdcommAnn(can.idannonce);
+        String ma = l.get(c);
+        idcom = Integer.parseInt(ma);
+        //String ch = (String) listcom.getSelectedValue();
+        //int pos= ch.indexOf(" ");
+        //String st="";
+        //for (int j = 0; j < pos; j++) {
+        //   st = st + ch.charAt(j);
+       // }
+        //idcom =Integer.parseInt(st);
+        if(cd.AffichCommmail(idcom).equals(a.identifiant)){
+            jButton1.setEnabled(false);
+            System.err.println(this.idcom); 
+                
+            }
+        else
+        {
+            jButton1.setEnabled(true);
+            System.err.println(this.idcom);
+        }
+    }//GEN-LAST:event_listcomMousePressed
 
     /**
      * @param args the command line arguments
@@ -243,20 +351,27 @@ public class InfoAnnonce extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jtsujet;
+    private javax.swing.JList listcom;
+    private javax.swing.JLabel msage;
     private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables
 }

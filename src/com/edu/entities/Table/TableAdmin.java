@@ -5,11 +5,7 @@
 package com.edu.entities.Table;
 
 import com.edu.DAO.AdminDAO;
-import com.edu.DAO.ClientDAO;
-import com.edu.DAO.ResponsableDAO;
 import com.edu.entities.Administrateur;
-import com.edu.entities.Client;
-import com.edu.entities.Responsable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;

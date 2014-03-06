@@ -5,8 +5,6 @@
 package com.edu.DAO;
 
 import com.edu.connection.ConnectionBD;
-import com.edu.entities.Client;
-import com.edu.entities.Offre;
 import com.edu.entities.Reservation;
 import java.sql.Date;
 import java.sql.PreparedStatement;

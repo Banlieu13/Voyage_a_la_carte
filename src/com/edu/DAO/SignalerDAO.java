@@ -5,7 +5,6 @@
 package com.edu.DAO;
 
 import com.edu.connection.ConnectionBD;
-import com.edu.entities.Client;
 import com.edu.entities.Signalisation;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;

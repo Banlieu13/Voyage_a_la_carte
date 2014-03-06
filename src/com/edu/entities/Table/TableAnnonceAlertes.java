@@ -1,7 +1,7 @@
 package com.edu.entities.Table;
 
 
-import com.edu.DAO.AlerteDAO;
+import com.edu.DAO.GererAlerteDAO;
 import com.edu.DAO.ClientDAO;
 import com.edu.entities.Client;
 import com.edu.entities.Signalisation;
@@ -9,13 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.AbstractTableModel;
 
-public class TableAlertes extends AbstractTableModel {
+public class TableAnnonceAlertes extends AbstractTableModel {
 
     public List<Signalisation> listAlertes = new ArrayList<>();
-    String []header = {"ID","Sujet","Type","Client","Responsable"};
+    String []header = {"ID","Sujet","Type","Code Annonce","Client","Responsable"};
 
-    public TableAlertes() { 
-        listAlertes=new AlerteDAO().AfficherAlerte();
+    public TableAnnonceAlertes() { 
+        listAlertes=new GererAlerteDAO().AfficherAlerteAnnonce();
     }
     
     @Override
@@ -38,8 +38,10 @@ public class TableAlertes extends AbstractTableModel {
             case 2:
                 return listAlertes.get(rowIndex).getType();
             case 3:
-                return listAlertes.get(rowIndex).getE_mail();
+                return listAlertes.get(rowIndex).getId_annonce();
             case 4:
+                return listAlertes.get(rowIndex).getE_mail();
+            case 5:
                 return listAlertes.get(rowIndex).getE_mailR();
             
             default:

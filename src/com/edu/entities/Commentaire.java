@@ -14,7 +14,18 @@ public class Commentaire {
     private String E_mail;
     private int id_offre;
     private int id_annonce;
+    private int id_dest;
 
+    public int getId_dest() {
+        return id_dest;
+    }
+
+    public void setId_dest(int id_dest) {
+        this.id_dest = id_dest;
+    }
+    
+    
+    
     public Commentaire() {
     }
 

@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class TableAffichageAnnonceClient extends AbstractTableModel  {
  public List<Annonce> listStock = new ArrayList<>();
-    String []header = {"Num","Date","Créer le","Circuit","Places","Hotel","Prix","Contact"};
+    String []header = {"Numero Annonce","Date","Date de création","Circuit","Places","Hotel","Prix","Contact"};
 
     public TableAffichageAnnonceClient() { //remplissage de la liste des stocks
         listStock=new AnnonceDAO().DisplayAllAnnonce();

@@ -8,13 +8,20 @@ import com.edu.DAO.CommentaireDAO;
 import com.edu.DAO.offreDAO;
 import com.edu.entities.Commentaire;
 import com.edu.gui.authentification;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
+import javax.swing.ListModel;
+import like.like;
 
 /**
  *
  * @author MrBenrhouma
  */
 public class InfoOffre extends javax.swing.JFrame {
-
+    
+    
+    public static int idcom;
     /**
      * Creates new form InfoOffre
      */
@@ -38,21 +45,26 @@ public class InfoOffre extends javax.swing.JFrame {
         res = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
+        listcom = new javax.swing.JList();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        mssge = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        nbrj = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Commentaire");
+        setTitle("Programme");
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -64,7 +76,7 @@ public class InfoOffre extends javax.swing.JFrame {
         jtsujet.setRows(5);
         jScrollPane1.setViewportView(jtsujet);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 360, 186, 73));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 390, 290, 80));
 
         jButton2.setText("Valider Commentaire");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -72,27 +84,70 @@ public class InfoOffre extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Commenter");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
         getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 36, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Programme");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        jScrollPane2.setViewportView(jList1);
+        listcom.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                listcomMouseReleased(evt);
+            }
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                listcomMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                listcomMouseEntered(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                listcomMousePressed(evt);
+            }
+        });
+        listcom.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listcomValueChanged(evt);
+            }
+        });
+        listcom.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+                listcomCaretPositionChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(listcom);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 330, 410));
 
         jButton1.setText("Signaler commentaire");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Commentaire");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
+
+        mssge.setForeground(new java.awt.Color(255, 0, 51));
+        getContentPane().add(mssge, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+
+        jButton3.setText("Jaime");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, -1, -1));
+        getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, 20));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -125,6 +180,22 @@ public class InfoOffre extends javax.swing.JFrame {
             }
         });
         jMenuBar3.add(jMenu4);
+
+        jMenu6.setText("Destinations");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu6);
+
+        jMenu5.setText("Mes Destination");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar3.add(jMenu5);
 
         jMenu1.setText("Paramètres");
 
@@ -161,12 +232,21 @@ public class InfoOffre extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         authentification a = new authentification();
+        CommentaireDAO cd = new CommentaireDAO();
         this.setLocationRelativeTo(null);
         this.setSize(800, 600);
         this.setResizable(false);
         acceuilclient ac = new acceuilclient();
         offreDAO od = new offreDAO();
         res.setText(od.FindOffreById(ac.idoffre));
+        listcom.setModel(cd.AffichCommoffre(ac.idoffre));
+        like l = new like();
+        long nb = l.getlike(ac.idoffre, "offre");
+        nbrj.setText(""+nb);
+        
+//        String c = cd.AffichCommoffre(ac.idoffre).getElementAt(listcom.getSelectedIndex());
+        
+        //listcom.setListData(cd.AffichCommoffre(ac.idoffre));
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -179,8 +259,30 @@ public class InfoOffre extends javax.swing.JFrame {
        c.setE_mail(a.identifiant);
        c.setId_offre(ac.idoffre);
        cd.insertcomoffre(c);
-       
+       listcom.setModel(cd.AffichCommoffre(ac.idoffre));
+       jtsujet.setText(null);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        if (listcom.isSelectionEmpty()) {
+            mssge.setText("Veuillez sélectioner un commentaire");
+        }
+        else
+        {
+        Signalercomm scg = new Signalercomm();
+        scg.setVisible(true);
+        this.setVisible(false);
+        }
+      
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
         ProposerDestinationClient po = new ProposerDestinationClient();
@@ -200,6 +302,18 @@ public class InfoOffre extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jMenu4MouseClicked
 
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        Destinations d = new Destinations();
+        d.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        MesDestinations md = new MesDestinations();
+        md.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu5MouseClicked
+
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         Profil p = new Profil();
         p.setVisible(true);
@@ -217,11 +331,63 @@ public class InfoOffre extends javax.swing.JFrame {
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void listcomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listcomMouseClicked
+    
+    }//GEN-LAST:event_listcomMouseClicked
+
+    private void listcomMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listcomMouseReleased
+    
+    }//GEN-LAST:event_listcomMouseReleased
+
+    private void listcomMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listcomMouseEntered
+  
+    }//GEN-LAST:event_listcomMouseEntered
+
+    private void listcomValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listcomValueChanged
+    
+    }//GEN-LAST:event_listcomValueChanged
+
+    private void listcomCaretPositionChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_listcomCaretPositionChanged
+
+    }//GEN-LAST:event_listcomCaretPositionChanged
+
+    private void listcomMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listcomMousePressed
+        CommentaireDAO cd = new CommentaireDAO();
+        authentification a = new authentification();
+        acceuilclient can = new acceuilclient();
+        int c = listcom.getSelectedIndex();
+        List <String> l = new ArrayList<String>();
+        l=cd.DisplayIdcommOffre(can.idoffre);
+        String ma = l.get(c);
+        idcom = Integer.parseInt(ma);
+        //String ch = (String) listcom.getSelectedValue();
+        //int pos= ch.indexOf(" ");
+        //String st="";
+        //for (int j = 0; j < pos; j++) {
+        //   st = st + ch.charAt(j);
+       // }
+        //idcom =Integer.parseInt(st);
+        if(cd.AffichCommmail(idcom).equals(a.identifiant)){
+            jButton1.setEnabled(false);
+            
+                
+            }
+        else
+        {
+            jButton1.setEnabled(true);
+            
+        }
+
+    }//GEN-LAST:event_listcomMousePressed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        like l = new like();
         acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
+        l.addlike(ac.idoffre,"offre");
+        int n = Integer.parseInt(nbrj.getText());
+        n++;
+        nbrj.setText(""+n);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -260,14 +426,16 @@ public class InfoOffre extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList jList1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar3;
     private javax.swing.JMenuItem jMenuItem1;
@@ -276,6 +444,9 @@ public class InfoOffre extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jtsujet;
+    private javax.swing.JList listcom;
+    private javax.swing.JLabel mssge;
+    private javax.swing.JLabel nbrj;
     private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables
 }

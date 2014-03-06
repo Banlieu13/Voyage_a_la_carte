@@ -4,13 +4,14 @@
  */
 package com.edu.gui.Inscription;
 
-import com.edu.DAO.AgenceDAO;
 import com.edu.DAO.ClientDAO;
-import com.edu.DAO.ResponsableDAO;
-import com.edu.entities.Agence;
 import com.edu.entities.Client;
-import com.edu.entities.Responsable;
 import com.edu.gui.authentification;
+import java.io.File;
+import java.io.FileInputStream;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
+
 
 
 /**
@@ -18,7 +19,8 @@ import com.edu.gui.authentification;
  * @author MrBenrhouma
  */
 public class addClient extends javax.swing.JFrame {
-
+    public static File pics;
+    public FileInputStream fistream;
     /**
      * Creates new form addClient
      */
@@ -36,12 +38,10 @@ public class addClient extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         tfmail = new javax.swing.JTextField();
         tfnom = new javax.swing.JTextField();
-        tfcin = new javax.swing.JTextField();
         tfprenom = new javax.swing.JTextField();
         tfville = new javax.swing.JTextField();
         tfpassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -49,10 +49,18 @@ public class addClient extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         label = new javax.swing.JLabel();
+        jlImage = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ajout Client");
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         res.setForeground(new java.awt.Color(255, 51, 51));
@@ -60,9 +68,9 @@ public class addClient extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Inscription Client", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.ABOVE_TOP));
-        jPanel1.setMaximumSize(null);
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setVerifyInputWhenFocusTarget(false);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Annuler");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -70,30 +78,33 @@ public class addClient extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, -1, -1));
 
         tfmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfmailActionPerformed(evt);
             }
         });
-
-        tfcin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfcinActionPerformed(evt);
-            }
-        });
+        jPanel1.add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 50, 170, 25));
+        jPanel1.add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 170, 25));
+        jPanel1.add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 170, 25));
+        jPanel1.add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 170, 25));
+        jPanel1.add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 170, 25));
 
         jLabel2.setText("Email");
-
-        jLabel3.setText("CIN");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 50, 130, 20));
 
         jLabel4.setText("Nom");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, 20));
 
         jLabel5.setText("Prénom");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 130, 20));
 
         jLabel6.setText("Ville");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 130, 20));
 
         jLabel7.setText("Mot de passe");
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 110, 20));
 
         jButton1.setText("Valider");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +112,7 @@ public class addClient extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 360, -1, -1));
 
         jButton3.setText("Retour");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -108,105 +120,34 @@ public class addClient extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, -1, -1));
+        jPanel1.add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 243, 256, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(116, 116, 116)
-                .addComponent(jButton1)
-                .addGap(39, 39, 39)
-                .addComponent(jButton2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
-                .addComponent(jButton3)
-                .addGap(24, 24, 24))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(tfmail, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(tfcin, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20)
-                                .addComponent(tfnom, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(tfprenom, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(tfville, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(30, 30, 30)
-                                .addComponent(tfpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(label, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfmail, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfcin, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfnom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfprenom, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfville, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(5, 5, 5)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tfpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(label)
-                .addGap(10, 10, 10)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3))
-                .addContainerGap(27, Short.MAX_VALUE))
-        );
+        jlImage.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.add(jlImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 440, 310));
+        jLabel8.setText("Image");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+
+        jButton4.setText("Parcourir");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 440, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void tfcinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfcinActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tfcinActionPerformed
-
     private void tfmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_tfmailActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- if ((tfmail.getText().isEmpty())||(tfcin.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())) {
+ if ((tfmail.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())) {
             label.setText("Veuillez saisir toutes les champs");
         }
         else
@@ -215,11 +156,12 @@ public class addClient extends javax.swing.JFrame {
             ClientDAO cdao = new ClientDAO();
             
             c.setEmail(tfmail.getText());
-            c.setCin(tfcin.getText());
+           
             c.setNom(tfnom.getText());
             c.setPrenom(tfprenom.getText());
             c.setVille(tfville.getText());
             c.setPassword(tfpassword.getText());
+            c.setPhoto(fistream);
             
             cdao.insertclient(c);
             
@@ -228,13 +170,13 @@ public class addClient extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-                tfcin.setText(null);
-        tfmail.setText(null);
-        tfnom.setText(null);
-        tfprenom.setText(null);
-        tfpassword.setText(null);
-        tfville.setText(null);
-        label.setText(null);
+                
+                tfmail.setText(null);
+                tfnom.setText(null);
+                tfprenom.setText(null);
+                tfpassword.setText(null);
+                tfville.setText(null);
+                label.setText(null);
         
 
         
@@ -246,6 +188,31 @@ public class addClient extends javax.swing.JFrame {
         au.setVisible(true);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+       jlImage.setSize(100, 100);
+       
+    }//GEN-LAST:event_formWindowOpened
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+      try{
+          JFileChooser picchooser = new JFileChooser();
+          int returnval = picchooser.showOpenDialog(null);
+          File file = null;
+          if(returnval == JFileChooser.APPROVE_OPTION){
+              file = picchooser.getSelectedFile();
+              String filename = file.getAbsolutePath();
+              pics = new File(filename);
+              ImageIcon ima = new ImageIcon(filename);
+              fistream = new FileInputStream (pics);
+              jlImage.setIcon(ima);
+          }
+      } catch(Exception e){
+          e.printStackTrace();
+      }
+      
+    
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,17 +252,18 @@ public class addClient extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jlImage;
     private javax.swing.JLabel label;
     private javax.swing.JLabel res;
-    private javax.swing.JTextField tfcin;
     private javax.swing.JTextField tfmail;
     private javax.swing.JTextField tfnom;
     private javax.swing.JPasswordField tfpassword;

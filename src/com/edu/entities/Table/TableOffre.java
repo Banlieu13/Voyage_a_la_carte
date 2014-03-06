@@ -6,9 +6,7 @@
 package com.edu.entities.Table;
 
 
-import com.edu.DAO.ClientDAO;
 import com.edu.DAO.offreDAO;
-import com.edu.entities.Client;
 import com.edu.entities.Offre;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +15,7 @@ import javax.swing.table.AbstractTableModel;
 public class TableOffre extends AbstractTableModel {
 
     public List<Offre> listOffre = new ArrayList<>();
-    String []header = {"ID","Date","Date_Creation","Circuit","Places","Hotel","Prix","Responsable"};
+    String []header = {"Numéro Offre","Date","Date de Création","Circuit","Places","Hotel","Prix","Responsable"};
 
     public TableOffre() { 
         listOffre=new offreDAO().DisplayAllOffre();
