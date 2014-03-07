@@ -3,6 +3,7 @@ package com.edu.gui;
 
 import FacebookConnector.FacebookTestClient;
 import FacebookConnector.MainFacebook;
+import static MD5Crypter.Md5.getEncodedPassword;
 import com.edu.gui.SuperAdmin.acceuilSuper;
 import com.edu.gui.Client.acceuilclient;
 import com.edu.gui.Responsable.Acceuil_Responsable;
@@ -129,7 +130,8 @@ public class authentification extends javax.swing.JFrame {
     private void ConnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConnexionActionPerformed
         String log =tfLogin.getText();
         String ch = "admin";
-        String pswd = tfpassword.getText();
+        String pswd = getEncodedPassword(tfpassword.getText());
+        
         System.out.println(log);
         String reqrespo="select * from responsable where E_mailR='"+log+"' and mot_de_passeR='"+pswd+"' and valide=1";
         String reqclient="select * from client where E_mail='"+log+"' and mot_de_passe='"+pswd+"'";
@@ -137,7 +139,7 @@ public class authentification extends javax.swing.JFrame {
         authentificationDAO auth = new authentificationDAO();
         
         System.out.println(log);
-        if ((tfLogin.getText().equals(ch))&&(pswd.equals(ch))) {
+        if ((tfLogin.getText().equals(ch))&&(pswd.equals(getEncodedPassword(ch)))) {
             acceuilSuper ac = new acceuilSuper();
             ac.setVisible(true);
             this.setVisible(false);

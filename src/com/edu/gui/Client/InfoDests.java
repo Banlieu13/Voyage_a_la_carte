@@ -4,13 +4,23 @@
  */
 package com.edu.gui.Client;
 
+import MapCircuit.launch;
 import com.edu.DAO.CommentaireDAO;
 import com.edu.DAO.DestinationDAO;
 import com.edu.entities.Commentaire;
 import static com.edu.gui.Client.InfoOffre.idcom;
 import com.edu.gui.authentification;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import like.like;
+import rating.rating;
 
 /**
  *
@@ -46,6 +56,21 @@ public class InfoDests extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         msage = new javax.swing.JLabel();
+        btnjaime = new javax.swing.JButton();
+        nbrj = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        pan = new javax.swing.JPanel();
+        rat1 = new javax.swing.JLabel();
+        rat3 = new javax.swing.JLabel();
+        rat4 = new javax.swing.JLabel();
+        rat5 = new javax.swing.JLabel();
+        rat6 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        a = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
+        c = new javax.swing.JLabel();
+        d = new javax.swing.JLabel();
+        e = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -115,6 +140,155 @@ public class InfoDests extends javax.swing.JFrame {
 
         msage.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(msage, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+
+        btnjaime.setText("Jaime");
+        btnjaime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnjaimeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 70, -1));
+        getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, 20));
+
+        jButton3.setText("Map");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, -1));
+
+        jLabel4.setText("Evaluer cette offre: ");
+
+        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        a.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aMouseExited(evt);
+            }
+        });
+
+        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        b.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bMouseExited(evt);
+            }
+        });
+
+        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        c.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cMouseExited(evt);
+            }
+        });
+
+        d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        d.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dMouseExited(evt);
+            }
+        });
+
+        e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        e.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                eMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                eMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panLayout = new javax.swing.GroupLayout(pan);
+        pan.setLayout(panLayout);
+        panLayout.setHorizontalGroup(
+            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panLayout.createSequentialGroup()
+                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLayout.createSequentialGroup()
+                        .addComponent(a)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(rat1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(rat3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rat4))
+                            .addGroup(panLayout.createSequentialGroup()
+                                .addComponent(b)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(c)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(d)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(e)
+                                .addGap(0, 19, Short.MAX_VALUE)))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rat5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rat6)
+                .addContainerGap(55, Short.MAX_VALUE))
+        );
+        panLayout.setVerticalGroup(
+            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panLayout.createSequentialGroup()
+                                .addGap(15, 15, 15)
+                                .addComponent(a))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(c, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(d, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(e, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                    .addComponent(b))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(rat1)
+                    .addComponent(rat3)
+                    .addComponent(rat4)
+                    .addComponent(rat5)
+                    .addComponent(rat6))
+                .addContainerGap(14, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(pan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 210, 80));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -317,6 +491,181 @@ public class InfoDests extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_listcommMousePressed
 
+    private void btnjaimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnjaimeActionPerformed
+        like l = new like();
+        l.addlike(Destinations.idDests,"dest");
+        long n = l.getlike(Destinations.idDests,"dest");
+        nbrj.setText(""+n);
+       btnjaime.setEnabled(false);
+    }//GEN-LAST:event_btnjaimeActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String ch = Destinations.circuit;
+        String[] args = null;
+        System.out.println(ch);
+        String c[] = ch.split(",");
+        System.out.println("pays:"+c[0]+" "+c[1]);
+        launch.setA(c[0]);
+        launch.setB(c[1]);
+        launch.main(args);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseClicked
+        int tot=1;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre");
+    }//GEN-LAST:event_aMouseClicked
+
+    private void aMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseEntered
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIcontwo);
+            c.setIcon(imageIcontwo);
+            d.setIcon(imageIcontwo);
+            e.setIcon(imageIcontwo);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_aMouseEntered
+
+    private void aMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseExited
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIcontwo);
+
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_aMouseExited
+
+    private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
+        int tot=1;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre");
+    }//GEN-LAST:event_bMouseClicked
+
+    private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIconOne);
+            c.setIcon(imageIcontwo);
+            d.setIcon(imageIcontwo);
+            e.setIcon(imageIcontwo);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_bMouseEntered
+
+    private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
+
+    }//GEN-LAST:event_bMouseExited
+
+    private void cMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseClicked
+        int tot=1;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre");
+    }//GEN-LAST:event_cMouseClicked
+
+    private void cMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseEntered
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIconOne);
+            c.setIcon(imageIconOne);
+            d.setIcon(imageIcontwo);
+            e.setIcon(imageIcontwo);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cMouseEntered
+
+    private void cMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseExited
+
+    }//GEN-LAST:event_cMouseExited
+
+    private void dMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseClicked
+        int tot=1;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre");
+    }//GEN-LAST:event_dMouseClicked
+
+    private void dMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseEntered
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIconOne);
+            c.setIcon(imageIconOne);
+            d.setIcon(imageIconOne);
+            e.setIcon(imageIcontwo);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_dMouseEntered
+
+    private void dMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseExited
+
+    }//GEN-LAST:event_dMouseExited
+
+    private void eMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseClicked
+        int tot=1;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre");
+    }//GEN-LAST:event_eMouseClicked
+
+    private void eMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseEntered
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIconOne);
+            c.setIcon(imageIconOne);
+            d.setIcon(imageIconOne);
+            e.setIcon(imageIconOne);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_eMouseEntered
+
+    private void eMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseExited
+
+    }//GEN-LAST:event_eMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -352,11 +701,19 @@ public class InfoDests extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel a;
+    private javax.swing.JLabel b;
+    private javax.swing.JButton btnjaime;
+    private javax.swing.JLabel c;
+    private javax.swing.JLabel d;
+    private javax.swing.JLabel e;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -373,6 +730,13 @@ public class InfoDests extends javax.swing.JFrame {
     private javax.swing.JTextArea jtsujet;
     private javax.swing.JList listcomm;
     private javax.swing.JLabel msage;
+    private javax.swing.JLabel nbrj;
+    private javax.swing.JPanel pan;
+    private javax.swing.JLabel rat1;
+    private javax.swing.JLabel rat3;
+    private javax.swing.JLabel rat4;
+    private javax.swing.JLabel rat5;
+    private javax.swing.JLabel rat6;
     private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables
 }

@@ -11,15 +11,30 @@ package MapCircuit;
  * @author Commando
  */
 public class launch {
-  
-   
-    
-    
-    
+  private static String a;
+  private static String b;
+
+    public static String getA() {
+        return a;
+    }
+
+    public static void setA(String a) {
+        launch.a = a;
+    }
+
+    public static String getB() {
+        return b;
+    }
+
+    public static void setB(String b) {
+        launch.b = b;
+    }
+
+     
     
     public static void main(String[] args){
      MapMain t = new MapMain();
-     t.afficherMap("tunisie","france");
+     t.afficherMap(a,b);
 }
     
 }

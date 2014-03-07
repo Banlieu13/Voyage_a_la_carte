@@ -168,4 +168,27 @@ public class ClientDAO {
             System.out.println("erreur lors de la mise à jour "+ex.getMessage());
         }
     }
+     
+     public boolean passestchanger(String email){
+         String requete = "select * from client where E_mail='"+email+"' and mot_de_passe='"+email+"'";
+                    boolean test=false;
+                    try {
+                        PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+                        ResultSet resultat = ps.executeQuery();
+                       while (resultat.next())
+                        {
+                          String nom = resultat.getString(2);
+                          System.out.println("test nom"+nom);
+                          if (nom!=""){
+                              test=true;
+                          }
+                        }
+                        return test;
+                        
+                    }
+                    catch(Exception e){
+                        System.out.println("erreur pass"+e);
+                        return test;
+                    }
+     }
 }

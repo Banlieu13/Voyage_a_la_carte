@@ -23,7 +23,7 @@ public class ResponsableDAO {
     }
     
     public void insertResponsable (Responsable r){
-        String req ="insert into responsable (E_mailR,CINR,NomR,PrénomR,VilleR,mot_de_passeR,Mat_fiscal,valide) values (?,?,?,?,?,?,?,?)";
+        String req ="insert into responsable (E_mailR,CINR,NomR,PrénomR,VilleR,mot_de_passeR,valide,Mat_fiscal) values (?,?,?,?,?,?,?,?)";
            try { 
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.setString(1,r.getEmail());

@@ -4,6 +4,7 @@
  */
 package com.edu.gui.Inscription;
 
+import static MD5Crypter.Md5.getEncodedPassword;
 import com.edu.DAO.ClientDAO;
 import com.edu.entities.Client;
 import com.edu.gui.authentification;
@@ -160,7 +161,7 @@ public class addClient extends javax.swing.JFrame {
             c.setNom(tfnom.getText());
             c.setPrenom(tfprenom.getText());
             c.setVille(tfville.getText());
-            c.setPassword(tfpassword.getText());
+            c.setPassword(getEncodedPassword(tfpassword.getText()));
             c.setPhoto(fistream);
             
             cdao.insertclient(c);

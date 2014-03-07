@@ -170,7 +170,7 @@ public class Signalercomm extends javax.swing.JFrame {
         CommentaireDAO cd = new CommentaireDAO();
         SignalerDAO sd = new SignalerDAO();
         InfoOffre info = new InfoOffre();
-        InfoDest ide = new  InfoDest();
+        InfoMesDest ide = new  InfoMesDest();
         InfoDests ides = new InfoDests();
         InfoAnnonce ina = new InfoAnnonce();
         authentification a = new authentification();

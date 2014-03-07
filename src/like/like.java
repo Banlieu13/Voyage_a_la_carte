@@ -27,28 +27,29 @@ public class like {
         String req="";
         try {
             int test =isInitial(id,source);
-            if (test==1){
-            long back = getlike(id,source);
-            back++;
-            if(source=="annonce"){
-                req="UPDATE `like` SET `count`="+back+" where `id_annonce`="+id;
-            }else if (source=="offre"){
-                req="UPDATE `like` SET `count`="+back+" where `id_offre`="+id;
-            }else{
-                req="UPDATE `like` SET `count`="+back+" where `id_dest`="+id;
-            }
-            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
-            ps.executeUpdate();
+            System.out.println("valeur initial ou nn :"+test);
+            if (test>0){
+                long back = getlike(id,source);
+                back++;
+                if(source=="annonce"){
+                    req="UPDATE `like` SET `count`="+back+" where `id_annonce`="+id;
+                }else if (source=="offre"){
+                    req="UPDATE `like` SET `count`="+back+" where `id_offre`="+id;
+                }else{
+                    req="UPDATE `like` SET `count`="+back+" where `id_dest`="+id;
+                }
+                PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
+                ps.executeUpdate();
             }
             else{
                 initialLike(id,source);
                 if(source=="annonce"){
-                     req="update like set count=1 where id_annonce="+id;
+                     req="UPDATE `like` SET `count`=1 WHERE `id_annonce`="+id;
                 }else if (source=="offre"){
                      req="UPDATE `like` SET `count`=1"
                              + " WHERE `id_offre`="+id;
                 }else{
-                      req="update like set count=1 where id_dest="+id;
+                      req="UPDATE `like` SET `count`=1 WHERE `id_dest`="+id;
                 }   
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.executeUpdate();
@@ -65,11 +66,11 @@ public class like {
            
             String req="";
             if(source=="annonce"){
-                req="select count from like where id_annonce="+id;
+                req="SELECT `count` FROM `like` WHERE `id_annonce`="+id+"";
             }else if (source=="offre"){
                 req="SELECT `count` FROM `like` WHERE `id_offre`="+id+"";
             }else{
-                req="select count from like where id_dest="+id+"";
+                req="SELECT `count` FROM `like` WHERE `id_dest`="+id+"";
             }
             Statement statement = ConnectionBD.getInstance()
                     .createStatement();
@@ -91,11 +92,11 @@ public class like {
         try {
             String req="";
             if(source=="annonce"){
-                req="insert into like (count) values ('0') where id_annonce"+id;
+                req="INSERT INTO `like` (`count`,id_annonce) VALUES (1,"+id+")";
             }else if (source=="offre"){
-                req="INSERT INTO `like`(`count`,id_offre) VALUES (0,"+id+")";
+                req="INSERT INTO `like`(`count`,id_offre) VALUES (1,"+id+")";
             }else{
-                req="insert into like (count) values ('0')  where id_dest="+id;
+                req="INSERT INTO `like` (`count`,id_dest) VALUES (1,"+id+")";
             }
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.executeUpdate();
@@ -106,24 +107,24 @@ public class like {
     }
     
     public int isInitial(int id, String source){
-       long   l = 0;
+       int   l = -1;
         try {
             String req="";
             if(source=="annonce"){
-                req="select * from like where id_annonce"+id;
+                req="SELECT * FROM `like` WHERE `id_annonce`="+id;
             }else if (source=="offre"){
                 req="SELECT `count` FROM `like` WHERE `id_offre`="+id;
             }else{
-                req="select * from like where id_dest="+id;
+                req="SELECT * FROM `like` WHERE `id_dest`="+id;
             }
             Statement statement = ConnectionBD.getInstance()
                     .createStatement();
             ResultSet resultat = statement.executeQuery(req);
             while(resultat.next()){
               l=resultat.getInt("count");
-                
+              System.out.println("valeur retourner de isinitial:"+l);
             }
-            if (l>=0){
+            if (l>0){
             return 1;
             }else{
                 return 0;

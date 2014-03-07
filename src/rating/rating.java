@@ -125,9 +125,11 @@ public class rating {
             ResultSet resultat = statement.executeQuery(req);
 
             while(resultat.next()){
-                count=resultat.getInt(3);
+               count=resultat.getInt(2);
+                System.out.println(count);
             }
             
+         
             return count;
         } catch (SQLException ex) {
             Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
@@ -139,11 +141,11 @@ public class rating {
         try {
             String req="";
             if(source=="annonce"){
-                req="insert into rating (count) values (0) where id_annonce"+id;
+                req="insert into rating (count,id_annonce) values (0,"+id+")";
             }else if (source=="offre"){
-                req="insert into rating (count) values (0) where id_offre="+id;
+                req="insert into rating (count,id_offre) values (0,"+id+")";
             }else{
-                req="insert into rating (count) values (0)  where id_dest="+id;
+                req="insert into rating (count,id_dest) values (0,"+id+")";
             }
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.executeUpdate();
@@ -154,6 +156,7 @@ public class rating {
     }
     
     public int isInitial(int id, String source){
+        int   l = -1;
         try {
             String req="";
             if(source=="annonce"){
@@ -166,9 +169,15 @@ public class rating {
             Statement statement = ConnectionBD.getInstance()
                     .createStatement();
             ResultSet resultat = statement.executeQuery(req);
+             while(resultat.next()){
+              l=resultat.getInt("count");
+              System.out.println("valeur retourner de isinitial:"+l);
+            }
+            if (l>0){
             return 1;
-            
-            
+            }else{
+                return 0;
+            }
         } catch (SQLException ex) {
             Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
             

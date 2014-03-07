@@ -25,6 +25,7 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
     public static int idannonce;
     public static String mailresp;
     public static int nbr;
+    public static String circuit;
     /**
      * Creates new form ConsulterAnnonces
      */
@@ -222,10 +223,6 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
            }
            else
            {
-            //lblnbr.setVisible(true);
-            //nbrvoyageur.setVisible(true);
-            //ok.setVisible(true);
-            
             msg.setText("");
             nbr = (int) af.getValueAt(x, 4);
             idannonce = (int) af.getValueAt(x, 0);

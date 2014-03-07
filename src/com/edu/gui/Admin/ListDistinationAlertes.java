@@ -7,6 +7,8 @@
 package com.edu.gui.Admin;
 
 import com.edu.DAO.GererAlerteDAO;
+import com.edu.DAO.PrivilegeListAdministrateurDAO;
+import com.edu.entities.privilegeAdmin;
 import com.edu.gui.authentification;
 
 /**
@@ -54,6 +56,11 @@ public class ListDistinationAlertes extends javax.swing.JFrame {
         jMenuItem9 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jButton1.setText("Détails");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -254,6 +261,55 @@ public class ListDistinationAlertes extends javax.swing.JFrame {
         this.setVisible(false);
       }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        PrivilegeListAdministrateurDAO plad = new PrivilegeListAdministrateurDAO();
+        privilegeAdmin pad = new privilegeAdmin();
+        System.out.println("---->"+pad.getconnected());
+        int[] p =plad.getConnectedPrivilege(pad.getconnected());
+        
+        if ((p[4]<1)&&(p[5]<1)){
+            comptes.setEnabled(false);
+            comptes.enableInputMethods(false);
+            
+        }
+        if (p[4]<1){
+            responsable.setEnabled(false);
+            menu.remove(responsable);
+        }else{
+            responsable.setEnabled(true);
+        }
+        if (p[5]<1){
+            client.setEnabled(false);
+            menu.remove(client);
+        }else{
+            client.setEnabled(true);
+        }
+        if (p[6]<1){
+            alerte.setEnabled(false);
+            menu.remove(alerte);
+        }else{
+            alerte.setEnabled(true);
+        }
+        if ((p[7]<1)&&(p[8]<1)){
+            rapetstat.setEnabled(false);
+            rapetstat.enableInputMethods(false);
+        }else{
+            rapetstat.setEnabled(true);
+        }
+        if (p[7]<1){
+            rapport.setEnabled(false);
+            menu.remove(rapport);
+        }else{
+            rapport.setEnabled(true);
+        }
+        if (p[8]<1){
+            stat.setEnabled(false);
+            menu.remove(stat);
+        }else{
+            stat.setEnabled(true);
+        }
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments

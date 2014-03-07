@@ -45,7 +45,7 @@ public class GraphReaderExample {
     Client.setFbnom(user.getName());
     c.setNom(user.getName());
     c.setPrenom("Prenom");
-    c.setPassword(user.getBirthday());
+    c.setPassword(user.getEmail());
     c.setVille("ville");
     Client cl = cd.chercherClient(user.getEmail());
     System.out.println("------------------"+cl.getEmail());
@@ -59,6 +59,7 @@ public class GraphReaderExample {
     }else{
         acceuilclient ac = new acceuilclient();
         ac.setVisible(true);
+        ac.setTemp(null);
     }
     out.println("Name: " + user.getName());
     out.println("Username: " + user.getUsername());

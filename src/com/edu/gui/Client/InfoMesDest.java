@@ -4,6 +4,7 @@
  */
 package com.edu.gui.Client;
 
+import MapCircuit.launch;
 import com.edu.DAO.CommentaireDAO;
 import com.edu.DAO.DestinationDAO;
 import com.edu.DAO.offreDAO;
@@ -12,18 +13,19 @@ import static com.edu.gui.Client.InfoOffre.idcom;
 import com.edu.gui.authentification;
 import java.util.ArrayList;
 import java.util.List;
+import like.like;
 
 /**
  *
  * @author MrBenrhouma
  */
-public class InfoDest extends javax.swing.JFrame {
+public class InfoMesDest extends javax.swing.JFrame {
 
     /**
      * Creates new form InfoDest
      */
     public static int idcom;
-    public InfoDest() {
+    public InfoMesDest() {
         initComponents();
     }
 
@@ -47,6 +49,9 @@ public class InfoDest extends javax.swing.JFrame {
         res = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         mssage = new javax.swing.JLabel();
+        btnjaime = new javax.swing.JButton();
+        nbrj = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -116,6 +121,23 @@ public class InfoDest extends javax.swing.JFrame {
 
         mssage.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(mssage, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+
+        btnjaime.setText("Jaime");
+        btnjaime.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnjaimeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 70, -1));
+        getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, 20));
+
+        jButton3.setText("Map");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, -1));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -320,6 +342,25 @@ public class InfoDest extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnjaimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnjaimeActionPerformed
+        like l = new like();
+        l.addlike(MesDestinations.idDest,"dest");
+        long n = l.getlike(MesDestinations.idDest,"dest");
+        nbrj.setText(""+n);
+        btnjaime.setEnabled(false);
+    }//GEN-LAST:event_btnjaimeActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        String ch = MesDestinations.circuit;
+        String[] args = null;
+        System.out.println(ch);
+        String c[] = ch.split(",");
+        System.out.println("pays:"+c[0]+" "+c[1]);
+        launch.setA(c[0]);
+        launch.setB(c[1]);
+        launch.main(args);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -337,26 +378,28 @@ public class InfoDest extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(InfoDest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfoMesDest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(InfoDest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfoMesDest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(InfoDest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfoMesDest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(InfoDest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(InfoMesDest.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new InfoDest().setVisible(true);
+                new InfoMesDest().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnjaime;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -376,6 +419,7 @@ public class InfoDest extends javax.swing.JFrame {
     private javax.swing.JTextArea jtsujet;
     private javax.swing.JList listcom;
     private javax.swing.JLabel mssage;
+    private javax.swing.JLabel nbrj;
     private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables
 }

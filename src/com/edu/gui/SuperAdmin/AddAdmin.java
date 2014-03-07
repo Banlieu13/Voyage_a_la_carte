@@ -6,6 +6,7 @@
 
 package com.edu.gui.SuperAdmin;
 
+import static MD5Crypter.Md5.getEncodedPassword;
 import com.edu.DAO.AdminDAO;
 import com.edu.DAO.PrivilegeListAdministrateurDAO;
 import com.edu.entities.Administrateur;
@@ -252,7 +253,7 @@ public class AddAdmin extends javax.swing.JFrame {
             a.setNom(tfnom1.getText());
             a.setPrenom(tfprenom1.getText());
             a.setVille(tfville1.getText());
-            a.setPassword(tfpassword1.getText());
+            a.setPassword(getEncodedPassword(tfpassword1.getText()));
             adao.insertAdmin(a);
             pa.addprivilege(tfmail1.getText());
             

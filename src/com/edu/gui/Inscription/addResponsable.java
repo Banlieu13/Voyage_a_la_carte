@@ -5,6 +5,7 @@
 package com.edu.gui.Inscription;
 
 
+import static MD5Crypter.Md5.getEncodedPassword;
 import com.edu.DAO.AgenceDAO;
 import com.edu.DAO.ResponsableDAO;
 import com.edu.entities.Agence;
@@ -243,7 +244,8 @@ public class addResponsable extends javax.swing.JFrame {
             r.setNom(tfnom.getText());
             r.setPrenom(tfprenom.getText());
             r.setVille(tfville.getText());
-            r.setPassword(tfpassword.getText());
+            r.setPassword(getEncodedPassword(tfpassword.getText()));
+            r.setValide(0);
             r.setMatAgence(matf.getText());
             
             Agence a = new Agence();

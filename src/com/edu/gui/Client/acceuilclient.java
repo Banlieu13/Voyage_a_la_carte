@@ -32,6 +32,7 @@ public class acceuilclient extends javax.swing.JFrame {
      * Creates new form acceuilclient
      */
      List<String> maliste;
+     public static String circuit;
      public static int nbr;
      public static int idoffre;
      public static String mailresp;
@@ -64,6 +65,8 @@ public class acceuilclient extends javax.swing.JFrame {
         pic2 = new javax.swing.JLabel();
         pic3 = new javax.swing.JLabel();
         photoprofil = new javax.swing.JLabel();
+        temp = new javax.swing.JLabel();
+        temp2 = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -170,8 +173,7 @@ public class acceuilclient extends javax.swing.JFrame {
 
         tfnom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfnom.setForeground(new java.awt.Color(255, 0, 51));
-        tfnom.setText("jLabel4");
-        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 200, 20));
 
         pic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
@@ -187,6 +189,10 @@ public class acceuilclient extends javax.swing.JFrame {
 
         photoprofil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(photoprofil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 100));
+
+        temp.setMaximumSize(new java.awt.Dimension(20, 5));
+        getContentPane().add(temp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 320, 30));
+        getContentPane().add(temp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 74, 320, 30));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -290,7 +296,7 @@ public class acceuilclient extends javax.swing.JFrame {
         this.setSize(830, 500);
         this.setResizable(false);
         ClientDAO cd = new ClientDAO();
-        
+         Client c =new Client();
         if (Client.getFbem()!=null){
             URL url; 
          try {
@@ -307,11 +313,11 @@ public class acceuilclient extends javax.swing.JFrame {
          } catch (MalformedURLException ex) {
              Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
          }
-             Client c =new Client();
+             
              c=cd.chercherClient(c.getFbem());
              tfnom.setText(Client.getFbnom());
         }else{
-            Client c =new Client();
+           
             c=cd.chercherClient(a.identifiant);
              tfnom.setText(c.getNom());
              ImageIcon ima = new ImageIcon();
@@ -323,8 +329,13 @@ public class acceuilclient extends javax.swing.JFrame {
              pic3.setSize(100, 100);
              photoprofil.setSize(100, 100);
         }
-      
-    
+      if (cd.passestchanger(a.identifiant))
+      { 
+          System.out.println(a.identifiant);
+          System.out.println(cd.passestchanger(a.identifiant));
+          temp.setText("veuillez modifier votre mot de passe");
+          temp2.setText("votre mot de passe est votre email");
+      }
     }//GEN-LAST:event_formWindowOpened
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
@@ -343,14 +354,12 @@ public class acceuilclient extends javax.swing.JFrame {
            }
            else
            {
-            //lblnbr.setVisible(true);
-            //nbrvoyageur.setVisible(true);
-            //ok.setVisible(true);
             
             msg.setText("");
             nbr = (int) to.getValueAt(x, 4);
             idoffre = (int) to.getValueAt(x, 0);
             mailresp =  (String) to.getValueAt(x, 7);
+            circuit = (String) to.getValueAt(x, 3);
             PaiementClient pc = new  PaiementClient();
             pc.setVisible(true);
             this.setVisible(false);
@@ -368,7 +377,7 @@ public class acceuilclient extends javax.swing.JFrame {
            {
            
            idoffre = (int) to.getValueAt(x, 0);
-           
+           circuit = (String) to.getValueAt(x, 3);
            InfoOffre ino = new InfoOffre(); 
            System.out.println(idoffre);
            
@@ -478,7 +487,12 @@ public class acceuilclient extends javax.swing.JFrame {
         offreDAO od = new offreDAO();
         to.listOffre = od.DisplayAllOffre();
     }//GEN-LAST:event_txfCircuitAncestorRemoved
-
+    public void setTemp(String temptext){
+        temp.setText(temptext);
+    }
+    public void setTemp2(String temptext){
+        temp2.setText(temptext);
+    }
     private void jTable1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MousePressed
         TableOffre to = new TableOffre();
        
@@ -567,6 +581,8 @@ public class acceuilclient extends javax.swing.JFrame {
     private javax.swing.JLabel pic1;
     private javax.swing.JLabel pic2;
     private javax.swing.JLabel pic3;
+    private javax.swing.JLabel temp;
+    private javax.swing.JLabel temp2;
     private javax.swing.JLabel tfnom;
     private javax.swing.JTextField txfCircuit;
     // End of variables declaration//GEN-END:variables

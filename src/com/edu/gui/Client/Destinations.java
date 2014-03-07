@@ -17,6 +17,7 @@ import com.edu.gui.authentification;
  */
 public class Destinations extends javax.swing.JFrame {
     public static int idDests;
+    public static String circuit;
     /**
      * Creates new form Destinations
      */

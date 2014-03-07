@@ -15,6 +15,7 @@ import com.edu.gui.authentification;
  */
 public class MesDestinations extends javax.swing.JFrame {
     public  static int idDest;
+    public static String circuit;
     /**
      * Creates new form MesDestinations
      */
@@ -176,7 +177,7 @@ public class MesDestinations extends javax.swing.JFrame {
            
            idDest = (int) to.getValueAt(x, 0);
            
-           InfoDest ino = new InfoDest(); 
+           InfoMesDest ino = new InfoMesDest(); 
            System.out.println(idDest);
            
             ino.setVisible(true);

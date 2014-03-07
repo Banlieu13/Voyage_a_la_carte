@@ -26,7 +26,7 @@ public class PrivilegeListAdministrateurDAO {
     public String[] ListAdministrateur (){
         String[] list = new String[500];
         int i=0;
-        String requete = "select NomA from administrateur";
+        String requete = "select E_mailA from administrateur";
         try {
            Statement statement = ConnectionBD.getInstance()
                    .createStatement();
@@ -45,9 +45,9 @@ public class PrivilegeListAdministrateurDAO {
         }
     }
     
-    public int[] getprivilege(String nom){
+    public int[] getprivilege(String email){
         String req="select * from privilegeadmin where id_admin=(select E_mailA from "
-                + "administrateur where nomA='"+nom+"')";
+                + "administrateur where E_mailA='"+email+"')";
         int[] p = new int[10];
         try{
                 Statement statement = ConnectionBD.getInstance()
@@ -106,7 +106,7 @@ public class PrivilegeListAdministrateurDAO {
     
     }
     
-    public void saveprivilege(int[] p,String nom){
+    public void saveprivilege(int[] p,String email){
         for(int i=0;i<=8;i++){
                     System.out.println("-->"+i+"--"+p[i]);
                 }
@@ -119,8 +119,7 @@ public class PrivilegeListAdministrateurDAO {
                  + ",priv_alerte="+p[6]
                  + ",priv_rapport="+p[7]
                  + ",priv_stat="+p[8]
-                 + " where id_admin=(select E_mailA from "
-                + "administrateur where nomA='"+nom+"')";
+                 + " where id_admin='"+email+"'";
            try { 
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
                
