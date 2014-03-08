@@ -59,18 +59,12 @@ public class InfoDests extends javax.swing.JFrame {
         btnjaime = new javax.swing.JButton();
         nbrj = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        pan = new javax.swing.JPanel();
-        rat1 = new javax.swing.JLabel();
-        rat3 = new javax.swing.JLabel();
-        rat4 = new javax.swing.JLabel();
-        rat5 = new javax.swing.JLabel();
-        rat6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        a = new javax.swing.JLabel();
-        b = new javax.swing.JLabel();
-        c = new javax.swing.JLabel();
-        d = new javax.swing.JLabel();
         e = new javax.swing.JLabel();
+        d = new javax.swing.JLabel();
+        c = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
+        a = new javax.swing.JLabel();
+        Accueil = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -94,7 +88,7 @@ public class InfoDests extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Programme");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, -1, -1));
 
         listcomm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -103,24 +97,24 @@ public class InfoDests extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(listcomm);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, 330, 420));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 80, 300, 360));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Commentaire");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 30, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
 
         jtsujet.setColumns(20);
         jtsujet.setRows(5);
         jScrollPane1.setViewportView(jtsujet);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 390, 240, 80));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 240, 80));
 
-        res.setText("jLabel4");
-        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        res.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Commenter");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
 
         jButton2.setText("Valider Commentaire");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +122,7 @@ public class InfoDests extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 480, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 450, -1, -1));
 
         jButton1.setText("Signaler commentaire");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -136,7 +130,7 @@ public class InfoDests extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, -1, -1));
 
         msage.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(msage, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
@@ -147,8 +141,8 @@ public class InfoDests extends javax.swing.JFrame {
                 btnjaimeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 70, -1));
-        getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, 20));
+        getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 70, -1));
+        getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 320, 40, 20));
 
         jButton3.setText("Map");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -156,61 +150,7 @@ public class InfoDests extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, -1));
-
-        jLabel4.setText("Evaluer cette offre: ");
-
-        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        a.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                aMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                aMouseExited(evt);
-            }
-        });
-
-        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        b.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bMouseExited(evt);
-            }
-        });
-
-        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        c.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                cMouseExited(evt);
-            }
-        });
-
-        d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        d.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                dMouseExited(evt);
-            }
-        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 70, -1));
 
         e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
         e.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -224,71 +164,66 @@ public class InfoDests extends javax.swing.JFrame {
                 eMouseExited(evt);
             }
         });
+        getContentPane().add(e, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, -1, 20));
 
-        javax.swing.GroupLayout panLayout = new javax.swing.GroupLayout(pan);
-        pan.setLayout(panLayout);
-        panLayout.setHorizontalGroup(
-            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panLayout.createSequentialGroup()
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLayout.createSequentialGroup()
-                        .addComponent(a)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(rat1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rat3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rat4))
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addComponent(b)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(c)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(d)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(e)
-                                .addGap(0, 19, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rat5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rat6)
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-        panLayout.setVerticalGroup(
-            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(a))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(c, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(d, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(e, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                    .addComponent(b))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rat1)
-                    .addComponent(rat3)
-                    .addComponent(rat4)
-                    .addComponent(rat5)
-                    .addComponent(rat6))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
+        d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        d.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dMouseExited(evt);
+            }
+        });
+        getContentPane().add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 310, -1, -1));
 
-        getContentPane().add(pan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 210, 80));
+        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        c.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cMouseExited(evt);
+            }
+        });
+        getContentPane().add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
+
+        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        b.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bMouseExited(evt);
+            }
+        });
+        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 310, -1, -1));
+
+        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        a.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aMouseExited(evt);
+            }
+        });
+        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+
+        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -701,6 +636,7 @@ public class InfoDests extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Accueil;
     private javax.swing.JLabel a;
     private javax.swing.JLabel b;
     private javax.swing.JButton btnjaime;
@@ -713,7 +649,6 @@ public class InfoDests extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -731,12 +666,6 @@ public class InfoDests extends javax.swing.JFrame {
     private javax.swing.JList listcomm;
     private javax.swing.JLabel msage;
     private javax.swing.JLabel nbrj;
-    private javax.swing.JPanel pan;
-    private javax.swing.JLabel rat1;
-    private javax.swing.JLabel rat3;
-    private javax.swing.JLabel rat4;
-    private javax.swing.JLabel rat5;
-    private javax.swing.JLabel rat6;
     private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables
 }

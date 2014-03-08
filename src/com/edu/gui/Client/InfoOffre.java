@@ -566,8 +566,9 @@ public class InfoOffre extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String ch = acceuilclient.circuit;
         String[] args = null;
+        //String[] c = null;
         System.out.println(ch);
-         String c[] = ch.split(",");
+        String c[] = ch.split(",");
         System.out.println("pays:"+c[0]+" "+c[1]);
         launch.setA(c[0]);
         launch.setB(c[1]);

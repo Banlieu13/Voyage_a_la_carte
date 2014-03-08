@@ -1,8 +1,13 @@
 package com.edu.gui.Responsable;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /*
  * To change this template, choose Tools | Templates
@@ -31,203 +36,477 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Deconnexion = new javax.swing.JButton();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu6 = new javax.swing.JMenu();
-        Reservation = new javax.swing.JMenu();
-        Destination = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu7 = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        x1 = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
+        home = new javax.swing.JLabel();
+        addann = new javax.swing.JLabel();
+        addoffre = new javax.swing.JLabel();
+        reservation = new javax.swing.JLabel();
+        facture = new javax.swing.JLabel();
+        contact1 = new javax.swing.JLabel();
+        stat1 = new javax.swing.JLabel();
+        Acceuil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Deconnexion.setText("Deconnexion");
-        Deconnexion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeconnexionActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Deconnexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, -1, -1));
-
-        jMenu6.setText("Acceuil");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+        x1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
+                x1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                x1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                x1MouseExited(evt);
             }
         });
-        jMenuBar1.add(jMenu6);
+        getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 30, 30));
 
-        Reservation.setText("Reservation");
-        Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
+        x.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ReservationMouseClicked(evt);
+                xMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                xMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                xMouseExited(evt);
             }
         });
-        jMenuBar1.add(Reservation);
+        getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, 30));
 
-        Destination.setText("Destination");
-        Destination.addMouseListener(new java.awt.event.MouseAdapter() {
+        home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                homeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                homeMouseExited(evt);
+            }
+        });
+        getContentPane().add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 150, 86));
+
+        addann.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DestinationMouseClicked(evt);
+                addannMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addannMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addannMouseExited(evt);
             }
         });
-        jMenuBar1.add(Destination);
+        getContentPane().add(addann, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 150, 86));
 
-        jMenu1.setText("Factures");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem1.setText("Liste des Factures");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu1);
-
-        jMenu3.setText("Ajouter Offre");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        addoffre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                addoffreMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                addoffreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addoffreMouseExited(evt);
             }
         });
-        jMenuBar1.add(jMenu3);
+        getContentPane().add(addoffre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 150, 86));
 
-        jMenu4.setText("Annonce");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+        reservation.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+                reservationMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                reservationMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                reservationMouseExited(evt);
             }
         });
-        jMenuBar1.add(jMenu4);
+        getContentPane().add(reservation, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 150, 86));
 
-        jMenu2.setText("Ajouter annonce");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        facture.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                factureMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                factureMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                factureMouseExited(evt);
             }
         });
-        jMenuBar1.add(jMenu2);
+        getContentPane().add(facture, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 150, 86));
 
-        jMenu5.setText("Offre");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+        contact1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
+                contact1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                contact1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                contact1MouseExited(evt);
             }
         });
-        jMenuBar1.add(jMenu5);
+        getContentPane().add(contact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 150, 86));
 
-        jMenu7.setText("Statistique");
-
-        jMenuItem2.setText("Charte Graphique");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+        stat1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                stat1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                stat1MouseExited(evt);
             }
         });
-        jMenu7.add(jMenuItem2);
-
-        jMenuItem3.setText("Rapport");
-        jMenu7.add(jMenuItem3);
-
-        jMenuBar1.add(jMenu7);
-
-        setJMenuBar(jMenuBar1);
+        getContentPane().add(stat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 150, 86));
+        getContentPane().add(Acceuil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 450));
+        Acceuil.getAccessibleContext().setAccessibleName("Acceuil");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_DeconnexionActionPerformed
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-
-        //  List_des_Factures cd=new List_des_Factures();
-       // this.dispose();
-               
-        //cd.setVisible(true);
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-      //List_des_Factures cd=new List_des_Factures();
-      // cd.setVisible(true);
-       ListeFacture_Responsable cd = new ListeFacture_Responsable();
-       cd.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void ReservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservationMouseClicked
-reservation re = new reservation();
-        re.setVisible(true);
-        this.setVisible(false);
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReservationMouseClicked
-
-    private void DestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseClicked
-        tbdestination_1 de = new tbdestination_1();
-        de.setVisible(true);
-        this.setVisible(false);
-        
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DestinationMouseClicked
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-       AjouterAnnonce aa = new AjouterAnnonce();
-       aa.setVisible(true);
-       this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        AjouterOffre ao = new AjouterOffre();
-        ao.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        annonce a = new annonce();
-        a.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        OffreResponsable or = new OffreResponsable();
-        or.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        Acceuil_Responsable ar = new Acceuil_Responsable();
-        ar.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu6MouseClicked
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        this.setLocationRelativeTo(null);
+        BufferedImage imgHome = null;
         try {
-            StatistiqueResponsable str = new StatistiqueResponsable("Statisques Annonces/Offres");
-            str.setVisible(true);
-            str.setSize(400, 400);
-            //str.setDefaultCloseOperation();
+            imgHome = ImageIO.read(new File("res/arriere.jpg"));
         } catch (IOException ex) {
             Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+          Image ri = imgHome.getScaledInstance(Acceuil.getWidth(), Acceuil.getHeight(), 0);
+          Acceuil.setIcon(new ImageIcon(ri));
+          
+          BufferedImage imgh = null;
+        try {
+            imgh = ImageIO.read(new File("res/accueil off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridh = imgh.getScaledInstance(home.getWidth(), home.getHeight(), 0);
+          home.setIcon(new ImageIcon(ridh));
+          
+              BufferedImage imgaddn = null;
+        try {
+            imgaddn = ImageIO.read(new File("res/annonce off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridann = imgaddn.getScaledInstance(addann.getWidth(), addann.getHeight(), 0);
+          addann.setIcon(new ImageIcon(ridann));
+          
+        BufferedImage imgaddoffre = null;
+        try {
+            imgaddoffre = ImageIO.read(new File("res/offre off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridoffr = imgaddoffre.getScaledInstance(addoffre.getWidth(), addoffre.getHeight(), 0);
+          addoffre.setIcon(new ImageIcon(ridoffr));
+          
+          BufferedImage imgcontact = null;
+        try {
+            imgcontact = ImageIO.read(new File("res/destination off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridcontact = imgcontact.getScaledInstance(contact1.getWidth(), contact1.getHeight(), 0);
+          contact1.setIcon(new ImageIcon(ridcontact));
+          
+             BufferedImage imgfact = null;
+        try {
+            imgfact = ImageIO.read(new File("res/factures off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridfact = imgfact.getScaledInstance(facture.getWidth(), facture.getHeight(), 0);
+          facture.setIcon(new ImageIcon(ridfact));
+          
+        BufferedImage imgres = null;
+        try {
+            imgres = ImageIO.read(new File("res/reservation off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridres = imgres.getScaledInstance(reservation.getWidth(), reservation.getHeight(), 0);
+          reservation.setIcon(new ImageIcon(ridres));
+          
+          BufferedImage imgstat = null;
+        try {
+            imgstat = ImageIO.read(new File("res/statistique off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridstat = imgstat.getScaledInstance(stat1.getWidth(), stat1.getHeight(), 0);
+          stat1.setIcon(new ImageIcon(ridstat));
+          
+          BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+          x.setIcon(new ImageIcon(ridx));
+          
+          BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+          x1.setIcon(new ImageIcon(ridxr));
+          
+          
+        
+    }//GEN-LAST:event_formWindowOpened
+
+    private void homeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseEntered
+          BufferedImage imgh = null;
+        try {
+            imgh = ImageIO.read(new File("res/accueil on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridh = imgh.getScaledInstance(home.getWidth(), home.getHeight(), 0);
+          home.setIcon(new ImageIcon(ridh));
+    }//GEN-LAST:event_homeMouseEntered
+
+    private void addannMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addannMouseEntered
+            BufferedImage imgaddn = null;
+        try {
+            imgaddn = ImageIO.read(new File("res/annonce on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridann = imgaddn.getScaledInstance(addann.getWidth(), addann.getHeight(), 0);
+          addann.setIcon(new ImageIcon(ridann));
+          
+    }//GEN-LAST:event_addannMouseEntered
+
+    private void addoffreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addoffreMouseEntered
+            
+        BufferedImage imgaddoffre = null;
+        try {
+            imgaddoffre = ImageIO.read(new File("res/offre on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridoffr = imgaddoffre.getScaledInstance(addoffre.getWidth(), addoffre.getHeight(), 0);
+          addoffre.setIcon(new ImageIcon(ridoffr));
+    }//GEN-LAST:event_addoffreMouseEntered
+
+    private void contact1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contact1MouseClicked
+        tbdestination_1 de = new tbdestination_1();
+        de.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_contact1MouseClicked
+
+    private void contact1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contact1MouseEntered
+        BufferedImage imgcontact = null;
+        try {
+            imgcontact = ImageIO.read(new File("res/destination on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridcontact = imgcontact.getScaledInstance(contact1.getWidth(), contact1.getHeight(), 0);
+          contact1.setIcon(new ImageIcon(ridcontact));
+          
+    }//GEN-LAST:event_contact1MouseEntered
+
+    private void factureMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_factureMouseEntered
+            BufferedImage imgfact = null;
+        try {
+            imgfact = ImageIO.read(new File("res/factures on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridfact = imgfact.getScaledInstance(facture.getWidth(), facture.getHeight(), 0);
+          facture.setIcon(new ImageIcon(ridfact));
+    }//GEN-LAST:event_factureMouseEntered
+
+    private void reservationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationMouseEntered
+        BufferedImage imgres = null;
+        try {
+            imgres = ImageIO.read(new File("res/reservation on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridres = imgres.getScaledInstance(reservation.getWidth(), reservation.getHeight(), 0);
+          reservation.setIcon(new ImageIcon(ridres));
+    }//GEN-LAST:event_reservationMouseEntered
+
+    private void stat1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stat1MouseEntered
+             BufferedImage imgstat = null;
+        try {
+            imgstat = ImageIO.read(new File("res/statistique on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridstat = imgstat.getScaledInstance(stat1.getWidth(), stat1.getHeight(), 0);
+          stat1.setIcon(new ImageIcon(ridstat));
+    }//GEN-LAST:event_stat1MouseEntered
+
+    private void stat1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stat1MouseExited
+           BufferedImage imgstat = null;
+        try {
+            imgstat = ImageIO.read(new File("res/statistique off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridstat = imgstat.getScaledInstance(stat1.getWidth(), stat1.getHeight(), 0);
+          stat1.setIcon(new ImageIcon(ridstat));
+    }//GEN-LAST:event_stat1MouseExited
+
+    private void reservationMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationMouseExited
+          BufferedImage imgres = null;
+        try {
+            imgres = ImageIO.read(new File("res/reservation off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridres = imgres.getScaledInstance(reservation.getWidth(), reservation.getHeight(), 0);
+          reservation.setIcon(new ImageIcon(ridres));
+    }//GEN-LAST:event_reservationMouseExited
+
+    private void factureMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_factureMouseExited
+          BufferedImage imgfact = null;
+        try {
+            imgfact = ImageIO.read(new File("res/factures off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridfact = imgfact.getScaledInstance(facture.getWidth(), facture.getHeight(), 0);
+          facture.setIcon(new ImageIcon(ridfact));
+    }//GEN-LAST:event_factureMouseExited
+
+    private void contact1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contact1MouseExited
+        BufferedImage imgcontact = null;
+        try {
+            imgcontact = ImageIO.read(new File("res/destination off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridcontact = imgcontact.getScaledInstance(contact1.getWidth(), contact1.getHeight(), 0);
+          contact1.setIcon(new ImageIcon(ridcontact));
+    }//GEN-LAST:event_contact1MouseExited
+
+    private void addannMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addannMouseExited
+         BufferedImage imgaddn = null;
+        try {
+            imgaddn = ImageIO.read(new File("res/annonce off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridann = imgaddn.getScaledInstance(addann.getWidth(), addann.getHeight(), 0);
+          addann.setIcon(new ImageIcon(ridann));
+    }//GEN-LAST:event_addannMouseExited
+
+    private void homeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_homeMouseExited
+          BufferedImage imgh = null;
+        try {
+            imgh = ImageIO.read(new File("res/accueil off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridh = imgh.getScaledInstance(home.getWidth(), home.getHeight(), 0);
+          home.setIcon(new ImageIcon(ridh));
+    }//GEN-LAST:event_homeMouseExited
+
+    private void addoffreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addoffreMouseExited
+          BufferedImage imgaddoffre = null;
+        try {
+            imgaddoffre = ImageIO.read(new File("res/offre off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridoffr = imgaddoffre.getScaledInstance(addoffre.getWidth(), addoffre.getHeight(), 0);
+          addoffre.setIcon(new ImageIcon(ridoffr));
+    }//GEN-LAST:event_addoffreMouseExited
+
+    private void factureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_factureMouseClicked
+         ListeFacture_Responsable cd = new ListeFacture_Responsable();
+       cd.setVisible(true);
+       this.setVisible(false);
+    }//GEN-LAST:event_factureMouseClicked
+
+    private void addannMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addannMouseClicked
+         annonce a = new annonce();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_addannMouseClicked
+
+    private void addoffreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addoffreMouseClicked
+        OffreResponsable or = new OffreResponsable();
+        or.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_addoffreMouseClicked
+
+    private void reservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationMouseClicked
+       reservation re = new reservation();
+        re.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_reservationMouseClicked
+
+    private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_xMouseClicked
+
+    private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseEntered
+
+    private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseExited
+
+    private void x1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseClicked
+
+    }//GEN-LAST:event_x1MouseClicked
+
+    private void x1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseEntered
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseEntered
+
+    private void x1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseExited
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseExited
 
     /**
      * @param args the command line arguments
@@ -264,19 +543,15 @@ reservation re = new reservation();
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Deconnexion;
-    private javax.swing.JMenu Destination;
-    private javax.swing.JMenu Reservation;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JLabel Acceuil;
+    private javax.swing.JLabel addann;
+    private javax.swing.JLabel addoffre;
+    private javax.swing.JLabel contact1;
+    private javax.swing.JLabel facture;
+    private javax.swing.JLabel home;
+    private javax.swing.JLabel reservation;
+    private javax.swing.JLabel stat1;
+    private javax.swing.JLabel x;
+    private javax.swing.JLabel x1;
     // End of variables declaration//GEN-END:variables
 }

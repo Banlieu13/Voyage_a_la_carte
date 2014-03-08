@@ -57,29 +57,12 @@ public class InfoAnnonce extends javax.swing.JFrame {
         btnjaime = new javax.swing.JButton();
         nbrj = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
-        pan = new javax.swing.JPanel();
-        rat1 = new javax.swing.JLabel();
-        rat3 = new javax.swing.JLabel();
-        rat4 = new javax.swing.JLabel();
-        rat5 = new javax.swing.JLabel();
-        rat6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        a = new javax.swing.JLabel();
-        b = new javax.swing.JLabel();
-        c = new javax.swing.JLabel();
         d = new javax.swing.JLabel();
         e = new javax.swing.JLabel();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        c = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
+        a = new javax.swing.JLabel();
+        Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programme Annonce");
@@ -96,23 +79,29 @@ public class InfoAnnonce extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, -1, -1));
 
         jtsujet.setColumns(20);
         jtsujet.setRows(5);
         jScrollPane1.setViewportView(jtsujet);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 280, 80));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 370, 280, 80));
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 90, 0));
         jLabel1.setText("Commenter");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Programme");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        res.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, -1, -1));
 
+        listcom.setBackground(new java.awt.Color(76, 75, 75));
         listcom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 listcomMousePressed(evt);
@@ -120,11 +109,12 @@ public class InfoAnnonce extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(listcom);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, 310, 400));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 310, 360));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 90, 0));
         jLabel3.setText("Commentaires");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 40, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, -1, -1));
 
         jButton1.setText("Signaler commentaire");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -132,9 +122,9 @@ public class InfoAnnonce extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 480, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 460, -1, -1));
 
-        msage.setForeground(new java.awt.Color(255, 51, 51));
+        msage.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(msage, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, -1, -1));
 
         btnjaime.setText("Jaime");
@@ -143,8 +133,11 @@ public class InfoAnnonce extends javax.swing.JFrame {
                 btnjaimeActionPerformed(evt);
             }
         });
-        getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 70, -1));
-        getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 350, 40, 20));
+        getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, 70, -1));
+
+        nbrj.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        nbrj.setForeground(new java.awt.Color(255, 90, 0));
+        getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, 40, 20));
 
         jButton3.setText("Map");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -152,48 +145,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, -1));
-
-        jLabel4.setText("Evaluer cette offre: ");
-
-        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        a.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                aMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                aMouseExited(evt);
-            }
-        });
-
-        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        b.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bMouseExited(evt);
-            }
-        });
-
-        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        c.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                cMouseExited(evt);
-            }
-        });
+        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 70, -1));
 
         d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
         d.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -207,6 +159,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
                 dMouseExited(evt);
             }
         });
+        getContentPane().add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 320, -1, -1));
 
         e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
         e.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -220,149 +173,52 @@ public class InfoAnnonce extends javax.swing.JFrame {
                 eMouseExited(evt);
             }
         });
+        getContentPane().add(e, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, 20));
 
-        javax.swing.GroupLayout panLayout = new javax.swing.GroupLayout(pan);
-        pan.setLayout(panLayout);
-        panLayout.setHorizontalGroup(
-            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panLayout.createSequentialGroup()
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLayout.createSequentialGroup()
-                        .addComponent(a)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(rat1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rat3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rat4))
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addComponent(b)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(c)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(d)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(e)
-                                .addGap(0, 19, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rat5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rat6)
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-        panLayout.setVerticalGroup(
-            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(a))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(c, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(d, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(e, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                    .addComponent(b))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rat1)
-                    .addComponent(rat3)
-                    .addComponent(rat4)
-                    .addComponent(rat5)
-                    .addComponent(rat6))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(pan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 210, 80));
-
-        jMenu2.setText("Acceuil");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        c.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                cMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu2);
+        getContentPane().add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 320, -1, -1));
 
-        jMenu8.setText("Proposer offre");
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        b.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
+                bMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu8);
+        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
-        jMenu3.setText("Annonces");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        a.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                aMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu3);
+        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, -1, -1));
 
-        jMenu4.setText("Contact");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu4);
-
-        jMenu6.setText("Destinations");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu6);
-
-        jMenu5.setText("Mes Destination");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu5);
-
-        jMenu1.setText("Paramètres");
-
-        jMenuItem1.setText("Profil");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem3.setText("Changer Mot de passe");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
-        jMenuItem2.setText("Déconnexion");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar3.add(jMenu1);
-
-        setJMenuBar(jMenuBar3);
+        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -385,7 +241,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
         CommentaireDAO cd = new CommentaireDAO();
         ConsulterAnnonces coa = new ConsulterAnnonces();
         this.setLocationRelativeTo(null);
-        this.setSize(800, 600);
+        this.setSize(900, 600);
         this.setResizable(false);
         ConsulterAnnonces ac = new ConsulterAnnonces();
         AnnonceDAO od = new AnnonceDAO();
@@ -396,59 +252,6 @@ public class InfoAnnonce extends javax.swing.JFrame {
         nbrj.setText(""+nb);
         
     }//GEN-LAST:event_formWindowOpened
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        ProposerDestinationClient po = new ProposerDestinationClient();
-        po.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu8MouseClicked
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        ConsulterAnnonces ca = new ConsulterAnnonces();
-        ca.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        MailJframe mj = new MailJframe();
-        mj.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        Destinations d = new Destinations();
-        d.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu6MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        MesDestinations md = new MesDestinations();
-        md.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Profil p = new Profil();
-        p.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        EditPassowrd ep = new EditPassowrd();
-        ep.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        authentification a = new authentification();
-        a.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         if (listcom.isSelectionEmpty()) {
@@ -701,6 +504,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Accueil;
     private javax.swing.JLabel a;
     private javax.swing.JLabel b;
     private javax.swing.JButton btnjaime;
@@ -713,30 +517,12 @@ public class InfoAnnonce extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jtsujet;
     private javax.swing.JList listcom;
     private javax.swing.JLabel msage;
     private javax.swing.JLabel nbrj;
-    private javax.swing.JPanel pan;
-    private javax.swing.JLabel rat1;
-    private javax.swing.JLabel rat3;
-    private javax.swing.JLabel rat4;
-    private javax.swing.JLabel rat5;
-    private javax.swing.JLabel rat6;
     private javax.swing.JLabel res;
     // End of variables declaration//GEN-END:variables
 }

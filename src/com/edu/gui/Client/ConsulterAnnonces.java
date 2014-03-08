@@ -5,14 +5,9 @@
 package com.edu.gui.Client;
 
 import com.edu.DAO.AnnonceDAO;
-import com.edu.entities.Annonce;
 import com.edu.entities.Table.TableAffichageAnnonceClient;
-import com.edu.entities.Table.TableOffre;
-import static com.edu.gui.Client.acceuilclient.idoffre;
-import static com.edu.gui.Client.acceuilclient.mailresp;
-import static com.edu.gui.Client.acceuilclient.nbr;
+import static com.edu.gui.Client.acceuilclient.circuit;
 import com.edu.gui.authentification;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.ImageIcon;
@@ -53,6 +48,7 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         pic1 = new javax.swing.JLabel();
         pic2 = new javax.swing.JLabel();
         pic3 = new javax.swing.JLabel();
+        Accueil = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -126,6 +122,9 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
 
         pic3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(pic3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, -1, -1));
+
+        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,7 +210,7 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         authentification a = new authentification();
         this.setLocationRelativeTo(null);
-        this.setSize(930, 500);
+        this.setSize(900, 500);
         this.setResizable(false);
     }//GEN-LAST:event_formWindowOpened
 
@@ -245,10 +244,10 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
            {
            
            idannonce = (int) to.getValueAt(x, 0);
-           
+           circuit = (String) to.getValueAt(x, 3);
            InfoAnnonce ino = new InfoAnnonce(); 
            System.out.println(idannonce);
-           
+           System.out.println(circuit);
             ino.setVisible(true);
             this.setVisible(false);
              }
@@ -386,6 +385,7 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Accueil;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
