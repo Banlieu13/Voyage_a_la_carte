@@ -11,11 +11,16 @@ import com.edu.connection.ConnectionBD;
 import com.edu.entities.facture_responsable;
 
 import com.edu.gui.authentification;
+import java.awt.print.PageFormat;
+import java.awt.print.PrinterException;
+import java.awt.print.PrinterJob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -155,7 +160,6 @@ public class FacturePreview extends javax.swing.JFrame {
         setFocusTraversalPolicyProvider(true);
         setMinimumSize(new java.awt.Dimension(690, 633));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(690, 633));
         setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
@@ -431,6 +435,11 @@ public class FacturePreview extends javax.swing.JFrame {
         getContentPane().add(jLabel115, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 710, -1));
 
         jButton1.setText("Imprimer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 580, -1, -1));
 
         jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -609,6 +618,27 @@ public class FacturePreview extends javax.swing.JFrame {
         ac.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+           PrinterJob pjob = PrinterJob.getPrinterJob();
+        PageFormat preformat = pjob.defaultPage();
+        preformat.setOrientation(PageFormat.LANDSCAPE);
+        PageFormat postformat = pjob.pageDialog(preformat);
+        //If user does not hit cancel then print.
+        if (preformat != postformat) {
+            //Set print component
+            pjob.setPrintable(new Printer(this), postformat);
+        if (pjob.printDialog()) {
+        try {
+            pjob.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(FactureAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        }
+        }
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -6,6 +6,7 @@
 package com.edu.DAO;
 import com.edu.connection.ConnectionBD;
 import com.edu.entities.Annonce;
+import java.io.InputStream;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -172,7 +173,64 @@ public class AnnonceDAO {
                     }
                     
     }
-      
+        public void updateAnnonce(Date DateAn,String programme,String circuit,int nbrplace,String hotel,double prix,String mailR,InputStream pic1,InputStream pic2,InputStream pic3,InputStream pic4){
+        
+        String requete = "update annonce set dateAn=?,programme=?,Circuit=?,nbrplace=?,HotelA=?,prixA=?,pic1=?,pic2=?,pic3=3,pic4=? where E_mail='"+mailR+"'";
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+            ps.setDate(1, DateAn);
+            
+            ps.setString(2, programme);
+            ps.setString(3, circuit);
+            ps.setInt(4, nbrplace);
+            ps.setString(5, circuit);
+            ps.setDouble(6, prix);
+            ps.setBinaryStream(7, pic1);
+            ps.setBinaryStream(8, pic2);
+            ps.setBinaryStream(9, pic3);
+            ps.setBinaryStream(10, pic4);
+            
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+        }
+    }
+    
+    public Annonce FindannonceeById (int id){
+        
+        Annonce a = new Annonce();
+        String requete = "select * from annonce where id_annonce="+id;
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+           
+            ResultSet resultat;
+            resultat = ps.executeQuery(requete);
+             while (resultat.next())
+            {
+                 a.setDatean(resultat.getDate(2));
+                 
+                 a.setProgramme(resultat.getString(4));
+                 a.setCircuit(resultat.getString(5));
+                 a.setNbrplace(resultat.getInt(6));
+                 a.setHotel(resultat.getString(7));
+                 a.setPhoto1(resultat.getBinaryStream(7));
+                 a.setPhoto2(resultat.getBinaryStream(8));
+                 a.setPhoto3(resultat.getBinaryStream(9));
+                 a.setPhoto4(resultat.getBinaryStream(10));
+                 
+            }
+             
+           
+            
+            return a;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des Offres "+ex.getMessage());
+            return null;
+        }
+       }    
 
 }
 

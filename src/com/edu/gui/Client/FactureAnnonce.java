@@ -19,6 +19,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -1142,19 +1144,22 @@ public class FactureAnnonce extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(null, "hello");
-        PrinterJob PJ   =   PrinterJob.getPrinterJob();
-        PageFormat PF   =   PJ.pageDialog(PJ.defaultPage());
-        PJ.setPrintable((Printable) this);
-        boolean doPrint = PJ.printDialog();
- 
-        JOptionPane.showMessageDialog(null, doPrint);
-        if(doPrint){
-            try {
-                PJ.print();
-            } catch (PrinterException ex) {
-                JOptionPane.showMessageDialog(null, ex.getMessage());
-           }
+     PrinterJob pjob = PrinterJob.getPrinterJob();
+        PageFormat preformat = pjob.defaultPage();
+        preformat.setOrientation(PageFormat.LANDSCAPE);
+        PageFormat postformat = pjob.pageDialog(preformat);
+        //If user does not hit cancel then print.
+        if (preformat != postformat) {
+            //Set print component
+            pjob.setPrintable(new Printer(this), postformat);
+        if (pjob.printDialog()) {
+        try {
+            pjob.print();
+        } catch (PrinterException ex) {
+            Logger.getLogger(FactureAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        }
         }
     }
     public int print(Graphics g, PageFormat pageFormat, int pageIndex) throws PrinterException {

@@ -8,12 +8,18 @@ import com.edu.gui.Client.PaiementClient;
 import com.edu.gui.Client.Profil;
 import com.edu.gui.Client.ProposerDestinationClient;
 import com.edu.gui.authentification;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -50,7 +56,6 @@ public class acceuilclient extends javax.swing.JFrame {
     private void initComponents() {
 
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         txfCircuit = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -67,6 +72,13 @@ public class acceuilclient extends javax.swing.JFrame {
         photoprofil = new javax.swing.JLabel();
         temp = new javax.swing.JLabel();
         temp2 = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
+        Annonce = new javax.swing.JLabel();
+        Destination = new javax.swing.JLabel();
+        Proposer = new javax.swing.JLabel();
+        contact = new javax.swing.JLabel();
+        parametre = new javax.swing.JLabel();
+        Accueil = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -81,6 +93,7 @@ public class acceuilclient extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Accueil Client");
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -94,16 +107,9 @@ public class acceuilclient extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 160, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 160, -1, -1));
 
-        jButton1.setText("Rechercher");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, -1, -1));
-
+        txfCircuit.setBackground(new java.awt.Color(204, 204, 255));
         txfCircuit.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentRemoved(java.awt.event.ContainerEvent evt) {
                 txfCircuitComponentRemoved(evt);
@@ -134,11 +140,12 @@ public class acceuilclient extends javax.swing.JFrame {
                 txfCircuitKeyTyped(evt);
             }
         });
-        getContentPane().add(txfCircuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 129, -1));
+        getContentPane().add(txfCircuit, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 90, 160, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Circuit");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 42, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, 60, 20));
 
         jTable1.setModel(new com.edu.entities.Table.TableOffre());
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,7 +155,7 @@ public class acceuilclient extends javax.swing.JFrame {
         });
         jScrollPane4.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 119, 660, 210));
+        getContentPane().add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 660, 210));
 
         btnSignaler.setText("Signaler");
         btnSignaler.addActionListener(new java.awt.event.ActionListener() {
@@ -156,7 +163,7 @@ public class acceuilclient extends javax.swing.JFrame {
                 btnSignalerActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSignaler, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 220, -1, -1));
+        getContentPane().add(btnSignaler, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 220, -1, -1));
 
         jButton4.setText("Réserver");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -164,35 +171,102 @@ public class acceuilclient extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, -1, -1));
+        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 190, -1, -1));
         getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Bienvenue");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         tfnom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         tfnom.setForeground(new java.awt.Color(255, 0, 51));
-        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, 200, 20));
+        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 200, 20));
 
         pic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, -1, -1));
+        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 100, 100));
 
         pic1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(pic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, -1, -1));
+        getContentPane().add(pic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 100, 100));
 
         pic2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(pic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 340, -1, -1));
+        getContentPane().add(pic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 340, 100, 100));
 
         pic3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(pic3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
+        getContentPane().add(pic3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, 100, 100));
 
         photoprofil.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(photoprofil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 100, 100));
+        getContentPane().add(photoprofil, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 10, 100, 100));
 
         temp.setMaximumSize(new java.awt.Dimension(20, 5));
-        getContentPane().add(temp, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, 320, 30));
-        getContentPane().add(temp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 74, 320, 30));
+        getContentPane().add(temp, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 320, 30));
+        getContentPane().add(temp2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 320, 30));
+
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 80, 50));
+
+        Annonce.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                AnnonceMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                AnnonceMouseExited(evt);
+            }
+        });
+        getContentPane().add(Annonce, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 80, 50));
+
+        Destination.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                DestinationMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                DestinationMouseExited(evt);
+            }
+        });
+        getContentPane().add(Destination, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 80, 50));
+
+        Proposer.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ProposerMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ProposerMouseExited(evt);
+            }
+        });
+        getContentPane().add(Proposer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 80, 50));
+
+        contact.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                contactMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                contactMouseExited(evt);
+            }
+        });
+        getContentPane().add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 80, 50));
+
+        parametre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                parametreMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                parametreMouseExited(evt);
+            }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                parametreMousePressed(evt);
+            }
+        });
+        getContentPane().add(parametre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 80, 50));
+
+        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -275,67 +349,90 @@ public class acceuilclient extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        TableOffre to = new TableOffre();
-        offreDAO od = new offreDAO();
-        
-        to.listOffre = od.chercherOffreBycircuit(txfCircuit.getText());
-        jTable1.setModel(to);
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-            authentification a = new authentification();
-            String fbid=Client.getFbid();
-            System.out.println("idfacebook="+fbid);
-        if (a.isVisible()==true){
-            a.setVisible(false);
-        }
-        
-        this.setLocationRelativeTo(null);
-        this.setSize(830, 500);
-        this.setResizable(false);
-        ClientDAO cd = new ClientDAO();
-         Client c =new Client();
-        if (Client.getFbem()!=null){
-            URL url; 
          try {
-             url = new URL("https://graph.facebook.com/"+fbid+"/picture?type=normal");
-               ImageIcon image =  new ImageIcon(url);
-                    JLabel im = new JLabel( image);   
-                    photoprofil.setSize(100, 100);
-             im.setSize(100,100);
+             authentification a = new authentification();
+             String fbid=Client.getFbid();
+             System.out.println("idfacebook="+fbid);
+         if (a.isVisible()==true){
+             a.setVisible(false);
+         }
+         
+         this.setLocationRelativeTo(null);
+         this.setSize(900, 500);
+         this.setResizable(false);
+          BufferedImage img = ImageIO.read(new File("res/accueil-off.jpg"));
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
+        
+          BufferedImage imgHome = ImageIO.read(new File("res/arriere.jpg"));
+          Image ri = imgHome.getScaledInstance(Accueil.getWidth(), Accueil.getHeight(), 0);
+          Accueil.setIcon(new ImageIcon(ri));
+          
+          BufferedImage imgann = ImageIO.read(new File("res/annonce off.jpg"));
+          Image riann = imgann.getScaledInstance(Annonce.getWidth(), Annonce.getHeight(), 0);
+          Annonce.setIcon(new ImageIcon(riann));
+          
+          BufferedImage imgdest = ImageIO.read(new File("res/destination off.jpg"));
+          Image ridest = imgdest.getScaledInstance(Destination.getWidth(), Destination.getHeight(), 0);
+          Destination.setIcon(new ImageIcon(ridest));
+          
+          BufferedImage imgprop = ImageIO.read(new File("res/proposer off.jpg"));
+          Image ridprop = imgprop.getScaledInstance(Proposer.getWidth(), Proposer.getHeight(), 0);
+          Proposer.setIcon(new ImageIcon(ridprop));
+          
+          BufferedImage imgcontact = ImageIO.read(new File("res/contact off.jpg"));
+          Image ridcont = imgcontact.getScaledInstance(contact.getWidth(), contact.getHeight(), 0);
+          contact.setIcon(new ImageIcon(ridcont));
+          
+          BufferedImage imgparam = ImageIO.read(new File("res/parametre off.jpg"));
+          Image ridparam = imgparam.getScaledInstance(parametre.getWidth(), parametre.getHeight(), 0);
+          parametre.setIcon(new ImageIcon(ridparam));
+        
+         
+         ClientDAO cd = new ClientDAO();
+          Client c =new Client();
+         if (Client.getFbem()!=null){
+             URL url; 
+          try {
+              url = new URL("https://graph.facebook.com/"+fbid+"/picture?type=normal");
+                ImageIcon image =  new ImageIcon(url);
+                     JLabel im = new JLabel( image);   
+                     photoprofil.setSize(100, 100);
+              im.setSize(100,100);
+                 
+                 photoprofil.setIcon(image);
                 
-                photoprofil.setIcon(image);
-               
-                photoprofil.repaint();
-             
-         } catch (MalformedURLException ex) {
+                 photoprofil.repaint();
+              
+          } catch (MalformedURLException ex) {
+              Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+          }
+              
+              c=cd.chercherClient(c.getFbem());
+              tfnom.setText(Client.getFbnom());
+         }else{
+            
+             c=cd.chercherClient(a.identifiant);
+              tfnom.setText(c.getNom()+" "+c.getPrenom());
+              ImageIcon ima = new ImageIcon();
+             ima = cd.chercherImageClient(a.identifiant);
+              photoprofil.setIcon(ima);
+              pic.setSize(100, 100);
+              pic1.setSize(100, 100);
+              pic2.setSize(100, 100);
+              pic3.setSize(100, 100);
+              photoprofil.setSize(100, 100);
+         }
+       if (cd.passestchanger(a.identifiant))
+       { 
+           System.out.println(a.identifiant);
+           System.out.println(cd.passestchanger(a.identifiant));
+           temp.setText("veuillez modifier votre mot de passe");
+           temp2.setText("votre mot de passe est votre email");
+       } } catch (IOException ex) {
              Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
          }
-             
-             c=cd.chercherClient(c.getFbem());
-             tfnom.setText(Client.getFbnom());
-        }else{
-           
-            c=cd.chercherClient(a.identifiant);
-             tfnom.setText(c.getNom());
-             ImageIcon ima = new ImageIcon();
-            ima = cd.chercherImageClient(a.identifiant);
-             photoprofil.setIcon(ima);
-             pic.setSize(100, 100);
-             pic1.setSize(100, 100);
-             pic2.setSize(100, 100);
-             pic3.setSize(100, 100);
-             photoprofil.setSize(100, 100);
-        }
-      if (cd.passestchanger(a.identifiant))
-      { 
-          System.out.println(a.identifiant);
-          System.out.println(cd.passestchanger(a.identifiant));
-          temp.setText("veuillez modifier votre mot de passe");
-          temp2.setText("votre mot de passe est votre email");
-      }
     }//GEN-LAST:event_formWindowOpened
 
     private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
@@ -519,6 +616,144 @@ public class acceuilclient extends javax.swing.JFrame {
             
     }//GEN-LAST:event_jTable1MousePressed
 
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+            BufferedImage img2 = null;
+         try {
+             img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void AnnonceMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnnonceMouseEntered
+        BufferedImage imgann = null;
+         try {
+             imgann = ImageIO.read(new File("res/annonce on.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image riann = imgann.getScaledInstance(Annonce.getWidth(), Annonce.getHeight(), 0);
+          Annonce.setIcon(new ImageIcon(riann));
+    }//GEN-LAST:event_AnnonceMouseEntered
+
+    private void DestinationMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseEntered
+        BufferedImage imgdest = null;
+         try {
+             imgdest = ImageIO.read(new File("res/destination on.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridest = imgdest.getScaledInstance(Destination.getWidth(), Destination.getHeight(), 0);
+          Destination.setIcon(new ImageIcon(ridest));
+    }//GEN-LAST:event_DestinationMouseEntered
+
+    private void ProposerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProposerMouseEntered
+         BufferedImage imgprop = null;
+         try {
+             imgprop = ImageIO.read(new File("res/proposer on.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridprop = imgprop.getScaledInstance(Proposer.getWidth(), Proposer.getHeight(), 0);
+          Proposer.setIcon(new ImageIcon(ridprop));
+    }//GEN-LAST:event_ProposerMouseEntered
+
+    private void contactMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactMouseEntered
+        BufferedImage imgcontact = null;
+         try {
+             imgcontact = ImageIO.read(new File("res/contact on.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridcont = imgcontact.getScaledInstance(contact.getWidth(), contact.getHeight(), 0);
+          contact.setIcon(new ImageIcon(ridcont));
+    }//GEN-LAST:event_contactMouseEntered
+
+    private void parametreMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_parametreMouseEntered
+          BufferedImage imgparam = null;
+         try {
+             imgparam = ImageIO.read(new File("res/parametre on.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridparam = imgparam.getScaledInstance(parametre.getWidth(), parametre.getHeight(), 0);
+          parametre.setIcon(new ImageIcon(ridparam));
+    }//GEN-LAST:event_parametreMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+           BufferedImage img2 = null;
+         try {
+             img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
+     
+
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void AnnonceMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnnonceMouseExited
+         BufferedImage imgann = null;
+         try {
+             imgann = ImageIO.read(new File("res/annonce off.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image riann = imgann.getScaledInstance(Annonce.getWidth(), Annonce.getHeight(), 0);
+          Annonce.setIcon(new ImageIcon(riann));
+    }//GEN-LAST:event_AnnonceMouseExited
+
+    private void DestinationMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseExited
+         BufferedImage imgdest = null;
+         try {
+             imgdest = ImageIO.read(new File("res/destination off.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridest = imgdest.getScaledInstance(Destination.getWidth(), Destination.getHeight(), 0);
+          Destination.setIcon(new ImageIcon(ridest));
+    }//GEN-LAST:event_DestinationMouseExited
+
+    private void ProposerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProposerMouseExited
+          BufferedImage imgprop = null;
+         try {
+             imgprop = ImageIO.read(new File("res/proposer off.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridprop = imgprop.getScaledInstance(Proposer.getWidth(), Proposer.getHeight(), 0);
+          Proposer.setIcon(new ImageIcon(ridprop));
+    }//GEN-LAST:event_ProposerMouseExited
+
+    private void contactMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactMouseExited
+              BufferedImage imgcontact = null;
+         try {
+             imgcontact = ImageIO.read(new File("res/contact off.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridcont = imgcontact.getScaledInstance(contact.getWidth(), contact.getHeight(), 0);
+          contact.setIcon(new ImageIcon(ridcont));
+    }//GEN-LAST:event_contactMouseExited
+
+    private void parametreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_parametreMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_parametreMousePressed
+
+    private void parametreMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_parametreMouseExited
+          BufferedImage imgparam = null;
+         try {
+             imgparam = ImageIO.read(new File("res/parametre off.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridparam = imgparam.getScaledInstance(parametre.getWidth(), parametre.getHeight(), 0);
+          parametre.setIcon(new ImageIcon(ridparam));
+    }//GEN-LAST:event_parametreMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -556,8 +791,13 @@ public class acceuilclient extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Accueil;
+    private javax.swing.JLabel Annonce;
+    private javax.swing.JLabel Destination;
+    private javax.swing.JLabel Home;
+    private javax.swing.JLabel Proposer;
     private javax.swing.JButton btnSignaler;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel contact;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -576,6 +816,7 @@ public class acceuilclient extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel msg;
+    private javax.swing.JLabel parametre;
     private javax.swing.JLabel photoprofil;
     private javax.swing.JLabel pic;
     private javax.swing.JLabel pic1;

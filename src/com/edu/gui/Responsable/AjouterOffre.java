@@ -46,15 +46,12 @@ public class AjouterOffre extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jprog = new javax.swing.JTextArea();
         jprix = new javax.swing.JTextField();
-        jvers2 = new javax.swing.JTextField();
         jvers = new javax.swing.JTextField();
         jnbrplace = new javax.swing.JTextField();
         jhotel = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jde = new javax.swing.JTextField();
-        jde2 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jpic2 = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
@@ -68,6 +65,16 @@ public class AjouterOffre extends javax.swing.JFrame {
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         jLabel12 = new javax.swing.JLabel();
         jpic1 = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu6 = new javax.swing.JMenu();
+        Reservation = new javax.swing.JMenu();
+        Destination = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -103,7 +110,6 @@ public class AjouterOffre extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
         getContentPane().add(jprix, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, 90, -1));
-        getContentPane().add(jvers2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 370, 90, -1));
         getContentPane().add(jvers, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 90, -1));
         getContentPane().add(jnbrplace, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 90, -1));
         getContentPane().add(jhotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 90, -1));
@@ -115,16 +121,7 @@ public class AjouterOffre extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
         jLabel7.setText("De");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 30, -1));
-
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 320, -1, 30));
         getContentPane().add(jde, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 90, -1));
-        getContentPane().add(jde2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, 90, -1));
 
         jButton2.setText("Parcourir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -190,13 +187,83 @@ public class AjouterOffre extends javax.swing.JFrame {
         jpic1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jpic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
 
+        jMenu6.setText("Acceuil");
+        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu6MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu6);
+
+        Reservation.setText("Reservation");
+        Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ReservationMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Reservation);
+
+        Destination.setText("Destination");
+        Destination.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DestinationMouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(Destination);
+
+        jMenu1.setText("Factures");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem1.setText("Liste des Factures");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuBar1.add(jMenu1);
+
+        jMenu3.setText("Ajouter Offre");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu3);
+
+        jMenu4.setText("Annonce");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu4);
+
+        jMenu2.setText("Ajouter annonce");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu2);
+
+        jMenu5.setText("Offre");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar1.add(jMenu5);
+
+        setJMenuBar(jMenuBar1);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jde2.setVisible(true);
-        jvers2.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         try{
@@ -295,7 +362,7 @@ public class AjouterOffre extends javax.swing.JFrame {
         authentification au = new authentification();
         offreDAO ado = new offreDAO();
         o.setDate(jDateChooser1.getDate());
-        o.setCircuit(jde.getText()+","+jvers.getText()+","+jde2.getText()+","+jvers2.getText());
+        o.setCircuit(jde.getText()+","+jvers.getText());
         o.setProgramme(jprog.getText());
         o.setPlaces(Integer.parseInt(jnbrplace.getText()));
         o.setHotel(jhotel.getText());
@@ -314,9 +381,70 @@ public class AjouterOffre extends javax.swing.JFrame {
         jpic2.setSize(100, 100);
         jpic3.setSize(100, 100);
         jpic4.setSize(100, 100);
-        jde2.setVisible(false);
-        jvers2.setVisible(false);
+      
     }//GEN-LAST:event_formWindowOpened
+
+    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
+        Acceuil_Responsable ar = new Acceuil_Responsable();
+        ar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu6MouseClicked
+
+    private void ReservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservationMouseClicked
+        reservation re = new reservation();
+        re.setVisible(true);
+        this.setVisible(false);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReservationMouseClicked
+
+    private void DestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseClicked
+        tbdestination_1 de = new tbdestination_1();
+        de.setVisible(true);
+        this.setVisible(false);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DestinationMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        //List_des_Factures cd=new List_des_Factures();
+        // cd.setVisible(true);
+        ListeFacture_Responsable cd = new ListeFacture_Responsable();
+        cd.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+
+        //  List_des_Factures cd=new List_des_Factures();
+        // this.dispose();
+
+        //cd.setVisible(true);
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        AjouterOffre ao = new AjouterOffre();
+        ao.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        annonce a = new annonce();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        AjouterAnnonce aa = new AjouterAnnonce();
+        aa.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        OffreResponsable or = new OffreResponsable();
+        or.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -353,7 +481,8 @@ public class AjouterOffre extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JMenu Destination;
+    private javax.swing.JMenu Reservation;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -370,9 +499,16 @@ public class AjouterOffre extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jde;
-    private javax.swing.JTextField jde2;
     private javax.swing.JTextField jhotel;
     private javax.swing.JTextField jnbrplace;
     private javax.swing.JLabel jpic1;
@@ -382,6 +518,5 @@ public class AjouterOffre extends javax.swing.JFrame {
     private javax.swing.JTextField jprix;
     private javax.swing.JTextArea jprog;
     private javax.swing.JTextField jvers;
-    private javax.swing.JTextField jvers2;
     // End of variables declaration//GEN-END:variables
 }

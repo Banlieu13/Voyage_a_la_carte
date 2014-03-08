@@ -86,7 +86,7 @@ public class addClient extends javax.swing.JFrame {
                 tfmailActionPerformed(evt);
             }
         });
-        jPanel1.add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 50, 170, 25));
+        jPanel1.add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 170, 25));
         jPanel1.add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 170, 25));
         jPanel1.add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, 170, 25));
         jPanel1.add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 140, 170, 25));

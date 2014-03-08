@@ -325,6 +325,7 @@ public class Profil extends javax.swing.JFrame {
          ImageIcon ima = new ImageIcon();
          ima = cd.chercherImageClient(a.identifiant);
          pic.setIcon(ima);
+        
          jlclient.setText(c.getNom()+" "+c.getPrenom());
         
     }//GEN-LAST:event_formWindowOpened
@@ -423,8 +424,7 @@ public class Profil extends javax.swing.JFrame {
                 fistream = new FileInputStream (pics);
                 pic.setSize(100, 100);
                 Image img = ImageIO.read(file);
-                Image resizedImage = 
-    img.getScaledInstance(pic.getWidth(), pic.getHeight(), 0);
+                Image resizedImage = img.getScaledInstance(pic.getWidth(), pic.getHeight(), 0);
                pic.setIcon(new ImageIcon(resizedImage));
                 //pic.setIcon(ima);
 

@@ -6,6 +6,7 @@ package com.edu.DAO;
  
 import com.edu.entities.Offre;
 import com.edu.connection.ConnectionBD;
+import java.io.InputStream;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -113,7 +114,7 @@ public class offreDAO {
      
       public List<Offre> chercherOffreBycircuit (String circuit){
         List<Offre> listeOffre = new ArrayList<>();
-        String requete = "select * from offre where Circuit='"+circuit+"' and nbrplace>0" ;
+        String requete = "select * from offre where Circuit like '%"+circuit+"%'"+" and nbrplace>0" ;
         try {
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
             ResultSet resultat;
@@ -212,5 +213,62 @@ public class offreDAO {
                     }
                     
     }
+           public void updateOffre(Date DateAn,String programme,String circuit,int nbrplace,String hotel,double prix,String mailR,InputStream pic1,InputStream pic2,InputStream pic3,InputStream pic4){
+        
+        String requete = "update offre set dateAn=?,programme=?,Circuit=?,nbrplace=?,HotelA=?,prixA=?,pic1=?,pic2=?,pic3=3,pic4=? where E_mail='"+mailR+"'";
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+            ps.setDate(1, DateAn);
+            
+            ps.setString(2, programme);
+            ps.setString(3, circuit);
+            ps.setInt(4, nbrplace);
+            ps.setString(5, circuit);
+            ps.setDouble(6, prix);
+            ps.setBinaryStream(7, pic1);
+            ps.setBinaryStream(8, pic2);
+            ps.setBinaryStream(9, pic3);
+            ps.setBinaryStream(10, pic4);
+            
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+        }
+    }
+              public Offre FindOffreeeById (int id){
+        
+        Offre o = new Offre();
+        String requete = "select * from offre where id_offre="+id;
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+           
+            ResultSet resultat;
+            resultat = ps.executeQuery(requete);
+             while (resultat.next())
+            {
+                 o.setDate(resultat.getDate(2));
+                 o.setCircuit(resultat.getString(4));
+                 o.setPlaces(resultat.getInt(5));
+                 o.setProgramme(resultat.getString(6));
+                 o.setHotel(resultat.getString(7));
+                 o.setPrix(resultat.getDouble(8));
+                 o.setPhoto1(resultat.getBinaryStream(10));
+                 o.setPhoto2(resultat.getBinaryStream(11));
+                 o.setPhoto3(resultat.getBinaryStream(12));
+                 o.setPhoto4(resultat.getBinaryStream(13));
+                 
+            }
+             
+           
+            
+            return o;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des Offres "+ex.getMessage());
+            return null;
+        }
+       }
        
 }

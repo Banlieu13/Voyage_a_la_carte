@@ -27,7 +27,7 @@ public class ClientDAO {
     }
     
     public void insertclient (Client c){
-        String req ="insert into client (E_mail,Nom,Prénom,Ville,mot_de_passe) values (?,?,?,?,?)";
+        String req ="insert into client (E_mail,Nom,Prénom,Ville,mot_de_passe,photo) values (?,?,?,?,?,?)";
            try { 
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.setString(1,c.getEmail());
@@ -35,6 +35,7 @@ public class ClientDAO {
             ps.setString(3,c.getPrenom());
             ps.setString(4,c.getVille());
             ps.setString(5,c.getPassword());
+            ps.setBinaryStream(6, c.getPhoto());
 
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");

@@ -30,43 +30,23 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        Supprimer = new javax.swing.JButton();
+        msg = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        Supprimer = new javax.swing.JButton();
-        Deconnexion = new javax.swing.JButton();
-        msg = new javax.swing.JLabel();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenuBar4 = new javax.swing.JMenuBar();
+        jMenu9 = new javax.swing.JMenu();
+        Reservation = new javax.swing.JMenu();
+        Destination = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable2.setModel(new TableResponsableFacture());
-        jScrollPane2.setViewportView(jTable2);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 614, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(39, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 319, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
 
         Supprimer.setText("Supprimer");
         Supprimer.addActionListener(new java.awt.event.ActionListener() {
@@ -74,41 +54,91 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
                 SupprimerActionPerformed(evt);
             }
         });
-        getContentPane().add(Supprimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(531, 399, -1, -1));
-
-        Deconnexion.setText("Deconnexion");
-        Deconnexion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeconnexionActionPerformed(evt);
-            }
-        });
-        getContentPane().add(Deconnexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(534, 11, -1, -1));
+        getContentPane().add(Supprimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 310, -1, -1));
         getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 399, 329, 14));
 
-        jMenu1.setText("Reservation");
-        jMenuBar1.add(jMenu1);
+        jTable2.setModel(new TableResponsableFacture());
+        jScrollPane2.setViewportView(jTable2);
 
-        jMenu2.setText("Notification");
-        jMenuBar1.add(jMenu2);
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 680, 220));
 
-        jMenu3.setText("Destination");
-        jMenuBar1.add(jMenu3);
+        jMenu9.setText("Acceuil");
+        jMenu9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu9MouseClicked(evt);
+            }
+        });
+        jMenuBar4.add(jMenu9);
 
-        jMenu4.setText("Factures");
+        Reservation.setText("Reservation");
+        Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ReservationMouseClicked(evt);
+            }
+        });
+        jMenuBar4.add(Reservation);
+
+        Destination.setText("Destination");
+        Destination.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                DestinationMouseClicked(evt);
+            }
+        });
+        jMenuBar4.add(Destination);
+
+        jMenu1.setText("Factures");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         jMenuItem1.setText("Liste des Factures");
-        jMenu4.add(jMenuItem1);
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
 
-        jMenuBar1.add(jMenu4);
+        jMenuBar4.add(jMenu1);
 
-        setJMenuBar(jMenuBar1);
+        jMenu3.setText("Ajouter Offre");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
+        jMenuBar4.add(jMenu3);
+
+        jMenu4.setText("Annonce");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
+        jMenuBar4.add(jMenu4);
+
+        jMenu2.setText("Ajouter annonce");
+        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu2MouseClicked(evt);
+            }
+        });
+        jMenuBar4.add(jMenu2);
+
+        jMenu5.setText("Offre");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
+        jMenuBar4.add(jMenu5);
+
+        setJMenuBar(jMenuBar4);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
-          System.exit(0);
-    }//GEN-LAST:event_DeconnexionActionPerformed
 
     private void SupprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupprimerActionPerformed
         
@@ -123,9 +153,71 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
            id = (int) to.getValueAt(x, 0);
            factureDAO f = new factureDAO();
            f.deleteFacture(id);
-           new ListeFacture_Responsable().setVisible(true);
+           jTable2.setModel(to);
            }
     }//GEN-LAST:event_SupprimerActionPerformed
+
+    private void jMenu9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu9MouseClicked
+        Acceuil_Responsable ar = new Acceuil_Responsable();
+        ar.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu9MouseClicked
+
+    private void ReservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservationMouseClicked
+        reservation re = new reservation();
+        re.setVisible(true);
+        this.setVisible(false);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReservationMouseClicked
+
+    private void DestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseClicked
+        tbdestination_1 de = new tbdestination_1();
+        de.setVisible(true);
+        this.setVisible(false);
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DestinationMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        //List_des_Factures cd=new List_des_Factures();
+        // cd.setVisible(true);
+        ListeFacture_Responsable cd = new ListeFacture_Responsable();
+        cd.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+
+        //  List_des_Factures cd=new List_des_Factures();
+        // this.dispose();
+
+        //cd.setVisible(true);
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        AjouterOffre ao = new AjouterOffre();
+        ao.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        annonce a = new annonce();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu4MouseClicked
+
+    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+        AjouterAnnonce aa = new AjouterAnnonce();
+        aa.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu2MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        OffreResponsable or = new OffreResponsable();
+        or.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jMenu5MouseClicked
 
     /**
      * @param args the command line arguments
@@ -163,15 +255,23 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Deconnexion;
+    private javax.swing.JMenu Destination;
+    private javax.swing.JMenu Reservation;
     private javax.swing.JButton Supprimer;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
+    private javax.swing.JMenuBar jMenuBar3;
+    private javax.swing.JMenuBar jMenuBar4;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable2;
     private javax.swing.JLabel msg;
