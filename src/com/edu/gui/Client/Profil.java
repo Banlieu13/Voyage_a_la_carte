@@ -12,7 +12,10 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
@@ -54,7 +57,6 @@ public class Profil extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        btnvalider = new javax.swing.JButton();
         jlmail = new javax.swing.JLabel();
         jlCIN = new javax.swing.JLabel();
         jlnom = new javax.swing.JLabel();
@@ -70,20 +72,14 @@ public class Profil extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         pic = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        btnvalider1 = new javax.swing.JLabel();
+        x1 = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
+        Arriére = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Profil");
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -92,54 +88,77 @@ public class Profil extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         profil.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        profil.setForeground(new java.awt.Color(255, 90, 0));
         profil.setText("Information");
         getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-        getContentPane().add(tfcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, 160, -1));
-        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 160, -1));
-        getContentPane().add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 160, -1));
-        getContentPane().add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 430, 160, -1));
-        getContentPane().add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 160, 160, -1));
+
+        tfcin.setBackground(new java.awt.Color(76, 75, 75));
+        tfcin.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(tfcin, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 220, 170, -1));
+
+        tfnom.setBackground(new java.awt.Color(76, 75, 75));
+        tfnom.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 170, -1));
+
+        tfprenom.setBackground(new java.awt.Color(76, 75, 75));
+        tfprenom.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(tfprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 350, 170, -1));
+
+        tfville.setBackground(new java.awt.Color(76, 75, 75));
+        tfville.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(tfville, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 420, 170, -1));
+
+        tfmail.setBackground(new java.awt.Color(76, 75, 75));
+        tfmail.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(tfmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 170, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Nom");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 90, 0));
         jLabel3.setText("Prénom");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 90, 0));
         jLabel4.setText("CIN");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 190, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 90, 0));
         jLabel5.setText("Ville");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 90, 0));
         jLabel7.setText("E_mail");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
 
-        btnvalider.setText("Enregistrer les modifications");
-        btnvalider.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnvaliderActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnvalider, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 650, -1, -1));
-
+        jlmail.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlmail.setForeground(new java.awt.Color(255, 255, 255));
         jlmail.setText("jLabel1");
         getContentPane().add(jlmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 130, -1, -1));
 
+        jlCIN.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlCIN.setForeground(new java.awt.Color(255, 255, 255));
         jlCIN.setText("jLabel6");
         getContentPane().add(jlCIN, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
+        jlnom.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlnom.setForeground(new java.awt.Color(255, 255, 255));
         jlnom.setText("jLabel8");
         getContentPane().add(jlnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
 
+        jlprenom.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlprenom.setForeground(new java.awt.Color(255, 255, 255));
         jlprenom.setText("jLabel9");
         getContentPane().add(jlprenom, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
 
+        jlville.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jlville.setForeground(new java.awt.Color(255, 255, 255));
         jlville.setText("jLabel10");
         getContentPane().add(jlville, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
 
@@ -195,13 +214,11 @@ public class Profil extends javax.swing.JFrame {
 
         message.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         message.setForeground(new java.awt.Color(255, 0, 51));
-        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 530, -1, -1));
-
-        jLabel1.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Arriére\\infocompte.jpg")); // NOI18N
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, 250, 20));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, -1, -1));
 
-        pic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 510, -1, -1));
+        pic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 100, 100));
 
         jButton1.setForeground(new java.awt.Color(0, 153, 255));
         jButton1.setText("Photo de profil");
@@ -212,83 +229,47 @@ public class Profil extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, -1, -1));
 
-        jMenu2.setText("Acceuil");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnvalider1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                btnvalider1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnvalider1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnvalider1MouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu2);
+        getContentPane().add(btnvalider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 670, 123, 35));
 
-        jMenu8.setText("Proposer offre");
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+        x1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
+                x1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                x1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                x1MouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu8);
+        getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 30, 30));
 
-        jMenu3.setText("Annonces");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        x.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                xMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                xMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                xMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu3);
+        getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 30, 30));
 
-        jMenu4.setText("Contact");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu4);
-
-        jMenu6.setText("Destinations");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu6);
-
-        jMenu5.setText("Mes Destination");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu5);
-
-        jMenu1.setText("Paramètres");
-
-        jMenuItem1.setText("Profil");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem3.setText("Changer Mot de passe");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
-        jMenuItem2.setText("Déconnexion");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar3.add(jMenu1);
-
-        setJMenuBar(jMenuBar3);
+        Arriére.setForeground(new java.awt.Color(255, 90, 0));
+        getContentPane().add(Arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 710));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -296,8 +277,16 @@ public class Profil extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         pic.setSize(100, 100); 
         this.setLocationRelativeTo(null);
-         this.setSize(600, 750);
+         this.setSize(580, 730);
          this.setResizable(false);
+         BufferedImage imgHome = null;
+        try {
+            imgHome = ImageIO.read(new File("res/arriere.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Profil.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ri = imgHome.getScaledInstance(Arriére.getWidth(), Arriére.getHeight(), 0);
+          Arriére.setIcon(new ImageIcon(ri));
          
          authentification a = new authentification();
          ClientDAO cd = new ClientDAO();
@@ -321,22 +310,41 @@ public class Profil extends javax.swing.JFrame {
          tfprenom.setText(c.getPrenom());
          tfville.setText(c.getVille());
          c=cd.chercherClient(a.identifiant);
-         tfnom.setText(c.getNom() +" " +c.getPrenom());
+         tfnom.setText(c.getNom());
          ImageIcon ima = new ImageIcon();
          ima = cd.chercherImageClient(a.identifiant);
          pic.setIcon(ima);
         
          jlclient.setText(c.getNom()+" "+c.getPrenom());
+         
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridv = imgv.getScaledInstance(btnvalider1.getWidth(), btnvalider1.getHeight(), 0);
+          btnvalider1.setIcon(new ImageIcon(ridv));
+          
+            BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(EditPassowrd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+          x.setIcon(new ImageIcon(ridx));
+          
+          BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(EditPassowrd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+          x1.setIcon(new ImageIcon(ridxr));
         
     }//GEN-LAST:event_formWindowOpened
-
-    private void btnvaliderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnvaliderActionPerformed
-        authentification a = new authentification();
-        ClientDAO cd = new ClientDAO();
-        InputStream img = getClass().getClassLoader().getResourceAsStream(filename);
-        cd.updateClient(a.identifiant, tfcin.getText(), tfnom.getText(), tfprenom.getText(), tfville.getText(),fistream);
-        message.setText("Modification terminé avec succée");
-    }//GEN-LAST:event_btnvaliderActionPerformed
 
     private void modcinMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modcinMouseClicked
         tfcin.setVisible(true);
@@ -357,59 +365,6 @@ public class Profil extends javax.swing.JFrame {
     private void modmail7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modmail7MouseClicked
         tfmail.setVisible(true);
     }//GEN-LAST:event_modmail7MouseClicked
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        ProposerDestinationClient po = new ProposerDestinationClient();
-        po.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu8MouseClicked
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        ConsulterAnnonces ca = new ConsulterAnnonces();
-        ca.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        MailJframe mj = new MailJframe();
-        mj.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        Destinations d = new Destinations();
-        d.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu6MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        MesDestinations md = new MesDestinations();
-        md.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Profil p = new Profil();
-        p.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        EditPassowrd ep = new EditPassowrd();
-        ep.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        authentification a = new authentification();
-        a.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
@@ -435,6 +390,88 @@ public class Profil extends javax.swing.JFrame {
                                             
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnvalider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvalider1MouseClicked
+         authentification a = new authentification();
+        ClientDAO cd = new ClientDAO();
+        InputStream img = getClass().getClassLoader().getResourceAsStream(filename);
+        cd.updateClient(a.identifiant, tfcin.getText(), tfnom.getText(), tfprenom.getText(), tfville.getText(),fistream);
+        message.setText("Modification terminé avec succée");
+    }//GEN-LAST:event_btnvalider1MouseClicked
+
+    private void btnvalider1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvalider1MouseEntered
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridv = imgv.getScaledInstance(btnvalider1.getWidth(), btnvalider1.getHeight(), 0);
+        btnvalider1.setIcon(new ImageIcon(ridv));
+    }//GEN-LAST:event_btnvalider1MouseEntered
+
+    private void btnvalider1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvalider1MouseExited
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridv = imgv.getScaledInstance(btnvalider1.getWidth(), btnvalider1.getHeight(), 0);
+        btnvalider1.setIcon(new ImageIcon(ridv));
+    }//GEN-LAST:event_btnvalider1MouseExited
+
+    private void x1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseClicked
+
+    }//GEN-LAST:event_x1MouseClicked
+
+    private void x1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseEntered
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseEntered
+
+    private void x1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseExited
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseExited
+
+    private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_xMouseClicked
+
+    private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseEntered
+
+    private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseExited
 
     /**
      * @param args the command line arguments
@@ -471,7 +508,8 @@ public class Profil extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnvalider;
+    private javax.swing.JLabel Arriére;
+    private javax.swing.JLabel btnvalider1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -479,17 +517,6 @@ public class Profil extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JLabel jlCIN;
     private javax.swing.JLabel jlclient;
     private javax.swing.JLabel jlmail;
@@ -509,6 +536,8 @@ public class Profil extends javax.swing.JFrame {
     private javax.swing.JTextField tfnom;
     private javax.swing.JTextField tfprenom;
     private javax.swing.JTextField tfville;
+    private javax.swing.JLabel x;
+    private javax.swing.JLabel x1;
     // End of variables declaration//GEN-END:variables
 
     

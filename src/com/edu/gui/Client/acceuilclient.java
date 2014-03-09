@@ -161,8 +161,8 @@ public class acceuilclient extends javax.swing.JFrame {
         jLabel3.setText("Bienvenue");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        tfnom.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        tfnom.setForeground(new java.awt.Color(255, 90, 0));
+        tfnom.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        tfnom.setForeground(new java.awt.Color(0, 204, 51));
         getContentPane().add(tfnom, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 200, 20));
 
         pic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
@@ -664,31 +664,31 @@ public class acceuilclient extends javax.swing.JFrame {
     private void AnnonceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnnonceMouseClicked
         ConsulterAnnonces ca = new ConsulterAnnonces();
         ca.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_AnnonceMouseClicked
 
     private void DestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseClicked
          Destinations d = new Destinations();
          d.setVisible(true);
-         this.setVisible(false);
+         
     }//GEN-LAST:event_DestinationMouseClicked
 
     private void ProposerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProposerMouseClicked
        ProposerDestinationClient po = new ProposerDestinationClient();
         po.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_ProposerMouseClicked
 
     private void contactMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactMouseClicked
         MailJframe mj = new MailJframe();
         mj.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_contactMouseClicked
 
     private void parametreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_parametreMouseClicked
         Profil p = new Profil();
         p.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_parametreMouseClicked
 
     private void txfCircuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfCircuitActionPerformed
@@ -801,7 +801,7 @@ public class acceuilclient extends javax.swing.JFrame {
             mailresp =  (String) to.getValueAt(x, 7);
             PaiementClient pc = new  PaiementClient();
             pc.setVisible(true);
-            this.setVisible(false);
+            
            }
     }//GEN-LAST:event_ReserverMouseClicked
 
@@ -819,7 +819,7 @@ public class acceuilclient extends javax.swing.JFrame {
            
             SignalisationAlert s = new SignalisationAlert();
             s.setVisible(true);
-            this.setVisible(false);
+            
            }           
     }//GEN-LAST:event_btnSignalerMouseClicked
 

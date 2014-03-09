@@ -14,10 +14,16 @@ import com.edu.entities.privilegeAdmin;
 import com.edu.gui.Admin.acceuilAdmin;
 import com.edu.gui.Inscription.addClient;
 import com.edu.gui.Inscription.addResponsable;
+import java.awt.Image;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 /*
@@ -57,6 +63,7 @@ public class authentification extends javax.swing.JFrame {
         InscriptionAgence = new javax.swing.JButton();
         Inscriptionclient = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        fond = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Bienvenue");
@@ -123,6 +130,7 @@ public class authentification extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, -1, -1));
+        getContentPane().add(fond, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 340));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -224,6 +232,16 @@ public class authentification extends javax.swing.JFrame {
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         Client.setFbem(null);
+         this.setLocationRelativeTo(null);
+         
+         BufferedImage imgHome = null;
+        try {
+            imgHome = ImageIO.read(new File("res/authentificationM.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(authentification.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ri = imgHome.getScaledInstance(fond.getWidth(), fond.getHeight(), 0);
+          fond.setIcon(new ImageIcon(ri));
     }//GEN-LAST:event_formWindowOpened
 
     /**
@@ -267,6 +285,7 @@ public class authentification extends javax.swing.JFrame {
     private javax.swing.JButton Connexion;
     private javax.swing.JButton InscriptionAgence;
     private javax.swing.JButton Inscriptionclient;
+    private javax.swing.JLabel fond;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

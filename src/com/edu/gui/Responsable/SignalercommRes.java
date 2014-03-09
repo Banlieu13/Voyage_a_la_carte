@@ -9,8 +9,14 @@ import com.edu.DAO.CommentaireDAO;
 import com.edu.DAO.SignalerDAO;
 import com.edu.entities.Signalisation;
 import com.edu.gui.authentification;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -39,131 +45,146 @@ public class SignalercommRes extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jtsujet = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         mssg = new javax.swing.JLabel();
-        jMenuBar4 = new javax.swing.JMenuBar();
-        jMenu9 = new javax.swing.JMenu();
-        Reservation = new javax.swing.JMenu();
-        Destination = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        x1 = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
+        btnValid = new javax.swing.JLabel();
+        Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Signaler un commentaire");
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 90, 0));
         jLabel1.setText("Type");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 35, -1, -1));
 
         cbtype.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Politique", "Faux profil", "Impoli", " ", " ", " " }));
         getContentPane().add(cbtype, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 35, -1, -1));
 
+        jtsujet.setBackground(new java.awt.Color(76, 75, 75));
         jtsujet.setColumns(20);
+        jtsujet.setForeground(new java.awt.Color(255, 255, 255));
         jtsujet.setRows(5);
         jScrollPane1.setViewportView(jtsujet);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(156, 105, 310, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Sujet");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(66, 105, -1, -1));
 
-        jButton1.setText("Envoyer");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
-
         mssg.setForeground(new java.awt.Color(255, 51, 51));
-        getContentPane().add(mssg, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, -1, -1));
+        getContentPane().add(mssg, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 250, 20));
 
-        jMenu9.setText("Acceuil");
-        jMenu9.addMouseListener(new java.awt.event.MouseAdapter() {
+        x1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu9MouseClicked(evt);
+                x1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                x1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                x1MouseExited(evt);
             }
         });
-        jMenuBar4.add(jMenu9);
+        getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 30, 30));
 
-        Reservation.setText("Reservation");
-        Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
+        x.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ReservationMouseClicked(evt);
+                xMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                xMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                xMouseExited(evt);
             }
         });
-        jMenuBar4.add(Reservation);
+        getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 30, 30));
 
-        Destination.setText("Destination");
-        Destination.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnValid.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DestinationMouseClicked(evt);
+                btnValidMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnValidMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnValidMouseExited(evt);
             }
         });
-        jMenuBar4.add(Destination);
+        getContentPane().add(btnValid, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 123, 35));
 
-        jMenu1.setText("Factures");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem1.setText("Liste des Factures");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar4.add(jMenu1);
-
-        jMenu3.setText("Ajouter Offre");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu3);
-
-        jMenu4.setText("Annonce");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu4);
-
-        jMenu2.setText("Ajouter annonce");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu2);
-
-        jMenu5.setText("Offre");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu5);
-
-        setJMenuBar(jMenuBar4);
+        Accueil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Signalisation s = new Signalisation();
+    private void x1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseClicked
+
+    }//GEN-LAST:event_x1MouseClicked
+
+    private void x1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseEntered
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseEntered
+
+    private void x1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseExited
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseExited
+
+    private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
+        this.setVisible(false);
+    }//GEN-LAST:event_xMouseClicked
+
+    private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseEntered
+
+    private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseExited
+
+    private void btnValidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseClicked
+       Signalisation s = new Signalisation();
         CommentaireDAO cd = new CommentaireDAO();
         SignalerDAO sd = new SignalerDAO();
         OffreResponsable info = new OffreResponsable();
@@ -195,70 +216,63 @@ public class SignalercommRes extends javax.swing.JFrame {
         sd.insertSignalcomC(s);
         jtsujet.setText(null);
         mssg.setText("Your signaling are send to THE_LEGEND Group");
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnValidMouseClicked
 
-    private void jMenu9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu9MouseClicked
-        Acceuil_Responsable ar = new Acceuil_Responsable();
-        ar.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu9MouseClicked
+    private void btnValidMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseEntered
 
-    private void ReservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservationMouseClicked
-        reservation re = new reservation();
-        re.setVisible(true);
-        this.setVisible(false);
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridv = imgv.getScaledInstance(btnValid.getWidth(), btnValid.getHeight(), 0);
+        btnValid.setIcon(new ImageIcon(ridv));
+    }//GEN-LAST:event_btnValidMouseEntered
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReservationMouseClicked
+    private void btnValidMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseExited
 
-    private void DestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseClicked
-        tbdestination_1 de = new tbdestination_1();
-        de.setVisible(true);
-        this.setVisible(false);
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridv = imgv.getScaledInstance(btnValid.getWidth(), btnValid.getHeight(), 0);
+        btnValid.setIcon(new ImageIcon(ridv));
+    }//GEN-LAST:event_btnValidMouseExited
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DestinationMouseClicked
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        //List_des_Factures cd=new List_des_Factures();
-        // cd.setVisible(true);
-        ListeFacture_Responsable cd = new ListeFacture_Responsable();
-        cd.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-
-        //  List_des_Factures cd=new List_des_Factures();
-        // this.dispose();
-
-        //cd.setVisible(true);
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        AjouterOffre ao = new AjouterOffre();
-        ao.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        annonce a = new annonce();
-        a.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        AjouterAnnonce aa = new AjouterAnnonce();
-        aa.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        OffreResponsable or = new OffreResponsable();
-        or.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         this.setLocationRelativeTo(null);
+        this.setSize(600, 300);
+        
+           BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridv = imgv.getScaledInstance(btnValid.getWidth(), btnValid.getHeight(), 0);
+          btnValid.setIcon(new ImageIcon(ridv));
+          
+             BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(EditPassowrd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+          x.setIcon(new ImageIcon(ridx));
+          
+          BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(EditPassowrd.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+          x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -295,22 +309,15 @@ public class SignalercommRes extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Destination;
-    private javax.swing.JMenu Reservation;
+    private javax.swing.JLabel Accueil;
+    private javax.swing.JLabel btnValid;
     private javax.swing.JComboBox cbtype;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar4;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jtsujet;
     private javax.swing.JLabel mssg;
+    private javax.swing.JLabel x;
+    private javax.swing.JLabel x1;
     // End of variables declaration//GEN-END:variables
 }

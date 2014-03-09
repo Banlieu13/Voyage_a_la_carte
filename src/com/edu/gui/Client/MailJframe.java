@@ -38,23 +38,23 @@ public class MailJframe extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextArearObject = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextMailAddressSender = new javax.swing.JTextField();
-        jTextMailAddressReceiver = new javax.swing.JTextField();
         jPassworSender = new javax.swing.JPasswordField();
+        jTextMailAddressReceiver = new javax.swing.JTextField();
         jTextmailsubject = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jButtonSendMail = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
-        jLabelpieceJointe = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        jLabelpieceJointe = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        Accueil = new javax.swing.JLabel();
         jMenuBar3 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         jMenu8 = new javax.swing.JMenu();
@@ -76,65 +76,63 @@ public class MailJframe extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArearObject.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         jLabel1.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 90, 0));
         jLabel1.setText("Contact");
-        jTextArearObject.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 11, 90, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 11, 90, -1));
 
         jTextMailAddressSender.setEnabled(false);
-        jTextMailAddressSender.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextMailAddressSenderActionPerformed(evt);
-            }
-        });
-        jTextArearObject.add(jTextMailAddressSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 89, 311, -1));
-        jTextArearObject.add(jTextMailAddressReceiver, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 151, 311, -1));
-        jTextArearObject.add(jPassworSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 120, 311, -1));
-        jTextArearObject.add(jTextmailsubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 182, 311, -1));
+        getContentPane().add(jTextMailAddressSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 89, 311, -1));
+        getContentPane().add(jPassworSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 120, 311, -1));
+        getContentPane().add(jTextMailAddressReceiver, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 151, 311, -1));
+        getContentPane().add(jTextmailsubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 182, 311, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jTextArearObject.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 213, 311, 103));
-
-        jLabel2.setText("Sender");
-        jTextArearObject.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 92, 69, -1));
-
-        jLabel3.setText("Password");
-        jTextArearObject.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 123, -1, -1));
-
-        jLabel4.setText("Reciever");
-        jTextArearObject.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 151, -1, -1));
-
-        jLabel5.setText("Subject");
-        jTextArearObject.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 182, -1, -1));
-
-        jLabel6.setText("Body");
-        jTextArearObject.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 213, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 213, 311, 103));
 
         jButtonSendMail.setText("Send");
-        jButtonSendMail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSendMailActionPerformed(evt);
-            }
-        });
-        jTextArearObject.add(jButtonSendMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 356, 202, 50));
-
-        jLabel7.setText("Add to Mail");
-        jTextArearObject.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 327, -1, -1));
-        jTextArearObject.add(jLabelpieceJointe, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 327, 311, 34));
+        getContentPane().add(jButtonSendMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 356, 202, 50));
 
         jButton1.setText("Choose a file");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jTextArearObject.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 383, 151, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 383, 151, -1));
+        getContentPane().add(jLabelpieceJointe, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 327, 311, 34));
 
-        getContentPane().add(jTextArearObject, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 90, 0));
+        jLabel7.setText("Add to Mail");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 327, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 90, 0));
+        jLabel6.setText("Body");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 213, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 90, 0));
+        jLabel5.setText("Subject");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 182, -1, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 90, 0));
+        jLabel4.setText("Reciever");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 151, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 90, 0));
+        jLabel3.setText("Password");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 123, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 90, 0));
+        jLabel2.setText("Sender");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 92, 69, -1));
+
+        Accueil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         jMenu2.setText("Acceuil");
         jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -216,54 +214,6 @@ public class MailJframe extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JFileChooser chooser = new JFileChooser();
-        int option = chooser.showOpenDialog(null);
-        if(option == JFileChooser.APPROVE_OPTION){
-            try{
-                url = chooser.getSelectedFile().toURL();
-                System.out.println(url);
-                jLabelpieceJointe.setText(url.toString());
-               
-            }
-            catch(MalformedURLException exception){
-                System.out.println("The URL was malformed ... ");
-              
-            }
-        }
-    
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButtonSendMailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSendMailActionPerformed
-        mail.setMailAddressRecipient(jTextMailAddressReceiver.getText());
-        mail.setPwd(jPassworSender.getText());
-        mail.setMailAddressSender(jTextMailAddressSender.getText());
-        mail.setMailSubject(jTextmailsubject.getText());
-        String[] lines = jTextArea1.getText().split("\\n");
-        String msg="";
-        for(String s:lines){
-            msg = msg+s;
-        }
-        mail.setMailObject(msg);
-        //System.out.println(jTextArearObject.getToolTipText());
-        
-        MailConstruction mc = new MailConstruction();
-        mc.getMailProperties();
-        
-        String s = this.cleanUrl(url);
-        mc.getMailMessage(s, mail);
-        mc.SendMessage();
-        
-        
-        
-        
-        
-    }//GEN-LAST:event_jButtonSendMailActionPerformed
-
-    private void jTextMailAddressSenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextMailAddressSenderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextMailAddressSenderActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         authentification a = new authentification();
@@ -373,6 +323,7 @@ public class MailJframe extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Accueil;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonSendMail;
     private javax.swing.JLabel jLabel1;
@@ -397,7 +348,6 @@ public class MailJframe extends javax.swing.JFrame {
     private javax.swing.JPasswordField jPassworSender;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JPanel jTextArearObject;
     private javax.swing.JTextField jTextMailAddressReceiver;
     private javax.swing.JTextField jTextMailAddressSender;
     private javax.swing.JTextField jTextmailsubject;

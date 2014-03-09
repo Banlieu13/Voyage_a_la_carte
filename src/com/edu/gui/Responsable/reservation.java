@@ -6,6 +6,15 @@ package com.edu.gui.Responsable;
 
 import com.edu.DAO.ReservationDAO;
 import com.edu.entities.Table.TableReservation;
+import com.edu.gui.Client.ConsulterAnnonces;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -29,37 +38,30 @@ public class reservation extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Deconnexion = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tbresrvation = new javax.swing.JTable();
         supreservation = new javax.swing.JButton();
         msg2 = new javax.swing.JLabel();
-        jMenuBar4 = new javax.swing.JMenuBar();
-        jMenu9 = new javax.swing.JMenu();
-        Reservation = new javax.swing.JMenu();
-        Destination = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        jLabel1 = new javax.swing.JLabel();
+        x1 = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
+        arriére = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Deconnexion.setText("Deconnexion");
-        Deconnexion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeconnexionActionPerformed(evt);
+        setUndecorated(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
             }
         });
-        getContentPane().add(Deconnexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(573, 11, -1, -1));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        tbresrvation.setBackground(new java.awt.Color(76, 75, 75));
         tbresrvation.setModel(new com.edu.entities.Table.TableReservation());
+        tbresrvation.setSelectionBackground(new java.awt.Color(255, 90, 0));
         jScrollPane2.setViewportView(tbresrvation);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 570, 370));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 680, 280));
 
         supreservation.setText("supprimer");
         supreservation.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -72,90 +74,46 @@ public class reservation extends javax.swing.JFrame {
                 supreservationActionPerformed(evt);
             }
         });
-        getContentPane().add(supreservation, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, -1, -1));
-        getContentPane().add(msg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 434, 310, 40));
+        getContentPane().add(supreservation, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 390, -1, -1));
 
-        jMenu9.setText("Acceuil");
-        jMenu9.addMouseListener(new java.awt.event.MouseAdapter() {
+        msg2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        msg2.setForeground(new java.awt.Color(255, 90, 0));
+        getContentPane().add(msg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 310, 40));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 90, 0));
+        jLabel1.setText("Reservation");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+
+        x1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu9MouseClicked(evt);
+                x1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                x1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                x1MouseExited(evt);
             }
         });
-        jMenuBar4.add(jMenu9);
+        getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 30, 30));
 
-        Reservation.setText("Reservation");
-        Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
+        x.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ReservationMouseClicked(evt);
+                xMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                xMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                xMouseExited(evt);
             }
         });
-        jMenuBar4.add(Reservation);
-
-        Destination.setText("Destination");
-        Destination.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DestinationMouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(Destination);
-
-        jMenu1.setText("Factures");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem1.setText("Liste des Factures");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar4.add(jMenu1);
-
-        jMenu3.setText("Ajouter Offre");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu3);
-
-        jMenu4.setText("Annonce");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu4);
-
-        jMenu2.setText("Ajouter annonce");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu2);
-
-        jMenu5.setText("Offre");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu5);
-
-        setJMenuBar(jMenuBar4);
+        getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, 30, 30));
+        getContentPane().add(arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 460));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void DeconnexionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeconnexionActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_DeconnexionActionPerformed
  
     private void supreservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supreservationMouseClicked
         // TODO add your handling code here:
@@ -182,67 +140,90 @@ public class reservation extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_supreservationActionPerformed
 
-    private void jMenu9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu9MouseClicked
-        Acceuil_Responsable ar = new Acceuil_Responsable();
-        ar.setVisible(true);
+    private void x1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseClicked
+
+    }//GEN-LAST:event_x1MouseClicked
+
+    private void x1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseEntered
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseEntered
+
+    private void x1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseExited
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseExited
+
+    private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu9MouseClicked
+    }//GEN-LAST:event_xMouseClicked
 
-    private void ReservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservationMouseClicked
-        reservation re = new reservation();
-        re.setVisible(true);
-        this.setVisible(false);
+    private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseEntered
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReservationMouseClicked
+    private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseExited
 
-    private void DestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseClicked
-        tbdestination_1 de = new tbdestination_1();
-        de.setVisible(true);
-        this.setVisible(false);
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+         
+        this.setLocationRelativeTo(null);
+        BufferedImage imgHome = null;
+        try {
+            imgHome = ImageIO.read(new File("res/arriere.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ri = imgHome.getScaledInstance(arriére.getWidth(), arriére.getHeight(), 0);
+          arriére.setIcon(new ImageIcon(ri));
+          
+               BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+          x.setIcon(new ImageIcon(ridx));
+          
+          BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+          x1.setIcon(new ImageIcon(ridxr));
+                                  
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DestinationMouseClicked
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        //List_des_Factures cd=new List_des_Factures();
-        // cd.setVisible(true);
-        ListeFacture_Responsable cd = new ListeFacture_Responsable();
-        cd.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-
-        //  List_des_Factures cd=new List_des_Factures();
-        // this.dispose();
-
-        //cd.setVisible(true);
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        AjouterOffre ao = new AjouterOffre();
-        ao.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        annonce a = new annonce();
-        a.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        AjouterAnnonce aa = new AjouterAnnonce();
-        aa.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        OffreResponsable or = new OffreResponsable();
-        or.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -279,20 +260,13 @@ public class reservation extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Deconnexion;
-    private javax.swing.JMenu Destination;
-    private javax.swing.JMenu Reservation;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar4;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JLabel arriére;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel msg2;
     private javax.swing.JButton supreservation;
     private javax.swing.JTable tbresrvation;
+    private javax.swing.JLabel x;
+    private javax.swing.JLabel x1;
     // End of variables declaration//GEN-END:variables
 }

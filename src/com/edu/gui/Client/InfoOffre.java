@@ -10,6 +10,7 @@ import com.edu.DAO.offreDAO;
 import com.edu.entities.Commentaire;
 import com.edu.gui.authentification;
 import java.awt.Component;
+import java.awt.Image;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -59,45 +60,31 @@ public class InfoOffre extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jtsujet = new javax.swing.JTextArea();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         res = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         listcom = new javax.swing.JList();
-        jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         mssge = new javax.swing.JLabel();
         btnjaime = new javax.swing.JButton();
         nbrj = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         rat2 = new javax.swing.JLabel();
-        pan = new javax.swing.JPanel();
-        rat1 = new javax.swing.JLabel();
-        rat3 = new javax.swing.JLabel();
-        rat4 = new javax.swing.JLabel();
-        rat5 = new javax.swing.JLabel();
-        rat6 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        a = new javax.swing.JLabel();
-        b = new javax.swing.JLabel();
-        c = new javax.swing.JLabel();
-        d = new javax.swing.JLabel();
         e = new javax.swing.JLabel();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        d = new javax.swing.JLabel();
+        c = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
+        a = new javax.swing.JLabel();
+        btnvalider = new javax.swing.JLabel();
+        btnSignaler = new javax.swing.JLabel();
+        x1 = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
+        Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programme");
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -109,25 +96,24 @@ public class InfoOffre extends javax.swing.JFrame {
         jtsujet.setRows(5);
         jScrollPane1.setViewportView(jtsujet);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 390, 290, 80));
-
-        jButton2.setText("Valider Commentaire");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 480, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 370, 290, 80));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 90, 0));
         jLabel1.setText("Commenter");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
+
+        res.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 36, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Programme");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
+        listcom.setBackground(new java.awt.Color(76, 75, 75));
+        listcom.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        listcom.setForeground(new java.awt.Color(255, 255, 255));
         listcom.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 listcomMouseReleased(evt);
@@ -148,30 +134,23 @@ public class InfoOffre extends javax.swing.JFrame {
             }
         });
         listcom.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 listcomCaretPositionChanged(evt);
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jScrollPane2.setViewportView(listcom);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 330, 410));
-
-        jButton1.setText("Signaler commentaire");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 480, -1, -1));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 330, 390));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 90, 0));
         jLabel3.setText("Commentaire");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
 
-        mssge.setForeground(new java.awt.Color(255, 0, 51));
-        getContentPane().add(mssge, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        mssge.setForeground(new java.awt.Color(255, 90, 0));
+        getContentPane().add(mssge, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 250, 20));
 
         btnjaime.setText("Jaime");
         btnjaime.addActionListener(new java.awt.event.ActionListener() {
@@ -180,6 +159,9 @@ public class InfoOffre extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 70, -1));
+
+        nbrj.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        nbrj.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 40, 20));
 
         jButton3.setText("Map");
@@ -190,60 +172,6 @@ public class InfoOffre extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, -1));
         getContentPane().add(rat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 30));
-
-        jLabel4.setText("Evaluer cette offre: ");
-
-        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        a.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                aMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                aMouseExited(evt);
-            }
-        });
-
-        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        b.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bMouseExited(evt);
-            }
-        });
-
-        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        c.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                cMouseExited(evt);
-            }
-        });
-
-        d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        d.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                dMouseExited(evt);
-            }
-        });
 
         e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
         e.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -257,149 +185,118 @@ public class InfoOffre extends javax.swing.JFrame {
                 eMouseExited(evt);
             }
         });
+        getContentPane().add(e, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, 20));
 
-        javax.swing.GroupLayout panLayout = new javax.swing.GroupLayout(pan);
-        pan.setLayout(panLayout);
-        panLayout.setHorizontalGroup(
-            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panLayout.createSequentialGroup()
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLayout.createSequentialGroup()
-                        .addComponent(a)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(rat1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(rat3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(rat4))
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addComponent(b)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(c)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(d)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(e)
-                                .addGap(0, 19, Short.MAX_VALUE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rat5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(rat6)
-                .addContainerGap(55, Short.MAX_VALUE))
-        );
-        panLayout.setVerticalGroup(
-            panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panLayout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panLayout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(a))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(c, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(d, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(e, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                    .addComponent(b))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rat1)
-                    .addComponent(rat3)
-                    .addComponent(rat4)
-                    .addComponent(rat5)
-                    .addComponent(rat6))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(pan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, 210, 80));
-
-        jMenu2.setText("Acceuil");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
+        d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        d.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
+                dMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu2);
+        getContentPane().add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
-        jMenu8.setText("Proposer offre");
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
+        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        c.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
+                cMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu8);
+        getContentPane().add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
 
-        jMenu3.setText("Annonces");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        b.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
+                bMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu3);
+        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
 
-        jMenu4.setText("Contact");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        a.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
+                aMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu4);
+        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
-        jMenu6.setText("Destinations");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnvalider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
+                btnvaliderMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnvaliderMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnvaliderMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu6);
+        getContentPane().add(btnvalider, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 460, 123, 35));
 
-        jMenu5.setText("Mes Destination");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSignaler.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
+                btnSignalerMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnSignalerMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnSignalerMouseExited(evt);
             }
         });
-        jMenuBar3.add(jMenu5);
+        getContentPane().add(btnSignaler, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 460, 123, 35));
 
-        jMenu1.setText("Paramètres");
-
-        jMenuItem1.setText("Profil");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+        x1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                x1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                x1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                x1MouseExited(evt);
             }
         });
-        jMenu1.add(jMenuItem1);
+        getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 30, 30));
 
-        jMenuItem3.setText("Changer Mot de passe");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+        x.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                xMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                xMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                xMouseExited(evt);
             }
         });
-        jMenu1.add(jMenuItem3);
+        getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 30));
 
-        jMenuItem2.setText("Déconnexion");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar3.add(jMenu1);
-
-        setJMenuBar(jMenuBar3);
+        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -408,7 +305,7 @@ public class InfoOffre extends javax.swing.JFrame {
         
         CommentaireDAO cd = new CommentaireDAO();
         this.setLocationRelativeTo(null);
-        this.setSize(800, 600);
+        this.setSize(870, 500);
         this.setResizable(false);
         acceuilclient ac = new acceuilclient();
         offreDAO od = new offreDAO();
@@ -418,92 +315,46 @@ public class InfoOffre extends javax.swing.JFrame {
         long nb = l.getlike(ac.idoffre, "offre");
         nbrj.setText(""+nb);
         
+            BufferedImage imgs = null;
+        try {
+            imgs = ImageIO.read(new File("res/signaler off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image rids = imgs.getScaledInstance(btnSignaler.getWidth(), btnSignaler.getHeight(), 0);
+          btnSignaler.setIcon(new ImageIcon(rids));
+          
+          BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridv = imgv.getScaledInstance(btnvalider.getWidth(), btnvalider.getHeight(), 0);
+          btnvalider.setIcon(new ImageIcon(ridv));
+          
+              BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+          x.setIcon(new ImageIcon(ridx));
+          
+          BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+          x1.setIcon(new ImageIcon(ridxr));
 //        String c = cd.AffichCommoffre(ac.idoffre).getElementAt(listcom.getSelectedIndex());
         
         //listcom.setListData(cd.AffichCommoffre(ac.idoffre));
         
     }//GEN-LAST:event_formWindowOpened
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       authentification a = new authentification();
-       Commentaire c = new Commentaire();
-       CommentaireDAO cd = new CommentaireDAO();
-       acceuilclient ac = new acceuilclient();
-       c.setComm(jtsujet.getText());
-       c.setE_mail(a.identifiant);
-       c.setId_offre(ac.idoffre);
-       cd.insertcomoffre(c);
-       listcom.setModel(cd.AffichCommoffre(ac.idoffre));
-       jtsujet.setText(null);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (listcom.isSelectionEmpty()) {
-            mssge.setText("Veuillez sélectioner un commentaire");
-        }
-        else
-        {
-        Signalercomm scg = new Signalercomm();
-        scg.setVisible(true);
-        this.setVisible(false);
-        }
-      
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        acceuilclient ac = new acceuilclient();
-        ac.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        ProposerDestinationClient po = new ProposerDestinationClient();
-        po.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu8MouseClicked
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        ConsulterAnnonces ca = new ConsulterAnnonces();
-        ca.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        MailJframe mj = new MailJframe();
-        mj.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        Destinations d = new Destinations();
-        d.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu6MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        MesDestinations md = new MesDestinations();
-        md.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Profil p = new Profil();
-        p.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        EditPassowrd ep = new EditPassowrd();
-        ep.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        authentification a = new authentification();
-        a.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void listcomMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listcomMouseClicked
     
@@ -542,13 +393,13 @@ public class InfoOffre extends javax.swing.JFrame {
        // }
         //idcom =Integer.parseInt(st);
         if(cd.AffichCommmail(idcom).equals(a.identifiant)){
-            jButton1.setEnabled(false);
+            btnSignaler.setVisible(false);
             
                 
             }
         else
         {
-            jButton1.setEnabled(true);
+            btnSignaler.setVisible(true);
             
         }
 
@@ -731,6 +582,128 @@ public class InfoOffre extends javax.swing.JFrame {
        r.addRating(acceuilclient.idoffre,tot,"offre");
     }//GEN-LAST:event_aMouseClicked
 
+    private void btnvaliderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvaliderMouseClicked
+        authentification a = new authentification();
+       Commentaire c = new Commentaire();
+       CommentaireDAO cd = new CommentaireDAO();
+       acceuilclient ac = new acceuilclient();
+       c.setComm(jtsujet.getText());
+       c.setE_mail(a.identifiant);
+       c.setId_offre(ac.idoffre);
+       cd.insertcomoffre(c);
+       listcom.setModel(cd.AffichCommoffre(ac.idoffre));
+       jtsujet.setText(null);
+    }//GEN-LAST:event_btnvaliderMouseClicked
+
+    private void btnvaliderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvaliderMouseEntered
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridv = imgv.getScaledInstance(btnvalider.getWidth(), btnvalider.getHeight(), 0);
+        btnvalider.setIcon(new ImageIcon(ridv));
+    }//GEN-LAST:event_btnvaliderMouseEntered
+
+    private void btnvaliderMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvaliderMouseExited
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridv = imgv.getScaledInstance(btnvalider.getWidth(), btnvalider.getHeight(), 0);
+        btnvalider.setIcon(new ImageIcon(ridv));
+    }//GEN-LAST:event_btnvaliderMouseExited
+
+    private void btnSignalerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignalerMouseClicked
+        if (listcom.isSelectionEmpty()) {
+            mssge.setText("Veuillez sélectioner un commentaire");
+        }
+        else
+        {
+        Signalercomm scg = new Signalercomm();
+        scg.setVisible(true);
+        this.setVisible(false);
+        }
+      
+    }//GEN-LAST:event_btnSignalerMouseClicked
+
+    private void btnSignalerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignalerMouseEntered
+        BufferedImage imgbtnp = null;
+        try {
+            imgbtnp = ImageIO.read(new File("res/signaler on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridbtnp = imgbtnp.getScaledInstance(btnSignaler.getWidth(), btnSignaler.getHeight(), 0);
+        btnSignaler.setIcon(new ImageIcon(ridbtnp));
+    }//GEN-LAST:event_btnSignalerMouseEntered
+
+    private void btnSignalerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignalerMouseExited
+        BufferedImage imgbtnp = null;
+        try {
+            imgbtnp = ImageIO.read(new File("res/signaler off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridbtnp = imgbtnp.getScaledInstance(btnSignaler.getWidth(), btnSignaler.getHeight(), 0);
+        btnSignaler.setIcon(new ImageIcon(ridbtnp));
+    }//GEN-LAST:event_btnSignalerMouseExited
+
+    private void x1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseClicked
+
+    }//GEN-LAST:event_x1MouseClicked
+
+    private void x1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseEntered
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseEntered
+
+    private void x1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseExited
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseExited
+
+    private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_xMouseClicked
+
+    private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseEntered
+
+    private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -804,43 +777,28 @@ public class InfoOffre extends javax.swing.JFrame {
        
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Accueil;
     private javax.swing.JLabel a;
     private javax.swing.JLabel b;
+    private javax.swing.JLabel btnSignaler;
     private javax.swing.JButton btnjaime;
+    private javax.swing.JLabel btnvalider;
     private javax.swing.JLabel c;
     private javax.swing.JLabel d;
     private javax.swing.JLabel e;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jtsujet;
     private javax.swing.JList listcom;
     private javax.swing.JLabel mssge;
     private javax.swing.JLabel nbrj;
-    private javax.swing.JPanel pan;
-    private javax.swing.JLabel rat1;
     private javax.swing.JLabel rat2;
-    private javax.swing.JLabel rat3;
-    private javax.swing.JLabel rat4;
-    private javax.swing.JLabel rat5;
-    private javax.swing.JLabel rat6;
     private javax.swing.JLabel res;
+    private javax.swing.JLabel x;
+    private javax.swing.JLabel x1;
     // End of variables declaration//GEN-END:variables
 }

@@ -82,6 +82,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, 30));
 
+        home.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 homeMouseEntered(evt);
@@ -92,6 +93,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(home, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 150, 86));
 
+        addann.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         addann.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addannMouseClicked(evt);
@@ -105,6 +107,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(addann, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 150, 86));
 
+        addoffre.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         addoffre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 addoffreMouseClicked(evt);
@@ -118,6 +121,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(addoffre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 180, 150, 86));
 
+        reservation.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         reservation.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 reservationMouseClicked(evt);
@@ -131,6 +135,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(reservation, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, 150, 86));
 
+        facture.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         facture.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 factureMouseClicked(evt);
@@ -144,6 +149,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(facture, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 150, 86));
 
+        contact1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         contact1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 contact1MouseClicked(evt);
@@ -157,6 +163,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         });
         getContentPane().add(contact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 150, 86));
 
+        stat1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         stat1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 stat1MouseEntered(evt);
@@ -307,7 +314,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
     private void contact1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contact1MouseClicked
         tbdestination_1 de = new tbdestination_1();
         de.setVisible(true);
-        this.setVisible(false);
+        
     }//GEN-LAST:event_contact1MouseClicked
 
     private void contact1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contact1MouseEntered
@@ -435,25 +442,25 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
     private void factureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_factureMouseClicked
          ListeFacture_Responsable cd = new ListeFacture_Responsable();
        cd.setVisible(true);
-       this.setVisible(false);
+       
     }//GEN-LAST:event_factureMouseClicked
 
     private void addannMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addannMouseClicked
          annonce a = new annonce();
         a.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_addannMouseClicked
 
     private void addoffreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addoffreMouseClicked
         OffreResponsable or = new OffreResponsable();
         or.setVisible(true);
-        this.setVisible(false);
+      
     }//GEN-LAST:event_addoffreMouseClicked
 
     private void reservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationMouseClicked
        reservation re = new reservation();
         re.setVisible(true);
-        this.setVisible(false);
+       
     }//GEN-LAST:event_reservationMouseClicked
 
     private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked

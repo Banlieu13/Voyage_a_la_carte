@@ -5,16 +5,20 @@
 package com.edu.gui.Responsable;
 
 import com.edu.DAO.AnnonceDAO;
-import com.edu.DAO.ClientDAO;
 import com.edu.entities.Annonce;
-import static com.edu.gui.Client.Profil.filename;
-import static com.edu.gui.Client.Profil.fistream;
+import com.edu.gui.Client.ConsulterAnnonces;
+import com.edu.gui.Client.InfoAnnonce;
 import com.edu.gui.authentification;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.InputStream;
+import java.io.IOException;
 import java.sql.Date;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
@@ -67,24 +71,17 @@ public class ModifierAnn extends javax.swing.JFrame {
         jpic3 = new javax.swing.JLabel();
         jpic4 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         msg = new javax.swing.JLabel();
-        jMenuBar4 = new javax.swing.JMenuBar();
-        jMenu9 = new javax.swing.JMenu();
-        Reservation = new javax.swing.JMenu();
-        Destination = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
+        btnValid = new javax.swing.JLabel();
+        x = new javax.swing.JLabel();
+        x1 = new javax.swing.JLabel();
+        arriére = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -93,22 +90,27 @@ public class ModifierAnn extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 90, 0));
         jLabel1.setText("Prix");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 540, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Nombre de places");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 90, 0));
         jLabel3.setText("Programme");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 90, 0));
         jLabel4.setText("Circuit");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 90, 0));
         jLabel5.setText("Date");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, -1, -1));
 
@@ -123,16 +125,18 @@ public class ModifierAnn extends javax.swing.JFrame {
         getContentPane().add(jhotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 450, 90, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 90, 0));
         jLabel6.setText("Vers");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 330, 30, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 3, 12)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 90, 0));
         jLabel7.setText("De");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 30, -1));
         getContentPane().add(jde, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 90, -1));
 
-        jpic1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jpic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
+        jpic1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        getContentPane().add(jpic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 100, 100));
 
         jButton2.setText("Parcourir");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -142,8 +146,8 @@ public class ModifierAnn extends javax.swing.JFrame {
         });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, -1, -1));
 
-        jpic2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jpic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, -1, -1));
+        jpic2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        getContentPane().add(jpic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 100, 100));
 
         jButton3.setText("Parcourir");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -161,11 +165,11 @@ public class ModifierAnn extends javax.swing.JFrame {
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, -1, -1));
 
-        jpic3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jpic3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, -1, -1));
+        jpic3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        getContentPane().add(jpic3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 100, 100));
 
-        jpic4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jpic4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 530, -1, -1));
+        jpic4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        getContentPane().add(jpic4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 530, 100, 100));
 
         jButton6.setText("Parcourir");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -175,103 +179,62 @@ public class ModifierAnn extends javax.swing.JFrame {
         });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 410, -1, -1));
 
-        jButton7.setText("Annuler");
-        getContentPane().add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 660, -1, -1));
-
-        jButton8.setText("Valider");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 660, -1, -1));
-
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 90, 0));
         jLabel12.setText("Modifier votre annonce");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, -1, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 90, 0));
         jLabel8.setText("Hotel");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, -1, -1));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, -1, -1));
 
-        msg.setText("jLabel9");
-        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 660, -1, -1));
+        msg.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        msg.setForeground(new java.awt.Color(255, 90, 0));
+        getContentPane().add(msg, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 650, 250, 20));
 
-        jMenu9.setText("Acceuil");
-        jMenu9.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnValid.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu9MouseClicked(evt);
+                btnValidMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnValidMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnValidMouseExited(evt);
             }
         });
-        jMenuBar4.add(jMenu9);
+        getContentPane().add(btnValid, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 630, 123, 35));
 
-        Reservation.setText("Reservation");
-        Reservation.addMouseListener(new java.awt.event.MouseAdapter() {
+        x.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ReservationMouseClicked(evt);
+                xMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                xMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                xMouseExited(evt);
             }
         });
-        jMenuBar4.add(Reservation);
+        getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, 30));
 
-        Destination.setText("Destination");
-        Destination.addMouseListener(new java.awt.event.MouseAdapter() {
+        x1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                DestinationMouseClicked(evt);
+                x1MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                x1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                x1MouseExited(evt);
             }
         });
-        jMenuBar4.add(Destination);
+        getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 0, 30, 30));
 
-        jMenu1.setText("Factures");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
-
-        jMenuItem1.setText("Liste des Factures");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuBar4.add(jMenu1);
-
-        jMenu3.setText("Ajouter Offre");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu3);
-
-        jMenu4.setText("Annonce");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu4);
-
-        jMenu2.setText("Ajouter annonce");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu2);
-
-        jMenu5.setText("Offre");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar4.add(jMenu5);
-
-        setJMenuBar(jMenuBar4);
+        arriére.setForeground(new java.awt.Color(255, 90, 0));
+        getContentPane().add(arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -367,16 +330,6 @@ public class ModifierAnn extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        authentification a = new authentification();
-        AnnonceDAO cd = new AnnonceDAO();
-        //InputStream img = getClass().getClassLoader().getResourceAsStream(filename);
-        java.util.Calendar cal = Calendar.getInstance();
-        cal.setTime(jDateChooser1.getDate());
-        cd.updateAnnonce(new Date(cal.getTime().getTime()),jprog.getText(), jde.getText()+","+jvers.getText(), Integer.parseInt(jnbrplace.getText()),jhotel.getText(),Integer.parseInt(jprix.getText()),a.identifiant,fistream1,fistream2,fistream3,fistream4);
-        msg.setText("Modification effectué avec succée");
-    }//GEN-LAST:event_jButton8ActionPerformed
-
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         authentification au = new authentification();
         annonce a = new annonce();
@@ -407,71 +360,131 @@ public class ModifierAnn extends javax.swing.JFrame {
         ima4 = ada.chercherPicAnnonce(a.IdAnnonce).get(3);
         jpic4.setIcon(ima4);
         
+        this.setLocationRelativeTo(null);
+        BufferedImage imgHome = null;
+        try {
+            imgHome = ImageIO.read(new File("res/arriere.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ri = imgHome.getScaledInstance(arriére.getWidth(), arriére.getHeight(), 0);
+          arriére.setIcon(new ImageIcon(ri));
+          
+               BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+          x.setIcon(new ImageIcon(ridx));
+          
+          BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+          x1.setIcon(new ImageIcon(ridxr));
+          
+             BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridv = imgv.getScaledInstance(btnValid.getWidth(), btnValid.getHeight(), 0);
+          btnValid.setIcon(new ImageIcon(ridv));
         
         
     }//GEN-LAST:event_formWindowOpened
 
-    private void jMenu9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu9MouseClicked
-        Acceuil_Responsable ar = new Acceuil_Responsable();
-        ar.setVisible(true);
+    private void btnValidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseClicked
+       authentification a = new authentification();
+        AnnonceDAO cd = new AnnonceDAO();
+        //InputStream img = getClass().getClassLoader().getResourceAsStream(filename);
+        java.util.Calendar cal = Calendar.getInstance();
+        cal.setTime(jDateChooser1.getDate());
+        cd.updateAnnonce(new Date(cal.getTime().getTime()),jprog.getText(), jde.getText()+","+jvers.getText(), Integer.parseInt(jnbrplace.getText()),jhotel.getText(),Integer.parseInt(jprix.getText()),a.identifiant,fistream1,fistream2,fistream3,fistream4);
+        msg.setText("Modification effectué avec succée");
+    }//GEN-LAST:event_btnValidMouseClicked
+
+    private void btnValidMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseEntered
+
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridv = imgv.getScaledInstance(btnValid.getWidth(), btnValid.getHeight(), 0);
+        btnValid.setIcon(new ImageIcon(ridv));
+    }//GEN-LAST:event_btnValidMouseEntered
+
+    private void btnValidMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseExited
+
+        BufferedImage imgv = null;
+        try {
+            imgv = ImageIO.read(new File("res/valider off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridv = imgv.getScaledInstance(btnValid.getWidth(), btnValid.getHeight(), 0);
+        btnValid.setIcon(new ImageIcon(ridv));
+    }//GEN-LAST:event_btnValidMouseExited
+
+    private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu9MouseClicked
+    }//GEN-LAST:event_xMouseClicked
 
-    private void ReservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ReservationMouseClicked
-        reservation re = new reservation();
-        re.setVisible(true);
-        this.setVisible(false);
+    private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseEntered
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ReservationMouseClicked
+    private void xMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseExited
+        BufferedImage imgx = null;
+        try {
+            imgx = ImageIO.read(new File("res/x1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridx = imgx.getScaledInstance(x.getWidth(), x.getHeight(), 0);
+        x.setIcon(new ImageIcon(ridx));
+    }//GEN-LAST:event_xMouseExited
 
-    private void DestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseClicked
-        tbdestination_1 de = new tbdestination_1();
-        de.setVisible(true);
-        this.setVisible(false);
+    private void x1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseClicked
 
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DestinationMouseClicked
+    }//GEN-LAST:event_x1MouseClicked
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        //List_des_Factures cd=new List_des_Factures();
-        // cd.setVisible(true);
-        ListeFacture_Responsable cd = new ListeFacture_Responsable();
-        cd.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void x1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseEntered
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-2.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseEntered
 
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-
-        //  List_des_Factures cd=new List_des_Factures();
-        // this.dispose();
-
-        //cd.setVisible(true);
-    }//GEN-LAST:event_jMenu1ActionPerformed
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        AjouterOffre ao = new AjouterOffre();
-        ao.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
-
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        annonce a = new annonce();
-        a.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
-        AjouterAnnonce aa = new AjouterAnnonce();
-        aa.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
-
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        OffreResponsable or = new OffreResponsable();
-        or.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
+    private void x1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseExited
+        BufferedImage imgxr = null;
+        try {
+            imgxr = ImageIO.read(new File("res/-1.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
+        x1.setIcon(new ImageIcon(ridxr));
+    }//GEN-LAST:event_x1MouseExited
 
     /**
      * @param args the command line arguments
@@ -508,14 +521,12 @@ public class ModifierAnn extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu Destination;
-    private javax.swing.JMenu Reservation;
+    private javax.swing.JLabel arriére;
+    private javax.swing.JLabel btnValid;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
@@ -526,14 +537,6 @@ public class ModifierAnn extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu9;
-    private javax.swing.JMenuBar jMenuBar4;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jde;
     private javax.swing.JTextField jhotel;
@@ -546,5 +549,7 @@ public class ModifierAnn extends javax.swing.JFrame {
     private javax.swing.JTextArea jprog;
     private javax.swing.JTextField jvers;
     private javax.swing.JLabel msg;
+    private javax.swing.JLabel x;
+    private javax.swing.JLabel x1;
     // End of variables declaration//GEN-END:variables
 }
