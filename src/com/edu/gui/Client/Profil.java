@@ -75,6 +75,7 @@ public class Profil extends javax.swing.JFrame {
         btnvalider1 = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
         Arriére = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,7 +91,7 @@ public class Profil extends javax.swing.JFrame {
         profil.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         profil.setForeground(new java.awt.Color(255, 90, 0));
         profil.setText("Information");
-        getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        getContentPane().add(profil, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
 
         tfcin.setBackground(new java.awt.Color(76, 75, 75));
         tfcin.setForeground(new java.awt.Color(255, 255, 255));
@@ -208,17 +209,17 @@ public class Profil extends javax.swing.JFrame {
         getContentPane().add(modmail7, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 130, -1, -1));
 
         jlclient.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jlclient.setForeground(new java.awt.Color(255, 0, 51));
+        jlclient.setForeground(new java.awt.Color(0, 204, 0));
         jlclient.setText("jLabel1");
-        getContentPane().add(jlclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 17, -1, 30));
+        getContentPane().add(jlclient, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 40, -1, 40));
 
         message.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         message.setForeground(new java.awt.Color(255, 0, 51));
-        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 620, 250, 20));
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 590, 250, 20));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, -1, -1));
 
         pic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
-        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 510, 100, 100));
+        getContentPane().add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 100, 100));
 
         jButton1.setForeground(new java.awt.Color(0, 153, 255));
         jButton1.setText("Photo de profil");
@@ -227,7 +228,7 @@ public class Profil extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 540, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, -1, -1));
 
         btnvalider1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -240,7 +241,7 @@ public class Profil extends javax.swing.JFrame {
                 btnvalider1MouseExited(evt);
             }
         });
-        getContentPane().add(btnvalider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 670, 123, 35));
+        getContentPane().add(btnvalider1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 630, 123, 35));
 
         x1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -268,6 +269,19 @@ public class Profil extends javax.swing.JFrame {
         });
         getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 30, 30));
 
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 50));
+
         Arriére.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(Arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 710));
 
@@ -277,7 +291,7 @@ public class Profil extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         pic.setSize(100, 100); 
         this.setLocationRelativeTo(null);
-         this.setSize(580, 730);
+         this.setSize(580, 700);
          this.setResizable(false);
          BufferedImage imgHome = null;
         try {
@@ -343,6 +357,15 @@ public class Profil extends javax.swing.JFrame {
         }
           Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
           x1.setIcon(new ImageIcon(ridxr));
+          
+              BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -473,6 +496,34 @@ public class Profil extends javax.swing.JFrame {
         x.setIcon(new ImageIcon(ridx));
     }//GEN-LAST:event_xMouseExited
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -509,6 +560,7 @@ public class Profil extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Arriére;
+    private javax.swing.JLabel Home;
     private javax.swing.JLabel btnvalider1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

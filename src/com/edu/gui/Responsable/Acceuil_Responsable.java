@@ -1,5 +1,6 @@
 package com.edu.gui.Responsable;
 
+import com.edu.gui.authentification;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -45,6 +46,8 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         facture = new javax.swing.JLabel();
         contact1 = new javax.swing.JLabel();
         stat1 = new javax.swing.JLabel();
+        param = new javax.swing.JLabel();
+        decnx = new javax.swing.JLabel();
         Acceuil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -161,10 +164,13 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
                 contact1MouseExited(evt);
             }
         });
-        getContentPane().add(contact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 150, 86));
+        getContentPane().add(contact1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 300, 150, 86));
 
         stat1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         stat1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                stat1MouseClicked(evt);
+            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 stat1MouseEntered(evt);
             }
@@ -173,6 +179,34 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(stat1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 150, 86));
+
+        param.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        param.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                paramMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                paramMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                paramMouseExited(evt);
+            }
+        });
+        getContentPane().add(param, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, 150, 86));
+
+        decnx.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        decnx.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                decnxMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                decnxMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                decnxMouseExited(evt);
+            }
+        });
+        getContentPane().add(decnx, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 300, 150, 86));
         getContentPane().add(Acceuil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 450));
         Acceuil.getAccessibleContext().setAccessibleName("Acceuil");
 
@@ -272,6 +306,26 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
           Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
           x1.setIcon(new ImageIcon(ridxr));
           
+           BufferedImage imgdec = null;
+        try {
+            imgdec = ImageIO.read(new File("res/dec off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridec = imgdec.getScaledInstance(decnx.getWidth(), decnx.getHeight(), 0);
+          decnx.setIcon(new ImageIcon(ridec));
+          
+           BufferedImage imgparam = null;
+        try {
+            imgparam = ImageIO.read(new File("res/par off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image riparam = imgparam.getScaledInstance(param.getWidth(), param.getHeight(), 0);
+          param.setIcon(new ImageIcon(riparam));
+          
+    
+          
           
         
     }//GEN-LAST:event_formWindowOpened
@@ -314,6 +368,7 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
     private void contact1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contact1MouseClicked
         tbdestination_1 de = new tbdestination_1();
         de.setVisible(true);
+        this.setVisible(false);
         
     }//GEN-LAST:event_contact1MouseClicked
 
@@ -442,24 +497,28 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
     private void factureMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_factureMouseClicked
          ListeFacture_Responsable cd = new ListeFacture_Responsable();
        cd.setVisible(true);
+       this.setVisible(false);
        
     }//GEN-LAST:event_factureMouseClicked
 
     private void addannMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addannMouseClicked
-         annonce a = new annonce();
+        annonce a = new annonce();
         a.setVisible(true);
+        this.setVisible(false);
        
     }//GEN-LAST:event_addannMouseClicked
 
     private void addoffreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addoffreMouseClicked
         OffreResponsable or = new OffreResponsable();
         or.setVisible(true);
+        this.setVisible(false);
       
     }//GEN-LAST:event_addoffreMouseClicked
 
     private void reservationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_reservationMouseClicked
        reservation re = new reservation();
         re.setVisible(true);
+        this.setVisible(false);
        
     }//GEN-LAST:event_reservationMouseClicked
 
@@ -515,6 +574,68 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
         x1.setIcon(new ImageIcon(ridxr));
     }//GEN-LAST:event_x1MouseExited
 
+    private void stat1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stat1MouseClicked
+        StatGraphDoc sdg = new StatGraphDoc();
+        sdg.setVisible(true);
+       
+    }//GEN-LAST:event_stat1MouseClicked
+
+    private void decnxMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_decnxMouseExited
+             BufferedImage imgdec = null;
+        try {
+            imgdec = ImageIO.read(new File("res/dec off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridec = imgdec.getScaledInstance(decnx.getWidth(), decnx.getHeight(), 0);
+          decnx.setIcon(new ImageIcon(ridec));
+    }//GEN-LAST:event_decnxMouseExited
+
+    private void decnxMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_decnxMouseEntered
+            BufferedImage imgdec = null;
+        try {
+            imgdec = ImageIO.read(new File("res/dec on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridec = imgdec.getScaledInstance(decnx.getWidth(), decnx.getHeight(), 0);
+          decnx.setIcon(new ImageIcon(ridec));
+    }//GEN-LAST:event_decnxMouseEntered
+
+    private void decnxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_decnxMouseClicked
+        authentification a = new authentification();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_decnxMouseClicked
+
+    private void paramMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paramMouseExited
+           BufferedImage imgparam = null;
+        try {
+            imgparam = ImageIO.read(new File("res/par off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image riparam = imgparam.getScaledInstance(param.getWidth(), param.getHeight(), 0);
+          param.setIcon(new ImageIcon(riparam));
+    }//GEN-LAST:event_paramMouseExited
+
+    private void paramMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paramMouseEntered
+           BufferedImage imgparam = null;
+        try {
+            imgparam = ImageIO.read(new File("res/par on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(Acceuil_Responsable.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image riparam = imgparam.getScaledInstance(param.getWidth(), param.getHeight(), 0);
+          param.setIcon(new ImageIcon(riparam));
+    }//GEN-LAST:event_paramMouseEntered
+
+    private void paramMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_paramMouseClicked
+         ProfilResp pres = new ProfilResp();
+         pres.setVisible(true);
+         this.setVisible(false);
+    }//GEN-LAST:event_paramMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -554,8 +675,10 @@ public class Acceuil_Responsable extends javax.swing.JFrame {
     private javax.swing.JLabel addann;
     private javax.swing.JLabel addoffre;
     private javax.swing.JLabel contact1;
+    private javax.swing.JLabel decnx;
     private javax.swing.JLabel facture;
     private javax.swing.JLabel home;
+    private javax.swing.JLabel param;
     private javax.swing.JLabel reservation;
     private javax.swing.JLabel stat1;
     private javax.swing.JLabel x;

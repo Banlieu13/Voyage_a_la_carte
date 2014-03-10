@@ -49,6 +49,7 @@ public class Signalercomm extends javax.swing.JFrame {
         x = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
+        x2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Signaler un commentaire");
@@ -126,6 +127,19 @@ public class Signalercomm extends javax.swing.JFrame {
         Accueil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
         getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
+
+        x2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                x2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                x2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                x2MouseExited(evt);
+            }
+        });
+        getContentPane().add(x2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 0, 30, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -257,6 +271,18 @@ public class Signalercomm extends javax.swing.JFrame {
         x1.setIcon(new ImageIcon(ridxr));
     }//GEN-LAST:event_x1MouseExited
 
+    private void x2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_x2MouseClicked
+
+    private void x2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x2MouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_x2MouseEntered
+
+    private void x2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x2MouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_x2MouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -302,5 +328,6 @@ public class Signalercomm extends javax.swing.JFrame {
     private javax.swing.JLabel mssg;
     private javax.swing.JLabel x;
     private javax.swing.JLabel x1;
+    private javax.swing.JLabel x2;
     // End of variables declaration//GEN-END:variables
 }

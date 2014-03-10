@@ -3,6 +3,7 @@ package com.edu.gui.Responsable;
 import com.edu.DAO.factureDAO;
 import com.edu.entities.Table.TableResponsableFacture;
 import com.edu.gui.Client.ConsulterAnnonces;
+import com.edu.gui.Client.acceuilclient;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -46,6 +47,7 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
         x1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnsupp = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
         arriére = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,7 +97,7 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 90, 0));
         jLabel1.setText("Factures");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 40, -1, -1));
 
         btnsupp.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -109,6 +111,19 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnsupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 310, 50, 50));
+
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 80, 50));
         getContentPane().add(arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 460));
 
         pack();
@@ -204,6 +219,15 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
         }
           Image ridsupp = imgsupp.getScaledInstance(btnsupp.getWidth(), btnsupp.getHeight(), 0);
           btnsupp.setIcon(new ImageIcon(ridsupp));
+          
+          BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
     }//GEN-LAST:event_formWindowOpened
 
     private void btnsuppMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsuppMouseExited
@@ -244,6 +268,34 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
            }
     }//GEN-LAST:event_btnsuppMouseClicked
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        Acceuil_Responsable ac = new Acceuil_Responsable();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -280,6 +332,7 @@ public class ListeFacture_Responsable extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Home;
     private javax.swing.JLabel arriére;
     private javax.swing.JLabel btnsupp;
     private javax.swing.JLabel jLabel1;

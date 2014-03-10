@@ -210,7 +210,7 @@ public class EditPassowrd extends javax.swing.JFrame {
     }//GEN-LAST:event_x1MouseExited
 
     private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
-        System.exit(0);
+        this.setVisible(false);
     }//GEN-LAST:event_xMouseClicked
 
     private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered

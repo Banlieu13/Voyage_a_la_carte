@@ -2,14 +2,8 @@ package com.edu.gui.Client;
 import com.edu.DAO.ClientDAO;
 import com.edu.DAO.offreDAO;
 import com.edu.entities.Client;
-import com.edu.entities.Table.MyTableModel;
 import com.edu.entities.Table.TableOffre;
-import com.edu.gui.Client.InfoOffre;
-import com.edu.gui.Client.PaiementClient;
-import com.edu.gui.Client.Profil;
-import com.edu.gui.Client.ProposerDestinationClient;
 import com.edu.gui.authentification;
-import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -82,6 +76,8 @@ public class acceuilclient extends javax.swing.JFrame {
         x = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
         x2 = new javax.swing.JLabel();
+        desconnexion = new javax.swing.JLabel();
+        loisir = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -195,7 +191,7 @@ public class acceuilclient extends javax.swing.JFrame {
                 HomeMouseExited(evt);
             }
         });
-        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 80, 50));
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 80, 50));
 
         Annonce.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -208,7 +204,7 @@ public class acceuilclient extends javax.swing.JFrame {
                 AnnonceMouseExited(evt);
             }
         });
-        getContentPane().add(Annonce, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, 80, 50));
+        getContentPane().add(Annonce, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 80, 50));
 
         Destination.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -221,7 +217,7 @@ public class acceuilclient extends javax.swing.JFrame {
                 DestinationMouseExited(evt);
             }
         });
-        getContentPane().add(Destination, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 180, 80, 50));
+        getContentPane().add(Destination, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 80, 50));
 
         Proposer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -234,7 +230,7 @@ public class acceuilclient extends javax.swing.JFrame {
                 ProposerMouseExited(evt);
             }
         });
-        getContentPane().add(Proposer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 240, 80, 50));
+        getContentPane().add(Proposer, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 80, 50));
 
         contact.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -247,7 +243,7 @@ public class acceuilclient extends javax.swing.JFrame {
                 contactMouseExited(evt);
             }
         });
-        getContentPane().add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 80, 50));
+        getContentPane().add(contact, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 80, 50));
 
         parametre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -263,7 +259,7 @@ public class acceuilclient extends javax.swing.JFrame {
                 parametreMousePressed(evt);
             }
         });
-        getContentPane().add(parametre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, 80, 50));
+        getContentPane().add(parametre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 80, 50));
 
         Reserver.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -329,10 +325,45 @@ public class acceuilclient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 30));
+
+        x2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                x2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                x2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                x2MouseExited(evt);
+            }
+        });
         getContentPane().add(x2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, 30, 30));
 
+        desconnexion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                desconnexionMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                desconnexionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                desconnexionMouseExited(evt);
+            }
+        });
+        getContentPane().add(desconnexion, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 80, 50));
+
+        loisir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loisirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loisirMouseExited(evt);
+            }
+        });
+        getContentPane().add(loisir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 80, 50));
+
         Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
-        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -401,6 +432,13 @@ public class acceuilclient extends javax.swing.JFrame {
           Image ridx2 = imgx2.getScaledInstance(x2.getWidth(), x2.getHeight(), 0);
           x2.setIcon(new ImageIcon(ridx2));
           
+          BufferedImage imgdec = ImageIO.read(new File("res/Desconexion off.jpg"));
+          Image riddec = imgdec.getScaledInstance(desconnexion.getWidth(), desconnexion.getHeight(), 0);
+          desconnexion.setIcon(new ImageIcon(riddec));
+          
+           BufferedImage imgdloisir = ImageIO.read(new File("res/loisir off.jpg"));
+          Image riddl = imgdloisir.getScaledInstance(loisir.getWidth(), loisir.getHeight(), 0);
+          loisir.setIcon(new ImageIcon(riddl));
           
         
          
@@ -664,31 +702,31 @@ public class acceuilclient extends javax.swing.JFrame {
     private void AnnonceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AnnonceMouseClicked
         ConsulterAnnonces ca = new ConsulterAnnonces();
         ca.setVisible(true);
-        
+        this.setVisible(false);
     }//GEN-LAST:event_AnnonceMouseClicked
 
     private void DestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_DestinationMouseClicked
          Destinations d = new Destinations();
          d.setVisible(true);
-         
+         this.setVisible(false);
     }//GEN-LAST:event_DestinationMouseClicked
 
     private void ProposerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ProposerMouseClicked
        ProposerDestinationClient po = new ProposerDestinationClient();
         po.setVisible(true);
-       
+       this.setVisible(false);
     }//GEN-LAST:event_ProposerMouseClicked
 
     private void contactMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_contactMouseClicked
         MailJframe mj = new MailJframe();
         mj.setVisible(true);
-        
+        this.setVisible(false);
     }//GEN-LAST:event_contactMouseClicked
 
     private void parametreMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_parametreMouseClicked
         Profil p = new Profil();
         p.setVisible(true);
-        
+        this.setVisible(false);
     }//GEN-LAST:event_parametreMouseClicked
 
     private void txfCircuitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txfCircuitActionPerformed
@@ -801,7 +839,7 @@ public class acceuilclient extends javax.swing.JFrame {
             mailresp =  (String) to.getValueAt(x, 7);
             PaiementClient pc = new  PaiementClient();
             pc.setVisible(true);
-            
+            this.setVisible(false);
            }
     }//GEN-LAST:event_ReserverMouseClicked
 
@@ -876,6 +914,84 @@ public class acceuilclient extends javax.swing.JFrame {
       
     }//GEN-LAST:event_x1MouseClicked
 
+    private void x2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x2MouseEntered
+          BufferedImage imgx2 = null;
+         try {
+             imgx2 = ImageIO.read(new File("res/p2.png"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridx2 = imgx2.getScaledInstance(x2.getWidth(), x2.getHeight(), 0);
+          x2.setIcon(new ImageIcon(ridx2));
+    }//GEN-LAST:event_x2MouseEntered
+
+    private void x2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x2MouseExited
+         BufferedImage imgx2 = null;
+         try {
+             imgx2 = ImageIO.read(new File("res/p1.png"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image ridx2 = imgx2.getScaledInstance(x2.getWidth(), x2.getHeight(), 0);
+          x2.setIcon(new ImageIcon(ridx2));
+    }//GEN-LAST:event_x2MouseExited
+
+    private void x2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x2MouseClicked
+        EditPassowrd ed = new EditPassowrd();
+        ed.setVisible(true);
+    }//GEN-LAST:event_x2MouseClicked
+
+    private void desconnexionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconnexionMouseEntered
+      BufferedImage imgdec = null;
+         try {
+             imgdec = ImageIO.read(new File("res/Desconexion on.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image riddec = imgdec.getScaledInstance(desconnexion.getWidth(), desconnexion.getHeight(), 0);
+          desconnexion.setIcon(new ImageIcon(riddec));
+          
+    }//GEN-LAST:event_desconnexionMouseEntered
+
+    private void desconnexionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconnexionMouseExited
+         BufferedImage imgdec = null;
+         try {
+             imgdec = ImageIO.read(new File("res/Desconexion off.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image riddec = imgdec.getScaledInstance(desconnexion.getWidth(), desconnexion.getHeight(), 0);
+          desconnexion.setIcon(new ImageIcon(riddec));
+    }//GEN-LAST:event_desconnexionMouseExited
+
+    private void desconnexionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_desconnexionMouseClicked
+        authentification a = new authentification();
+        a.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_desconnexionMouseClicked
+
+    private void loisirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loisirMouseEntered
+          BufferedImage imgdloisir = null;
+         try {
+             imgdloisir = ImageIO.read(new File("res/loisir on.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image riddl = imgdloisir.getScaledInstance(loisir.getWidth(), loisir.getHeight(), 0);
+          loisir.setIcon(new ImageIcon(riddl));
+    }//GEN-LAST:event_loisirMouseEntered
+
+    private void loisirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loisirMouseExited
+          BufferedImage imgdloisir = null;
+         try {
+             imgdloisir = ImageIO.read(new File("res/loisir off.jpg"));
+         } catch (IOException ex) {
+             Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+         }
+          Image riddl = imgdloisir.getScaledInstance(loisir.getWidth(), loisir.getHeight(), 0);
+          loisir.setIcon(new ImageIcon(riddl));
+    }//GEN-LAST:event_loisirMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -922,10 +1038,12 @@ public class acceuilclient extends javax.swing.JFrame {
     private javax.swing.JLabel btnSignaler;
     private javax.swing.JLabel btnprog;
     private javax.swing.JLabel contact;
+    private javax.swing.JLabel desconnexion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTable jTable1;
+    private javax.swing.JLabel loisir;
     private javax.swing.JLabel msg;
     private javax.swing.JLabel parametre;
     private javax.swing.JLabel photoprofil;

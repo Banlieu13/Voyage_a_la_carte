@@ -54,11 +54,9 @@ public class OffreResponsable extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         taboffre = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jlist = new javax.swing.JList();
         jLabel1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         prog = new javax.swing.JLabel();
         mssg = new javax.swing.JLabel();
@@ -67,6 +65,10 @@ public class OffreResponsable extends javax.swing.JFrame {
         x1 = new javax.swing.JLabel();
         btnSignaler = new javax.swing.JLabel();
         btnsupp = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
+        ajouter = new javax.swing.JLabel();
+        modifier = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
         arriére = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,14 +90,6 @@ public class OffreResponsable extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 668, 220));
 
-        jButton1.setText("Ajouter offre");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 320, -1, -1));
-
         jlist.setBackground(new java.awt.Color(76, 75, 75));
         jlist.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jlist.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,21 +107,13 @@ public class OffreResponsable extends javax.swing.JFrame {
         jLabel1.setText("Programme");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
-        jButton2.setText("Modifier");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Offres");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         prog.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(prog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 300, 150));
+        getContentPane().add(prog, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 410, 300, 120));
 
         mssg.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         mssg.setForeground(new java.awt.Color(255, 90, 0));
@@ -188,22 +174,56 @@ public class OffreResponsable extends javax.swing.JFrame {
                 btnsuppMouseExited(evt);
             }
         });
-        getContentPane().add(btnsupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 300, 50, 50));
+        getContentPane().add(btnsupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 300, 50, 50));
+
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 80, 50));
+
+        ajouter.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ajouterMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                ajouterMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                ajouterMouseExited(evt);
+            }
+        });
+        getContentPane().add(ajouter, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 123, 35));
+
+        modifier.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                modifierMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                modifierMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                modifierMouseExited(evt);
+            }
+        });
+        getContentPane().add(modifier, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, 123, 35));
+
+        message.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        message.setForeground(new java.awt.Color(255, 90, 0));
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 270, 20));
 
         arriére.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-AjouterOffre o1 = new  AjouterOffre();
-        o1.setVisible(true);
-        this.setVisible(false);
-        
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void taboffreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_taboffreMousePressed
        CommentaireDAO cd = new CommentaireDAO();
@@ -217,12 +237,6 @@ AjouterOffre o1 = new  AjouterOffre();
        
                 
     }//GEN-LAST:event_taboffreMousePressed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ModifierOffre mo = new ModifierOffre();
-        mo.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jlistMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jlistMousePressed
         CommentaireDAO cd = new CommentaireDAO();
@@ -281,6 +295,33 @@ AjouterOffre o1 = new  AjouterOffre();
         }
           Image ridsupp = imgsupp.getScaledInstance(btnsupp.getWidth(), btnsupp.getHeight(), 0);
           btnsupp.setIcon(new ImageIcon(ridsupp));
+          
+          BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
+          
+               BufferedImage imgmod = null;
+        try {
+            imgmod = ImageIO.read(new File("res/modifier off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridmod = imgmod.getScaledInstance(modifier.getWidth(), modifier.getHeight(), 0);
+          modifier.setIcon(new ImageIcon(ridmod));
+          
+             BufferedImage imgaj = null;
+        try {
+            imgaj = ImageIO.read(new File("res/ajout off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridaj = imgaj.getScaledInstance(ajouter.getWidth(), ajouter.getHeight(), 0);
+          ajouter.setIcon(new ImageIcon(ridaj));
     }//GEN-LAST:event_formWindowOpened
 
     private void xMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseClicked
@@ -407,6 +448,98 @@ AjouterOffre o1 = new  AjouterOffre();
         btnsupp.setIcon(new ImageIcon(ridsupp));
     }//GEN-LAST:event_btnsuppMouseExited
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        Acceuil_Responsable ac = new Acceuil_Responsable();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void ajouterMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ajouterMouseClicked
+        AjouterOffre o1 = new  AjouterOffre();
+        o1.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ajouterMouseClicked
+
+    private void ajouterMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ajouterMouseEntered
+        BufferedImage imgaj = null;
+        try {
+            imgaj = ImageIO.read(new File("res/ajout on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridaj = imgaj.getScaledInstance(ajouter.getWidth(), ajouter.getHeight(), 0);
+        ajouter.setIcon(new ImageIcon(ridaj));
+    }//GEN-LAST:event_ajouterMouseEntered
+
+    private void ajouterMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ajouterMouseExited
+        BufferedImage imgaj = null;
+        try {
+            imgaj = ImageIO.read(new File("res/ajout off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridaj = imgaj.getScaledInstance(ajouter.getWidth(), ajouter.getHeight(), 0);
+        ajouter.setIcon(new ImageIcon(ridaj));
+    }//GEN-LAST:event_ajouterMouseExited
+
+    private void modifierMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifierMouseClicked
+        TableOffre to = new TableOffre();
+         int x = taboffre.getSelectedRow();
+        if(x==-1){
+            message.setText("Veuillez sélectioné une Annonce");
+        }
+        else
+        {
+        ModifierOffre mo = new ModifierOffre();
+        mo.setVisible(true);
+        this.setVisible(false);
+        }
+    }//GEN-LAST:event_modifierMouseClicked
+
+    private void modifierMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifierMouseEntered
+        BufferedImage imgmod = null;
+        try {
+            imgmod = ImageIO.read(new File("res/modifier on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridmod = imgmod.getScaledInstance(modifier.getWidth(), modifier.getHeight(), 0);
+        modifier.setIcon(new ImageIcon(ridmod));
+    }//GEN-LAST:event_modifierMouseEntered
+
+    private void modifierMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modifierMouseExited
+        BufferedImage imgmod = null;
+        try {
+            imgmod = ImageIO.read(new File("res/modifier off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridmod = imgmod.getScaledInstance(modifier.getWidth(), modifier.getHeight(), 0);
+        modifier.setIcon(new ImageIcon(ridmod));
+    }//GEN-LAST:event_modifierMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -442,17 +575,19 @@ AjouterOffre o1 = new  AjouterOffre();
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Home;
+    private javax.swing.JLabel ajouter;
     private javax.swing.JLabel arriére;
     private javax.swing.JLabel btnSignaler;
     private javax.swing.JLabel btnsupp;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JList jlist;
+    private javax.swing.JLabel message;
+    private javax.swing.JLabel modifier;
     private javax.swing.JLabel mssg;
     private javax.swing.JLabel prog;
     private javax.swing.JTable taboffre;

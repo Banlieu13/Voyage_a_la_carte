@@ -59,6 +59,7 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
         xx = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -140,6 +141,19 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         });
         getContentPane().add(xx, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 30, 30));
 
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
+
         Accueil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
         getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
@@ -212,6 +226,15 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         }
           Image ridxr = imgxr.getScaledInstance(xx.getWidth(), xx.getHeight(), 0);
           xx.setIcon(new ImageIcon(ridxr));
+          
+              BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
     }//GEN-LAST:event_formWindowOpened
 
     private void xMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_xMouseEntered
@@ -264,6 +287,34 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_xMouseClicked
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -300,6 +351,7 @@ public class ReservationAnnonce extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Accueil;
+    private javax.swing.JLabel Home;
     private javax.swing.JComboBox cmbCarte;
     private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jCalendar1;
@@ -313,12 +365,6 @@ public class ReservationAnnonce extends javax.swing.JFrame {
     private javax.swing.JTextField txfCryptogramme;
     private javax.swing.JTextField txfnumCarte;
     private javax.swing.JLabel x;
-    private javax.swing.JLabel x1;
-    private javax.swing.JLabel x2;
-    private javax.swing.JLabel x3;
-    private javax.swing.JLabel x4;
-    private javax.swing.JLabel x5;
-    private javax.swing.JLabel x6;
     private javax.swing.JLabel xx;
     // End of variables declaration//GEN-END:variables
 }

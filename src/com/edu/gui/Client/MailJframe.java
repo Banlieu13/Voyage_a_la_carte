@@ -7,8 +7,16 @@ package com.edu.gui.Client;
 import com.edu.entities.Mail;
 import com.edu.entities.MailConstruction;
 import com.edu.gui.authentification;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
 /**
@@ -45,7 +53,6 @@ public class MailJframe extends javax.swing.JFrame {
         jTextmailsubject = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        jButtonSendMail = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabelpieceJointe = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -54,21 +61,14 @@ public class MailJframe extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
+        sendt = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
-        jMenuBar3 = new javax.swing.JMenuBar();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu8 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
-        jMenu4 = new javax.swing.JMenu();
-        jMenu6 = new javax.swing.JMenu();
-        jMenu5 = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Contact");
+        setUndecorated(true);
+        setResizable(false);
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -82,22 +82,19 @@ public class MailJframe extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 11, 90, -1));
 
         jTextMailAddressSender.setEnabled(false);
-        getContentPane().add(jTextMailAddressSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 89, 311, -1));
-        getContentPane().add(jPassworSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 120, 311, -1));
-        getContentPane().add(jTextMailAddressReceiver, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 151, 311, -1));
-        getContentPane().add(jTextmailsubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 182, 311, -1));
+        getContentPane().add(jTextMailAddressSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 311, -1));
+        getContentPane().add(jPassworSender, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 311, -1));
+        getContentPane().add(jTextMailAddressReceiver, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 311, -1));
+        getContentPane().add(jTextmailsubject, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 311, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 213, 311, 103));
-
-        jButtonSendMail.setText("Send");
-        getContentPane().add(jButtonSendMail, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 356, 202, 50));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, 311, 103));
 
         jButton1.setText("Choose a file");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 383, 151, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 151, -1));
         getContentPane().add(jLabelpieceJointe, new org.netbeans.lib.awtextra.AbsoluteConstraints(97, 327, 311, 34));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -130,148 +127,137 @@ public class MailJframe extends javax.swing.JFrame {
         jLabel2.setText("Sender");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 92, 69, -1));
 
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
+
+        sendt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sendtMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                sendtMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                sendtMouseExited(evt);
+            }
+        });
+        getContentPane().add(sendt, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 400, 123, 35));
+
         Accueil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
         getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
-
-        jMenu2.setText("Acceuil");
-        jMenu2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu2MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu2);
-
-        jMenu8.setText("Proposer offre");
-        jMenu8.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu8MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu8);
-
-        jMenu3.setText("Annonces");
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu3);
-
-        jMenu4.setText("Contact");
-        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu4MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu4);
-
-        jMenu6.setText("Destinations");
-        jMenu6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu6MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu6);
-
-        jMenu5.setText("Mes Destination");
-        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu5MouseClicked(evt);
-            }
-        });
-        jMenuBar3.add(jMenu5);
-
-        jMenu1.setText("Paramètres");
-
-        jMenuItem1.setText("Profil");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
-
-        jMenuItem3.setText("Changer Mot de passe");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
-
-        jMenuItem2.setText("Déconnexion");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem2);
-
-        jMenuBar3.add(jMenu1);
-
-        setJMenuBar(jMenuBar3);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         authentification a = new authentification();
+        this.setLocationRelativeTo(null);
+        this.setSize(550, 500);
         jTextMailAddressSender.setText(a.identifiant);
+        
+     
+          
+              BufferedImage imgh = null;
+        try {
+            imgh = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImageh = imgh.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImageh));
+          
+                BufferedImage imgsend = null;
+        try {
+            imgsend = ImageIO.read(new File("res/envoyer off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImagesend = imgsend.getScaledInstance(sendt.getWidth(), sendt.getHeight(), 0);
+          sendt.setIcon(new ImageIcon(resizedImagesend));
+        
     }//GEN-LAST:event_formWindowOpened
 
-    private void jMenu2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu2MouseClicked
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
         acceuilclient ac = new acceuilclient();
         ac.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jMenu2MouseClicked
+    }//GEN-LAST:event_HomeMouseClicked
 
-    private void jMenu8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu8MouseClicked
-        ProposerDestinationClient po = new ProposerDestinationClient();
-        po.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu8MouseClicked
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
 
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        ConsulterAnnonces ca = new ConsulterAnnonces();
-        ca.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu3MouseClicked
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
 
-    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
-        MailJframe mj = new MailJframe();
-        mj.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu4MouseClicked
+    private void sendtMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendtMouseEntered
+                 BufferedImage imgsend = null;
+        try {
+            imgsend = ImageIO.read(new File("res/envoyer on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImagesend = imgsend.getScaledInstance(sendt.getWidth(), sendt.getHeight(), 0);
+          sendt.setIcon(new ImageIcon(resizedImagesend));
+    }//GEN-LAST:event_sendtMouseEntered
 
-    private void jMenu6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu6MouseClicked
-        Destinations d = new Destinations();
-        d.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu6MouseClicked
+    private void sendtMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendtMouseExited
+                BufferedImage imgsend = null;
+        try {
+            imgsend = ImageIO.read(new File("res/envoyer off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImagesend = imgsend.getScaledInstance(sendt.getWidth(), sendt.getHeight(), 0);
+          sendt.setIcon(new ImageIcon(resizedImagesend));
+    }//GEN-LAST:event_sendtMouseExited
 
-    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
-        MesDestinations md = new MesDestinations();
-        md.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenu5MouseClicked
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Profil p = new Profil();
-        p.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        EditPassowrd ep = new EditPassowrd();
-        ep.setVisible(true);
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        authentification a = new authentification();
-        a.setVisible(true);
-        this.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void sendtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sendtMouseClicked
+              mail.setMailAddressRecipient(jTextMailAddressReceiver.getText());
+        mail.setPwd(jPassworSender.getText());
+        mail.setMailAddressSender(jTextMailAddressSender.getText());
+        mail.setMailSubject(jTextmailsubject.getText());
+        String[] lines = jTextArea1.getText().split("\\n");
+        String msg="";
+        for(String s:lines){
+            msg = msg+s;
+        }
+        mail.setMailObject(msg);
+        //System.out.println(jTextArearObject.getToolTipText());
+        
+        MailConstruction mc = new MailConstruction();
+        mc.getMailProperties();
+        
+        String s = this.cleanUrl(url);
+        mc.getMailMessage(s, mail);
+        mc.SendMessage();
+    }//GEN-LAST:event_sendtMouseClicked
 
     public String cleanUrl(URL url){
         
@@ -324,8 +310,8 @@ public class MailJframe extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Accueil;
+    private javax.swing.JLabel Home;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonSendMail;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -334,22 +320,12 @@ public class MailJframe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelpieceJointe;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
-    private javax.swing.JMenu jMenu8;
-    private javax.swing.JMenuBar jMenuBar3;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPasswordField jPassworSender;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextMailAddressReceiver;
     private javax.swing.JTextField jTextMailAddressSender;
     private javax.swing.JTextField jTextmailsubject;
+    private javax.swing.JLabel sendt;
     // End of variables declaration//GEN-END:variables
 }

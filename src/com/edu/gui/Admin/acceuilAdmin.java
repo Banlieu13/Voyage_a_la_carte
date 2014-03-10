@@ -58,6 +58,8 @@ public class acceuilAdmin extends javax.swing.JFrame{
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        menu.setBackground(new java.awt.Color(255, 255, 255));
+
         comptes.setText("Comptes");
 
         client.setText("Client");
@@ -173,6 +175,7 @@ public class acceuilAdmin extends javax.swing.JFrame{
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // TODO add your handling code here:
+       
         PrivilegeListAdministrateurDAO plad = new PrivilegeListAdministrateurDAO();
         privilegeAdmin pad = new privilegeAdmin();
         System.out.println("---->"+pad.getconnected());

@@ -58,6 +58,7 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         Reserver = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,7 +71,10 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTable1.setBackground(new java.awt.Color(76, 75, 75));
         jTable1.setModel(new com.edu.entities.Table.TableAffichageAnnonceClient());
+        jTable1.setGridColor(new java.awt.Color(255, 90, 0));
+        jTable1.setSelectionBackground(new java.awt.Color(255, 90, 0));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTable1MousePressed(evt);
@@ -86,7 +90,7 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 90, 0));
         jLabel1.setText("Annonces");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
         pic4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         getContentPane().add(pic4, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 330, 100, 100));
@@ -165,8 +169,21 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         });
         getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 0, 30, 30));
 
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 80, 50));
+
         Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
-        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 930, 500));
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -221,6 +238,15 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         }
           Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
           x1.setIcon(new ImageIcon(ridxr));
+          
+           BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
           
     }//GEN-LAST:event_formWindowOpened
 
@@ -427,6 +453,35 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
         x1.setIcon(new ImageIcon(ridxr));
     }//GEN-LAST:event_x1MouseExited
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+
+    }//GEN-LAST:event_HomeMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -463,6 +518,7 @@ public class ConsulterAnnonces extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Accueil;
+    private javax.swing.JLabel Home;
     private javax.swing.JLabel Reserver;
     private javax.swing.JLabel btnSignaler;
     private javax.swing.JLabel btnprog;

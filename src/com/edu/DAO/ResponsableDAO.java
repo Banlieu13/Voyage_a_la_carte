@@ -6,6 +6,7 @@ package com.edu.DAO;
 
 import com.edu.connection.ConnectionBD;
 import com.edu.entities.*;
+import java.io.InputStream;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -126,7 +127,49 @@ public class ResponsableDAO {
         }
     }
         
+        public void updateResponsable(String mail,String CIN,String nom,String prenom,String ville){
+        
+        String requete = "update responsable set E_mailR=?,CINR=?,NomR=?,PrénomR=?,VilleR=? where E_mailR='"+mail+"'";
+        try {
+            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+            ps.setString(1, mail);
+            ps.setString(2, CIN);
+            ps.setString(3, nom);
+            ps.setString(4, prenom);
+            ps.setString(5, ville);
+            
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+        }
+    }
+        
+         public Responsable chercherResponsable(String mail){
+                    Responsable r = new Responsable();
+                    String requete = "select * from responsable where E_mailR='"+mail+"'";
+                    try {
+                        PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(requete);
+                        
+                        ResultSet resultat = ps.executeQuery();
+                        while (resultat.next())
+                        {
+                            r.setEmail(resultat.getString(1));
+                            r.setCin(resultat.getString(2));
+                            r.setNom(resultat.getString(3));
+                            r.setPrenom(resultat.getString(4));
+                            r.setVille(resultat.getString(5));
+                            r.setPassword(resultat.getString(6));
+                        }
+                        return r;
+
+                    } catch (SQLException ex) {
+                       //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+                        System.out.println("erreur lors de la recherche du client "+ex.getMessage());
+                        return null;
+                    }
         
     }
     
-
+}

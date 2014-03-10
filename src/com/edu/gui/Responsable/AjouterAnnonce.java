@@ -7,7 +7,9 @@ package com.edu.gui.Responsable;
 import com.edu.DAO.AnnonceDAO;
 import com.edu.entities.Annonce;
 import com.edu.gui.Client.ConsulterAnnonces;
+import com.edu.gui.Client.Destinations;
 import com.edu.gui.Client.InfoAnnonce;
+import com.edu.gui.Client.acceuilclient;
 import static com.edu.gui.Inscription.addClient.pics;
 import com.edu.gui.authentification;
 import java.awt.Image;
@@ -61,19 +63,16 @@ public class AjouterAnnonce extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jde = new javax.swing.JTextField();
         jpic1 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jpic2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jpic3 = new javax.swing.JLabel();
         jpic4 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
         x1 = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
         btnValid = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
         arriére = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,7 +114,7 @@ public class AjouterAnnonce extends javax.swing.JFrame {
         jprog.setRows(5);
         jScrollPane1.setViewportView(jprog);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 240, -1));
         getContentPane().add(jprix, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 540, 90, -1));
         getContentPane().add(jvers, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 90, -1));
         getContentPane().add(jnbrplace, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, 90, -1));
@@ -132,49 +131,50 @@ public class AjouterAnnonce extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 30, -1));
         getContentPane().add(jde, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 330, 90, -1));
 
+        jpic1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jpic1.setForeground(new java.awt.Color(255, 90, 0));
+        jpic1.setText("Choisir une \n\nPhoto");
         jpic1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        jpic1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpic1MouseClicked(evt);
+            }
+        });
         getContentPane().add(jpic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 100, 100));
 
-        jButton2.setText("Parcourir");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        jpic2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jpic2.setForeground(new java.awt.Color(255, 90, 0));
+        jpic2.setText("Choisir une Photo");
+        jpic2.setToolTipText("Choisir une   Photo");
+        jpic2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        jpic2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpic2MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 530, -1, -1));
-
-        jpic2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
         getContentPane().add(jpic2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 300, 100, 100));
 
-        jButton3.setText("Parcourir");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, -1, -1));
-
-        jButton4.setText("Parcourir");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, -1, -1));
-
+        jpic3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jpic3.setForeground(new java.awt.Color(255, 90, 0));
+        jpic3.setText("Choisir une photo");
         jpic3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
+        jpic3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpic3MouseClicked(evt);
+            }
+        });
         getContentPane().add(jpic3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 410, 100, 100));
 
+        jpic4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jpic4.setForeground(new java.awt.Color(255, 90, 0));
+        jpic4.setText("Choisir une photo");
         jpic4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 90, 0), 2));
-        getContentPane().add(jpic4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 530, 100, 100));
-
-        jButton6.setText("Parcourir");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        jpic4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jpic4MouseClicked(evt);
             }
         });
-        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 410, -1, -1));
+        getContentPane().add(jpic4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 530, 100, 100));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 90, 0));
@@ -225,6 +225,19 @@ public class AjouterAnnonce extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnValid, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 600, 123, 35));
+
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 50));
         getContentPane().add(arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 660));
 
         pack();
@@ -273,100 +286,17 @@ public class AjouterAnnonce extends javax.swing.JFrame {
         }
           Image ridv = imgv.getScaledInstance(btnValid.getWidth(), btnValid.getHeight(), 0);
           btnValid.setIcon(new ImageIcon(ridv));
+          
+         BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
         
     }//GEN-LAST:event_formWindowOpened
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         try{
-          JFileChooser picchooser = new JFileChooser();
-          int returnval = picchooser.showOpenDialog(null);
-          File file = null;
-          if(returnval == JFileChooser.APPROVE_OPTION){
-              file = picchooser.getSelectedFile();
-              String filename = file.getAbsolutePath();
-              pics = new File(filename);
-              ImageIcon ima = new ImageIcon(filename);
-              fistream1 = new FileInputStream (pics);
-              jpic1.setIcon(ima);
-              jpic1.setSize(100, 100);
-              jpic2.setSize(100, 100);
-              jpic3.setSize(100, 100);
-              jpic4.setSize(100, 100);
-          }
-      } catch(Exception e){
-          e.printStackTrace();
-      }
-     
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-            try{
-          JFileChooser picchooser = new JFileChooser();
-          int returnval = picchooser.showOpenDialog(null);
-          File file = null;
-          if(returnval == JFileChooser.APPROVE_OPTION){
-              file = picchooser.getSelectedFile();
-              String filename = file.getAbsolutePath();
-              pics = new File(filename);
-              ImageIcon ima = new ImageIcon(filename);
-              fistream2 = new FileInputStream (pics);
-              jpic2.setIcon(ima);
-              
-              jpic1.setSize(100, 100);
-              jpic2.setSize(100, 100);
-              jpic3.setSize(100, 100);
-              jpic4.setSize(100, 100);
-          }
-      } catch(Exception e){
-          e.printStackTrace();
-      }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-            try{
-          JFileChooser picchooser = new JFileChooser();
-          int returnval = picchooser.showOpenDialog(null);
-          File file = null;
-          if(returnval == JFileChooser.APPROVE_OPTION){
-              file = picchooser.getSelectedFile();
-              String filename = file.getAbsolutePath();
-              pics = new File(filename);
-              ImageIcon ima = new ImageIcon(filename);
-              fistream3 = new FileInputStream (pics);
-              jpic3.setIcon(ima);
-              
-              jpic1.setSize(100, 100);
-              jpic2.setSize(100, 100);
-              jpic3.setSize(100, 100);
-              jpic4.setSize(100, 100);
-          }
-      } catch(Exception e){
-          e.printStackTrace();
-      }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-            try{
-          JFileChooser picchooser = new JFileChooser();
-          int returnval = picchooser.showOpenDialog(null);
-          File file = null;
-          if(returnval == JFileChooser.APPROVE_OPTION){
-              file = picchooser.getSelectedFile();
-              String filename = file.getAbsolutePath();
-              pics = new File(filename);
-              ImageIcon ima = new ImageIcon(filename);
-              fistream4 = new FileInputStream (pics);
-              jpic4.setIcon(ima);
-              
-              jpic1.setSize(100, 100);
-              jpic2.setSize(100, 100);
-              jpic3.setSize(100, 100);
-              jpic4.setSize(100, 100);
-          }
-      } catch(Exception e){
-          e.printStackTrace();
-      }
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void x1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_x1MouseClicked
 
@@ -464,6 +394,129 @@ public class AjouterAnnonce extends javax.swing.JFrame {
         btnValid.setIcon(new ImageIcon(ridv));
     }//GEN-LAST:event_btnValidMouseExited
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        Acceuil_Responsable ac = new Acceuil_Responsable();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void jpic1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpic1MouseClicked
+        jpic1.setText(null);
+        try{
+          JFileChooser picchooser = new JFileChooser();
+          int returnval = picchooser.showOpenDialog(null);
+          File file = null;
+          if(returnval == JFileChooser.APPROVE_OPTION){
+              file = picchooser.getSelectedFile();
+              String filename = file.getAbsolutePath();
+              pics = new File(filename);
+              ImageIcon ima = new ImageIcon(filename);
+              fistream1 = new FileInputStream (pics);
+              jpic1.setIcon(ima);
+              jpic1.setSize(100, 100);
+              jpic2.setSize(100, 100);
+              jpic3.setSize(100, 100);
+              jpic4.setSize(100, 100);
+          }
+      } catch(Exception e){
+          e.printStackTrace();
+      }
+    }//GEN-LAST:event_jpic1MouseClicked
+
+    private void jpic2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpic2MouseClicked
+        jpic2.setText(null);
+        try{
+          JFileChooser picchooser = new JFileChooser();
+          int returnval = picchooser.showOpenDialog(null);
+          File file = null;
+          if(returnval == JFileChooser.APPROVE_OPTION){
+              file = picchooser.getSelectedFile();
+              String filename = file.getAbsolutePath();
+              pics = new File(filename);
+              ImageIcon ima = new ImageIcon(filename);
+              fistream2 = new FileInputStream (pics);
+              jpic2.setIcon(ima);
+              
+              jpic1.setSize(100, 100);
+              jpic2.setSize(100, 100);
+              jpic3.setSize(100, 100);
+              jpic4.setSize(100, 100);
+          }
+      } catch(Exception e){
+          e.printStackTrace();
+      }
+    }//GEN-LAST:event_jpic2MouseClicked
+
+    private void jpic3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpic3MouseClicked
+        jpic3.setText(null);
+        try{
+          JFileChooser picchooser = new JFileChooser();
+          int returnval = picchooser.showOpenDialog(null);
+          File file = null;
+          if(returnval == JFileChooser.APPROVE_OPTION){
+              file = picchooser.getSelectedFile();
+              String filename = file.getAbsolutePath();
+              pics = new File(filename);
+              ImageIcon ima = new ImageIcon(filename);
+              fistream3 = new FileInputStream (pics);
+              jpic3.setIcon(ima);
+              
+              jpic1.setSize(100, 100);
+              jpic2.setSize(100, 100);
+              jpic3.setSize(100, 100);
+              jpic4.setSize(100, 100);
+          }
+      } catch(Exception e){
+          e.printStackTrace();
+      }
+    }//GEN-LAST:event_jpic3MouseClicked
+
+    private void jpic4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jpic4MouseClicked
+        jpic4.setText(null);
+        try{
+          JFileChooser picchooser = new JFileChooser();
+          int returnval = picchooser.showOpenDialog(null);
+          File file = null;
+          if(returnval == JFileChooser.APPROVE_OPTION){
+              file = picchooser.getSelectedFile();
+              String filename = file.getAbsolutePath();
+              pics = new File(filename);
+              ImageIcon ima = new ImageIcon(filename);
+              fistream4 = new FileInputStream (pics);
+              jpic4.setIcon(ima);
+              
+              jpic1.setSize(100, 100);
+              jpic2.setSize(100, 100);
+              jpic3.setSize(100, 100);
+              jpic4.setSize(100, 100);
+          }
+      } catch(Exception e){
+          e.printStackTrace();
+      }
+    }//GEN-LAST:event_jpic4MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -499,12 +552,9 @@ public class AjouterAnnonce extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Home;
     private javax.swing.JLabel arriére;
     private javax.swing.JLabel btnValid;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;

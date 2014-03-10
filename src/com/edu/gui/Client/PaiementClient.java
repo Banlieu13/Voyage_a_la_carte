@@ -66,6 +66,7 @@ public class PaiementClient extends javax.swing.JFrame {
         btnvalider = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -155,6 +156,19 @@ public class PaiementClient extends javax.swing.JFrame {
         });
         getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 30, 30));
 
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
+
         Accueil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
         getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
@@ -199,17 +213,16 @@ public class PaiementClient extends javax.swing.JFrame {
           Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
           x1.setIcon(new ImageIcon(ridxr));
           
+              BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
                
-        // TODO add your handling code here:
-        // Reservation  d;
-        // d = new Reservation ();
-       //     ReservationDAO   ReservationDAO = new  ReservationDAO();
-        
-       // maliste=ReservationDAO.DisplayAllDepots();
-      //  System.out.println(maliste);
-      //  for(int i=0 ;i<maliste.size();i++){
-       //    cmbCarte.addItem(maliste.toArray()[i]);           
-   // }                                 
+                              
     }//GEN-LAST:event_formWindowOpened
 
     private void btnvaliderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvaliderMouseClicked
@@ -323,6 +336,34 @@ public class PaiementClient extends javax.swing.JFrame {
         x.setIcon(new ImageIcon(ridx));
     }//GEN-LAST:event_xMouseExited
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -366,6 +407,7 @@ public class PaiementClient extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Accueil;
+    private javax.swing.JLabel Home;
     private javax.swing.JLabel btnvalider;
     private javax.swing.JComboBox cmbCarte;
     private com.toedter.calendar.JDateChooser jCalendar1;

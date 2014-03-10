@@ -55,13 +55,14 @@ public class InfoMesDest extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         res = new javax.swing.JLabel();
         mssage = new javax.swing.JLabel();
-        btnjaime = new javax.swing.JButton();
         nbrj = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         btnSignaler = new javax.swing.JLabel();
         btnvalider = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
+        Likee = new javax.swing.JLabel();
+        mapp = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -77,7 +78,7 @@ public class InfoMesDest extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Programme");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         listcom.setBackground(new java.awt.Color(76, 75, 75));
         listcom.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
@@ -89,12 +90,12 @@ public class InfoMesDest extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(listcom);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, 310, 360));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 310, 350));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 90, 0));
         jLabel3.setText("Commentaire");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 60, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, -1));
 
         jtsujet.setColumns(20);
         jtsujet.setRows(5);
@@ -108,29 +109,13 @@ public class InfoMesDest extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, -1, -1));
 
         res.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, -1, -1));
+        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 80, -1, -1));
 
         mssage.setForeground(new java.awt.Color(255, 51, 51));
         getContentPane().add(mssage, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
-        btnjaime.setText("Jaime");
-        btnjaime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnjaimeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 310, 70, -1));
-
         nbrj.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 310, 40, 20));
-
-        jButton3.setText("Map");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, 70, -1));
 
         btnSignaler.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -183,6 +168,45 @@ public class InfoMesDest extends javax.swing.JFrame {
             }
         });
         getContentPane().add(x1, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 0, 30, 30));
+
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
+
+        Likee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LikeeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LikeeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LikeeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Likee, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 40, 40));
+
+        mapp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mappMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mappMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mappMouseExited(evt);
+            }
+        });
+        getContentPane().add(mapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, 50, 50));
 
         Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
         getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 490));
@@ -237,6 +261,34 @@ public class InfoMesDest extends javax.swing.JFrame {
         }
           Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
           x1.setIcon(new ImageIcon(ridxr));
+          
+              BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
+          
+          BufferedImage imgmap = null;
+          try {
+            imgmap = ImageIO.read(new File("res/map offf.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridmap = imgmap.getScaledInstance(mapp.getWidth(), mapp.getHeight(), 0);
+          mapp.setIcon(new ImageIcon(ridmap));
+          
+            BufferedImage imglike = null;
+        try {
+            imglike = ImageIO.read(new File("res/like off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
+          Likee.setIcon(new ImageIcon(rilike));
+          
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -268,25 +320,6 @@ public class InfoMesDest extends javax.swing.JFrame {
         
         }
     }//GEN-LAST:event_listcomMousePressed
-
-    private void btnjaimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnjaimeActionPerformed
-        like l = new like();
-        l.addlike(MesDestinations.idDest,"dest");
-        long n = l.getlike(MesDestinations.idDest,"dest");
-        nbrj.setText(""+n);
-        btnjaime.setEnabled(false);
-    }//GEN-LAST:event_btnjaimeActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String ch = MesDestinations.circuit;
-        String[] args = null;
-        System.out.println(ch);
-        String c[] = ch.split(",");
-        System.out.println("pays:"+c[0]+" "+c[1]);
-        launch.setA(c[0]);
-        launch.setB(c[1]);
-        launch.main(args);
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnSignalerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSignalerMouseClicked
         if (listcom.isSelectionEmpty()) {
@@ -409,6 +442,97 @@ public class InfoMesDest extends javax.swing.JFrame {
         x1.setIcon(new ImageIcon(ridxr));
     }//GEN-LAST:event_x1MouseExited
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void LikeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseClicked
+         like l = new like();
+        l.addlike(MesDestinations.idDest,"dest");
+        long n = l.getlike(MesDestinations.idDest,"dest");
+        nbrj.setText(""+n);
+        Likee.setEnabled(false);
+    }//GEN-LAST:event_LikeeMouseClicked
+
+    private void LikeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseEntered
+        BufferedImage imglike = null;
+        try {
+            imglike = ImageIO.read(new File("res/like on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
+        Likee.setIcon(new ImageIcon(rilike));
+    }//GEN-LAST:event_LikeeMouseEntered
+
+    private void LikeeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseExited
+        BufferedImage imglike = null;
+        try {
+            imglike = ImageIO.read(new File("res/like off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
+        Likee.setIcon(new ImageIcon(rilike));
+    }//GEN-LAST:event_LikeeMouseExited
+
+    private void mappMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mappMouseClicked
+        String ch = MesDestinations.circuit;
+        String[] args = null;
+        System.out.println(ch);
+        String c[] = ch.split(",");
+        System.out.println("pays:"+c[0]+" "+c[1]);
+        launch.setA(c[0]);
+        launch.setB(c[1]);
+        launch.main(args);
+    }//GEN-LAST:event_mappMouseClicked
+
+    private void mappMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mappMouseEntered
+        BufferedImage imgmap = null;
+        try {
+            imgmap = ImageIO.read(new File("res/map on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridmap = imgmap.getScaledInstance(mapp.getWidth(), mapp.getHeight(), 0);
+        mapp.setIcon(new ImageIcon(ridmap));
+    }//GEN-LAST:event_mappMouseEntered
+
+    private void mappMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mappMouseExited
+        BufferedImage imgmap = null;
+        try {
+            imgmap = ImageIO.read(new File("res/map offf.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridmap = imgmap.getScaledInstance(mapp.getWidth(), mapp.getHeight(), 0);
+        mapp.setIcon(new ImageIcon(ridmap));
+    }//GEN-LAST:event_mappMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -445,10 +569,10 @@ public class InfoMesDest extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Accueil;
+    private javax.swing.JLabel Home;
+    private javax.swing.JLabel Likee;
     private javax.swing.JLabel btnSignaler;
-    private javax.swing.JButton btnjaime;
     private javax.swing.JLabel btnvalider;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -456,6 +580,7 @@ public class InfoMesDest extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jtsujet;
     private javax.swing.JList listcom;
+    private javax.swing.JLabel mapp;
     private javax.swing.JLabel mssage;
     private javax.swing.JLabel nbrj;
     private javax.swing.JLabel res;

@@ -52,7 +52,6 @@ public static int idcom;
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tbdestination = new javax.swing.JTable();
-        supdestination = new javax.swing.JButton();
         msg1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         destlist = new javax.swing.JList();
@@ -64,6 +63,8 @@ public static int idcom;
         btnSignaler = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
+        btnsupp = new javax.swing.JLabel();
         arriére = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -88,23 +89,10 @@ public static int idcom;
         });
         jScrollPane1.setViewportView(tbdestination);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 630, 300));
-
-        supdestination.setText("Supprimer");
-        supdestination.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                supdestinationMouseClicked(evt);
-            }
-        });
-        supdestination.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                supdestinationActionPerformed(evt);
-            }
-        });
-        getContentPane().add(supdestination, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 360, -1, -1));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 630, 300));
 
         msg1.setForeground(new java.awt.Color(255, 90, 0));
-        getContentPane().add(msg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, 210, 30));
+        getContentPane().add(msg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 330, 30));
 
         destlist.setBackground(new java.awt.Color(76, 75, 75));
         destlist.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
@@ -131,10 +119,10 @@ public static int idcom;
         res.setForeground(new java.awt.Color(255, 255, 255));
         getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 420, 120));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Destinations");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, -1, -1));
 
         mssg.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(mssg, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 480, 250, 20));
@@ -183,37 +171,37 @@ public static int idcom;
         });
         getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, 30, 30));
 
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, 80, 50));
+
+        btnsupp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnsuppMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnsuppMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnsuppMouseExited(evt);
+            }
+        });
+        getContentPane().add(btnsupp, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 390, 50, 50));
+
         arriére.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 990, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void supdestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_supdestinationMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_supdestinationMouseClicked
-
-    private void supdestinationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supdestinationActionPerformed
-    TableDestination td = new TableDestination();
-        int x = tbdestination.getSelectedRow();
-        if(x==-1){
-            msg1.setText("Veuillez sélectioné une Destination");
-        }
-        else
-        {
-             
-            int IdDes;
-    IdDes = (int) td.getValueAt(x, 0);
-            System.out.println(IdDes);
-            new DestinationDAO().deleteDestination(IdDes);
-            td.listDestination = new DestinationDAO().DisplayAllDestination();
-            tbdestination.setModel(td);
-            msg1.setText("Suppression effectuée avec succée");
-        }
-        
-        
-        // TODO add your handling code here:
-    }//GEN-LAST:event_supdestinationActionPerformed
 
     private void tbdestinationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbdestinationMouseClicked
 
@@ -282,6 +270,24 @@ public static int idcom;
         }
           Image rids = imgs.getScaledInstance(btnSignaler.getWidth(), btnSignaler.getHeight(), 0);
           btnSignaler.setIcon(new ImageIcon(rids));
+          
+          BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
+          
+           BufferedImage imgsupp = null;
+        try {
+            imgsupp = ImageIO.read(new File("res/supp off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridsupp = imgsupp.getScaledInstance(btnsupp.getWidth(), btnsupp.getHeight(), 0);
+          btnsupp.setIcon(new ImageIcon(ridsupp));
    
     }//GEN-LAST:event_formWindowOpened
 
@@ -386,6 +392,75 @@ public static int idcom;
     
     }//GEN-LAST:event_xMouseExited
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        Acceuil_Responsable ac = new Acceuil_Responsable();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void btnsuppMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsuppMouseClicked
+          TableDestination td = new TableDestination();
+        int x = tbdestination.getSelectedRow();
+        if(x==-1){
+            msg1.setText("Veuillez sélectioné une Destination");
+        }
+        else
+        {
+            msg1.setText(null); 
+            int IdDes;
+    IdDes = (int) td.getValueAt(x, 0);
+            System.out.println(IdDes);
+            new DestinationDAO().deleteDestination(IdDes);
+            td.listDestination = new DestinationDAO().DisplayAllDestination();
+            tbdestination.setModel(td);
+            msg1.setText("Suppression effectuée avec succée");
+        }
+    }//GEN-LAST:event_btnsuppMouseClicked
+
+    private void btnsuppMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsuppMouseEntered
+        BufferedImage imgsupp = null;
+        try {
+            imgsupp = ImageIO.read(new File("res/supp on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridsupp = imgsupp.getScaledInstance(btnsupp.getWidth(), btnsupp.getHeight(), 0);
+        btnsupp.setIcon(new ImageIcon(ridsupp));
+    }//GEN-LAST:event_btnsuppMouseEntered
+
+    private void btnsuppMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnsuppMouseExited
+        BufferedImage imgsupp = null;
+        try {
+            imgsupp = ImageIO.read(new File("res/supp off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(ConsulterAnnonces.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridsupp = imgsupp.getScaledInstance(btnsupp.getWidth(), btnsupp.getHeight(), 0);
+        btnsupp.setIcon(new ImageIcon(ridsupp));
+    }//GEN-LAST:event_btnsuppMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -422,8 +497,10 @@ public static int idcom;
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Home;
     private javax.swing.JLabel arriére;
     private javax.swing.JLabel btnSignaler;
+    private javax.swing.JLabel btnsupp;
     private javax.swing.JList destlist;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -433,7 +510,6 @@ public static int idcom;
     private javax.swing.JLabel msg1;
     private javax.swing.JLabel mssg;
     private javax.swing.JLabel res;
-    private javax.swing.JButton supdestination;
     private javax.swing.JTable tbdestination;
     private javax.swing.JLabel x;
     private javax.swing.JLabel x1;

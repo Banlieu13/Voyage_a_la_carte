@@ -67,9 +67,7 @@ public class InfoOffre extends javax.swing.JFrame {
         listcom = new javax.swing.JList();
         jLabel3 = new javax.swing.JLabel();
         mssge = new javax.swing.JLabel();
-        btnjaime = new javax.swing.JButton();
         nbrj = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
         rat2 = new javax.swing.JLabel();
         e = new javax.swing.JLabel();
         d = new javax.swing.JLabel();
@@ -80,6 +78,9 @@ public class InfoOffre extends javax.swing.JFrame {
         btnSignaler = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
+        Home = new javax.swing.JLabel();
+        mapp = new javax.swing.JLabel();
+        Likee = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,12 +105,12 @@ public class InfoOffre extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, -1, -1));
 
         res.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 36, -1, -1));
+        getContentPane().add(res, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 90, 0));
         jLabel2.setText("Programme");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         listcom.setBackground(new java.awt.Color(76, 75, 75));
         listcom.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
@@ -142,35 +143,19 @@ public class InfoOffre extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(listcom);
 
-        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 330, 390));
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 90, 300, 360));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 90, 0));
         jLabel3.setText("Commentaire");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, -1, -1));
 
         mssge.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(mssge, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 250, 20));
 
-        btnjaime.setText("Jaime");
-        btnjaime.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnjaimeActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnjaime, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 70, -1));
-
         nbrj.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         nbrj.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 40, 20));
-
-        jButton3.setText("Map");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 70, -1));
         getContentPane().add(rat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 30));
 
         e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
@@ -295,6 +280,45 @@ public class InfoOffre extends javax.swing.JFrame {
         });
         getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 0, 30, 30));
 
+        Home.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                HomeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                HomeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                HomeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
+
+        mapp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mappMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mappMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mappMouseExited(evt);
+            }
+        });
+        getContentPane().add(mapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 310, 50, 50));
+
+        Likee.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                LikeeMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                LikeeMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                LikeeMouseExited(evt);
+            }
+        });
+        getContentPane().add(Likee, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 40, 40));
+
         Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
         getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
 
@@ -350,6 +374,35 @@ public class InfoOffre extends javax.swing.JFrame {
         }
           Image ridxr = imgxr.getScaledInstance(x1.getWidth(), x1.getHeight(), 0);
           x1.setIcon(new ImageIcon(ridxr));
+          
+                BufferedImage img = null;
+        try {
+            img = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(Destinations.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+          Home.setIcon(new ImageIcon(resizedImage));
+        
+          
+                BufferedImage imgmap = null;
+        try {
+            imgmap = ImageIO.read(new File("res/map offf.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image ridmap = imgmap.getScaledInstance(mapp.getWidth(), mapp.getHeight(), 0);
+          mapp.setIcon(new ImageIcon(ridmap));
+          
+            BufferedImage imglike = null;
+        try {
+            imglike = ImageIO.read(new File("res/like off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
+          Likee.setIcon(new ImageIcon(rilike));
+          
 //        String c = cd.AffichCommoffre(ac.idoffre).getElementAt(listcom.getSelectedIndex());
         
         //listcom.setListData(cd.AffichCommoffre(ac.idoffre));
@@ -404,27 +457,6 @@ public class InfoOffre extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_listcomMousePressed
-
-    private void btnjaimeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnjaimeActionPerformed
-        like l = new like();
-        
-        l.addlike(acceuilclient.idoffre,"offre");
-         long n = l.getlike(acceuilclient.idoffre,"offre"); 
-        nbrj.setText(""+n);
-        btnjaime.setEnabled(false);
-    }//GEN-LAST:event_btnjaimeActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        String ch = acceuilclient.circuit;
-        String[] args = null;
-        //String[] c = null;
-        System.out.println(ch);
-        String c[] = ch.split(",");
-        System.out.println("pays:"+c[0]+" "+c[1]);
-        launch.setA(c[0]);
-        launch.setB(c[1]);
-        launch.main(args);
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void aMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseEntered
         try {
@@ -704,6 +736,98 @@ public class InfoOffre extends javax.swing.JFrame {
         x.setIcon(new ImageIcon(ridx));
     }//GEN-LAST:event_xMouseExited
 
+    private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
+        acceuilclient ac = new acceuilclient();
+        ac.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_HomeMouseClicked
+
+    private void HomeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseEntered
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-on.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseEntered
+
+    private void HomeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseExited
+        BufferedImage img2 = null;
+        try {
+            img2 = ImageIO.read(new File("res/accueil-off.jpg"));
+        } catch (IOException ex) {
+            Logger.getLogger(acceuilclient.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image resizedImage = img2.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
+        Home.setIcon(new ImageIcon(resizedImage));
+    }//GEN-LAST:event_HomeMouseExited
+
+    private void mappMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mappMouseClicked
+        String ch = acceuilclient.circuit;
+        String[] args = null;
+        //String[] c = null;
+        System.out.println(ch);
+        String c[] = ch.split(",");
+        System.out.println("pays:"+c[0]+" "+c[1]);
+        launch.setA(c[0]);
+        launch.setB(c[1]);
+        launch.main(args);
+    }//GEN-LAST:event_mappMouseClicked
+
+    private void mappMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mappMouseEntered
+        BufferedImage imgmap = null;
+        try {
+            imgmap = ImageIO.read(new File("res/map on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridmap = imgmap.getScaledInstance(mapp.getWidth(), mapp.getHeight(), 0);
+        mapp.setIcon(new ImageIcon(ridmap));
+    }//GEN-LAST:event_mappMouseEntered
+
+    private void mappMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mappMouseExited
+        BufferedImage imgmap = null;
+        try {
+            imgmap = ImageIO.read(new File("res/map offf.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image ridmap = imgmap.getScaledInstance(mapp.getWidth(), mapp.getHeight(), 0);
+        mapp.setIcon(new ImageIcon(ridmap));
+    }//GEN-LAST:event_mappMouseExited
+
+    private void LikeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseClicked
+        like l = new like();
+        l.addlike(acceuilclient.idoffre,"offre");
+        long n = l.getlike(acceuilclient.idoffre,"offre"); 
+        nbrj.setText(""+n);
+        Likee.setEnabled(false);
+    }//GEN-LAST:event_LikeeMouseClicked
+
+    private void LikeeMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseEntered
+        BufferedImage imglike = null;
+        try {
+            imglike = ImageIO.read(new File("res/like on.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
+        Likee.setIcon(new ImageIcon(rilike));
+    }//GEN-LAST:event_LikeeMouseEntered
+
+    private void LikeeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseExited
+        BufferedImage imglike = null;
+        try {
+            imglike = ImageIO.read(new File("res/like off.png"));
+        } catch (IOException ex) {
+            Logger.getLogger(InfoAnnonce.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
+        Likee.setIcon(new ImageIcon(rilike));
+    }//GEN-LAST:event_LikeeMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -778,15 +902,15 @@ public class InfoOffre extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Accueil;
+    private javax.swing.JLabel Home;
+    private javax.swing.JLabel Likee;
     private javax.swing.JLabel a;
     private javax.swing.JLabel b;
     private javax.swing.JLabel btnSignaler;
-    private javax.swing.JButton btnjaime;
     private javax.swing.JLabel btnvalider;
     private javax.swing.JLabel c;
     private javax.swing.JLabel d;
     private javax.swing.JLabel e;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -794,6 +918,7 @@ public class InfoOffre extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jtsujet;
     private javax.swing.JList listcom;
+    private javax.swing.JLabel mapp;
     private javax.swing.JLabel mssge;
     private javax.swing.JLabel nbrj;
     private javax.swing.JLabel rat2;
