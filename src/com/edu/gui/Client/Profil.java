@@ -6,6 +6,7 @@ package com.edu.gui.Client;
 
 import com.edu.DAO.ClientDAO;
 import com.edu.entities.Client;
+import com.edu.entities.ControleDeSaisie;
 import com.edu.gui.Client.ProposerDestinationClient;
 import com.edu.gui.authentification;
 import java.awt.Image;
@@ -415,11 +416,20 @@ public class Profil extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnvalider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvalider1MouseClicked
-         authentification a = new authentification();
+        ControleDeSaisie cds = new ControleDeSaisie();
+        if (!cds.ControleEmail(tfmail.getText())){
+         message.setText("Veuillez Verifier Votre Email");
+        }else if (!cds.ControleCin(tfcin.getText())){
+            message.setText("Votre CIN doit contenir 8 chiffres");
+        }else{
+            
+        
+        authentification a = new authentification();
         ClientDAO cd = new ClientDAO();
         InputStream img = getClass().getClassLoader().getResourceAsStream(filename);
         cd.updateClient(a.identifiant, tfcin.getText(), tfnom.getText(), tfprenom.getText(), tfville.getText(),fistream);
         message.setText("Modification terminé avec succée");
+        }
     }//GEN-LAST:event_btnvalider1MouseClicked
 
     private void btnvalider1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvalider1MouseEntered

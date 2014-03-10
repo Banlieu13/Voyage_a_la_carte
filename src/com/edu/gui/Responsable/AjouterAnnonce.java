@@ -6,6 +6,7 @@ package com.edu.gui.Responsable;
 
 import com.edu.DAO.AnnonceDAO;
 import com.edu.entities.Annonce;
+import com.edu.entities.ControleDeSaisie;
 import com.edu.gui.Client.ConsulterAnnonces;
 import com.edu.gui.Client.Destinations;
 import com.edu.gui.Client.InfoAnnonce;
@@ -74,6 +75,7 @@ public class AjouterAnnonce extends javax.swing.JFrame {
         btnValid = new javax.swing.JLabel();
         Home = new javax.swing.JLabel();
         arriére = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Ajouter une annonce");
@@ -239,6 +241,7 @@ public class AjouterAnnonce extends javax.swing.JFrame {
         });
         getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 80, 50));
         getContentPane().add(arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 660));
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 624, 280, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -351,6 +354,10 @@ public class AjouterAnnonce extends javax.swing.JFrame {
     }//GEN-LAST:event_xMouseExited
 
     private void btnValidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseClicked
+        ControleDeSaisie cds = new ControleDeSaisie();
+        if (!cds.ControleBudget(jnbrplace.getText())){
+         message.setText("Nombre de place doit contenir que des chiffres");
+        }else{
         Annonce a = new Annonce();
         authentification au = new authentification();
         AnnonceDAO ado = new AnnonceDAO();
@@ -368,6 +375,7 @@ public class AjouterAnnonce extends javax.swing.JFrame {
        
         
         ado.insertAnnonce(a);
+        }
     }//GEN-LAST:event_btnValidMouseClicked
 
     private void btnValidMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseEntered
@@ -576,6 +584,7 @@ public class AjouterAnnonce extends javax.swing.JFrame {
     private javax.swing.JTextField jprix;
     private javax.swing.JTextArea jprog;
     private javax.swing.JTextField jvers;
+    private javax.swing.JLabel message;
     private javax.swing.JLabel x;
     private javax.swing.JLabel x1;
     // End of variables declaration//GEN-END:variables

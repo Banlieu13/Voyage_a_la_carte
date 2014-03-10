@@ -7,6 +7,7 @@ package com.edu.gui.Inscription;
 import static MD5Crypter.Md5.getEncodedPassword;
 import com.edu.DAO.ClientDAO;
 import com.edu.entities.Client;
+import com.edu.entities.ControleDeSaisie;
 import com.edu.gui.authentification;
 import java.io.File;
 import java.io.FileInputStream;
@@ -93,7 +94,7 @@ public class addClient extends javax.swing.JFrame {
         jPanel1.add(tfpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 170, 25));
 
         jLabel2.setText("Email");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 50, 130, 20));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 130, 20));
 
         jLabel4.setText("Nom");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, 20));
@@ -148,10 +149,15 @@ public class addClient extends javax.swing.JFrame {
     }//GEN-LAST:event_tfmailActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
- if ((tfmail.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())) {
+    ControleDeSaisie cds= new ControleDeSaisie();
+        if ((tfmail.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())) {
             label.setText("Veuillez saisir toutes les champs");
         }
-        else
+ else if (!cds.ControleEmail(tfmail.getText())){
+        label.setText("Veuillez Corriger Votre Email");
+    }else if (tfpassword.getText().length()<4 || tfpassword.getText().length()>15){
+        label.setText("mot de passe doit être entre 5 et 14 caracteres");
+    }else
         {
             Client c = new Client();
             ClientDAO cdao = new ClientDAO();

@@ -7,6 +7,7 @@ package com.edu.gui.Responsable;
 import com.edu.DAO.ClientDAO;
 import com.edu.DAO.ResponsableDAO;
 import com.edu.entities.Client;
+import com.edu.entities.ControleDeSaisie;
 import com.edu.entities.Responsable;
 import com.edu.gui.Client.Destinations;
 import com.edu.gui.Client.EditPassowrd;
@@ -288,11 +289,18 @@ public class ProfilResp extends javax.swing.JFrame {
     }//GEN-LAST:event_modvilleMouseClicked
 
     private void btnvalider1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvalider1MouseClicked
+         ControleDeSaisie cds = new ControleDeSaisie();
+        if (!cds.ControleEmail(tfmail.getText())){
+         message.setText("Veuillez Verifier Votre Email");
+        }else if (!cds.ControleCin(tfcin.getText())){
+            message.setText("Votre CIN doit contenir 8 chiffres");
+        }else{
         authentification a = new authentification();
         ResponsableDAO cd = new ResponsableDAO();
         
         cd.updateResponsable(a.identifiant, tfcin.getText(), tfnom.getText(), tfprenom.getText(), tfville.getText());
         message.setText("Modification terminé avec succée");
+        }
     }//GEN-LAST:event_btnvalider1MouseClicked
 
     private void btnvalider1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvalider1MouseEntered

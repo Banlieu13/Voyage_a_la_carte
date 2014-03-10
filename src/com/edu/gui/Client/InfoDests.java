@@ -29,6 +29,8 @@ import rating.rating;
  */
 public class InfoDests extends javax.swing.JFrame {
     public static int idcom;
+    
+    public static boolean etat=true;
 
     /**
      * Creates new form InfoDests
@@ -292,6 +294,7 @@ public class InfoDests extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        InfoDests.etat=true;
         authentification a = new authentification();
         Destinations d = new Destinations();
         CommentaireDAO cd = new CommentaireDAO();
@@ -365,7 +368,44 @@ public class InfoDests extends javax.swing.JFrame {
         }
           Image resizedImage = img.getScaledInstance(Home.getWidth(), Home.getHeight(), 0);
           Home.setIcon(new ImageIcon(resizedImage));
+           rating r = new rating();
+         
+          like l =new like();
+          long nb = l.getlike(Destinations.idDests, "destination");
+          nbrj.setText(""+nb);
+          boolean etattt = l.isliked(authentification.identifiant,Destinations.idDests,"destination");
+          if (etattt==true){
+              Likee.setEnabled(false);
+          }
           
+          float value = r.calculeRating(Destinations.idDests,"destination");
+          System.out.println("la valeur de value est "+value);
+          if (r.isRated(ConsulterAnnonces.idannonce,authentification.identifiant,"annonce")){
+              if (value==1){
+                  aMouseEntered(null);
+                  System.out.println("el a");
+              } else
+              if (value==2){
+                  bMouseEntered(null);
+                  System.out.println("el b");
+              } else
+              if (value==3){
+                  cMouseEntered(null);
+                  System.out.println("el c");
+              } else
+              if (value==4){
+                  dMouseEntered(null);
+                  System.out.println("el d");
+              } else
+              if (value==5){
+                  eMouseEntered(null);
+                  System.out.println("el e");
+              }
+              InfoDests.etat=false;
+          }else{
+              InfoDests.etat=true;
+              
+          }
      
     }//GEN-LAST:event_formWindowOpened
 
@@ -378,13 +418,6 @@ public class InfoDests extends javax.swing.JFrame {
         l=cd.DisplayIdcommDest(can.idDests);
         String ma = l.get(c);
         idcom = Integer.parseInt(ma);
-        //String ch = (String) listcom.getSelectedValue();
-        //int pos= ch.indexOf(" ");
-        //String st="";
-        //for (int j = 0; j < pos; j++) {
-        //   st = st + ch.charAt(j);
-       // }
-        //idcom =Integer.parseInt(st);
         if(cd.AffichCommmail(idcom).equals(a.identifiant)){
             btnSignaler.setVisible(false);
             
@@ -397,13 +430,17 @@ public class InfoDests extends javax.swing.JFrame {
     }//GEN-LAST:event_listcommMousePressed
 
     private void aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseClicked
+        if (InfoDests.etat==true){
         int tot=1;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+        r.addRating(Destinations.idDests,tot,"destination",authentification.identifiant);
+            
+        }
     }//GEN-LAST:event_aMouseClicked
 
     private void aMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseEntered
+        if (InfoDests.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -419,9 +456,11 @@ public class InfoDests extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_aMouseEntered
 
     private void aMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseExited
+        if (InfoDests.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -434,16 +473,20 @@ public class InfoDests extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_aMouseExited
 
     private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
-        int tot=1;
+        if (InfoDests.etat==true){  
+        int tot=2;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+        r.addRating(Destinations.idDests,tot,"destination",authentification.identifiant);
+        }
     }//GEN-LAST:event_bMouseClicked
 
     private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
+        if (InfoDests.etat==true){  
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -459,6 +502,7 @@ public class InfoDests extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_bMouseEntered
 
     private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
@@ -466,13 +510,16 @@ public class InfoDests extends javax.swing.JFrame {
     }//GEN-LAST:event_bMouseExited
 
     private void cMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseClicked
-        int tot=1;
+        if (InfoDests.etat==true){
+        int tot=3;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+        r.addRating(Destinations.idDests,tot,"destination",authentification.identifiant);
+        }
     }//GEN-LAST:event_cMouseClicked
 
     private void cMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseEntered
+      if (InfoDests.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -488,6 +535,7 @@ public class InfoDests extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+      }
     }//GEN-LAST:event_cMouseEntered
 
     private void cMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseExited
@@ -495,13 +543,16 @@ public class InfoDests extends javax.swing.JFrame {
     }//GEN-LAST:event_cMouseExited
 
     private void dMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseClicked
-        int tot=1;
+        if (InfoDests.etat==true){
+        int tot=4;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+       r.addRating(Destinations.idDests,tot,"destination",authentification.identifiant);
+        }
     }//GEN-LAST:event_dMouseClicked
 
     private void dMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseEntered
+        if (InfoDests.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -517,6 +568,7 @@ public class InfoDests extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_dMouseEntered
 
     private void dMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseExited
@@ -524,13 +576,16 @@ public class InfoDests extends javax.swing.JFrame {
     }//GEN-LAST:event_dMouseExited
 
     private void eMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseClicked
-        int tot=1;
+        if (InfoDests.etat==true){
+        int tot=5;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+       r.addRating(Destinations.idDests,tot,"destination",authentification.identifiant);
+        }
     }//GEN-LAST:event_eMouseClicked
 
     private void eMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseEntered
+      if (InfoDests.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -546,6 +601,7 @@ public class InfoDests extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+      }
     }//GEN-LAST:event_eMouseEntered
 
     private void eMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseExited
@@ -737,8 +793,8 @@ public class InfoDests extends javax.swing.JFrame {
     }//GEN-LAST:event_HomeMouseExited
 
     private void LikeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseClicked
-        like l = new like();
-        l.addlike(Destinations.idDests,"dest");
+         like l = new like();
+        l.addlike(Destinations.idDests,authentification.identifiant,"dest");
         long n = l.getlike(Destinations.idDests,"dest");
         nbrj.setText(""+n);
        Likee.setEnabled(false);

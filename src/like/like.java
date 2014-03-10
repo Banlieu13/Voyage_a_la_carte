@@ -23,119 +23,121 @@ public class like {
         
     }
     
-    public void addlike(int id,String source){
-        String req="";
+    public void addlike(int id,String id_client,String source){
         try {
-            int test =isInitial(id,source);
-            System.out.println("valeur initial ou nn :"+test);
-            if (test>0){
-                long back = getlike(id,source);
-                back++;
-                if(source=="annonce"){
-                    req="UPDATE `like` SET `count`="+back+" where `id_annonce`="+id;
-                }else if (source=="offre"){
-                    req="UPDATE `like` SET `count`="+back+" where `id_offre`="+id;
-                }else{
-                    req="UPDATE `like` SET `count`="+back+" where `id_dest`="+id;
-                }
-                PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
-                ps.executeUpdate();
+            System.out.println("id source: "+id);
+            System.err.println("source: "+source);
+            String req="";
+            if (source=="annonce"){
+                req="INSERT INTO `like`(`count`, `id_annonce`, `id_client`) VALUES ("+1+", "+id+", '"+id_client+"')";
+                
+            }else if (source=="offre"){
+                req="INSERT INTO `like`(`count`, `id_offre`, `id_client`) VALUES ("+1+", "+id+", '"+id_client+"')";
+            } else{
+                req="INSERT INTO `like`(`count`, `id_dest`, `id_client`) VALUES ("+1+", "+id+", '"+id_client+"')";
             }
-            else{
-                initialLike(id,source);
-                if(source=="annonce"){
-                     req="UPDATE `like` SET `count`=1 WHERE `id_annonce`="+id;
-                }else if (source=="offre"){
-                     req="UPDATE `like` SET `count`=1"
-                             + " WHERE `id_offre`="+id;
-                }else{
-                      req="UPDATE `like` SET `count`=1 WHERE `id_dest`="+id;
-                }   
+            
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.executeUpdate();
-            }
         } catch (SQLException ex) {
             Logger.getLogger(like.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+       
+       
     }
     
     public long getlike(int id,String source){
-       int l=0;
+        int l=0;
         try {
-           
+            System.out.println("id source: "+id);
+            System.out.println("source: "+source);
             String req="";
-            if(source=="annonce"){
-                req="SELECT `count` FROM `like` WHERE `id_annonce`="+id+"";
+            
+            if (source=="annonce"){
+                req="SELECT SUM(`count`) FROM `like` WHERE `id_annonce`="+id;
             }else if (source=="offre"){
-                req="SELECT `count` FROM `like` WHERE `id_offre`="+id+"";
-            }else{
-                req="SELECT `count` FROM `like` WHERE `id_dest`="+id+"";
+                req="SELECT SUM(`count`) FROM `like` WHERE `id_offre`="+id;
+            } else{
+                req="SELECT SUM(`count`) FROM `like` WHERE `id_dest`="+id;
+            }
+            
+              Statement statement = ConnectionBD.getInstance()
+                    .createStatement();
+            ResultSet resultat = statement.executeQuery(req);
+            
+             while(resultat.next()){
+               l=resultat.getInt(1);
+                System.out.println("le count: "+l);
+            }
+            
+         return l;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(like.class.getName()).log(Level.SEVERE, null, ex);
+             return l;
+        }
+       
+    }
+    
+      public long getlikeMesDest(String id){
+        int l=0;
+        try {
+            System.out.println("id source: "+id);
+            String req="SELECT SUM(`count`) FROM `like` WHERE `id_client`="+id;
+            
+            
+              Statement statement = ConnectionBD.getInstance()
+                    .createStatement();
+            ResultSet resultat = statement.executeQuery(req);
+            
+             while(resultat.next()){
+               l=resultat.getInt(1);
+                System.out.println("le count: "+l);
+            }
+            
+         return l;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(like.class.getName()).log(Level.SEVERE, null, ex);
+             return l;
+        }
+       
+    }
+    
+    
+    
+    public boolean isliked(String id_client,int id,String source){
+        boolean etat = false;
+        try {
+            
+            int l =0;
+            String req="";
+            System.out.println("id client:"+id_client);
+            System.out.println("id liked"+id);
+            if (source=="annonce"){
+                req="SELECT `count` FROM `like` WHERE `id_annonce`="+id+" AND `id_client`='"+id_client+"'";
+                
+            }else if (source=="offre"){
+                req="SELECT `count` FROM `like` WHERE `id_offre`="+id+" AND `id_client`='"+id_client+"'";
+            } else{
+                req="SELECT `count` FROM `like` WHERE `id_dest`="+id+" AND `id_client`='"+id_client+"'";
             }
             Statement statement = ConnectionBD.getInstance()
                     .createStatement();
             ResultSet resultat = statement.executeQuery(req);
-            
             while(resultat.next()){
-               l=resultat.getInt("count");
-                System.out.println(l);
-            }
-            
-         return l;      
-        } catch (SQLException ex) {
-            Logger.getLogger(like.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
-        }
-    }
-    
-    public void initialLike(int id, String source){
-        try {
-            String req="";
-            if(source=="annonce"){
-                req="INSERT INTO `like` (`count`,id_annonce) VALUES (1,"+id+")";
-            }else if (source=="offre"){
-                req="INSERT INTO `like`(`count`,id_offre) VALUES (1,"+id+")";
-            }else{
-                req="INSERT INTO `like` (`count`,id_dest) VALUES (1,"+id+")";
-            }
-            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(like.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-    
-    public int isInitial(int id, String source){
-       int   l = -1;
-        try {
-            String req="";
-            if(source=="annonce"){
-                req="SELECT * FROM `like` WHERE `id_annonce`="+id;
-            }else if (source=="offre"){
-                req="SELECT `count` FROM `like` WHERE `id_offre`="+id;
-            }else{
-                req="SELECT * FROM `like` WHERE `id_dest`="+id;
-            }
-            Statement statement = ConnectionBD.getInstance()
-                    .createStatement();
-            ResultSet resultat = statement.executeQuery(req);
-            while(resultat.next()){
-              l=resultat.getInt("count");
-              System.out.println("valeur retourner de isinitial:"+l);
+                l=resultat.getInt(1);
             }
             if (l>0){
-            return 1;
+                etat=true;
             }else{
-                return 0;
+                etat=false;
             }
-            
+            return etat;
         } catch (SQLException ex) {
             Logger.getLogger(like.class.getName()).log(Level.SEVERE, null, ex);
-            
-            return 0;
+            return etat;
         }
     }
-    
-    
+  
 }

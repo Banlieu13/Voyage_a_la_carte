@@ -10,6 +10,8 @@ import com.edu.connection.ConnectionBD;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -35,5 +37,20 @@ public class authentificationDAO {
        return nbrlignes;
     }
 
+    public int exist(String email){
+        int nbrlignes=0;
+        try {
+            
+            String req="select * from client, responsable where E_mailR='"+email+"' or E_mail='"+email+"'";
+            Statement statement = ConnectionBD.getInstance().createStatement();
+            ResultSet resultat = statement.executeQuery(req);
+            resultat.last();
+            nbrlignes =resultat.getRow();
+          
+        } catch (SQLException ex) {
+            Logger.getLogger(authentificationDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nbrlignes;
+    }
     
 }

@@ -7,6 +7,7 @@ package com.edu.gui.Client;
 import com.edu.DAO.AnnonceDAO;
 import com.edu.DAO.ReservationDAO;
 import com.edu.DAO.offreDAO;
+import com.edu.entities.ControleDeSaisie;
 import com.edu.entities.Reservation;
 import com.edu.entities.Table.TableAffichageAnnonceClient;
 import com.edu.gui.authentification;
@@ -60,7 +61,8 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         x = new javax.swing.JLabel();
         xx = new javax.swing.JLabel();
         Home = new javax.swing.JLabel();
-        Accueil = new javax.swing.JLabel();
+        label = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Reservation");
@@ -154,14 +156,26 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         });
         getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
 
-        Accueil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
-        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
+        label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        getContentPane().add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, -20, 750, 500));
+
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, 400, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+         ControleDeSaisie cds = new ControleDeSaisie();
+        if (txfnumCarte.getText().isEmpty() || txfCryptogramme.getText().isEmpty()){
+            label.setText("Veuillez Remplir tous les champs");
+        }else if (!cds.ControleNumDeCarte(txfnumCarte.getText())){
+            label.setText("Le numero de la carte doit contenir 14 chiffres");
+        }else if (!cds.ControleCrypto(txfCryptogramme.getText())){
+            label.setText("le Crypto doit avoir 3 chiffres");
+        }else{
+            
+        
         authentification a = new authentification();
         Reservation d1 = new  Reservation ();
         AnnonceDAO ad = new AnnonceDAO();
@@ -195,6 +209,7 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         this.setVisible(false);
 
         System.out.println(d1);
+        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -350,7 +365,6 @@ public class ReservationAnnonce extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Accueil;
     private javax.swing.JLabel Home;
     private javax.swing.JComboBox cmbCarte;
     private javax.swing.JButton jButton1;
@@ -361,6 +375,8 @@ public class ReservationAnnonce extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel label;
     private javax.swing.JComboBox nbrvoyageur;
     private javax.swing.JTextField txfCryptogramme;
     private javax.swing.JTextField txfnumCarte;

@@ -7,6 +7,7 @@ package com.edu.gui.Responsable;
 import com.edu.DAO.AnnonceDAO;
 import com.edu.DAO.offreDAO;
 import com.edu.entities.Annonce;
+import com.edu.entities.ControleDeSaisie;
 import com.edu.entities.Offre;
 import com.edu.gui.Client.ConsulterAnnonces;
 import com.edu.gui.Client.InfoAnnonce;
@@ -78,6 +79,7 @@ public class ModifierOffre extends javax.swing.JFrame {
         btnValid = new javax.swing.JLabel();
         Home = new javax.swing.JLabel();
         arriére = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -247,6 +249,7 @@ public class ModifierOffre extends javax.swing.JFrame {
 
         arriére.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(arriére, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 700));
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 710, 300, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -384,6 +387,10 @@ public class ModifierOffre extends javax.swing.JFrame {
     }//GEN-LAST:event_xMouseExited
 
     private void btnValidMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseClicked
+       ControleDeSaisie cds = new ControleDeSaisie();
+        if (!cds.ControleBudget(jnbrplace.getText())){
+         message.setText("Nombre de place doit contenir que des chiffres");
+        }else{
         authentification a = new authentification();
         offreDAO cd = new offreDAO();
         //InputStream img = getClass().getClassLoader().getResourceAsStream(filename);
@@ -391,6 +398,7 @@ public class ModifierOffre extends javax.swing.JFrame {
         cal.setTime(jDateChooser1.getDate());
         cd.updateOffre((java.sql.Date) new Date(cal.getTime().getTime()),jprog.getText(), jde.getText()+","+jvers.getText(), Integer.parseInt(jnbrplace.getText()),jhotel.getText(),Integer.parseInt(jprix.getText()),a.identifiant,fistream1,fistream2,fistream3,fistream4);
         msg.setText("Modification effectué avec succée");
+        }
     }//GEN-LAST:event_btnValidMouseClicked
 
     private void btnValidMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValidMouseEntered
@@ -598,6 +606,7 @@ public class ModifierOffre extends javax.swing.JFrame {
     private javax.swing.JTextField jprix;
     private javax.swing.JTextArea jprog;
     private javax.swing.JTextField jvers;
+    private javax.swing.JLabel message;
     private javax.swing.JLabel msg;
     private javax.swing.JLabel x;
     private javax.swing.JLabel x1;

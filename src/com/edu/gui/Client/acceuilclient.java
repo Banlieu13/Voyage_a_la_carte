@@ -361,9 +361,7 @@ public class acceuilclient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(loisir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 320, 80, 50));
-
-        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
-        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 510));
+        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 890, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

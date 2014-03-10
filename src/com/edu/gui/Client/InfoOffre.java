@@ -38,6 +38,7 @@ import rating.rating;
  */
 public class InfoOffre extends javax.swing.JFrame {
     
+    public static boolean etat=true;
     
     public static int idcom;
     /**
@@ -69,11 +70,6 @@ public class InfoOffre extends javax.swing.JFrame {
         mssge = new javax.swing.JLabel();
         nbrj = new javax.swing.JLabel();
         rat2 = new javax.swing.JLabel();
-        e = new javax.swing.JLabel();
-        d = new javax.swing.JLabel();
-        c = new javax.swing.JLabel();
-        b = new javax.swing.JLabel();
-        a = new javax.swing.JLabel();
         btnvalider = new javax.swing.JLabel();
         btnSignaler = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
@@ -82,6 +78,11 @@ public class InfoOffre extends javax.swing.JFrame {
         mapp = new javax.swing.JLabel();
         Likee = new javax.swing.JLabel();
         Accueil = new javax.swing.JLabel();
+        e = new javax.swing.JLabel();
+        d = new javax.swing.JLabel();
+        c = new javax.swing.JLabel();
+        b = new javax.swing.JLabel();
+        a = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Programme");
@@ -135,10 +136,10 @@ public class InfoOffre extends javax.swing.JFrame {
             }
         });
         listcom.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+            }
             public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
                 listcomCaretPositionChanged(evt);
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
             }
         });
         jScrollPane2.setViewportView(listcom);
@@ -157,76 +158,6 @@ public class InfoOffre extends javax.swing.JFrame {
         nbrj.setForeground(new java.awt.Color(255, 90, 0));
         getContentPane().add(nbrj, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 40, 20));
         getContentPane().add(rat2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, 30));
-
-        e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        e.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                eMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                eMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                eMouseExited(evt);
-            }
-        });
-        getContentPane().add(e, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, 20));
-
-        d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        d.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                dMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                dMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                dMouseExited(evt);
-            }
-        });
-        getContentPane().add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
-
-        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        c.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                cMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                cMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                cMouseExited(evt);
-            }
-        });
-        getContentPane().add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
-
-        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        b.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                bMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                bMouseExited(evt);
-            }
-        });
-        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
-
-        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
-        a.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                aMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                aMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                aMouseExited(evt);
-            }
-        });
-        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         btnvalider.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -318,15 +249,83 @@ public class InfoOffre extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Likee, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 40, 40));
-
-        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
         getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 500));
+
+        e.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        e.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                eMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                eMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                eMouseExited(evt);
+            }
+        });
+        getContentPane().add(e, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, -1, 20));
+
+        d.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        d.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                dMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                dMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                dMouseExited(evt);
+            }
+        });
+        getContentPane().add(d, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+
+        c.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        c.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cMouseExited(evt);
+            }
+        });
+        getContentPane().add(c, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
+
+        b.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        b.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                bMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                bMouseExited(evt);
+            }
+        });
+        getContentPane().add(b, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, -1, -1));
+
+        a.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/b.png"))); // NOI18N
+        a.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                aMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                aMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                aMouseExited(evt);
+            }
+        });
+        getContentPane().add(a, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        
+        InfoOffre.etat=true;
         CommentaireDAO cd = new CommentaireDAO();
         this.setLocationRelativeTo(null);
         this.setSize(870, 500);
@@ -402,10 +401,42 @@ public class InfoOffre extends javax.swing.JFrame {
         }
           Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
           Likee.setIcon(new ImageIcon(rilike));
+
+            rating r = new rating();
           
-//        String c = cd.AffichCommoffre(ac.idoffre).getElementAt(listcom.getSelectedIndex());
-        
-        //listcom.setListData(cd.AffichCommoffre(ac.idoffre));
+          boolean etatt = l.isliked(authentification.identifiant,acceuilclient.idoffre,"offre");
+          if (etatt==true){
+              Likee.setEnabled(false);
+          }
+         
+          float value = r.calculeRating(acceuilclient.idoffre,"offre");
+          System.out.println("la valeur de value est "+value);
+          if (r.isRated(acceuilclient.idoffre,authentification.identifiant,"offre")){
+              if (value==1){
+                  aMouseEntered(null);
+                  System.out.println("el a");
+              } else
+              if (value==2){
+                  bMouseEntered(null);
+                  System.out.println("el b");
+              } else
+              if (value==3){
+                  cMouseEntered(null);
+                  System.out.println("el c");
+              } else
+              if (value==4){
+                  dMouseEntered(null);
+                  System.out.println("el d");
+              } else
+              if (value==5){
+                  eMouseEntered(null);
+                  System.out.println("el e");
+              }
+              InfoOffre.etat=false;
+          }else{
+              InfoOffre.etat=true;
+              
+          }
         
     }//GEN-LAST:event_formWindowOpened
 
@@ -457,162 +488,6 @@ public class InfoOffre extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_listcomMousePressed
-
-    private void aMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseEntered
-        try {
-            BufferedImage imgtwo=null;
-            imgtwo = ImageIO.read(new File("res/b.png"));
-            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
-            BufferedImage imgOne=null;
-            imgOne = ImageIO.read(new File("res/a.png"));
-            final ImageIcon imageIconOne = new ImageIcon(imgOne);
-            a.setIcon(imageIconOne);
-            b.setIcon(imageIcontwo);
-            c.setIcon(imageIcontwo);
-            d.setIcon(imageIcontwo);
-            e.setIcon(imageIcontwo);
-        } catch (IOException ex) {
-            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_aMouseEntered
-
-    private void aMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseExited
-       try {
-            BufferedImage imgtwo=null;
-            imgtwo = ImageIO.read(new File("res/b.png"));
-            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
-            BufferedImage imgOne=null;
-            imgOne = ImageIO.read(new File("res/a.png"));
-            final ImageIcon imageIconOne = new ImageIcon(imgOne);
-            a.setIcon(imageIcontwo);
-            
-        } catch (IOException ex) {
-            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_aMouseExited
-
-    private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
-         try {
-             BufferedImage imgtwo=null;
-            imgtwo = ImageIO.read(new File("res/b.png"));
-            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
-            BufferedImage imgOne=null;
-            imgOne = ImageIO.read(new File("res/a.png"));
-            final ImageIcon imageIconOne = new ImageIcon(imgOne);
-            a.setIcon(imageIconOne);
-            b.setIcon(imageIconOne);
-             c.setIcon(imageIcontwo);
-            d.setIcon(imageIcontwo);
-            e.setIcon(imageIcontwo);
-        } catch (IOException ex) {
-            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_bMouseEntered
-
-    private void cMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseEntered
-         try {
-             BufferedImage imgtwo=null;
-            imgtwo = ImageIO.read(new File("res/b.png"));
-            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
-            BufferedImage imgOne=null;
-            imgOne = ImageIO.read(new File("res/a.png"));
-            final ImageIcon imageIconOne = new ImageIcon(imgOne);
-            a.setIcon(imageIconOne);
-            b.setIcon(imageIconOne);
-            c.setIcon(imageIconOne);
-            d.setIcon(imageIcontwo);
-            e.setIcon(imageIcontwo);
-        } catch (IOException ex) {
-            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_cMouseEntered
-
-    private void dMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseEntered
-         try {
-             BufferedImage imgtwo=null;
-            imgtwo = ImageIO.read(new File("res/b.png"));
-            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
-            BufferedImage imgOne=null;
-            imgOne = ImageIO.read(new File("res/a.png"));
-            final ImageIcon imageIconOne = new ImageIcon(imgOne);
-            a.setIcon(imageIconOne);
-            b.setIcon(imageIconOne);
-            c.setIcon(imageIconOne);
-            d.setIcon(imageIconOne);
-            e.setIcon(imageIcontwo);
-        } catch (IOException ex) {
-            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_dMouseEntered
-
-    private void eMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseEntered
-         try {
-            BufferedImage imgtwo=null;
-            imgtwo = ImageIO.read(new File("res/b.png"));
-            final ImageIcon imageIcontwo = new ImageIcon(imgtwo); 
-            BufferedImage imgOne=null;
-            imgOne = ImageIO.read(new File("res/a.png"));
-            final ImageIcon imageIconOne = new ImageIcon(imgOne);
-            a.setIcon(imageIconOne);
-            b.setIcon(imageIconOne);
-            c.setIcon(imageIconOne);
-            d.setIcon(imageIconOne);
-            e.setIcon(imageIconOne);
-        } catch (IOException ex) {
-            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_eMouseEntered
-
-    private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
-      
-    }//GEN-LAST:event_bMouseExited
-
-    private void cMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseExited
-     
-    }//GEN-LAST:event_cMouseExited
-
-    private void dMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseExited
-      
-    }//GEN-LAST:event_dMouseExited
-
-    private void eMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseExited
-       
-    }//GEN-LAST:event_eMouseExited
-
-    private void eMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseClicked
-       int tot=1;
-       System.out.println("of");
-       rating r = new rating();
-       r.addRating(acceuilclient.idoffre,tot,"offre");
-    }//GEN-LAST:event_eMouseClicked
-
-    private void dMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseClicked
-        int tot=1;
-       System.out.println("of");
-       rating r = new rating();
-       r.addRating(acceuilclient.idoffre,tot,"offre");
-    }//GEN-LAST:event_dMouseClicked
-
-    private void cMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseClicked
-         int tot=1;
-       System.out.println("of");
-       rating r = new rating();
-       r.addRating(acceuilclient.idoffre,tot,"offre");
-    }//GEN-LAST:event_cMouseClicked
-
-    private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
-        int tot=1;
-       System.out.println("of");
-       rating r = new rating();
-       r.addRating(acceuilclient.idoffre,tot,"offre");
-    }//GEN-LAST:event_bMouseClicked
-
-    private void aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseClicked
-       int tot=1;
-       System.out.println("of");
-       rating r = new rating();
-       r.addRating(acceuilclient.idoffre,tot,"offre");
-    }//GEN-LAST:event_aMouseClicked
 
     private void btnvaliderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvaliderMouseClicked
         authentification a = new authentification();
@@ -799,9 +674,10 @@ public class InfoOffre extends javax.swing.JFrame {
     }//GEN-LAST:event_mappMouseExited
 
     private void LikeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseClicked
-        like l = new like();
-        l.addlike(acceuilclient.idoffre,"offre");
-        long n = l.getlike(acceuilclient.idoffre,"offre"); 
+       like l = new like();
+        
+        l.addlike(acceuilclient.idoffre,authentification.identifiant,"offre");
+         long n = l.getlike(acceuilclient.idoffre,"offre"); 
         nbrj.setText(""+n);
         Likee.setEnabled(false);
     }//GEN-LAST:event_LikeeMouseClicked
@@ -827,6 +703,194 @@ public class InfoOffre extends javax.swing.JFrame {
         Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
         Likee.setIcon(new ImageIcon(rilike));
     }//GEN-LAST:event_LikeeMouseExited
+
+    private void eMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseClicked
+        if (InfoOffre.etat==true){
+        int tot=5;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre",authentification.identifiant);
+        }
+    }//GEN-LAST:event_eMouseClicked
+
+    private void eMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseEntered
+        if (InfoOffre.etat==true){
+        
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIconOne);
+            c.setIcon(imageIconOne);
+            d.setIcon(imageIconOne);
+            e.setIcon(imageIconOne);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }//GEN-LAST:event_eMouseEntered
+
+    private void eMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseExited
+
+    }//GEN-LAST:event_eMouseExited
+
+    private void dMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseClicked
+        if (InfoOffre.etat==true){
+        
+        int tot=4;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre",authentification.identifiant);
+        }
+    }//GEN-LAST:event_dMouseClicked
+
+    private void dMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseEntered
+        if (InfoOffre.etat==true){
+        
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIconOne);
+            c.setIcon(imageIconOne);
+            d.setIcon(imageIconOne);
+            e.setIcon(imageIcontwo);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }//GEN-LAST:event_dMouseEntered
+
+    private void dMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseExited
+
+    }//GEN-LAST:event_dMouseExited
+
+    private void cMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseClicked
+        if (InfoOffre.etat==true){
+        
+        int tot=3;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre",authentification.identifiant);
+        }
+    }//GEN-LAST:event_cMouseClicked
+
+    private void cMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseEntered
+        if (InfoOffre.etat==true){
+        
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIconOne);
+            c.setIcon(imageIconOne);
+            d.setIcon(imageIcontwo);
+            e.setIcon(imageIcontwo);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }//GEN-LAST:event_cMouseEntered
+
+    private void cMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseExited
+
+    }//GEN-LAST:event_cMouseExited
+
+    private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
+        if (InfoOffre.etat==true){
+        
+        int tot=2;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre",authentification.identifiant);
+        }
+    }//GEN-LAST:event_bMouseClicked
+
+    private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
+        if (InfoOffre.etat==true){
+        
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIconOne);
+            c.setIcon(imageIcontwo);
+            d.setIcon(imageIcontwo);
+            e.setIcon(imageIcontwo);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       }
+    }//GEN-LAST:event_bMouseEntered
+
+    private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
+
+    }//GEN-LAST:event_bMouseExited
+
+    private void aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseClicked
+        if (InfoOffre.etat==true){
+        
+        int tot=1;
+        System.out.println("of");
+        rating r = new rating();
+        r.addRating(acceuilclient.idoffre,tot,"offre",authentification.identifiant);
+        }
+    }//GEN-LAST:event_aMouseClicked
+
+    private void aMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseEntered
+        if (InfoOffre.etat==true){
+        
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIconOne);
+            b.setIcon(imageIcontwo);
+            c.setIcon(imageIcontwo);
+            d.setIcon(imageIcontwo);
+            e.setIcon(imageIcontwo);
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }//GEN-LAST:event_aMouseEntered
+
+    private void aMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseExited
+        if (InfoOffre.etat==true){
+        
+        try {
+            BufferedImage imgtwo=null;
+            imgtwo = ImageIO.read(new File("res/b.png"));
+            final ImageIcon imageIcontwo = new ImageIcon(imgtwo);
+            BufferedImage imgOne=null;
+            imgOne = ImageIO.read(new File("res/a.png"));
+            final ImageIcon imageIconOne = new ImageIcon(imgOne);
+            a.setIcon(imageIcontwo);
+
+        } catch (IOException ex) {
+            Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        }
+    }//GEN-LAST:event_aMouseExited
 
     /**
      * @param args the command line arguments

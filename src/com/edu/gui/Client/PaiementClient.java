@@ -7,6 +7,7 @@ package com.edu.gui.Client;
 
 import com.edu.DAO.ReservationDAO;
 import com.edu.DAO.offreDAO;
+import com.edu.entities.ControleDeSaisie;
 
 import com.edu.entities.Reservation;
 import com.edu.entities.Table.TableOffre;
@@ -66,8 +67,9 @@ public class PaiementClient extends javax.swing.JFrame {
         btnvalider = new javax.swing.JLabel();
         x1 = new javax.swing.JLabel();
         x = new javax.swing.JLabel();
+        message = new javax.swing.JLabel();
+        label = new javax.swing.JLabel();
         Home = new javax.swing.JLabel();
-        Accueil = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Paiement");
@@ -128,7 +130,7 @@ public class PaiementClient extends javax.swing.JFrame {
                 btnvaliderMouseExited(evt);
             }
         });
-        getContentPane().add(btnvalider, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, 123, 35));
+        getContentPane().add(btnvalider, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 390, 123, 35));
 
         x1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -155,6 +157,10 @@ public class PaiementClient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(x, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 30, 30));
+        getContentPane().add(message, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 260, 20));
+
+        label.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        getContentPane().add(label, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 750, 500));
 
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -168,10 +174,6 @@ public class PaiementClient extends javax.swing.JFrame {
             }
         });
         getContentPane().add(Home, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 80, 50));
-
-        Accueil.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        Accueil.setIcon(new javax.swing.ImageIcon("D:\\Cours\\3A20\\Semestre 2\\PI\\Images\\arriere.jpg")); // NOI18N
-        getContentPane().add(Accueil, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -226,6 +228,16 @@ public class PaiementClient extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowOpened
 
     private void btnvaliderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvaliderMouseClicked
+        ControleDeSaisie cds = new ControleDeSaisie();
+        if (txfnumCarte.getText().isEmpty() || txfCryptogramme.getText().isEmpty()){
+            message.setText("Veuillez Remplir tous les champs");
+        }else if (!cds.ControleNumDeCarte(txfnumCarte.getText())){
+            message.setText("Le numero de la carte doit contenir 14 chiffres");
+        }else if (!cds.ControleCrypto(txfCryptogramme.getText())){
+            message.setText("le Crypto doit avoir 3 chiffres");
+        }else{
+            
+        
         authentification a = new authentification();
         Reservation d1 = new  Reservation ();
         acceuilclient ac = new acceuilclient();
@@ -257,7 +269,7 @@ public class PaiementClient extends javax.swing.JFrame {
          this.setVisible(false);
          
        System.out.println(d1);
-
+       }
     }//GEN-LAST:event_btnvaliderMouseClicked
 
     private void btnvaliderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnvaliderMouseEntered
@@ -406,7 +418,6 @@ public class PaiementClient extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Accueil;
     private javax.swing.JLabel Home;
     private javax.swing.JLabel btnvalider;
     private javax.swing.JComboBox cmbCarte;
@@ -417,6 +428,8 @@ public class PaiementClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel label;
+    private javax.swing.JLabel message;
     private javax.swing.JComboBox nbrvoyageur;
     private javax.swing.JTextField txfCryptogramme;
     private javax.swing.JTextField txfnumCarte;

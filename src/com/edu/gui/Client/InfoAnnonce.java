@@ -28,6 +28,8 @@ import rating.rating;
  */
 public class InfoAnnonce extends javax.swing.JFrame {
     public static int idcom;
+   
+    public static boolean etat=true;
     /**
      * Creates new form InfoAnnonce
      */
@@ -290,6 +292,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        InfoAnnonce.etat=true;
         authentification a = new authentification();
         CommentaireDAO cd = new CommentaireDAO();
         ConsulterAnnonces coa = new ConsulterAnnonces();
@@ -301,8 +304,8 @@ public class InfoAnnonce extends javax.swing.JFrame {
         res.setText(od.FindannonceById(ac.idannonce));
         listcom.setModel(cd.AffichCommAnn(coa.idannonce));
         like l = new like();
-        long nb = l.getlike(ConsulterAnnonces.idannonce, "annonce");
-        nbrj.setText(""+nb);
+       
+        
         
         
           BufferedImage imgs = null;
@@ -366,7 +369,43 @@ public class InfoAnnonce extends javax.swing.JFrame {
         }
           Image rilike = imglike.getScaledInstance(Likee.getWidth(), Likee.getHeight(), 0);
           Likee.setIcon(new ImageIcon(rilike));
-          
+          long nb = l.getlike(ConsulterAnnonces.idannonce, "annonce");
+          nbrj.setText(""+nb);
+          boolean etat = l.isliked(authentification.identifiant,ConsulterAnnonces.idannonce,"annonce");
+          if (etat==true){
+              Likee.setEnabled(false);
+          }
+          rating r = new rating();
+          float value = r.calculeRating(ConsulterAnnonces.idannonce,"annonce");
+          System.out.println("la valeur de value est "+value);
+          if (r.isRated(ConsulterAnnonces.idannonce,authentification.identifiant,"annonce")){
+              if (value==1){
+                  aMouseEntered(null);
+                  System.out.println("el a");
+              } else
+              if (value==2){
+                  bMouseEntered(null);
+                  System.out.println("el b");
+              } else
+              if (value==3){
+                  cMouseEntered(null);
+                  System.out.println("el c");
+              } else
+              if (value==4){
+                  dMouseEntered(null);
+                  System.out.println("el d");
+              } else
+              if (value==5){
+                  eMouseEntered(null);
+                  System.out.println("el e");
+              }
+              InfoAnnonce.etat=false;
+          }else{
+              InfoAnnonce.etat=true;
+              
+          }
+              
+              
     }//GEN-LAST:event_formWindowOpened
 
     private void listcomMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listcomMousePressed
@@ -398,13 +437,16 @@ public class InfoAnnonce extends javax.swing.JFrame {
     }//GEN-LAST:event_listcomMousePressed
 
     private void aMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseClicked
-        int tot=1;
+         if (InfoAnnonce.etat==true){
+          int tot=1;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+        r.addRating(ConsulterAnnonces.idannonce,tot,"annonce",authentification.identifiant);  
+        }
     }//GEN-LAST:event_aMouseClicked
 
     private void aMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseEntered
+         if ((InfoAnnonce.etat==true) ){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -420,9 +462,11 @@ public class InfoAnnonce extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_aMouseEntered
 
     private void aMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_aMouseExited
+       if (InfoAnnonce.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -435,16 +479,20 @@ public class InfoAnnonce extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_aMouseExited
 
     private void bMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseClicked
-        int tot=1;
+          if (InfoAnnonce.etat==true){
+        int tot=2;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+        r.addRating(ConsulterAnnonces.idannonce,tot,"annonce",authentification.identifiant);
+       }
     }//GEN-LAST:event_bMouseClicked
 
     private void bMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseEntered
+       if (InfoAnnonce.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -460,6 +508,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_bMouseEntered
 
     private void bMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bMouseExited
@@ -467,13 +516,16 @@ public class InfoAnnonce extends javax.swing.JFrame {
     }//GEN-LAST:event_bMouseExited
 
     private void cMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseClicked
-        int tot=1;
+         if (InfoAnnonce.etat==true){
+        int tot=3;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+        r.addRating(ConsulterAnnonces.idannonce,tot,"annonce",authentification.identifiant);
+        }
     }//GEN-LAST:event_cMouseClicked
 
     private void cMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseEntered
+        if (InfoAnnonce.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -489,6 +541,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+        }
     }//GEN-LAST:event_cMouseEntered
 
     private void cMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cMouseExited
@@ -496,13 +549,16 @@ public class InfoAnnonce extends javax.swing.JFrame {
     }//GEN-LAST:event_cMouseExited
 
     private void dMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseClicked
-        int tot=1;
+         if (InfoAnnonce.etat==true){
+        int tot=4;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+        r.addRating(ConsulterAnnonces.idannonce,tot,"annonce",authentification.identifiant);
+        }
     }//GEN-LAST:event_dMouseClicked
 
     private void dMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseEntered
+          if (InfoAnnonce.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -518,6 +574,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
         }
+       }
     }//GEN-LAST:event_dMouseEntered
 
     private void dMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dMouseExited
@@ -525,13 +582,16 @@ public class InfoAnnonce extends javax.swing.JFrame {
     }//GEN-LAST:event_dMouseExited
 
     private void eMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseClicked
-        int tot=1;
+         if (InfoAnnonce.etat==true){
+        int tot=5;
         System.out.println("of");
         rating r = new rating();
-        r.addRating(acceuilclient.idoffre,tot,"offre");
+        r.addRating(ConsulterAnnonces.idannonce,tot,"annonce",authentification.identifiant);
+       }
     }//GEN-LAST:event_eMouseClicked
 
     private void eMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_eMouseEntered
+          if (InfoAnnonce.etat==true){
         try {
             BufferedImage imgtwo=null;
             imgtwo = ImageIO.read(new File("res/b.png"));
@@ -546,6 +606,7 @@ public class InfoAnnonce extends javax.swing.JFrame {
             e.setIcon(imageIconOne);
         } catch (IOException ex) {
             Logger.getLogger(InfoOffre.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }//GEN-LAST:event_eMouseEntered
 
@@ -760,9 +821,9 @@ public class InfoAnnonce extends javax.swing.JFrame {
     }//GEN-LAST:event_LikeeMouseExited
 
     private void LikeeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_LikeeMouseClicked
-         like l = new like();
+       like l = new like();
         System.out.println("voici l'id truc a like"+ConsulterAnnonces.idannonce);
-        l.addlike(ConsulterAnnonces.idannonce,"annonce");
+        l.addlike(ConsulterAnnonces.idannonce,authentification.identifiant,"annonce");
         long n = l.getlike(ConsulterAnnonces.idannonce,"annonce");
         nbrj.setText(""+n);
         Likee.setEnabled(false);

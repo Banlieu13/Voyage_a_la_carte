@@ -23,178 +23,128 @@ public class rating {
         
     }
     
-    public void addRating(int id,int rat,String source){
+    public void addRating(int id,int rat,String source,String id_client){
         try {
-            addclient(id,source);
+            System.out.println("id objet:"+id);
+            System.out.println("value rating:"+rat);
+            System.out.println("source:"+source);
+            System.out.println("id_client rating:"+id_client);
             String req="";
-            float c = getRating(id,source);
-            float somme=c+rat;
             if (source=="annonce"){
-                req="update rating set count="+somme+" where id_annonce="+id;
-            }else if(source=="offre"){
-                req="update rating set count="+somme+" where id_offre="+id;
+                req="INSERT INTO `rating`(`count`, `id_annonce`, `id_client`) VALUES ("+rat+", "+id+", '"+id_client+"')";
+                
+            }else if (source=="offre"){
+                req="INSERT INTO `rating`(`count`, `id_offre`, `id_client`) VALUES ("+rat+", "+id+", '"+id_client+"')";
             }else{
-                req="update rating set count="+somme+" where id_dest="+id;
+                req="INSERT INTO `rating`(`count`, `id_dest`, `id_client`) VALUES ("+rat+", "+id+", '"+id_client+"')";
             }
             PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
-    public void addclient(int id, String source){
-        String req="";
-        int test=isInitial(id,source);
-        if (test==1){
-            try {
-                int nbr = getNbrClient(id,source);
-                nbr++;
-                if (source=="annonce"){
-                    req="update rating set NbrClient="+nbr+" where id_annonce="+id;
-                }else if(source=="offre"){
-                    req="update rating set NbrClient="+nbr+" where id_offre="+id;
-                }else{
-                    req="update rating set NbrClient="+nbr+" where id_dest="+id;
-                }
-                PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
-                ps.executeUpdate();
-            } catch (SQLException ex) {
-                Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
-        }else{
-            try {
-                initialRating(id,source);
-                  if (source=="annonce"){
-                     req="update rating set NbrClient="+1+" where id_annonce="+id;
-                 }else if(source=="offre"){
-                       req="update rating set NbrClient="+1+" where id_offre="+id;
-                }else{
-                       req="update rating set NbrClient="+1+" where id_dest="+id;
-                }
-                PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
-                ps.executeUpdate();
-            } catch (SQLException ex) {
-                Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }
+    
     
     public int getNbrClient(int id, String source){
+         int nbrclient=0;
         try {
             String req="";
-            int nbrclient=0;
-            
+           
             if (source=="annonce"){
-                req="select NbrClient from rating where id_annonce="+id;
+                req="select count(id_client) from rating where id_annonce="+id;
             }else if(source=="offre"){
-                req="select NbrClient from rating where id_offre="+id;
+                req="select count(id_client) from rating where id_offre="+id;
             }else{
-                req="select NbrClient from rating where id_dest="+id;
+                req="select count(id_client) from rating where id_dest="+id;
             }
             Statement statement = ConnectionBD.getInstance()
                     .createStatement();
             ResultSet resultat = statement.executeQuery(req);
 
             while(resultat.next()){
-                nbrclient=resultat.getInt(3);
+                nbrclient=resultat.getInt(1);
             }
             
             return nbrclient;
         } catch (SQLException ex) {
             Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
+            return nbrclient;
         }
     }
     
-    public float getRating(int id,String source){
-        try {
+    public int getRating(int id,String source){
+        boolean etat=false;
+        int count=0;
+         try {
             String req="";
-            int count=0;
-            
+           
             if (source=="annonce"){
-                req="select count from rating where id_annonce="+id;
+                req="SELECT SUM(`count`) FROM `rating` WHERE `id_annonce`="+id;
             }else if(source=="offre"){
-                req="select count from rating where id_offre="+id;
+                req="SELECT SUM(`count`) FROM `rating` WHERE `id_offre`="+id;
             }else{
-                req="select count from rating where id_dest="+id;
+                req="SELECT SUM(`count`) FROM `rating` WHERE `id_dest`="+id;
             }
             Statement statement = ConnectionBD.getInstance()
                     .createStatement();
             ResultSet resultat = statement.executeQuery(req);
 
             while(resultat.next()){
-               count=resultat.getInt(2);
-                System.out.println(count);
+                count=resultat.getInt(1);
             }
             
-         
             return count;
         } catch (SQLException ex) {
             Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
-            return 0;
+            return count;
         }
-    }
-    
-    public void initialRating(int id, String source){
-        try {
-            String req="";
-            if(source=="annonce"){
-                req="insert into rating (count,id_annonce) values (0,"+id+")";
-            }else if (source=="offre"){
-                req="insert into rating (count,id_offre) values (0,"+id+")";
-            }else{
-                req="insert into rating (count,id_dest) values (0,"+id+")";
-            }
-            PreparedStatement ps = ConnectionBD.getInstance().prepareStatement(req);
-            ps.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
-    
-    public int isInitial(int id, String source){
-        int   l = -1;
-        try {
-            String req="";
-            if(source=="annonce"){
-                req="select * from rating where id_annonce"+id;
-            }else if (source=="offre"){
-                req="select * from rating where id_offre="+id;
-            }else{
-                req="select * from rating where id_dest="+id;
-            }
-            Statement statement = ConnectionBD.getInstance()
-                    .createStatement();
-            ResultSet resultat = statement.executeQuery(req);
-             while(resultat.next()){
-              l=resultat.getInt("count");
-              System.out.println("valeur retourner de isinitial:"+l);
-            }
-            if (l>0){
-            return 1;
-            }else{
-                return 0;
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(rating.class.getName()).log(Level.SEVERE, null, ex);
-            
-            return 0;
-        }
-    }
-    
+   }
+   
     public float calculeRating(int id,String source){
         float somme=0;
         int nbrclient=getNbrClient(id, source);
-        float count = getRating(id, source);
+        System.out.println("le nombre de client= "+nbrclient);
+        int count = getRating(id, source);
+        System.out.println("Nbr de value= "+count);
         if (nbrclient!=0){
             somme = count / nbrclient;
         }else{
             somme = 0;
         }
         return somme;
+    }
+    
+    public boolean isRated(int id,String id_client,String source){
+       int exist=0;
+        try {
+            String req="";
+            if (source=="annonce"){
+                req="SELECT id_rating FROM `rating` WHERE `id_annonce`="+id+" AND id_client='"+id_client+"'";
+            }else if(source=="offre"){
+                req="SELECT id_rating FROM `rating` WHERE `id_offre`="+id+" AND id_client='"+id_client+"'";
+            }else{
+                req="SELECT id_rating FROM `rating` WHERE `id_dest`="+id+" AND id_client='"+id_client+"'";
+            }
+            Statement statement = ConnectionBD.getInstance()
+                    .createStatement();
+            ResultSet resultat = statement.executeQuery(req);
+
+            while(resultat.next()){
+                exist=resultat.getInt(1);
+            }
+            if (exist>0){
+                return true;
+            }else{
+                return false;
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println("aucun champ"+ex);
+            return false;
+        }
     }
     
     

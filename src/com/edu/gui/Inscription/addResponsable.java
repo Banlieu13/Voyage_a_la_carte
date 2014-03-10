@@ -9,6 +9,7 @@ import static MD5Crypter.Md5.getEncodedPassword;
 import com.edu.DAO.AgenceDAO;
 import com.edu.DAO.ResponsableDAO;
 import com.edu.entities.Agence;
+import com.edu.entities.ControleDeSaisie;
 import com.edu.entities.Responsable;
 import com.edu.gui.authentification;
 
@@ -231,8 +232,15 @@ public class addResponsable extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnaddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnaddActionPerformed
+        ControleDeSaisie cds = new ControleDeSaisie();
         if ((tfmail.getText().isEmpty())||(tfcin.getText().isEmpty())||(tfnom.getText().isEmpty())||(tfprenom.getText().isEmpty())||(tfpassword.getPassword().toString().isEmpty())||(tfville.getText().isEmpty())||(matf.getText().isEmpty())||(nomagence.getText().isEmpty())||(adresse.getText().isEmpty())) {
             label.setText("Veuillez saisir toutes les champs");
+        }else if (!cds.ControleEmail(tfmail.getText())){
+            label.setText("Veuillez Corriger Votre Email");
+        }else if (tfpassword.getText().length()<4 && tfpassword.getText().length()>15){
+            label.setText("Le mot de passe doit être entre 5 et 14 caracteres");
+        }else if (!cds.ControleCin(tfcin.getText())){
+            label.setText("Veuillez Corriger votre CIN: 8chiffres");
         }
         else
         {
